@@ -133,9 +133,9 @@
                                             <i class="ri-phone-line"></i>
                                         </div>
                                         <div class="info">
-                                            <p class="pera">Call Anytime</p>
+                                            <p class="pera"></p>
                                             <h4 class="title">
-                                                <a href="javascript:void(0)">00 (888) +123456</a>
+                                                <a href="javascript:void(0)">+90 (384) 271 20 01</a>
                                             </h4>
                                         </div>
                                     </div>
