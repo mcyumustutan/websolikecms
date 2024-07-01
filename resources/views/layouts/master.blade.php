@@ -143,7 +143,7 @@
                                 <!-- Top Left Side -->
                                 <!-- Logo-->
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}">
                                         <img src="{{ asset('images/logo/logo.png')}}" alt="logo" class="changeLogo" style="height:100px">
                                     </a>
                                 </div>
