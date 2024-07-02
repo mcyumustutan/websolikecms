@@ -1,6 +1,11 @@
 /.phpunit.cache
 /node_modules
-/public/*
+/public/storage
+/public/scss
+/public/css/filament
+/public/js/filament
+/public/fonts
+/public/images
 /public/build
 /public/hot
 /public/storage

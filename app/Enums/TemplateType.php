@@ -11,6 +11,7 @@ enum TemplateType: string implements HasLabel
     case News = 'news';
     case Announcement = 'announcement';
     case Contact = 'contact';
+    case Project = 'Project';
     case ProjectFinished = 'ProjectFinished';
     case ProjectOnGoing = 'ProjectOnGoing';
     case ProjectPlanned = 'ProjectPlanned';
@@ -23,7 +24,8 @@ enum TemplateType: string implements HasLabel
             self::News => 'Haber',
             self::Announcement => 'Duyuru',
             self::Contact => 'İletişim',
-            self::ProjectFinished => 'Biten Projerler',
+            self::Project => 'Projeler',
+            self::ProjectFinished => 'Tamamlanan Projerler',
             self::ProjectOnGoing => 'Devam Eden Projeler',
             self::ProjectPlanned => 'Planlanan Projeler',
         };
@@ -37,6 +39,7 @@ enum TemplateType: string implements HasLabel
             self::News => 'page.news',
             self::Announcement => 'page.announcement',
             self::Contact => 'page.contact',
+            self::Project => 'page.project',
             self::ProjectFinished => 'page.project',
             self::ProjectOnGoing => 'page.project',
             self::ProjectPlanned => 'page.project',

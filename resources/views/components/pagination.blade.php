@@ -1,3 +1,4 @@
+@if($page->has_subpages && count($subPages['data'])>0)
 <section class="news-area ">
     <div class="container">
         <div class="row justify-content-center">
@@ -39,7 +40,7 @@
             @endforeach
         </div>
 
-        @if($page->has_subpages && count($subPages['data'])>0)
+
         <div class="col-12 text-center">
 
             <div class="d-flex justify-content-center mt-4">
@@ -56,6 +57,6 @@
                 </nav>
             </div>
         </div>
-        @endif
     </div>
 </section>
+@endif

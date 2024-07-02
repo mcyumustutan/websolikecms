@@ -9,5 +9,6 @@ return [
     'Files Attachments' => 'Files Attachments',
     'Göreme Haberler' => 'News From Göreme ',
     'Tüm Duyurular' => 'All News',
+    'Göreme Projeleri' => 'Göreme Projects',
 
 ];

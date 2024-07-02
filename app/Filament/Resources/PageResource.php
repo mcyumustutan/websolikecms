@@ -257,6 +257,10 @@ class PageResource extends Resource
                     ->label('Dil')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Eklenme Tarihi')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 SelectFilter::make('template_type')

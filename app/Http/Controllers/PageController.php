@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\TemplateType;
 use App\Models\Page;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class PageController extends Controller
                 'parent_id' => null,
                 'lang' => App::getLocale(),
             ])
-            ->where('template_type', 'page')
+            // ->where('template_type', 'page')
             ->whereJsonContains('link_view', '1')
             ->get()->toArray();
 
@@ -58,9 +59,34 @@ class PageController extends Controller
                 $query->whereJsonContains('link_view', '4');
             })
             ->orderBy('created_at', 'desc')->take(5)->get();
+
         $ihaleler = Page::where('template_type', 'bid')->get();
 
-        // return response()->json($sliders);
+        $allProjects = Page::whereIn('template_type', [
+            TemplateType::ProjectFinished->value,
+            TemplateType::ProjectOnGoing->value,
+            TemplateType::ProjectPlanned->value,
+            TemplateType::Announcement->value,
+            TemplateType::Page->value,
+        ])->whereNot(function ($query) {
+            $query->whereJsonContains('link_view', '4');
+        })
+            ->orderBy('created_at', 'desc')->take(100)->get();
+
+        // Projeleri kategorilerine göre gruplandır
+        $projectsByCategory = $allProjects->groupBy('template_type');
+
+        // Kategorilere göre gruplandırılmış projeleri dizi olarak almak
+        $projectsArray = [
+            'projectFinished' => $projectsByCategory->get(TemplateType::ProjectFinished->value, collect())->all(),
+            'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
+            'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
+            'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
+            'bids' => $projectsByCategory->get(TemplateType::Bid->value, collect())->all(),
+        ];
+
+        // return response()->json(TemplateType::Page->value);
+        // return response()->json($projectsArray['announcements']);
 
         // $locale = $request->route('lang');
         // dd($locale);
@@ -81,6 +107,7 @@ class PageController extends Controller
             'sliders',
             'duyurular',
             'ihaleler',
+            'projectsArray',
         ));
     }
 
@@ -100,12 +127,19 @@ class PageController extends Controller
 
 
         // return response()->json($page['id']);
-        $subPages = Page::where('template_type', $page['template_type'])->where('parent_id', $page['id'])->with('media')
-            ->paginate(8)->toArray();
+        $subPages[] = ['data' => []];
+        $subPages = Page::where('parent_id', $page['id'])
+            ->whereNot('id', $page['id'])
+            ->with('media')
+            ->paginate(8)
+            ->toArray();
 
         if (count($subPages['data']) === 0) {
-            $subPages = Page::where('template_type', $page['template_type'])->where('parent_id', $page['parent_id'])->with('media')
-                ->paginate(8)->toArray();
+            $subPages = Page::where('parent_id', $page['parent_id'])
+                ->whereNot('id', $page['id'])
+                ->with('media')
+                ->paginate(8)
+                ->toArray();
         }
 
         // dd($subPages['data']);
