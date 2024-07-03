@@ -62,6 +62,9 @@ class PageController extends Controller
 
         $ihaleler = Page::where('template_type', 'bid')->get();
 
+        $explore = Page::whereJsonContains('link_view', '50')->get();
+        
+
         $allProjects = Page::whereIn('template_type', [
             TemplateType::ProjectFinished->value,
             TemplateType::ProjectOnGoing->value,
@@ -108,6 +111,7 @@ class PageController extends Controller
             'duyurular',
             'ihaleler',
             'projectsArray',
+            'explore',
         ));
     }
 

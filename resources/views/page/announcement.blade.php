@@ -7,7 +7,6 @@
 
 @include('components.breadcrumb')
 
-<!-- Destination area S t a r t -->
 <section class="page-details-section ">
     <div class="container">
         <div class="row g-4">
@@ -101,7 +100,6 @@
         </div>
     </div>
 </section>
-<!--/ End-of Destination -->
 
 
 

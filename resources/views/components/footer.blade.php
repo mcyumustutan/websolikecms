@@ -1,5 +1,5 @@
 <!-- Footer S t a r t -->
-<footer style="margin-top: 150px;">
+<footer>
     <div class="footer-wrapper footer-bg">
         <div class="container">
             <div class="footer-area">
@@ -40,10 +40,10 @@
                             </p>
                         </div>
                         <div class="footer-right">
-                            <h4 class="title">Subscribe Our Newsletter</h4>
+                            <h4 class="title">SMS Listesine Abone Ol</h4>
                             <div class="subscribe-wraper">
-                                <input class="footer-search" type="search" name="footer" placeholder="Enter Your Email">
-                                <button class="subscribe-btn">Subscribe</button>
+                                <input class="footer-search" type="search" name="footer" placeholder="Telefon Numaranız">
+                                <button class="subscribe-btn">Abone Ol</button>
                             </div>
                         </div>
                     </div>
@@ -82,8 +82,7 @@
         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
 </div>
-<!-- Add an search-overlay element -->
-<div class="search-overlay"></div>
+
 <!-- jquery-->
 <script src="{{ asset('js/jquery-3.7.0.min.js')}}"></script>
 <script src="{{ asset('js/popper.min.js')}}"></script>

@@ -198,6 +198,7 @@ class PageResource extends Resource
                                         '2' => 'Footer Navigasyon Sabit Blok',
                                         '3' => 'Footer Genel Navigasyon',
                                         '4' => 'Diğer',
+                                        '50' => 'Keşfet Kutusu',
                                     ]),
 
                                 Forms\Components\DatePicker::make('display_date')
@@ -248,10 +249,10 @@ class PageResource extends Resource
                     ->label('İçerik Türü')
                     ->sortable(),
                 Tables\Columns\CheckboxColumn::make('has_sidebar')
-                    ->label('Kenar Çubuğu var mı?'),
+                    ->label('Kenar Çubuğu'),
                 Tables\Columns\CheckboxColumn::make('has_subpages')
                     ->label('Sayfalama'),
-                Tables\Columns\ImageColumn::make('image_1')
+                Tables\Columns\ImageColumn::make('cover')
                     ->label('Kapak Görseli'),
                 Tables\Columns\TextColumn::make('lang')
                     ->label('Dil')

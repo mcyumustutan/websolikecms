@@ -22,7 +22,7 @@ class Page extends Model implements HasMedia
 
     protected $with = ['sub', 'parentPage', 'media'];
 
-    protected $appends = ['cover', 'banner'];
+    protected $appends = ['cover', 'banner', 'box'];
 
     protected $casts = [
         'is_publish' => 'boolean',
@@ -102,7 +102,9 @@ class Page extends Model implements HasMedia
 
     public function sub(): HasMany
     {
-        return $this->hasMany(Page::class, 'parent_id', 'id')->select('id', 'parent_id', 'lang', 'title', 'url',);
+        return $this->hasMany(Page::class, 'parent_id', 'id')
+            ->select('id', 'parent_id', 'lang', 'title', 'url',)
+            ->whereJsonContains('link_view', '1');
     }
 
     protected function cover(): Attribute
@@ -116,6 +118,13 @@ class Page extends Model implements HasMedia
     {
         return new Attribute(
             get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? null
+        );
+    }
+
+    protected function box(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->getMedia('box')->toArray()[0]['original_url'] ?? null
         );
     }
 

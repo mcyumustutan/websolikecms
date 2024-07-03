@@ -1,17 +1,15 @@
-
-
 <!-- Explore S t a r t -->
 <section class="explore-area section-padding2">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-7">
-                <div class="section-title text-center mx-430 mx-auto position-relative mb-60">
-                    <h4 class="title">
-                        GÖEME'Yİ KEŞFEDİN
-                    </h4>
+
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <div class="border-section-title">
+                    <h4 class="title">Yapılacak Aktiviteler</h4>
                 </div>
             </div>
         </div>
+
         <div class="row g-4">
             <div class="col-xl-5 col-lg-5 col-md-6">
                 <div class="all-explore" id="v-pills-tab-three" role="tablist" aria-orientation="vertical">

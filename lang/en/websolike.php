@@ -10,5 +10,6 @@ return [
     'Göreme Haberler' => 'News From Göreme ',
     'Tüm Duyurular' => 'All News',
     'Göreme Projeleri' => 'Göreme Projects',
+    'Discover More' => 'Discover More',
 
 ];
