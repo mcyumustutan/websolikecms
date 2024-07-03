@@ -7,6 +7,7 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\MenuItem;
 use Filament\Pages;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -59,6 +60,8 @@ class AdminPanelProvider extends PanelProvider
                 MenuItem::make()->label('Siteyi Gör')
                     ->icon('heroicon-o-cog-6-tooth')
                     ->url(fn (): string => config('app.url'), true),
-            ]);
+            ])
+            ->profile(isSimple: false)
+            ->profile(EditProfile::class);
     }
 }
