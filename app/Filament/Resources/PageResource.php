@@ -272,6 +272,11 @@ class PageResource extends Resource
                     ->label('İçerik Türü')
                     ->options(self::getEnumOptions(TemplateType::class))
                     ->searchable(),
+                SelectFilter::make('lang')
+                    ->label('Dil')
+                    ->options(self::getEnumOptions(Language::class))
+                    ->searchable(),
+
             ])
             ->actions([
                 Action::make('view')
