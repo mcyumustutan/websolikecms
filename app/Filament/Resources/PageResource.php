@@ -262,6 +262,10 @@ class PageResource extends Resource
                     ->label('Eklenme Tarihi')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('display_date')
+                    ->label('Yayın Tarihi')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 SelectFilter::make('template_type')

@@ -29,6 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('secure')
             ->login()
+            ->topNavigation()
             ->colors([
                 'primary' => Color::Teal,
             ])
