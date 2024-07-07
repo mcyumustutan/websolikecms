@@ -17,7 +17,7 @@
                         </div>
                         <ul class="feature-points">
 
-                            @foreach ($duyurular as $duyuru)
+                        @foreach ($projectsArray['news'] as $duyuru)
 
                             <li class="feature-point w-full">
                                 <a href="{{config('app.url')}}/{{$duyuru['lang']}}/{{$duyuru['url']}}" class=" w-100">

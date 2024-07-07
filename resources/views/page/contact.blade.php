@@ -27,7 +27,7 @@
                     </h3>
 
                     <div class="mt-20 md:mt-10">
-                        GÖREME / NEVŞEHIR
+                        {{$settings['adres']}}
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     </h3>
 
                     <div class="mt-20 md:mt-10">
-                        <a href="mailto:belediye@goreme.bel.tr">belediye@goreme.bel.tr</a>
+                        <a href="mailto:{{$settings['e-posta']}}">{{$settings['e-posta']}}</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     </h3>
 
                     <div class="mt-20 md:mt-10">
-                        <a href="#">+90 384 271 20 01</a>
+                        <a href="#">{{$settings['sabit-telefon-numarasi']}}</a>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                                 <input class="custom-form" type="text" placeholder="Konu">
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="custom-form-textarea" id="exampleFormControlTextarea1" rows="3" placeholder="MEsajınız..."></textarea>
+                                <textarea class="custom-form-textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Mesajınız..."></textarea>
                             </div>
                         </div>
                         <div class="mt-40">

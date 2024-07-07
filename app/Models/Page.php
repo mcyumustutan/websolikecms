@@ -10,15 +10,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Facades\Config;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\App;
 
 class Page extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('is_publish', function (Builder $builder) {
+            $builder->where('is_publish', true)
+            // ->where('lang', App::getLocale())
+            ;
+        });
+    }
 
     protected $with = ['sub', 'parentPage', 'media'];
 

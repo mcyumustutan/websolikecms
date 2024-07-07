@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\TemplateType;
 use App\Models\Page;
+use App\Models\Settings;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -14,7 +15,8 @@ class PageController extends Controller
     public function __construct(
         public $mainNavigation = null,
         public $footernNavigation = null,
-        public $footernGeneralNavigation = null
+        public $footernGeneralNavigation = null,
+        public $settings = null
     ) {
         $this->mainNavigation = Page::select('id', 'lang', 'title', 'url')
             ->where([
@@ -42,6 +44,10 @@ class PageController extends Controller
             ->where('template_type', 'page')
             ->whereJsonContains('link_view', '3')
             ->get()->toArray();
+
+        $this->settings = Settings::all()->mapWithKeys(function ($item) {
+            return [$item['key'] => $item->value];
+        });
     }
 
     /**
@@ -52,18 +58,14 @@ class PageController extends Controller
         $mainNavigation = $this->mainNavigation;
         $footernNavigation = $this->footernNavigation;
         $footernGeneralNavigation = $this->footernGeneralNavigation;
-
+        $settings = $this->settings->toArray();
+        
         $sliders = Slider::orderBy('position')->take(1)->get();
-        $duyurular = Page::where('template_type', 'announcement')
-            ->whereNot(function ($query) {
-                $query->whereJsonContains('link_view', '4');
-            })
-            ->orderBy('created_at', 'desc')->take(5)->get();
 
         $ihaleler = Page::where('template_type', 'bid')->get();
 
         $explore = Page::whereJsonContains('link_view', '50')->get();
-        
+
 
         $allProjects = Page::whereIn('template_type', [
             TemplateType::ProjectFinished->value,
@@ -74,7 +76,7 @@ class PageController extends Controller
         ])->whereNot(function ($query) {
             $query->whereJsonContains('link_view', '4');
         })
-            ->orderBy('created_at', 'desc')->take(100)->get();
+            ->orderBy('display_date', 'desc')->take(100)->get();
 
         // Projeleri kategorilerine göre gruplandır
         $projectsByCategory = $allProjects->groupBy('template_type');
@@ -85,6 +87,7 @@ class PageController extends Controller
             'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
             'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
             'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
+            'news' => $projectsByCategory->get(TemplateType::News->value, collect())->all(),
             'bids' => $projectsByCategory->get(TemplateType::Bid->value, collect())->all(),
         ];
 
@@ -104,11 +107,11 @@ class PageController extends Controller
 
 
         return view('layouts.home', compact(
+            'settings',
             'mainNavigation',
             'footernNavigation',
             'footernGeneralNavigation',
             'sliders',
-            'duyurular',
             'ihaleler',
             'projectsArray',
             'explore',
@@ -120,6 +123,7 @@ class PageController extends Controller
      */
     public function show($lang, $params = null)
     {
+        $settings = $this->settings->toArray();
         $paramsArray = explode('/', $params);
         $url = end($paramsArray);
 
@@ -134,6 +138,7 @@ class PageController extends Controller
         $subPages[] = ['data' => []];
         $subPages = Page::where('parent_id', $page['id'])
             ->whereNot('id', $page['id'])
+            ->orderBy('display_date', 'desc')
             ->with('media')
             ->paginate(8)
             ->toArray();
@@ -141,6 +146,7 @@ class PageController extends Controller
         if (count($subPages['data']) === 0) {
             $subPages = Page::where('parent_id', $page['parent_id'])
                 ->whereNot('id', $page['id'])
+                ->orderBy('display_date', 'desc')
                 ->with('media')
                 ->paginate(8)
                 ->toArray();
@@ -173,6 +179,7 @@ class PageController extends Controller
 
 
         return view($view, compact(
+            'settings',
             'page',
             'subPages',
             'mainNavigation',

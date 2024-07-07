@@ -24,17 +24,17 @@
 
 
     <!-- Title -->
-    <title>@yield('title', 'My Application') - {{App::getLocale()}} </title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="inittheme">
-    <meta property="og:title" content="@yield('title', 'My Application') - {{App::getLocale()}}">
-    <meta property="og:site_name" content="@yield('title', 'My Application') - {{App::getLocale()}}">
+    <title>@yield('title', 'My Application')</title>
+    <meta name="description" content="{{$settings['site-aciklamasi']}}">
+    <meta name="keywords" content="{{$settings['anahtar-kelimeler']}}">
+    <meta name="author" content="goreme.bel.tr">
+    <meta property="og:title" content="">
+    <meta property="og:site_name" content="">
     <meta property="og:url" content="{{config('app.url')}}/{{App::getLocale()}}">
     <meta property="og:image" content="{{ asset('images/logo/logo.png')}}">
-    <meta property="og:description" content="@yield('title', 'My Application') - {{App::getLocale()}}, multipurpose template">
-    <meta name="twitter:title" content="@yield('title', 'My Application') - {{App::getLocale()}}">
-    <meta name="twitter:description" content="@yield('title', 'My Application') - {{App::getLocale()}}, multipurpose template">
+    <meta property="og:description" content="{{$settings['site-aciklamasi']}}">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="{{$settings['site-aciklamasi']}}">
     <meta name="twitter:image" content="{{ asset('images/logo/logo.png')}}">
     <meta name="twitter:card" content="summary">
 
@@ -149,6 +149,45 @@
                                 </div>
                                 <div class="header-right-three pl-15 d-none d-lg-flex">
                                     <div class="lang">
+                                        <div class="d-flex align-items-center">
+
+                                            @if($settings['instagramcom'])
+                                            <a target="_blank" href="{{$settings['instagramcom']}}">
+                                                <i class="ri-instagram-line fs-4"></i>
+                                            </a>
+                                            @endif
+
+                                            @if($settings['xcom'])
+                                            <a target="_blank" href="{{$settings['xcom']}}">
+                                                <i class="ri-twitter-line fs-4"></i>
+                                            </a>
+                                            @endif
+
+                                            @if($settings['whatsapp'])
+                                            <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                                                <i class="ri-whatsapp-line fs-4"></i>
+                                            </a>
+                                            @endif
+
+                                            @if($settings['facebookcom'])
+                                            <a target="_blank" href="{{$settings['facebookcom']}}">
+                                                <i class="ri-facebook-line fs-4"></i>
+                                            </a>
+                                            @endif
+
+                                            @if($settings['youtubecom'])
+                                            <a target="_blank" href="{{$settings['youtubecom']}}">
+                                                <i class="ri-youtube-line fs-4"></i>
+                                            </a>
+                                            @endif
+
+                                            @if($settings['tiktokcom'])
+                                            <a target="_blank" href="{{$settings['tiktokcom']}}">
+                                                <i class="ri-tiktok-line fs-4"></i>
+                                            </a>
+                                            @endif
+
+                                        </div>
                                         <i class="ri-global-line"></i>
 
                                         @if(App::getLocale()=='tr')
@@ -163,21 +202,7 @@
                                     </div>
 
                                 </div>
-                                <!-- Mobile Device Seach & Theme Mode -->
-                                <div class="search-header-position d-block d-lg-none">
-                                    <div class="d-flex gap-15">
-                                        <div class="search-bar">
-                                            <a href="javascript:void(0)" class="rounded-btn">
-                                                <i class="ri-search-line"></i>
-                                            </a>
-                                        </div>
-                                        <!-- Theme Mode -->
-                                        <button class="ToggleThemeButton change-theme-mode m-0 p-0 border-0">
-                                            <i class="ri-sun-line"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- / Mobile Device Seach & Theme Mode-->
+
                             </div>
                         </div>
                     </div>
@@ -195,7 +220,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <ul class="listing" id="navigation">
                                                 <li class="single-list text-uppercase">
-                                                    <a href="{{config('app.url')}}/{{App::getLocale()}}">{{ __('homepage.AnaSayfa') }}</a>
+                                                    <a class="single" href="{{config('app.url')}}/{{App::getLocale()}}">{{ __('homepage.AnaSayfa') }}</a>
                                                 </li>
                                                 @foreach ($mainNavigation as $menu)
                                                 <li class="single-list">
@@ -213,6 +238,58 @@
                                                 @endforeach
 
 
+                                                <li class=" d-block d-lg-none">
+                                                    <div class="d-flex align-items-center">
+
+                                                        @if($settings['instagramcom'])
+                                                        <a target="_blank" href="{{$settings['instagramcom']}}">
+                                                            <i class="ri-instagram-line fs-4"></i>
+                                                        </a>
+                                                        @endif
+
+                                                        @if($settings['xcom'])
+                                                        <a target="_blank" href="{{$settings['xcom']}}">
+                                                            <i class="ri-twitter-line fs-4"></i>
+                                                        </a>
+                                                        @endif
+
+                                                        @if($settings['whatsapp'])
+                                                        <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                                                            <i class="ri-whatsapp-line fs-4"></i>
+                                                        </a>
+                                                        @endif
+
+                                                        @if($settings['facebookcom'])
+                                                        <a target="_blank" href="{{$settings['facebookcom']}}">
+                                                            <i class="ri-facebook-line fs-4"></i>
+                                                        </a>
+                                                        @endif
+
+                                                        @if($settings['youtubecom'])
+                                                        <a target="_blank" href="{{$settings['youtubecom']}}">
+                                                            <i class="ri-youtube-line fs-4"></i>
+                                                        </a>
+                                                        @endif
+
+                                                        @if($settings['tiktokcom'])
+                                                        <a target="_blank" href="{{$settings['tiktokcom']}}">
+                                                            <i class="ri-tiktok-line fs-4"></i>
+                                                        </a>
+                                                        @endif
+
+                                                    </div>
+                                                    <i class="ri-global-line"></i>
+
+                                                    @if(App::getLocale()=='tr')
+                                                    <a style="color:red" href="{{config('app.url')}}/en">
+                                                        <p class="pera">English</p>
+                                                    </a>
+                                                    @elseif(App::getLocale()=='en')
+                                                    <a style="color:red" href="{{config('app.url')}}/tr">
+                                                        <p class="pera">Türkçe</p>
+                                                    </a>
+                                                    @endif
+                                                </li>
                                             </ul>
 
                                         </div>

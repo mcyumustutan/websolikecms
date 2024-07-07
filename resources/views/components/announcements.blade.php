@@ -70,7 +70,7 @@
 
     <div class="col-12 text-center">
         <div class="section-button d-inline-block">
-            <a href="{{config('app.url')}}/{{$duyuru['lang']}}/tum-duyurular">
+            <a href="{{config('app.url')}}/{{App::getlocale()}}/tum-duyurular">
                 <div class="btn-primary-icon-sm">
                     <p class="pera">{{__('websolike.Tüm Duyurular')}}</p>
                     <i class="ri-arrow-right-up-line"></i>

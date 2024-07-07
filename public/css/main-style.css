@@ -7,8 +7,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+SK:wght@100..400&display=swap');
+
 
 :root {
+  --special-font: "Playwrite SK", cursive;
   /* --title-font: "Montserrat", sans-serif; */
   /* --title-font: "Bebas Neue", sans-serif; */
   --title-font: "Roboto", sans-serif;
@@ -17839,7 +17842,6 @@ input[type=number] {
 }
 
 .textFlip .single {
-  text-transform: lowercase;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   position: relative;
@@ -19159,7 +19161,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
   color: var(--primary-title);
   display: block;
   padding: 20px 10px;
-  text-transform: capitalize;
   /* margin-top: 5px; */
   /* padding-top: 27px; */
   border-radius: 4px 4px 0 0;
@@ -31458,4 +31459,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
   background-size: 100%;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.special-text {
+  font-family: var(--special-font);
 }

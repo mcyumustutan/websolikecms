@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-@section('title', config('app.name'))
+@section('title')
+{{ $settings['site-basligi'] }}
+@endsection
 
 @section('content')
 
