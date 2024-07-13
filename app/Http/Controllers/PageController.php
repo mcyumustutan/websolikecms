@@ -25,6 +25,7 @@ class PageController extends Controller
             ])
             // ->where('template_type', 'page')
             ->whereJsonContains('link_view', '1')
+            ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
         $this->footernNavigation = Page::select('id', 'lang', 'title', 'url')
@@ -34,6 +35,7 @@ class PageController extends Controller
             ])
             ->where('template_type', 'page')
             ->whereJsonContains('link_view', '2')
+            ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
         $this->footernGeneralNavigation = Page::select('id', 'lang', 'title', 'url')
@@ -41,8 +43,8 @@ class PageController extends Controller
                 'parent_id' => null,
                 'lang' => App::getLocale(),
             ])
-            ->where('template_type', 'page')
             ->whereJsonContains('link_view', '3')
+            ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
         $this->settings = Settings::all()->mapWithKeys(function ($item) {
@@ -59,7 +61,7 @@ class PageController extends Controller
         $footernNavigation = $this->footernNavigation;
         $footernGeneralNavigation = $this->footernGeneralNavigation;
         $settings = $this->settings->toArray();
-        
+
         $sliders = Slider::orderBy('position')->take(1)->get();
 
         $ihaleler = Page::where('template_type', 'bid')->get();
