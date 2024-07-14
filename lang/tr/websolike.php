@@ -11,5 +11,7 @@ return [
     'Tüm Duyurular' => 'Tüm Duyurular',
     'Göreme Projeleri' => 'Göreme Projeleri',
     'Discover More' => 'Daha Fazlasını Keşfet',
+    'Diğer İhaleler' => 'Diğer İhaleler',
+    'Diğer Haberler' => 'Diğer Haberler',
 
 ];
