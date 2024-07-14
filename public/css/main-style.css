@@ -22683,7 +22683,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
   display: -ms-flexbox;
   display: flex;
   gap: 12px;
-  padding-bottom: 18px;
 }
 
 .price-card .feature-points .feature-point:last-child {
