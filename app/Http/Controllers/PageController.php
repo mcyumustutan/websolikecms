@@ -63,9 +63,7 @@ class PageController extends Controller
         $settings = $this->settings->toArray();
 
         $sliders = Slider::orderBy('position')->take(1)->get();
-
-        $ihaleler = Page::where('template_type', 'bid')->get();
-
+ 
         $explore = Page::whereJsonContains('link_view', '50')->get();
 
 
@@ -89,12 +87,22 @@ class PageController extends Controller
             'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
             'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
             'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
-            'news' => $projectsByCategory->get(TemplateType::News->value, collect())->all(),
-            'bids' => $projectsByCategory->get(TemplateType::Bid->value, collect())->all(),
+
+            'news' => Page::whereIn('template_type', [
+                TemplateType::News->value
+            ])->orderBy('display_date', 'desc')->take(6)->get(),
+
+            'bids' => Page::whereIn('template_type', [
+                TemplateType::Bid->value
+            ])->orderBy('display_date', 'desc')->take(6)->get(),
+
+            'activityBoxes' => Page::whereIn('template_type', [
+                TemplateType::Page->value
+            ])->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
         ];
 
         // return response()->json(TemplateType::Page->value);
-        // return response()->json($projectsArray['announcements']);
+        // return response()->json($projectsArray['news']);
 
         // $locale = $request->route('lang');
         // dd($locale);
@@ -113,10 +121,9 @@ class PageController extends Controller
             'mainNavigation',
             'footernNavigation',
             'footernGeneralNavigation',
-            'sliders',
-            'ihaleler',
-            'projectsArray',
-            'explore',
+            'sliders', 
+            'explore', 
+            'projectsArray', 
         ));
     }
 
