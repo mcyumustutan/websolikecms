@@ -1,6 +1,6 @@
 <!-- Footer S t a r t -->
 <footer>
-    <div class="footer-wrapper footer-bg">
+    <div class="footer-wrapper footer-bg mt-20">
         <div class="container">
             <div class="footer-area">
                 <div class="row g-4">
