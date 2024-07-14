@@ -27,7 +27,7 @@ class Page extends Model implements HasMedia
 
         static::addGlobalScope('is_publish', function (Builder $builder) {
             $builder->where('is_publish', true)
-            // ->where('lang', App::getLocale())
+                // ->where('lang', App::getLocale())
             ;
         });
     }
@@ -39,6 +39,7 @@ class Page extends Model implements HasMedia
     protected $casts = [
         'is_publish' => 'boolean',
         'link_view' => 'array',
+        'box_view' => 'array',
         'template_type' => TemplateType::class,
     ];
 
@@ -48,7 +49,7 @@ class Page extends Model implements HasMedia
         'title',
         'external_link',
         'content_primary',
-        'content_socondary',
+        'content_secondary',
         'display_date',
         'template_type',
         'lang',
@@ -129,7 +130,7 @@ class Page extends Model implements HasMedia
     protected function banner(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? null
+            get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? asset(Config::get('websolike.logo'))
         );
     }
 
@@ -143,7 +144,7 @@ class Page extends Model implements HasMedia
     protected function displayDate(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => Carbon::parse($value)->format('d.m.Y')
+            get: fn (string $value) => Carbon::parse($value)->format('d.m.Y H:i')
         );
     }
 }

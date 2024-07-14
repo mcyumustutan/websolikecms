@@ -192,13 +192,21 @@ class PageResource extends Resource
 
                                 Forms\Components\CheckboxList::make('link_view')
                                     ->label("Navigasyon Bölümleri")
-                                    ->default(fn ($record) => $record->example ?? true)
+                                    ->default(fn ($record) => $record->link_view ?? true)
                                     ->options([
                                         '1' => 'Ana Navigasyon',
                                         '2' => 'Footer Navigasyon Sabit Blok',
                                         '3' => 'Footer Genel Navigasyon',
                                         '4' => 'Diğer',
                                         '50' => 'Keşfet Kutusu',
+                                    ]),
+
+                                Forms\Components\CheckboxList::make('box_view')
+                                    ->label("Ana Sayfa Kutu Bölümleri")
+                                    ->default(fn ($record) => $record->box_view ?? true)
+                                    ->options([
+                                        '1' => 'Aktiviteler Bölümünde Göster', 
+                                        '100' => 'Diğer', 
                                     ]),
 
                                 Forms\Components\DatePicker::make('display_date')
@@ -281,7 +289,7 @@ class PageResource extends Resource
             ->actions([
                 Action::make('view')
                     ->icon('heroicon-m-arrow-top-right-on-square')
-                    ->label('Sitede Gör')
+                    ->label('Aç')
                     ->url(fn (Page $record): string => route('page.view', $record->lang . "/" . $record->url))
                     ->openUrlInNewTab(),
                 Tables\Actions\EditAction::make(),
