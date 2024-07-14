@@ -21,8 +21,8 @@ class PagesOverview extends BaseWidget
         return $table
             ->heading('Son Eklenen Sayfalar')
             ->query(
-                // Page::latest()->where('template_type', TemplateType::Announcement)->limit(5)
-                Page::where('is_publish', true)->latest()->take(5)
+                Page::latest()->where('template_type', TemplateType::Announcement)->limit(5)
+                // Page::where('is_publish', true)->latest()->take(5)
             )
             ->columns([
                 Tables\Columns\TextColumn::make('title')
