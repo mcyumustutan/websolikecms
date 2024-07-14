@@ -9,7 +9,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="price-card h-calc wow fadeInUp" data-wow-delay="0.1s">
                         <div class="d-flex gap-7 mb-2">
-                            <h4 class="title">GÖREME'DEN DUYURULARI</h4>
+                            <h4 class="title">GÖREME'DEN HABERLER</h4>
                         </div>
                         <ul class="feature-points">
 
