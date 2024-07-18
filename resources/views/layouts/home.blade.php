@@ -37,6 +37,15 @@
 </section>
 <!--/ End-of Hero-->
 
+
+<section class="special-area position-relative">
+    <div class="container">
+        <div class="row">
+            <div id="stories" class="storiesWrapper d-flex justify-content-center"></div>
+        </div>
+    </div>
+</section>
+
 @include('components.announcements')
 
 @include('components.about')
@@ -89,7 +98,7 @@
                         </svg>
                     </div>
                 </div>
-                <a href="https://www.youtube.com/embed/AyHGlH4Nw4g?si=8evLTXdUwcGzGzU3" class="d-none d-sm-block " data-fancybox="video-gallery">
+                <a href="https://www.youtube.com/embed/PmN-ab5rocw" class="d-none d-sm-block " data-fancybox="video-gallery">
                     <div class="video-player">
                         <i class="ri-play-fill"></i>
                     </div>
@@ -198,5 +207,72 @@
 
 
 
+
+<link rel="stylesheet" href="{{ asset('plugins/story/style.css')}}" />
+
+<!-- lib styles -->
+<link rel="stylesheet" href="{{ asset('plugins/story/zuck.min.css')}}" />
+<link rel="stylesheet" href="{{ asset('plugins/story/skins/snapgram.min.css')}}" />
+<script src="{{ asset('plugins/story/zuck.min.js')}}"></script>
+<script src="{{ asset('plugins/story/script.js')}}"></script>
+
+<script>
+    var currentSkin = getCurrentSkin();
+    var stories = window.Zuck(document.querySelector('#stories'), {
+        backNative: false,
+        previousTap: true,
+        skin: currentSkin['name'],
+        autoFullScreen: false,
+        avatars: currentSkin['params']['avatars'],
+        paginationArrows: currentSkin['params']['paginationArrows'],
+        list: currentSkin['params']['list'],
+        cubeEffect: currentSkin['params']['cubeEffect'],
+        localStorage: true,
+        language: { // if you need to translate :)
+            unmute: 'Sesi Kapat',
+            keyboardTip: 'Bir sonrakini görmek için boşluğa basın',
+            visitLink: 'Ziyaret Et',
+            time: {
+                ago: 'önce',
+                hour: 'Saat',
+                hours: 'Saat',
+                minute: 'Dakika',
+                minutes: 'Dakika',
+                fromnow: 'Şu andan itibaren',
+                seconds: 'Saniye',
+                yesterday: 'Dün',
+                tomorrow: 'Yarın',
+                days: 'Gün'
+            },
+        },
+        stories: [
+            @foreach($projectsArray['stories'] as $story) {
+                id: '{{$story["id"]}}',
+                photo: '{{$story["photo"]}}',
+                name: '{{$story["name"]}}',
+                time: '{{$story["time"]}}',
+                lastUpdated: '{{$story["time"]}}',
+                seen: false,
+                localStorage: false,
+                items: [
+                    @foreach($story['items'] as $item) {
+                        id: '{{$item["id"]}}',
+                        seen: false,
+                        type: 'photo',
+                        src: '{{$item["cover"]}}',
+                        preview: '{{$item["cover"]}}',
+                        link: '{{$item["fullurl"]}}',
+                        linkText: '{{$item["title"]}}',
+                        time: '{{$item["display_date_original"]}}',
+                        lastUpdated: '{{$item["display_date_original"]}}',
+                    },
+
+                    @endforeach
+                ]
+            },
+            @endforeach
+        ]
+    });
+</script>
 
 @endsection

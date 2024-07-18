@@ -80,7 +80,3 @@
     </div>
 </section>
 <!--/ End-of About US-->
-
-<div class="row">
-
-</div>

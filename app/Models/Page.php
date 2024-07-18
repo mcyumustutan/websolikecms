@@ -26,15 +26,15 @@ class Page extends Model implements HasMedia
         parent::boot();
 
         static::addGlobalScope('is_publish', function (Builder $builder) {
-            $builder->where('is_publish', true)
-                // ->where('lang', App::getLocale())
-            ;
+            $builder
+                // ->where('is_publish', true)
+                ->where('lang', App::getLocale());
         });
     }
 
-    protected $with = ['sub', 'parentPage', 'media'];
+    protected $with = ['sub'];
 
-    protected $appends = ['cover', 'banner', 'box'];
+    protected $appends = ['cover', 'banner', 'box', 'display_date_original', 'fullurl'];
 
     protected $casts = [
         'is_publish' => 'boolean',
@@ -116,8 +116,9 @@ class Page extends Model implements HasMedia
     public function sub(): HasMany
     {
         return $this->hasMany(Page::class, 'parent_id', 'id')
-            ->select('id', 'parent_id', 'lang', 'title', 'url',)
-            ->whereJsonContains('link_view', '1');
+            // ->select('id', 'parent_id', 'lang', 'title', 'url')
+            // ->whereJsonContains('link_view', '1')
+        ;
     }
 
     protected function cover(): Attribute
@@ -130,7 +131,7 @@ class Page extends Model implements HasMedia
     protected function banner(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? asset(Config::get('websolike.logo'))
+            get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? null
         );
     }
 
@@ -145,6 +146,20 @@ class Page extends Model implements HasMedia
     {
         return Attribute::make(
             get: fn (string $value) => Carbon::parse($value)->format('d.m.Y H:i')
+        );
+    }
+
+    protected function displayDateOriginal(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtotime($this->getRawOriginal("display_date"))
+        );
+    }
+
+    protected function fullurl(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $this->lang . "/" . $this->url
         );
     }
 }

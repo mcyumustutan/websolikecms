@@ -15,6 +15,7 @@ enum TemplateType: string implements HasLabel
     case ProjectFinished = 'ProjectFinished';
     case ProjectOnGoing = 'ProjectOnGoing';
     case ProjectPlanned = 'ProjectPlanned';
+    case Story = 'story';
 
     public function getLabel(): ?string
     {
@@ -28,6 +29,7 @@ enum TemplateType: string implements HasLabel
             self::ProjectFinished => 'Tamamlanan Projerler',
             self::ProjectOnGoing => 'Devam Eden Projeler',
             self::ProjectPlanned => 'Planlanan Projeler',
+            self::Story => 'Story',
         };
     }
 

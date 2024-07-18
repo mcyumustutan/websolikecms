@@ -62,9 +62,9 @@ class PageController extends Controller
         $footernGeneralNavigation = $this->footernGeneralNavigation;
         $settings = $this->settings->toArray();
 
-        $sliders = Slider::orderBy('position')->take(1)->get();
- 
-        $explore = Page::whereJsonContains('link_view', '50')->get();
+        $sliders = Slider::where('is_publish', true)->orderBy('position')->take(1)->get();
+
+        $explore = Page::where('is_publish', true)->whereJsonContains('link_view', '50')->get();
 
 
         $allProjects = Page::whereIn('template_type', [
@@ -73,6 +73,7 @@ class PageController extends Controller
             TemplateType::ProjectPlanned->value,
             TemplateType::Announcement->value,
             TemplateType::Page->value,
+            TemplateType::Story->value,
         ])->whereNot(function ($query) {
             $query->whereJsonContains('link_view', '4');
         })
@@ -88,21 +89,39 @@ class PageController extends Controller
             'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
             'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
 
-            'news' => Page::whereIn('template_type', [
+            'news' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::News->value
             ])->orderBy('display_date', 'desc')->take(6)->get(),
 
-            'bids' => Page::whereIn('template_type', [
+            'bids' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Bid->value
             ])->orderBy('display_date', 'desc')->take(6)->get(),
 
-            'activityBoxes' => Page::whereIn('template_type', [
+            'activityBoxes' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Page->value
             ])->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
+
+            'stories' => Page::where('is_publish', true)->whereIn('template_type', [
+                TemplateType::Story->value
+            ])
+                ->whereNull('parent_id')
+                ->with('sub')
+                ->orderBy('display_date', 'desc')
+                ->take(6)->get()
+                ->map(function ($story) {
+                    return [
+                        'id' => $story->title,
+                        'name' => $story->title,
+                        'photo' => $story->cover,
+                        'time' => $story->display_date_original,
+                        'linkText' => $story->title,
+                        'items' => $story->sub,
+                    ];
+                }),
         ];
 
         // return response()->json(TemplateType::Page->value);
-        // return response()->json($projectsArray['news']);
+        // return response()->json($projectsArray['stories']);
 
         // $locale = $request->route('lang');
         // dd($locale);
@@ -121,9 +140,9 @@ class PageController extends Controller
             'mainNavigation',
             'footernNavigation',
             'footernGeneralNavigation',
-            'sliders', 
-            'explore', 
-            'projectsArray', 
+            'sliders',
+            'explore',
+            'projectsArray',
         ));
     }
 
