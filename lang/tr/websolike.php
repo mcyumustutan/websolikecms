@@ -9,7 +9,7 @@ return [
     'Files Attachments' => 'Dosya Ekleri',
     'Göreme Haberler' => "Göreme'den Haberler",
     'Tüm Duyurular' => 'Tüm Duyurular',
-    'Göreme Projeleri' => 'Göreme Projeleri',
+    'Göreme Projeleri' => "Göreme'yi Geleceğe Taşıyoruz",
     'Discover More' => 'Daha Fazlasını Keşfet',
     'Diğer İhaleler' => 'Diğer İhaleler',
     'Diğer Haberler' => 'Diğer Haberler',

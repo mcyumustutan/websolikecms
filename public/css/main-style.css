@@ -25,21 +25,25 @@
   /* --Kaushan: "Lato", sans-serif; */
   /* --Dm: "DM Sans", sans-serif; */
   /* --Dm: "Lato", sans-serif; */
-  --goreme-color: rgb(194, 78, 46);
+  /* --goreme-color: rgb(194, 78, 46); */
+  --goreme-color: #244979;
   --goreme-color-blue: rgb(46, 148, 194);
-  --white: #fff;
+  --white: #f7f8fb;
   --light: #d8dbe0;
   --dark: #28292c;
   --info: #0dcaf0;
-  --body: rgba(255, 255, 255, .1);
-  --primary-color: #c24e2e;
+  /* --body: rgba(255, 255, 255, .1); */
+  --body: #f7f8fb;
+  --primary-color: #244979;
   --secondary-color: #c2a42e;
   --tertiary-color: #39a1f0;
   --primary-soft-color: #daedef;
-  --primary-soft-color-two: #efeedb;
+  /* --primary-soft-color-two: #efeedb; */
+  --primary-soft-color-two: #244979;
   --primary-color-rgb: 1, 123, 110;
   --secondary-color-rgb: 242, 111, 85;
   --primary-title: #071516;
+  --primary-title-2: #f7f8fb;
   --secondary-title: #505a59;
   --tertiary-title: #95b2b4;
   --pure-black: #000;
@@ -63,6 +67,7 @@
   --available-card-bg: linear-gradient(180deg,
       #daedef 0%,
       rgba(218, 237, 239, 0) 98.91%);
+  --swiper-theme-color: #244979;
 }
 
 [data-theme=dark] {
@@ -19500,7 +19505,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
     :: Footer
 -----------------------------------------------*/
 .footer-wrapper {
-  background: #071516;
+  background: #244979;
 }
 
 .footer-wrapper .footer-area {
@@ -20590,7 +20595,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   line-height: 1.1;
   margin-bottom: 6px;
   position: relative;
-  color: var(--primary-title);
+  color: var(--primary-title-2);
 }
 
 @media (max-width: 991px) {

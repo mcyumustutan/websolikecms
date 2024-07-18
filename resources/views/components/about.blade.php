@@ -1,4 +1,3 @@
-
 <!-- About Us area S t a r t -->
 <section class="about-area">
     <div class="container">
@@ -24,11 +23,46 @@
                     </p>
                     <div class="section-button mt-27 d-inline-block">
                         <a href="about.html" class="btn-primary-icon-sm radius-20">
-                            <p class="pera mt-0">Learn More</p>
+                            <p class="pera mt-0">Başkan</p>
                             <i class="ri-arrow-right-up-line"></i>
                         </a>
-                    </div>
 
+                    </div>
+                    @if($settings['instagramcom'])
+                    <a target="_blank" href="{{$settings['instagramcom']}}">
+                        <i class="ri-instagram-line fs-4"></i>
+                    </a>
+                    @endif
+
+                    @if($settings['xcom'])
+                    <a target="_blank" href="{{$settings['xcom']}}">
+                        <i class="ri-twitter-line fs-4"></i>
+                    </a>
+                    @endif
+
+                    @if($settings['whatsapp'])
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                        <i class="ri-whatsapp-line fs-4"></i>
+                    </a>
+                    @endif
+
+                    @if($settings['facebookcom'])
+                    <a target="_blank" href="{{$settings['facebookcom']}}">
+                        <i class="ri-facebook-line fs-4"></i>
+                    </a>
+                    @endif
+
+                    @if($settings['youtubecom'])
+                    <a target="_blank" href="{{$settings['youtubecom']}}">
+                        <i class="ri-youtube-line fs-4"></i>
+                    </a>
+                    @endif
+
+                    @if($settings['tiktokcom'])
+                    <a target="_blank" href="{{$settings['tiktokcom']}}">
+                        <i class="ri-tiktok-line fs-4"></i>
+                    </a>
+                    @endif
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6">

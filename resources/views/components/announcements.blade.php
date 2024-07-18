@@ -1,8 +1,38 @@
-<!-- About Us area S t a r t -->
-<section class="special-area top-padding position-relative">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mb-4">
+            <div class="border-section-title">
+                <h4 class="title"> {{ __('websolike.Göreme Haberler')}}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Details Banner Slider -->
+<div class="tour-details-banner">
+    <div class="swiper tourSwiper-active">
+        <div class="swiper-wrapper">
+            @foreach ($projectsArray['announcements'] as $duyuru)
+            <div class="swiper-slide">
+                <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}">
+                <div class="content position-absolute">
+                    <a href="{{$duyuru['fullurl']}}">
+                        <p class="title">{{$duyuru['title']}}</p>
+                        <p class="description">{{$duyuru['meta_description']}}</p>
+                    </a>
+
+                </div>
+            </div>
+            @endforeach
+
+        </div>
+        <div class="swiper-button-next"><i class="ri-arrow-right-s-line"></i></div>
+        <div class="swiper-button-prev"><i class="ri-arrow-left-s-line"></i></div>
+    </div>
+</div>
+<!-- / Slider-->
+
+<section class="destination-details-section pt-4">
     <div class="container">
-
-
         <div class="row">
             <div class="col-lg-12 mb-4">
                 <div class="border-section-title">
@@ -11,56 +41,99 @@
             </div>
         </div>
 
+        <div class="row g-4">
+            <div class="col-xl-8 col-lg-7 offset-lg-2">
 
-        <div class="row g-4" style=" background-color: #daedef; padding:20px; border-radius:20px">
-            <div class="col-xl-7 col-lg-7">
-                <div class="tab-content" id="v-pills-tabContent">
-                    @php
-                    $sayac = 1;
-                    @endphp
 
-                    @foreach ($projectsArray['announcements'] as $duyuru)
-                    <div class="tab-pane fade  @if($sayac == 1) show active @endif" id="v-{{$duyuru['id']}}" role="tabpanel" aria-labelledby="v-{{$duyuru['id']}}-tab">
-                        <div class="about-banner imgEffect4">
-                            <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}">
+                <div class="swiper mySwiper2">
+                    <div class="swiper-wrapper">
+                        @foreach ($projectsArray['announcements'] as $duyuru)
+                        <div class="swiper-slide d-flex align-items-end">
+                            <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" />
+                            <div class="content position-absolute">
+                                <p class="title">{{$duyuru['title']}}</p>
+                                <p class="description">{{$duyuru['meta_description']}}</p>
+                            </div>
                         </div>
+
+                        @endforeach
                     </div>
-                    @php
-                    $sayac++;
-                    @endphp
-
-                    @endforeach
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-            </div>
-            <div class="col-xl-5 col-lg-5">
-                <div class="key-points position-relative z-12" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    @php
-                    $sayac2 = 1;
-                    @endphp
-                    @foreach ($projectsArray['announcements'] as $duyuru)
-                    <div class="key-point @if($sayac2 == 1) active @endif" id="v-{{$duyuru['id']}}-tab" data-bs-toggle="pill" data-bs-target="#v-{{$duyuru['id']}}" role="tab" aria-controls="v-{{$duyuru['id']}}" aria-selected="true">
-
-                        <div class="key-content">
-                            <h4 class="title">{{$duyuru['title']}}</h4>
-                            <p class="pera">
-                                {{$duyuru['meta_description']}}
-                                <small class="text-muted">{{$duyuru['display_date']}}</small>
-                                <a href="{{config('app.url')}}/{{$duyuru['lang']}}/{{$duyuru['url']}}">...Devamı</a>
-                            </p>
+                <div thumbsSlider="" class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($projectsArray['announcements'] as $duyuru)
+                        <div class="swiper-slide">
+                            <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" />
                         </div>
+
+                        @endforeach
+
                     </div>
-                    @php
-                    $sayac2++;
-                    @endphp
-
-                    @endforeach
-
                 </div>
+
+
+
             </div>
+
+            <!-- <div class="col-xl-4 col-lg-5">
+                              <div class="profile-card-4 text-center">
+                                  <img src="{{asset('images/baskan2-4x5.jpg')}}" height="520" class="img img-responsive">
+                                  <div class="profile-content">
+                                      <div class="profile-name">Ömer Eren</div>
+                                      <div class="profile-description">T.C Göreme Belediyesi Başkanı</div>
+                                      <div class="row">
+                                          <div class="d-flex align-items-center justify-content-center">
+
+                                              @if($settings['instagramcom'])
+                                              <a target="_blank" href="{{$settings['instagramcom']}}">
+                                                  <i class="ri-instagram-line fs-4"></i>
+                                              </a>
+                                              @endif
+
+                                              @if($settings['xcom'])
+                                              <a target="_blank" href="{{$settings['xcom']}}">
+                                                  <i class="ri-twitter-line fs-4"></i>
+                                              </a>
+                                              @endif
+
+                                              @if($settings['whatsapp'])
+                                              <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                                                  <i class="ri-whatsapp-line fs-4"></i>
+                                              </a>
+                                              @endif
+
+                                              @if($settings['facebookcom'])
+                                              <a target="_blank" href="{{$settings['facebookcom']}}">
+                                                  <i class="ri-facebook-line fs-4"></i>
+                                              </a>
+                                              @endif
+
+                                              @if($settings['youtubecom'])
+                                              <a target="_blank" href="{{$settings['youtubecom']}}">
+                                                  <i class="ri-youtube-line fs-4"></i>
+                                              </a>
+                                              @endif
+
+                                              @if($settings['tiktokcom'])
+                                              <a target="_blank" href="{{$settings['tiktokcom']}}">
+                                                  <i class="ri-tiktok-line fs-4"></i>
+                                              </a>
+                                              @endif
+
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div> -->
+
+
+
         </div>
-
-
     </div>
+
+
     <div class="shape-bg">
         <img src="{{asset('images/icon/bg-shape.png')}}" alt="travello">
     </div>
@@ -78,5 +151,8 @@
             </a>
         </div>
     </div>
+
 </section>
+
+
 <!--/ End-of About US-->

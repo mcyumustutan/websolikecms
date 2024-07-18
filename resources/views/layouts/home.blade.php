@@ -6,6 +6,176 @@
 
 @section('content')
 
+<style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide .content {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.8)));
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        padding: 35px;
+    }
+
+    .swiper-slide .content .title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .swiper-slide .content .desciption {
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .swiper-slide {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .mySwiper2 {
+        height: 80%;
+        width: 100%;
+    }
+
+    .mySwiper {
+
+        height: 80px;
+        box-sizing: border-box;
+        padding: 10px 0;
+    }
+
+    .mySwiper .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+    }
+
+    .mySwiper .swiper-slide-thumb-active {
+        opacity: 1;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-card-4 {
+        max-width: 370px;
+        background-color: #FFF;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .profile-card-4 img {
+        transition: all 0.25s linear;
+    }
+
+    .profile-card-4 .profile-content {
+        position: relative;
+        padding: 15px;
+        background-color: #FFF;
+    }
+
+    .profile-card-4 .profile-name {
+        font-weight: bold;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: -70px;
+        color: #FFF;
+        font-size: 16px;
+        background: rgb(0 0 0 / 50%);
+    }
+
+    .profile-card-4 .profile-name p {
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+
+    .profile-card-4 .profile-description {
+        color: #777;
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .profile-card-4 .profile-overview {
+        padding: 15px 0px;
+    }
+
+    .profile-card-4 .profile-overview p {
+        font-size: 10px;
+        font-weight: 600;
+        color: #777;
+    }
+
+    .profile-card-4 .profile-overview h4 {
+        color: #273751;
+        font-weight: bold;
+    }
+
+    .profile-card-4 .profile-content::before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        top: -10px;
+        left: 0px;
+        right: 0px;
+        background-color: #FFF;
+        z-index: 0;
+    }
+
+    .profile-card-4:hover img {
+        transform: rotate(5deg) scale(1.1, 1.1);
+        filter: brightness(110%);
+    }
+</style>
+
 <!-- Hero area S t a r t-->
 <section class="hero-padding-for-three video-overlay position-relative" style="min-height: 650px;">
 
@@ -38,7 +208,7 @@
 <!--/ End-of Hero-->
 
 
-<section class="special-area position-relative">
+<section class="special-area position-relative pt-4">
     <div class="container">
         <div class="row">
             <div id="stories" class="storiesWrapper d-flex justify-content-center"></div>
@@ -64,8 +234,7 @@
                     <p class="pera">
                         Kapadokya'nın peri bacaları, adeta bir masal diyarından çıkmış gibi gökyüzüne uzanır ve bölgenin eşsiz coğrafyasını gözler önüne serer.
                     </p>
-                    <p class="pera">Yeraltı şehirleri ve tarihi kiliseleriyle Kapadokya, her köşesinde binlerce yıllık bir medeniyetin izlerini taşır. Doğayla iç içe olmanın huzurunu yaşatır. Gün batımında kızıl renklere bürünen vadileri ve sessizliği, Kapadokya'nın huzur dolu atmosferini bir kez daha hissettirir.
-                    </p>
+                     
                 </div>
             </div>
             <div class="col-lg-4">
@@ -206,6 +375,10 @@
 @include('components.newslists')
 
 
+<!-- Map -->
+<iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1558.0943119395045!2d34.829173!3d38.644543000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a68781e85e3ab%3A0x6ae1a0b9171a33c1!2sGoreme%20Municipality!5e0!3m2!1sen!2str!4v1720032635247!5m2!1sen!2str" height="500" style="border: 15px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+<!-- / Map -->
 
 
 <link rel="stylesheet" href="{{ asset('plugins/story/style.css')}}" />
@@ -215,6 +388,28 @@
 <link rel="stylesheet" href="{{ asset('plugins/story/skins/snapgram.min.css')}}" />
 <script src="{{ asset('plugins/story/zuck.min.js')}}"></script>
 <script src="{{ asset('plugins/story/script.js')}}"></script>
+<script src="{{ asset('js/jquery-3.7.0.min.js')}}"></script>
+<script src="{{ asset('js/plugin.js')}}"></script>
+
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 10,
+        slidesPerView: 6,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiper,
+        },
+    });
+</script>
 
 <script>
     var currentSkin = getCurrentSkin();
@@ -274,5 +469,4 @@
         ]
     });
 </script>
-
 @endsection
