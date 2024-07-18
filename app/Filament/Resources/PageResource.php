@@ -142,7 +142,9 @@ class PageResource extends Resource
                                     ->label('Üst Sayfa')
                                     ->nullable()
                                     // ->relationship(name: 'parentPage', titleAttribute: 'title', ignoreRecord: true)
-                                    ->options(Page::all()->pluck('title', 'id'))
+                                    ->options(Page::orderBy('id', 'desc')
+                                        ->get()
+                                        ->pluck('title', 'id', 'template_type'))
                                     ->searchable()
                                     ->preload(),
 
@@ -205,13 +207,15 @@ class PageResource extends Resource
                                     ->label("Ana Sayfa Kutu Bölümleri")
                                     ->default(fn ($record) => $record->box_view ?? true)
                                     ->options([
-                                        '1' => 'Aktiviteler Bölümünde Göster', 
-                                        '100' => 'Diğer', 
+                                        '1' => 'Aktiviteler Bölümünde Göster',
+                                        '100' => 'Diğer',
                                     ]),
 
                                 Forms\Components\DatePicker::make('display_date')
                                     ->label('Yayın Tarihi')
                                     ->default(now())
+                                    ->native(false)
+                                    ->displayFormat('d.m.Y')
                                     ->required(),
 
 
@@ -258,6 +262,8 @@ class PageResource extends Resource
                     ->sortable(),
                 Tables\Columns\CheckboxColumn::make('has_sidebar')
                     ->label('Kenar Çubuğu'),
+                Tables\Columns\CheckboxColumn::make('is_publish')
+                    ->label('Yayında'),
                 Tables\Columns\CheckboxColumn::make('has_subpages')
                     ->label('Sayfalama'),
                 Tables\Columns\ImageColumn::make('cover')
@@ -275,16 +281,12 @@ class PageResource extends Resource
                     ->searchable()
                     ->sortable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
-                SelectFilter::make('template_type')
-                    ->label('İçerik Türü')
-                    ->options(self::getEnumOptions(TemplateType::class))
-                    ->searchable(),
                 SelectFilter::make('lang')
                     ->label('Dil')
                     ->options(self::getEnumOptions(Language::class))
                     ->searchable(),
-
             ])
             ->actions([
                 Action::make('view')
