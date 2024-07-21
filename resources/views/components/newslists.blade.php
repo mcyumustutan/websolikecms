@@ -14,7 +14,7 @@
 
                                 <a class="swiper-events-button-prev"><i class="ri-arrow-left-s-line"></i></a>
 
-                                <a href="{{config('app.url')}}/{{App::getlocale()}}/tum-ihaleler">
+                                <a href="{{config('app.url')}}/{{App::getlocale()}}/tum-etkinlikler">
                                     <i class="ri-arrow-right-up-line"></i>
                                 </a>
 
