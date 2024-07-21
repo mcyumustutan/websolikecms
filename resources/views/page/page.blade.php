@@ -6,7 +6,6 @@
 
 
 @include('components.breadcrumb')
-
 <!-- Destination area S t a r t -->
 <section class="page-details-section ">
     <div class="container">
@@ -16,6 +15,9 @@
             if($page->has_sidebar) $column_size = 8;
             @endphp
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
+
+
+
                 @if(!is_null($page->banner))
                 <div class="news-details-banner imgEffect mt-50">
                     <div class="w-50">
@@ -23,7 +25,29 @@
                     </div>
                 </div>
                 @endif
+
+
                 <div class="news-details-content">
+                    <div class="d-flex flex-wrap align-items-center gap-20 mt-20">
+
+                        @if($page->display_date)
+                        <div class="count">
+                            <p class="pera">{!!$page->highlited_icon_2!!} {{$page->display_date}}</p>
+                        </div>
+                        <div class="divider"></div>
+                        @endif
+
+                        @if($page->highlited_value_1)
+                        <div class="count">
+                            <p class="pera">{!!$page->highlited_icon_1!!} {{$page->highlited_value_1}}</p>
+                        </div>
+                        <div class="divider"></div>
+                        @endif
+
+
+
+                    </div>
+
                     <p class="pera">{!! $page->content_primary !!}</p>
                     <p class="pera">{{$page->content_secondary}}</p>
 

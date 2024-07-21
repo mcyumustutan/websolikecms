@@ -5,7 +5,7 @@
             <div class="col-xl-7 col-lg-6">
                 <div class="section-title mx-10 mb-30">
                     <h4 class="title">
-                        Başkan Özgeçmiş
+                        Başkan Ömer Eren
                     </h4>
                     <p class="pera">
                         01.01.1964 yılında Nevşehir’in Göreme Kasabası’nda doğdu. İlkokul eğitimini Göreme,

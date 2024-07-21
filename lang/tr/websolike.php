@@ -13,5 +13,8 @@ return [
     'Discover More' => 'Daha Fazlasını Keşfet',
     'Diğer İhaleler' => 'Diğer İhaleler',
     'Diğer Haberler' => 'Diğer Haberler',
+    'Yaklaşan Etkinlikler' => 'Yaklaşan Etkinlikler',
+    'Vefat Haberleri' => 'Vefat Haberleri',
+    'İhale Duyuruları' => 'İhale Duyurular',
 
 ];

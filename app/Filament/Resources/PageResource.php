@@ -208,6 +208,7 @@ class PageResource extends Resource
                                     ->default(fn ($record) => $record->box_view ?? true)
                                     ->options([
                                         '1' => 'Aktiviteler Bölümünde Göster',
+                                        '2' => "Story'de Göster",
                                         '100' => 'Diğer',
                                     ]),
 

@@ -6,8 +6,12 @@ use App\Enums\TemplateType;
 use App\Models\Page;
 use App\Models\Settings;
 use App\Models\Slider;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
+use Symfony\Component\DomCrawler\Crawler;
 
 class PageController extends Controller
 {
@@ -16,9 +20,10 @@ class PageController extends Controller
         public $mainNavigation = null,
         public $footernNavigation = null,
         public $footernGeneralNavigation = null,
-        public $settings = null
+        public $settings = null,
+        public $wheather = null
     ) {
-        $this->mainNavigation = Page::select('id', 'lang', 'title', 'url')
+        $this->mainNavigation = Page::with('sub')->select('id', 'lang', 'title', 'url')
             ->where([
                 'parent_id' => null,
                 'lang' => App::getLocale(),
@@ -28,7 +33,7 @@ class PageController extends Controller
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
-        $this->footernNavigation = Page::select('id', 'lang', 'title', 'url')
+        $this->footernNavigation = Page::with('sub')->select('id', 'lang', 'title', 'url')
             ->where([
                 'parent_id' => null,
                 'lang' => App::getLocale(),
@@ -38,7 +43,7 @@ class PageController extends Controller
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
-        $this->footernGeneralNavigation = Page::select('id', 'lang', 'title', 'url')
+        $this->footernGeneralNavigation = Page::with('sub')->select('id', 'lang', 'title', 'url')
             ->where([
                 'parent_id' => null,
                 'lang' => App::getLocale(),
@@ -49,6 +54,14 @@ class PageController extends Controller
 
         $this->settings = Settings::all()->mapWithKeys(function ($item) {
             return [$item['key'] => $item->value];
+        });
+
+        $cacheKey = 'weather_of_nevsehir';
+        // Cache::forget($cacheKey);
+        $this->wheather = Cache::remember($cacheKey, 3600, function () {
+            $wheather = Http::get("https://forecast7.com/tr/38d6434d83/goreme/?format=json")->body();
+            $wheatherBody = collect(json_decode($wheather, true));
+            return collect($wheatherBody['current']);;
         });
     }
 
@@ -73,7 +86,7 @@ class PageController extends Controller
             TemplateType::ProjectPlanned->value,
             TemplateType::Announcement->value,
             TemplateType::Page->value,
-            TemplateType::Story->value,
+            TemplateType::Death->value,
         ])->whereNot(function ($query) {
             $query->whereJsonContains('link_view', '4');
         })
@@ -88,6 +101,7 @@ class PageController extends Controller
             'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
             'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
             'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
+            'deaths' => $projectsByCategory->get(TemplateType::Death->value, collect())->all(),
 
             'news' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::News->value
@@ -101,13 +115,18 @@ class PageController extends Controller
                 TemplateType::Page->value
             ])->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
 
-            'stories' => Page::where('is_publish', true)->whereIn('template_type', [
-                TemplateType::Story->value
-            ])
+            'comingEvents' => Page::where('is_publish', true)->whereIn('template_type', [
+                TemplateType::Event->value
+            ])->where('display_date', '>=', Carbon::today())->take(6)->get(),
+
+            'stories' => Page::where('is_publish', true)
                 ->whereNull('parent_id')
-                ->with('sub')
+                ->whereJsonContains('box_view', '2')
+                ->with('subStory')
                 ->orderBy('display_date', 'desc')
-                ->take(6)->get()
+                // ->toSql()
+                ->get()
+                // ->toArray()
                 ->map(function ($story) {
                     return [
                         'id' => $story->title,
@@ -115,25 +134,12 @@ class PageController extends Controller
                         'photo' => $story->cover,
                         'time' => $story->display_date_original,
                         'linkText' => $story->title,
-                        'items' => $story->sub,
+                        'items' => $story['subStory'],
                     ];
                 }),
         ];
 
-        // return response()->json(TemplateType::Page->value);
         // return response()->json($projectsArray['stories']);
-
-        // $locale = $request->route('lang');
-        // dd($locale);
-
-        /**
-         * İhaleleri getir
-         * Duyuruları getir
-         * Haberleri Getir
-         * 
-         * Projeleri getir
-         */
-
 
         return view('layouts.home', compact(
             'settings',
@@ -143,7 +149,9 @@ class PageController extends Controller
             'sliders',
             'explore',
             'projectsArray',
-        ));
+        ), [
+            'wheather' => $this->wheather,
+        ]);
     }
 
     /**
@@ -159,8 +167,6 @@ class PageController extends Controller
             ->where('url', $url)
             ->firstOrFail();
 
-        // dd($page->toArray());
-
 
         // return response()->json($page['id']);
         $subPages[] = ['data' => []];
@@ -173,6 +179,7 @@ class PageController extends Controller
 
         if (count($subPages['data']) === 0) {
             $subPages = Page::where('parent_id', $page['parent_id'])
+                ->where('template_type', $page['template_type'])
                 ->whereNot('id', $page['id'])
                 ->orderBy('display_date', 'desc')
                 ->with('media')
@@ -205,20 +212,43 @@ class PageController extends Controller
         $galleries = $page->getMedia("gallery") ?? '';
         $files = $page->getMedia("files") ?? '';
 
+        // return view($view, [
+        //     'settings' => $settings,
+        //     'page' => $page,
+        //     'subPages' => $subPages,
+        //     'mainNavigation' => $mainNavigation,
+        //     'footernNavigation' => $footernNavigation,
+        //     'footernGeneralNavigation' => $footernGeneralNavigation,
+        //     'cover' => $cover,
+        //     'banner' => $banner,
+        //     'box' => $box,
+        //     'galleries' => $galleries,
+        //     'files' => $files,
+        //     'weather' => $this->weather,
 
-        return view($view, compact(
-            'settings',
-            'page',
-            'subPages',
-            'mainNavigation',
-            'footernNavigation',
-            'footernGeneralNavigation',
-            'cover',
-            'banner',
-            'box',
-            'galleries',
-            'files',
-        ));
+        // ]);
+
+        // dd($page->toArray());
+
+        return view(
+            $view,
+            compact(
+                'settings',
+                'subPages',
+                'mainNavigation',
+                'footernNavigation',
+                'footernGeneralNavigation',
+                'cover',
+                'banner',
+                'box',
+                'galleries',
+                'files',
+            ),
+            [
+                'wheather' => $this->wheather,
+                'page' => $page,
+            ]
+        );
 
         // return response()->json($page);
     }

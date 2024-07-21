@@ -38,84 +38,6 @@
     <meta name="twitter:image" content="{{ asset('images/logo/logo.png')}}">
     <meta name="twitter:card" content="summary">
 
-    <style>
-        .announcement-icon {
-            color: #FF4081;
-        }
-
-        .announcement-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background-color: #fff;
-            width: 100%;
-        }
-
-        .announcement-text {
-            margin-left: 10px;
-        }
-
-
-        .pagination-container {
-            margin: 100px auto;
-            text-align: center;
-        }
-
-        .pagination {
-            position: relative;
-        }
-
-        .pagination a {
-            position: relative;
-            display: inline-block;
-            color: var(--tertiary-btn);
-            text-decoration: none;
-            padding: 8px 16px 10px;
-        }
-
-        .pagination a:before {
-            z-index: -1;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            content: "";
-            top: 0;
-            left: 0;
-            background-color: var(--tertiary-btn);
-            border-radius: 24px;
-            transform: scale(0);
-            transition: all 0.2s;
-        }
-
-        .pagination a:hover,
-        .pagination a .pagination-active {
-            color: #fff;
-        }
-
-        .pagination a:hover:before,
-        .pagination a .pagination-active:before {
-            transform: scale(1);
-        }
-
-        .pagination .pagination-active {
-            color: #fff;
-        }
-
-        .pagination .pagination-active:before {
-            transform: scale(1);
-        }
-
-        .pagination-newer {
-            margin-right: 50px;
-        }
-
-        .pagination-older {
-            margin-left: 50px;
-        }
-    </style>
 </head>
 
 <body>
@@ -199,6 +121,7 @@
                                             <p class="pera">Türkçe</p>
                                         </a>
                                         @endif
+
                                     </div>
 
                                 </div>
@@ -236,6 +159,7 @@
                                                     @endif
                                                 </li>
                                                 @endforeach
+
 
 
                                                 <li class=" d-block d-lg-none">
@@ -290,8 +214,14 @@
                                                     </a>
                                                     @endif
                                                 </li>
-                                            </ul>
 
+                                            </ul>
+                                            <div class="d-flex justify-content-center align-items-center px-2 rounded">
+                                                @php
+                                                $weatherimgpath = 'images/weather/'.$wheather['icon'] .'.svg';
+                                                @endphp
+                                                <span class="fw-bold">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
+                                            </div>
                                         </div>
                                     </nav>
                                 </div>

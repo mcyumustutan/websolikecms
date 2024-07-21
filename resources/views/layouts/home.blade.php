@@ -5,177 +5,6 @@
 @endsection
 
 @section('content')
-
-<style>
-    .swiper {
-        width: 100%;
-        height: 100%;
-    }
-
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .swiper-slide .content {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.8)));
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-        height: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: end;
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-        padding: 35px;
-    }
-
-    .swiper-slide .content .title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .swiper-slide .content .desciption {
-        font-size: 2rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .swiper {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .swiper-slide {
-        background-size: cover;
-        background-position: center;
-    }
-
-    .mySwiper2 {
-        height: 80%;
-        width: 100%;
-    }
-
-    .mySwiper {
-
-        height: 80px;
-        box-sizing: border-box;
-        padding: 10px 0;
-    }
-
-    .mySwiper .swiper-slide {
-        width: 25%;
-        height: 100%;
-        opacity: 0.4;
-    }
-
-    .mySwiper .swiper-slide-thumb-active {
-        opacity: 1;
-    }
-
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .profile-card-4 {
-        max-width: 370px;
-        background-color: #FFF;
-        border-radius: 5px;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        position: relative;
-        cursor: pointer;
-    }
-
-    .profile-card-4 img {
-        transition: all 0.25s linear;
-    }
-
-    .profile-card-4 .profile-content {
-        position: relative;
-        padding: 15px;
-        background-color: #FFF;
-    }
-
-    .profile-card-4 .profile-name {
-        font-weight: bold;
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        top: -70px;
-        color: #FFF;
-        font-size: 16px;
-        background: rgb(0 0 0 / 50%);
-    }
-
-    .profile-card-4 .profile-name p {
-        font-weight: 600;
-        font-size: 13px;
-        letter-spacing: 1.5px;
-    }
-
-    .profile-card-4 .profile-description {
-        color: #777;
-        font-size: 12px;
-        padding: 10px;
-    }
-
-    .profile-card-4 .profile-overview {
-        padding: 15px 0px;
-    }
-
-    .profile-card-4 .profile-overview p {
-        font-size: 10px;
-        font-weight: 600;
-        color: #777;
-    }
-
-    .profile-card-4 .profile-overview h4 {
-        color: #273751;
-        font-weight: bold;
-    }
-
-    .profile-card-4 .profile-content::before {
-        content: "";
-        position: absolute;
-        height: 20px;
-        top: -10px;
-        left: 0px;
-        right: 0px;
-        background-color: #FFF;
-        z-index: 0;
-    }
-
-    .profile-card-4:hover img {
-        transform: rotate(5deg) scale(1.1, 1.1);
-        filter: brightness(110%);
-    }
-</style>
-
 <!-- Hero area S t a r t-->
 <section class="hero-padding-for-three video-overlay position-relative" style="min-height: 650px;">
 
@@ -218,13 +47,12 @@
 
 @include('components.announcements')
 
-@include('components.about')
 
 @include('components.home.projects.slidertab')
 
 
+@include('components.about')
 
-<!-- About Us area S t a r t -->
 <section class=" section-padding2">
     <div class="container">
         <div class="row align-items-center position-relative">
@@ -234,7 +62,7 @@
                     <p class="pera">
                         Kapadokya'nın peri bacaları, adeta bir masal diyarından çıkmış gibi gökyüzüne uzanır ve bölgenin eşsiz coğrafyasını gözler önüne serer.
                     </p>
-                     
+
                 </div>
             </div>
             <div class="col-lg-4">
@@ -303,38 +131,6 @@
         <div class="row">
 
             @foreach ($explore as $exp)
-
-
-            <!-- <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-                <article class="news-card-two wow fadeInUp bg-white" data-wow-delay="0.0s">
-                    <div class="card text-dark card-has-bg" style="background-image:url('{{$exp->box}}');">
-
-                        <div class="card-img-overlay d-flex flex-column">
-                            <div class="card-body">
-                                <small class="card-meta mb-4">
-                                    <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['title']}}</a>
-                                </small>
-
-                                @if($exp['meta_description'])
-                                <h4 class="card-title mt-4">
-                                    <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['meta_description']}}</a>
-                                </h4>
-                                @endif
-
-                            </div>
-
-                            <div class="card-footer">
-                                <div class="media">
-                                    <p>
-                                        <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['title']}}</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div> -->
-
 
             <div class="col-xl-3 col-lg-3 col-sm-6">
                 <article class="news-card-two wow fadeInUp bg-white" data-wow-delay="0.0s" style="border:none">
@@ -453,6 +249,7 @@
                     @foreach($story['items'] as $item) {
                         id: '{{$item["id"]}}',
                         seen: false,
+                        localStorage: false,
                         type: 'photo',
                         src: '{{$item["cover"]}}',
                         preview: '{{$item["cover"]}}',

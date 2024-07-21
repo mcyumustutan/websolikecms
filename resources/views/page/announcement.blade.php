@@ -17,10 +17,10 @@
             if($page->has_sidebar) $column_size = 8;
             @endphp
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
-                @if(!is_null($page->banner))
+                @if(!is_null($page->cover))
                 <div class="news-details-banner imgEffect mt-50">
                     <div class="w-50">
-                        <img src="{{$page->banner}}" alt="{{$page->title}}" title="{{$page->title}}" width="500">
+                        <img src="{{$page->cover}}" alt="{{$page->title}}" title="{{$page->title}}" width="500">
                     </div>
                 </div>
                 @endif

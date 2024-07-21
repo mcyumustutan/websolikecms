@@ -32,7 +32,7 @@ class Page extends Model implements HasMedia
         });
     }
 
-    protected $with = ['sub'];
+    protected $with = ['parentPage'];
 
     protected $appends = ['cover', 'banner', 'box', 'display_date_original', 'fullurl'];
 
@@ -109,7 +109,7 @@ class Page extends Model implements HasMedia
 
     public function parentPage(): HasOne
     {
-        return $this->hasOne(Page::class, 'parent_id');
+        return $this->hasOne(Page::class, 'id', 'parent_id')->select('id', 'parent_id', 'lang', 'title', 'url');
     }
 
 
@@ -119,6 +119,13 @@ class Page extends Model implements HasMedia
             // ->select('id', 'parent_id', 'lang', 'title', 'url')
             // ->whereJsonContains('link_view', '1')
         ;
+    }
+
+    public function subStory(): HasMany
+    {
+        return $this->hasMany(Page::class, 'parent_id', 'id')
+            // ->select('id', 'parent_id', 'lang', 'title', 'url')
+            ->whereJsonContains('box_view', '2');
     }
 
     protected function cover(): Attribute
@@ -131,7 +138,7 @@ class Page extends Model implements HasMedia
     protected function banner(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? null
+            get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? $this->getMedia('cover')->toArray()[0]['original_url'] ?? null
         );
     }
 
@@ -159,7 +166,7 @@ class Page extends Model implements HasMedia
     protected function fullurl(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $this->lang . "/" . $this->url
+            get: fn ($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
         );
     }
 }
