@@ -37,7 +37,43 @@
     <meta name="twitter:description" content="{{$settings['site-aciklamasi']}}">
     <meta name="twitter:image" content="{{ asset('images/logo/logo.png')}}">
     <meta name="twitter:card" content="summary">
+    <style>
+        .logo_area {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            content: "";
+            margin-left: -150px;
+            text-align: center;
+            z-index: 99;
+        }
 
+        @media only screen and (min-width: 200px) and (max-width: 767px) {
+            .slicknav_menu {
+                display: block;
+            }
+
+            .inner_main_menu {
+                display: none;
+            }
+
+            .logo_area {
+                height: auto;
+                left: 0;
+                margin-left: 0;
+                position: relative;
+                top: 0;
+                width: 130px;
+            }
+
+            .logo_area img {
+                height: auto;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -54,11 +90,16 @@
                                 </div>
                                 <!-- Top Left Side -->
                                 <!-- Logo-->
-                                <div class="logo">
+                                <!-- <div class="logo">
                                     <a href="{{config('app.url')}}/{{App::getLocale()}}">
                                         <img src="{{ asset('images/logo/logo.png')}}" alt="logo" class="changeLogo" style="height:100px">
                                     </a>
+                                </div> -->
+
+                                <div class="logo_area">
+                                    <img src="{{ asset('images/logo/logo.png')}}" alt="logo" class="changeLogo">
                                 </div>
+
                                 <div class="header-right-three pl-15 d-none d-lg-flex">
                                     <div class="lang">
 
@@ -74,6 +115,18 @@
                                         </a>
                                         @endif
 
+                                    </div>
+
+                                    <div class="d-flex justify-content-center align-items-center px-2 rounded">
+                                        @php
+                                        if($wheather['icon']){
+                                        $weatherimgpath = 'images/weather/'.$wheather['icon'] .'.svg';
+                                        }
+                                        @endphp
+
+                                        @if(isset($weatherimgpath))
+                                        <span class="fw-bold">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
+                                        @endif
                                     </div>
 
                                 </div>
@@ -97,7 +150,7 @@
                                                 <li class="single-list text-uppercase">
                                                     <a class="single" href="{{config('app.url')}}/{{App::getLocale()}}">{{ __('homepage.AnaSayfa') }}</a>
                                                 </li>
-                                                @foreach ($mainNavigation as $menu)
+                                                @foreach ($mainNavigation1 as $menu)
                                                 <li class="single-list">
                                                     <a href="{{config('app.url')}}/{{$menu['lang']}}/{{$menu['url']}}" class="single">{{$menu['title']}} <i class="ri-arrow-down-s-line"></i></a>
                                                     @if($menu['sub'])
@@ -111,74 +164,28 @@
                                                     @endif
                                                 </li>
                                                 @endforeach
+                                            </ul>
 
+                                            <ul class="listing float-end" id="navigation">
 
-
-                                                <li class=" d-block d-lg-none">
-                                                    <div class="d-flex align-items-center">
-
-                                                        @if($settings['instagramcom'])
-                                                        <a target="_blank" href="{{$settings['instagramcom']}}">
-                                                            <i class="ri-instagram-line fs-4"></i>
-                                                        </a>
-                                                        @endif
-
-                                                        @if($settings['xcom'])
-                                                        <a target="_blank" href="{{$settings['xcom']}}">
-                                                            <i class="ri-twitter-line fs-4"></i>
-                                                        </a>
-                                                        @endif
-
-                                                        @if($settings['whatsapp'])
-                                                        <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
-                                                            <i class="ri-whatsapp-line fs-4"></i>
-                                                        </a>
-                                                        @endif
-
-                                                        @if($settings['facebookcom'])
-                                                        <a target="_blank" href="{{$settings['facebookcom']}}">
-                                                            <i class="ri-facebook-line fs-4"></i>
-                                                        </a>
-                                                        @endif
-
-                                                        @if($settings['youtubecom'])
-                                                        <a target="_blank" href="{{$settings['youtubecom']}}">
-                                                            <i class="ri-youtube-line fs-4"></i>
-                                                        </a>
-                                                        @endif
-
-                                                        @if($settings['tiktokcom'])
-                                                        <a target="_blank" href="{{$settings['tiktokcom']}}">
-                                                            <i class="ri-tiktok-line fs-4"></i>
-                                                        </a>
-                                                        @endif
-
-                                                    </div>
-                                                    <i class="ri-global-line"></i>
-
-                                                    @if(App::getLocale()=='tr')
-                                                    <a style="color:red" href="{{config('app.url')}}/en">
-                                                        <p class="pera">English</p>
-                                                    </a>
-                                                    @elseif(App::getLocale()=='en')
-                                                    <a style="color:red" href="{{config('app.url')}}/tr">
-                                                        <p class="pera">Türkçe</p>
-                                                    </a>
+                                                @foreach ($mainNavigation2 as $menu)
+                                                <li class="single-list">
+                                                    <a href="{{config('app.url')}}/{{$menu['lang']}}/{{$menu['url']}}" class="single">{{$menu['title']}} <i class="ri-arrow-down-s-line"></i></a>
+                                                    @if($menu['sub'])
+                                                    <ul class="submenu">
+                                                        @foreach ($menu['sub'] as $submenu)
+                                                        <li class="single-list">
+                                                            <a href="{{config('app.url')}}/{{$menu['lang']}}/{{$menu['url']}}/{{$submenu['url']}}" class="single">{{$submenu['title']}}</a>
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
                                                     @endif
                                                 </li>
-
+                                                @endforeach
                                             </ul>
-                                            <div class="d-flex justify-content-center align-items-center px-2 rounded">
-                                                @php
-                                                if($wheather['icon']){
-                                                $weatherimgpath = 'images/weather/'.$wheather['icon'] .'.svg';
-                                                }
-                                                @endphp
 
-                                                @if(isset($weatherimgpath))
-                                                <span class="fw-bold">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
-                                                @endif
-                                            </div>
+
+
                                         </div>
                                     </nav>
                                 </div>

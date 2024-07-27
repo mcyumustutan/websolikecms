@@ -45,7 +45,7 @@
                     <div class="footer-content">
                         <div class="d-flex justify-content-between gap-50 flex-nowrap">
 
-                            <div class="logo  col-lg-3">
+                            <div class="logo">
                                 <img src="{{ asset('images/logo/logo.png')}}" alt="Websolike" class="changeLogo">
                             </div>
 
@@ -62,7 +62,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 float-end">
                                 <p><b>Hızlı İletişim</b></p>
                                 <ul>
                                     @if($settings['whatsapp'])
