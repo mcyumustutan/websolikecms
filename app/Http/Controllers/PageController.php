@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\Settings;
 use App\Models\Slider;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
@@ -18,6 +19,8 @@ class PageController extends Controller
 
     public function __construct(
         public $mainNavigation = null,
+        public $mainNavigation1 = null,
+        public $mainNavigation2 = null,
         public $footernNavigation = null,
         public $footernGeneralNavigation = null,
         public $settings = null,
@@ -32,6 +35,33 @@ class PageController extends Controller
             ->whereJsonContains('link_view', '1')
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
+
+        $this->mainNavigation1 = Page::with('sub')->select('id', 'lang', 'title', 'url')
+            ->where([
+                'parent_id' => null,
+                'lang' => App::getLocale(),
+            ])
+            // ->where('template_type', 'page')
+            ->whereJsonContains('link_view', '1')
+            ->limit(2)
+            ->orderBy('ordinal', 'asc')
+            ->get()->toArray();
+
+
+
+        $this->mainNavigation2 = Page::with('sub')->select('id', 'lang', 'title', 'url')
+            ->where([
+                'parent_id' => null,
+                'lang' => App::getLocale(),
+            ])
+            // ->where('template_type', 'page')
+            ->whereJsonContains('link_view', '1')
+            ->orderBy('ordinal', 'asc')
+            ->offset(2)
+            ->limit(3)
+            ->get()->toArray();
+
+        // dd($this->mainNavigation1, $this->mainNavigation2);
 
         $this->footernNavigation = Page::with('sub')->select('id', 'lang', 'title', 'url')
             ->where([
@@ -57,12 +87,23 @@ class PageController extends Controller
         });
 
         $cacheKey = 'weather_of_nevsehir';
+        $wheatherBody = ['current'];
+        $wheatherBody = ['icon'];
         // Cache::forget($cacheKey);
-        $this->wheather = Cache::remember($cacheKey, 3600, function () {
-            $wheather = Http::get("https://forecast7.com/tr/38d6434d83/goreme/?format=json")->body();
-            $wheatherBody = collect(json_decode($wheather, true));
-            return collect($wheatherBody['current']);;
+        $this->wheather = Cache::remember($cacheKey, 3600, function () use ($wheatherBody) {
+            try {
+                $wheather = Http::get("https://forecast7.com/tr/38d6434d83/goreme/?format=json")->body();
+                $wheatherBody = collect(json_decode($wheather, true));
+            } catch (Exception $e) {
+                $wheatherBody['current'] = [
+                    'icon' => '',
+                    'temp' => '',
+                ];
+            }
+            return $wheatherBody['current'];
         });
+
+        // dd($this->wheather);
     }
 
     /**
@@ -71,6 +112,8 @@ class PageController extends Controller
     public function index(Request $request, $lang = 'tr')
     {
         $mainNavigation = $this->mainNavigation;
+        $mainNavigation1 = $this->mainNavigation1;
+        $mainNavigation2 = $this->mainNavigation2;
         $footernNavigation = $this->footernNavigation;
         $footernGeneralNavigation = $this->footernGeneralNavigation;
         $settings = $this->settings->toArray();
@@ -117,7 +160,9 @@ class PageController extends Controller
 
             'comingEvents' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Event->value
-            ])->where('display_date', '>=', Carbon::today())->take(6)->get(),
+            ])
+            // ->where('display_date', '>=', Carbon::today())
+            ->take(6)->get(),
 
             'stories' => Page::where('is_publish', true)
                 ->whereNull('parent_id')
@@ -139,11 +184,13 @@ class PageController extends Controller
                 }),
         ];
 
-        // return response()->json($projectsArray['stories']);
+        // return response()->json($projectsArray['comingEvents']);
 
         return view('layouts.home', compact(
             'settings',
             'mainNavigation',
+            'mainNavigation1',
+            'mainNavigation2',
             'footernNavigation',
             'footernGeneralNavigation',
             'sliders',
@@ -198,6 +245,8 @@ class PageController extends Controller
          * 
          */
         $mainNavigation = $this->mainNavigation;
+        $mainNavigation1 = $this->mainNavigation1;
+        $mainNavigation2 = $this->mainNavigation2;
         $footernNavigation = $this->footernNavigation;
         $footernGeneralNavigation = $this->footernGeneralNavigation;
 
@@ -236,6 +285,8 @@ class PageController extends Controller
                 'settings',
                 'subPages',
                 'mainNavigation',
+                'mainNavigation1',
+                'mainNavigation2',
                 'footernNavigation',
                 'footernGeneralNavigation',
                 'cover',

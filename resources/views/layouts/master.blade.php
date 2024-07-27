@@ -50,17 +50,7 @@
                         <div class="col-lg-12">
                             <div class="top-menu-wrapper d-flex align-items-center justify-content-between">
                                 <div class="top-header-right">
-                                    <div class="contact-section">
-                                        <div class="circle-primary-sm">
-                                            <i class="ri-phone-line"></i>
-                                        </div>
-                                        <div class="info">
-                                            <p class="pera"></p>
-                                            <h4 class="title">
-                                                <a href="javascript:void(0)">+90 (384) 271 20 01</a>
-                                            </h4>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <!-- Top Left Side -->
                                 <!-- Logo-->
@@ -71,45 +61,7 @@
                                 </div>
                                 <div class="header-right-three pl-15 d-none d-lg-flex">
                                     <div class="lang">
-                                        <div class="d-flex align-items-center">
 
-                                            @if($settings['instagramcom'])
-                                            <a target="_blank" href="{{$settings['instagramcom']}}">
-                                                <i class="ri-instagram-line fs-4"></i>
-                                            </a>
-                                            @endif
-
-                                            @if($settings['xcom'])
-                                            <a target="_blank" href="{{$settings['xcom']}}">
-                                                <i class="ri-twitter-line fs-4"></i>
-                                            </a>
-                                            @endif
-
-                                            @if($settings['whatsapp'])
-                                            <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
-                                                <i class="ri-whatsapp-line fs-4"></i>
-                                            </a>
-                                            @endif
-
-                                            @if($settings['facebookcom'])
-                                            <a target="_blank" href="{{$settings['facebookcom']}}">
-                                                <i class="ri-facebook-line fs-4"></i>
-                                            </a>
-                                            @endif
-
-                                            @if($settings['youtubecom'])
-                                            <a target="_blank" href="{{$settings['youtubecom']}}">
-                                                <i class="ri-youtube-line fs-4"></i>
-                                            </a>
-                                            @endif
-
-                                            @if($settings['tiktokcom'])
-                                            <a target="_blank" href="{{$settings['tiktokcom']}}">
-                                                <i class="ri-tiktok-line fs-4"></i>
-                                            </a>
-                                            @endif
-
-                                        </div>
                                         <i class="ri-global-line"></i>
 
                                         @if(App::getLocale()=='tr')
@@ -218,9 +170,14 @@
                                             </ul>
                                             <div class="d-flex justify-content-center align-items-center px-2 rounded">
                                                 @php
+                                                if($wheather['icon']){
                                                 $weatherimgpath = 'images/weather/'.$wheather['icon'] .'.svg';
+                                                }
                                                 @endphp
+
+                                                @if(isset($weatherimgpath))
                                                 <span class="fw-bold">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
+                                                @endif
                                             </div>
                                         </div>
                                     </nav>

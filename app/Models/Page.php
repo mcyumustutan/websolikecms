@@ -34,7 +34,7 @@ class Page extends Model implements HasMedia
 
     protected $with = ['parentPage'];
 
-    protected $appends = ['cover', 'banner', 'box', 'display_date_original', 'fullurl'];
+    protected $appends = ['cover', 'banner', 'box', 'display_date_original', 'fullurl', 'display_only_date', 'display_only_hour'];
 
     protected $casts = [
         'is_publish' => 'boolean',
@@ -167,6 +167,20 @@ class Page extends Model implements HasMedia
     {
         return Attribute::make(
             get: fn ($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+        );
+    }
+
+    protected function displayOnlyHour(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => Carbon::parse($this->getRawOriginal("display_date"))->format('H:i')
+        );
+    }
+
+    protected function displayOnlyDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => Carbon::parse($this->getRawOriginal("display_date"))->format('d.m.Y')
         );
     }
 }

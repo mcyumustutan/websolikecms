@@ -8,11 +8,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+SK:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&display=swap');
+
 
 
 :root {
   /* --special-font: "Playwrite SK", cursive; */
+  --menu-font: "Jost", sans-serif;
   --special-font: "Montserrat", sans-serif;
+  --special-font-2: "Oooh Baby", sans-serif;
   --title-font: "Montserrat", sans-serif;
   /* --title-font: "Bebas Neue", sans-serif; */
   /* --title-font: "Roboto", sans-serif; */
@@ -25,7 +30,8 @@
   /* --Kaushan: "Roboto", sans-serif; */
   --Kaushan: "Montserrat", sans-serif;
   /* --Kaushan: "Lato", sans-serif; */
-  --Dm: "DM Sans", sans-serif;
+  /* --Dm: "DM Sans", sans-serif; */
+  --Dm: "Roboto", sans-serif;
   /* --Dm: "Lato", sans-serif; */
   /* --goreme-color: rgb(194, 78, 46); */
   --goreme-color: #244979;
@@ -115,6 +121,10 @@
 
 body {
   font-family: var(--Dm) !important;
+}
+
+.container {
+  max-width: 1600px;
 }
 
 /*-- Margin Padding --*/
@@ -19169,6 +19179,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
+  font-family: var(--menu-font);
   color: var(--primary-title);
   display: block;
   padding: 20px 10px;
@@ -20388,11 +20399,11 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .hero-caption-three {
-  max-width: 580px;
+  /* max-width: 580px; */
 }
 
 .hero-caption-three .title {
-  font-family: var(--title-font);
+  font-family: var(--special-font-2);
   margin-bottom: 20px;
   color: var(--white);
   font-size: 50px;
@@ -22136,7 +22147,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .border-section-title .title {
-  font-family: var(--title-font);
+  font-family: var(--special-font-2);
   font-size: var(--title-font-size);
   color: var(--primary-title);
   letter-spacing: .15em;
@@ -31728,11 +31739,13 @@ button.applyBtn.btn.btn-sm.btn-primary {
   margin-left: 50px;
 }
 
+
 .swiper {
   width: 100%;
   height: 100%;
 }
 
+/* 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -31747,7 +31760,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 
 .autoplay-progress {
   position: absolute;
@@ -31824,8 +31837,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
 .box .box-header .box-title {
   margin: 0;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   display: flex;
   align-items: center
 }
@@ -31942,4 +31955,108 @@ button.applyBtn.btn.btn-sm.btn-primary {
   flex: 0 100%;
   align-items: center;
   padding: 5px 15px
+}
+
+.announcement-swiper {
+  width: 100%;
+  height: 500px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.profile-card-2 {
+  background-color: #FFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--bs-border-radius) !important;
+  height: auto;
+  max-height: 500px;
+}
+
+.profile-card-2 img {
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-name {
+  position: absolute;
+  left: 30px;
+  bottom: 70px;
+  font-size: 30px;
+  color: #FFF;
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-icons {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: #FFF;
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-username {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #FFF;
+  font-size: 13px;
+  transition: all linear 0.25s;
+}
+
+
+.profile-card-2 .profile-button {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #FFF;
+}
+
+.profile-card-2 .profile-button a,
+.profile-card-2 .profile-button a:visited {
+  color: white;
+}
+
+.profile-card-2 .profile-icons .fa {
+  margin: 5px;
+}
+
+.profile-card-2 .profile-icons a,
+.profile-card-2 .profile-icons a:visited {
+  color: white;
+}
+
+.profile-card-2:hover img {
+  filter: grayscale(100%);
+}
+
+.profile-card-2:hover .profile-name {
+  bottom: 80px;
+}
+
+.profile-card-2:hover .profile-username {
+  bottom: 60px;
+}
+
+.profile-card-2:hover .profile-icons {
+  right: 40px;
 }

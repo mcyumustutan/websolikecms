@@ -212,11 +212,11 @@ class PageResource extends Resource
                                         '100' => 'Diğer',
                                     ]),
 
-                                Forms\Components\DatePicker::make('display_date')
+                                Forms\Components\DateTimePicker::make('display_date')
                                     ->label('Yayın Tarihi')
                                     ->default(now())
                                     ->native(false)
-                                    ->displayFormat('d.m.Y')
+                                    ->displayFormat('d.m.Y H:i')
                                     ->required(),
 
 

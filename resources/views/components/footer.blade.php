@@ -1,5 +1,17 @@
 <!-- Footer S t a r t -->
 <footer>
+    @if($settings['whatsapp'])
+    <a style="position: fixed; bottom: 120px; right: 30px; z-index: 9999;" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}" target="_blank">
+        <img title="Whatsapp" src="{{asset('images/whatsapp.png')}}" width="38" alt="Göreme Belediyesi Whatsapp">
+    </a>
+    @endif
+
+    @if($settings['e-posta'])
+    <a class="bg-white rounded-circle d-flex justify-content-center align-items-center" style="position: fixed; bottom: 160px; right: 30px; z-index: 9999; width:38px; height: 38px;" href="mailto:{{$settings['e-posta']}}" target="_blank">
+        <i class="ri-mail-line fs-4"></i>
+    </a>
+    @endif
+
     <div class="footer-wrapper footer-bg mt-20">
         <div class="container">
             <div class="footer-area">
@@ -31,14 +43,64 @@
             <div class="footer-middle-area">
                 <div class="footer-body">
                     <div class="footer-content">
-                        <div class="d-flex flex-column gap-20">
-                            <div class="logo">
+                        <div class="d-flex justify-content-between gap-50 flex-nowrap">
+
+                            <div class="logo  col-lg-3">
                                 <img src="{{ asset('images/logo/logo.png')}}" alt="Websolike" class="changeLogo">
                             </div>
-                            <p class="pera">
 
-                            </p>
+                            <div class="calisma-saatlari col-lg-4 float-start">
+                                <p><b>Çalışma Saatleri</b></p>
+                                <ul class="w-100 fs-6">
+                                    <li class="w-100 fs-6"><a>Pazartesi <span class="float-end">08:30 - 17:30</span></a></li>
+                                    <li class="w-100"><a>Salı <span class="float-end">08:30 - 17:30</span></a></li>
+                                    <li class="w-100"><a>Çarşamba <span class="float-end">08:30 - 17:30</span></a></li>
+                                    <li class="w-100"><a>Perşembe <span class="float-end">08:30 - 17:30</span></a></li>
+                                    <li class="w-100"><a>Cuma <span class="float-end">08:30 - 17:30</span></a></li>
+                                    <li class="w-100"><a>Cumartesi <span class="float-end">Kapalı</span></a></li>
+                                    <li class="w-100"><a>Pazar <span class="float-end">Kapalı</span></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <p><b>Hızlı İletişim</b></p>
+                                <ul>
+                                    @if($settings['whatsapp'])
+                                    <li>
+                                        <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                                            <i class="ri-whatsapp-line fs-4"></i> {{$settings['whatsapp']}}
+                                        </a>
+                                    </li>
+                                    @endif
+
+                                    @if($settings['sabit-telefon-numarasi'])
+                                    <li>
+                                        <a target="_blank" href="tel:{{$settings['sabit-telefon-numarasi']}}">
+                                            <i class="ri-phone-line fs-4"></i> {{$settings['sabit-telefon-numarasi']}}
+                                        </a>
+                                    </li>
+                                    @endif
+
+                                    @if($settings['mobil-telefon-numarasi'])
+                                    <li>
+                                        <a target="_blank" href="tel:{{$settings['mobil-telefon-numarasi']}}">
+                                            <i class="ri-smartphone-line fs-4"></i> {{$settings['mobil-telefon-numarasi']}}
+                                        </a>
+                                    </li>
+                                    @endif
+
+                                    @if($settings['e-posta'])
+                                    <li>
+                                        <a target="_blank" href="mailto:{{$settings['e-posta']}}">
+                                            <i class="ri-mail-line fs-4"></i> {{$settings['e-posta']}}
+                                        </a>
+                                    </li>
+                                    @endif
+
+                                </ul>
+                            </div>
                         </div>
+
                         <div class="footer-right">
                             <h4 class="title">SMS Listesine Abone Ol</h4>
                             <div class="subscribe-wraper">
@@ -49,11 +111,53 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <ul class="listing">
-                        <!-- <li class="single-list">
-                            <a href="terms-condition.html" class="single">Terms of usa</a>
-                        </li> -->
-                    </ul>
+
+                    <div class="d-flex justify-content-between gap-14 flex-wrap">
+                        <a href="javascript:void(0)">
+                            <i class="ri-phone-line"></i> {{$settings['sabit-telefon-numarasi']}}
+                        </a>
+
+                        <div class="d-flex align-items-center">
+                            @if($settings['instagramcom'])
+                            <a target="_blank" href="{{$settings['instagramcom']}}">
+                                <i class="ri-instagram-line fs-4"></i>
+                            </a>
+                            @endif
+
+                            @if($settings['xcom'])
+                            <a target="_blank" href="{{$settings['xcom']}}">
+                                <i class="ri-twitter-line fs-4"></i>
+                            </a>
+                            @endif
+
+                            @if($settings['whatsapp'])
+                            <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                                <i class="ri-whatsapp-line fs-4"></i>
+                            </a>
+                            @endif
+
+                            @if($settings['facebookcom'])
+                            <a target="_blank" href="{{$settings['facebookcom']}}">
+                                <i class="ri-facebook-line fs-4"></i>
+                            </a>
+                            @endif
+
+                            @if($settings['youtubecom'])
+                            <a target="_blank" href="{{$settings['youtubecom']}}">
+                                <i class="ri-youtube-line fs-4"></i>
+                            </a>
+                            @endif
+
+                            @if($settings['tiktokcom'])
+                            <a target="_blank" href="{{$settings['tiktokcom']}}">
+                                <i class="ri-tiktok-line fs-4"></i>
+                            </a>
+                            @endif
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -62,11 +166,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="d-flex justify-content-between gap-14 flex-wrap">
-                            <p class="pera">
-                                © <span class="current-year">{{date('Y')}}</span> Websolike. All rights reserved
-                            </p>
-                            <p class="pera">Powered by @Websolike</p>
+                        <div class="d-flex justify-content-end gap-14 flex-wrap">
+
+                            <p class="pera text-white"><a class="text-white" href="https://websolike.com">@Websolike</a> tarafından Göreme Belediyesine özel olarak yaptırılmıştır.</p>
                         </div>
                     </div>
                 </div>
@@ -91,35 +193,3 @@
 <script src="{{ asset('js/plugin.js')}}"></script>
 <!-- Main js-->
 <script src="{{ asset('js/main.js')}}"></script>
-<script>
-    const progressCircle = document.querySelector(".autoplay-progress svg");
-    const progressContent = document.querySelector(".autoplay-progress span");
-    var swiper = new Swiper(".mySwiper", {
-        grabCursor: true,
-        effect: "creative",
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-events-button-next",
-            prevEl: ".swiper-events-button-prev",
-        },
-        creativeEffect: {
-            prev: {
-                shadow: true,
-                translate: [0, 0, -400],
-            },
-            next: {
-                translate: ["100%", 0, 0],
-            },
-        },
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false
-        },
-        on: {
-            autoplayTimeLeft(s, time, progress) {
-                progressCircle.style.setProperty("--progress", 1 - progress);
-                progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-            }
-        }
-    });
-</script>

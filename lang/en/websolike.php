@@ -16,5 +16,8 @@ return [
     'Yaklaşan Etkinlikler' => 'Upcoming Events',
     'Vefat Haberleri' => 'Death News',
     'İhale Duyurular' => 'Tender Announcements',
+    'Haber ve Duyurular' => 'News and Announcements',
+    'Haberler' => 'News',
+    'Güncel Duyurular' => 'Current Announcements',
 
 ];

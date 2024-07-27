@@ -6,8 +6,7 @@
 
 @section('content')
 <!-- Hero area S t a r t-->
-<section class="hero-padding-for-three video-overlay position-relative" style="min-height: 650px;">
-
+<section class="hero-padding-for-three video-overlay position-relative" style="min-height: 650px; padding-top: 270px;">
 
     @foreach ($sliders as $slider)
     <!-- Video -->
@@ -19,7 +18,7 @@
     </div>
     <div class="container">
         <div class="row align-items-center justify-content-between g-4">
-            <div class="col-xl-12">
+            <div class="col-xl-12 d-flex align-items-center justify-content-center">
                 <div class="hero-caption-three position-relative z-3">
                     <h4 class="title wow fadeInUp" data-wow-delay="0.0s">
                         {{$slider['title']}}
@@ -45,8 +44,11 @@
     </div>
 </section>
 
+<!-- @include('components.announcements') -->
 @include('components.announcements')
 
+
+@include('components.newslists')
 
 @include('components.home.projects.slidertab')
 
@@ -168,7 +170,6 @@
 
 
 
-@include('components.newslists')
 
 
 <!-- Map -->
@@ -205,9 +206,7 @@
             swiper: swiper,
         },
     });
-</script>
 
-<script>
     var currentSkin = getCurrentSkin();
     var stories = window.Zuck(document.querySelector('#stories'), {
         backNative: false,
@@ -264,6 +263,53 @@
             },
             @endforeach
         ]
+    });
+
+    var swiper = new Swiper(".announcement-swiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        loop: true
+    });
+
+
+    const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+    var swiper = new Swiper(".mySwiper", {
+        grabCursor: true,
+        effect: "creative",
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-events-button-next",
+            prevEl: ".swiper-events-button-prev",
+        },
+        creativeEffect: {
+            prev: {
+                shadow: true,
+                translate: [0, 0, -400],
+            },
+            next: {
+                translate: ["100%", 0, 0],
+            },
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        on: {
+            autoplayTimeLeft(s, time, progress) {
+                progressCircle.style.setProperty("--progress", 1 - progress);
+                progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+            }
+        }
     });
 </script>
 @endsection
