@@ -77,8 +77,11 @@
 </head>
 
 <body>
-    <header class="header-area-three">
-        <div class="main-header">
+    <header class="header-area-three position-relative" style="z-index: 9;">
+        <div class="main-header position-absolute top-0 start-0 end-0" style="background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 0px 22px 0 rgba( 255, 255, 255, 0.37 );
+backdrop-filter: blur( 12px );
+-webkit-backdrop-filter: blur( 42px );">
             <!-- Header Top -->
             <div class="header-top">
                 <div class="container">
@@ -88,16 +91,9 @@
                                 <div class="top-header-right">
 
                                 </div>
-                                <!-- Top Left Side -->
-                                <!-- Logo-->
-                                <!-- <div class="logo">
-                                    <a href="{{config('app.url')}}/{{App::getLocale()}}">
-                                        <img src="{{ asset('images/logo/logo.png')}}" alt="logo" class="changeLogo" style="height:100px">
-                                    </a>
-                                </div> -->
 
-                                <div class="logo_area">
-                                    <img src="{{ asset('images/logo/logo.png')}}" alt="logo" class="changeLogo">
+                                <div class="logo_area" style="background:url('{{asset('images/logo-bg.png')}}') no-repeat center -43px;">
+                                    <img src="{{ asset('images/logo/logo.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogo">
                                 </div>
 
                                 <div class="header-right-three pl-15 d-none d-lg-flex">
@@ -106,11 +102,11 @@
                                         <i class="ri-global-line"></i>
 
                                         @if(App::getLocale()=='tr')
-                                        <a style="color:red" href="{{config('app.url')}}/en">
+                                        <a href="{{config('app.url')}}/en">
                                             <p class="pera">English</p>
                                         </a>
                                         @elseif(App::getLocale()=='en')
-                                        <a style="color:red" href="{{config('app.url')}}/tr">
+                                        <a href="{{config('app.url')}}/tr">
                                             <p class="pera">Türkçe</p>
                                         </a>
                                         @endif
@@ -125,7 +121,7 @@
                                         @endphp
 
                                         @if(isset($weatherimgpath))
-                                        <span class="fw-bold">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
+                                        <span class="fw-bold text-black">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
                                         @endif
                                     </div>
 

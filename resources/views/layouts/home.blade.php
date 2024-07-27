@@ -6,7 +6,7 @@
 
 @section('content')
 <!-- Hero area S t a r t-->
-<section class="hero-padding-for-three video-overlay position-relative" style="min-height: 650px; padding-top: 270px;">
+<section class="hero-padding-for-three video-overlay position-relative" style="min-height: 750px; padding-top: 270px;">
 
     @foreach ($sliders as $slider)
     <!-- Video -->
