@@ -1,14 +1,16 @@
 <!-- Footer S t a r t -->
 <footer>
     @if($settings['whatsapp'])
-    <a style="position: fixed; bottom: 120px; right: 30px; z-index: 9999;" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}" target="_blank">
-        <img title="Whatsapp" src="{{asset('images/whatsapp.png')}}" width="38" alt="Göreme Belediyesi Whatsapp">
+    <a class="button-30" style="position: fixed; bottom: 120px; right: 30px; z-index: 9999;" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}" target="_blank">
+        <i class="ri-whatsapp-line fs-4"></i> Whatsapp
     </a>
+
+
     @endif
 
     @if($settings['e-posta'])
-    <a class="bg-white rounded-circle d-flex justify-content-center align-items-center" style="position: fixed; bottom: 160px; right: 30px; z-index: 9999; width:38px; height: 38px;" href="mailto:{{$settings['e-posta']}}" target="_blank">
-        <i class="ri-mail-line fs-4"></i>
+    <a class="button-30" style="position: fixed; bottom: 180px; right: 30px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
+        <i class="ri-mail-line fs-4"></i> E-Posta
     </a>
     @endif
 
