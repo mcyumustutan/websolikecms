@@ -39,23 +39,7 @@
 
             <div class="col-lg-3">
 
-                @php
-                if($wheather['icon']){
-                $weatherimgpath = 'images/weather/'.$wheather['icon'] .'.svg';
-                }
-                @endphp
 
-                @if(isset($weatherimgpath))
-                <div class="d-flex justify-content-center align-items-center px-2 rounded fs-2 mb-4" style="background: rgba(32, 198, 239, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgb(255 255 255 / 30%);">
-                    <span class="fw-bold text-black">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
-                    <p class="text-capitalize fs-4">{{$wheather['summary']}}</p>
-                </div>
-                @endif
                 <div class="profile-card-2">
                     <img src="{{asset('images/baskan2-4x5.jpg')}}" class="img img-responsive rounded">
                     <div class="profile-name">Ömer Eren</div>
@@ -81,6 +65,24 @@ border: 1px solid rgb(255 255 255 / 30%);">
 
                     </div>
                 </div>
+
+                @php
+                if($wheather['icon']){
+                $weatherimgpath = 'images/weather/'.$wheather['icon'] .'.svg';
+                }
+                @endphp
+
+                @if(isset($weatherimgpath))
+                <div class="d-flex justify-content-center align-items-center px-2 rounded fs-2 mt-4" style="background: rgba(32, 198, 239, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgb(255 255 255 / 30%);">
+                    <span class="fw-bold text-black">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
+                    <p><span class="text-capitalize fs-5">{{$wheather['summary']}}</span></p>
+                </div>
+                @endif
             </div>
 
         </div>
