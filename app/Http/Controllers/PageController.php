@@ -154,15 +154,15 @@ class PageController extends Controller
                 TemplateType::Bid->value
             ])->orderBy('display_date', 'desc')->take(6)->get(),
 
-            'activityBoxes' => Page::where('is_publish', true)->whereIn('template_type', [
-                TemplateType::Page->value
-            ])->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
+            'activityBoxes' => Page::where('is_publish', true)
+                ->whereIn('template_type', [TemplateType::Page->value])
+                ->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
 
             'comingEvents' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Event->value
             ])
-            // ->where('display_date', '>=', Carbon::today())
-            ->take(6)->get(),
+                // ->where('display_date', '>=', Carbon::today())
+                ->take(6)->get(),
 
             'stories' => Page::where('is_publish', true)
                 ->whereNull('parent_id')
@@ -184,7 +184,7 @@ class PageController extends Controller
                 }),
         ];
 
-        // return response()->json($projectsArray['comingEvents']);
+        // return response()->json(count($projectsArray['activityBoxes']));
 
         return view('layouts.home', compact(
             'settings',
@@ -310,7 +310,7 @@ class PageController extends Controller
         if (!view()->exists($view)) {
             return 'page.page';
         }
-        if (env('APP_DEBUG')) echo '<div class="position-absolute top-0 start-0" style="z-index: 999;">'.($view)."</div>";
+        if (env('APP_DEBUG')) echo '<div class="position-absolute top-0 start-0" style="z-index: 999;">' . ($view) . "</div>";
         return $view;
     }
 }

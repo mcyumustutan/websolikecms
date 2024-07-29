@@ -133,7 +133,7 @@
                                     <div class="swiper-wrapper">
                                         @foreach ($projectsArray['comingEvents'] as $duyuru)
                                         <div class="swiper-slide">
-                                            <div class="event w-100  h-100">
+                                            <div class="event w-100  h-100" style="background-color: white;">
                                                 <a href="{{$duyuru['fullUrl']}}" title="{{$duyuru['title']}}">
                                                     <div class="photo rounded" style="width: 300px; height: 300px; overflow: hidden;">
                                                         <img width="300" height="400" class="rounded" src="{{$duyuru['cover']}}" alt="{{$duyuru['title']}}">
@@ -163,13 +163,13 @@
                                                                 </div>
                                                             </div>
 
-                                                            
+
                                                             <div class="d-block">
                                                                 <div class="item">
                                                                     <label><i class="ri-map-pin-line"></i></label>
                                                                     <span>{{$duyuru['highlited_value_1']}}</span>
                                                                 </div>
-                                                            </div> 
+                                                            </div>
 
                                                         </div>
                                                     </div>

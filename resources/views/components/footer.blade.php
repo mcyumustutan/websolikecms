@@ -1,15 +1,13 @@
 <!-- Footer S t a r t -->
 <footer>
     @if($settings['sabit-telefon-numarasi'])
-    <a class="button-30" style="position: fixed; bottom: 120px; right: 10px; z-index: 9999;" href="tel:{{$settings['sabit-telefon-numarasi']}}" target="_blank">
+    <a class="button-30" style="position: fixed; bottom: 120px; right: 20px; z-index: 9999;" href="tel:{{$settings['sabit-telefon-numarasi']}}" target="_blank">
         <i class="ri-whatsapp-line fs-4"></i>
     </a>
-
-
     @endif
 
     @if($settings['e-posta'])
-    <a class="button-29" style="position: fixed; bottom: 180px; right: 10px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
+    <a class="button-29" style="position: fixed; bottom: 180px; right: 20px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
         <i class="ri-mail-line fs-4"></i>
     </a>
     @endif
@@ -168,9 +166,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="d-flex justify-content-end gap-14 flex-wrap">
+                        <div class="d-flex justify-content-center gap-14 flex-wrap">
 
-                            <p class="pera text-white"><a class="text-white" href="https://websolike.com">@Websolike</a> tarafından Göreme Belediyesine özel olarak yaptırılmıştır.</p>
+                            <p class="pera text-white fw-light text-muted" style="font-size: 12px;">
+                                <a class="text-white" href="https://websolike.com">@Websolike</a>
+                                tarafından Göreme Belediyesine özel olarak yaptırılmıştır. &copy; {{date('Y')}} Tüm hakları Göreme Belediyesi’nde Saklıdır.
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@
   --menu-font: "Jost", sans-serif;
   --special-font: "Montserrat", sans-serif;
   --special-font-2: "Oooh Baby", sans-serif;
-  --title-font: "Montserrat", sans-serif;
+  --title-font: "Oooh Baby", sans-serif;
   /* --title-font: "Bebas Neue", sans-serif; */
   /* --title-font: "Roboto", sans-serif; */
   --title-font-size: 32px;
@@ -26522,7 +26522,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .feature-area-bg {
-  margin-top: 28px;
+  /* margin-top: 28px; */
   padding-top: 100px;
   padding-bottom: 100px;
   background-color: var(--primary-soft-color);
@@ -31492,7 +31492,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  /* background: #fff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31961,23 +31961,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
   width: 100%;
   height: 600px;
 }
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 
 .profile-card-2 {
   background-color: #FFF;
