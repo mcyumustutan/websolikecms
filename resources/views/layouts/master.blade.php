@@ -89,7 +89,9 @@ backdrop-filter: blur( 12px );
                         <div class="col-lg-12">
                             <div class="top-menu-wrapper d-flex align-items-center justify-content-between">
                                 <div class="top-header-right">
-
+                                    <a href="https://whc.unesco.org/en/list/357" target="_blank">
+                                        <img src="{{ asset('images/unesco.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                    </a>
                                 </div>
 
                                 <div class="logo_area" style="background:url('{{asset('images/logo-bg.png')}}') no-repeat center -43px;">

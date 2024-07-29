@@ -1,8 +1,8 @@
 <!-- Footer S t a r t -->
 <footer>
-    @if($settings['whatsapp'])
-    <a class="button-30" style="position: fixed; bottom: 120px; right: 10px; z-index: 9999;" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}" target="_blank">
-        <i class="ri-whatsapp-line fs-4"></i> Whatsapp
+    @if($settings['sabit-telefon-numarasi'])
+    <a class="button-30" style="position: fixed; bottom: 120px; right: 10px; z-index: 9999;" href="tel:{{$settings['sabit-telefon-numarasi']}}" target="_blank">
+        <i class="ri-whatsapp-line fs-4"></i>
     </a>
 
 
@@ -10,7 +10,7 @@
 
     @if($settings['e-posta'])
     <a class="button-29" style="position: fixed; bottom: 180px; right: 10px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
-        <i class="ri-mail-line fs-4"></i> E-Posta
+        <i class="ri-mail-line fs-4"></i>
     </a>
     @endif
 
