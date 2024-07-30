@@ -20,7 +20,7 @@
                         <div class="col mb-4">
                             <article class="news-card-two wow fadeInUp bg-white" data-wow-delay="0.0s" style="border:none">
                                 <figure class="news-banner-two imgEffect">
-                                    <a href="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}"><img src="{{$exp->box}}" alt="travello"></a>
+                                    <a href="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}"><img src="{{$exp->box}}" alt="{{$exp['title']}}"></a>
                                 </figure>
                                 <div class="card-body">
                                     <small class="card-meta mb-4">

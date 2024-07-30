@@ -169,7 +169,7 @@
                         <div class="d-flex justify-content-center gap-14 flex-wrap">
 
                             <p class="pera text-white fw-light text-muted" style="font-size: 12px;">
-                                <a class="text-white" href="https://websolike.com">@Websolike</a>
+                                <a class="text-white" href="https://websolike.com" target="_blank">@Websolike</a>
                                 tarafından Göreme Belediyesine özel olarak yaptırılmıştır. &copy; {{date('Y')}} Tüm hakları Göreme Belediyesi’nde Saklıdır.
                             </p>
                         </div>

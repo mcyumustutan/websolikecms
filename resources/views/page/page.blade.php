@@ -7,7 +7,7 @@
 
 @include('components.breadcrumb')
 
-<section class="page-details-section" >
+<section class="page-details-section">
     <div class="container">
         <div class="row g-4">
             @php
@@ -19,10 +19,8 @@
 
 
                 @if(!is_null($page->banner))
-                <div class="news-details-banner imgEffect mt-50">
-                    <div class="w-25">
-                        <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid">
-                    </div>
+                <div class="mt-50">
+                    <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid">
                 </div>
                 @endif
 

@@ -95,7 +95,9 @@ backdrop-filter: blur( 12px );
                                 </div>
 
                                 <div class="logo_area" style="background:url('{{asset('images/logo-bg.png')}}') no-repeat center -43px;">
-                                    <img src="{{ asset('images/logo/logo.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogo">
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}" title="{{ $settings['site-basligi'] }}">
+                                        <img src="{{ asset('images/logo/logo.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogo" title="{{ $settings['site-basligi'] }}">
+                                    </a>
                                 </div>
 
                                 <div class="header-right-three pl-15 d-none d-lg-flex">

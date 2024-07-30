@@ -18,10 +18,8 @@
             @endphp
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 @if(!is_null($page->cover))
-                <div class="news-details-banner imgEffect mt-50">
-                    <div class="w-50">
-                        <img src="{{$page->cover}}" alt="{{$page->title}}" title="{{$page->title}}" width="500">
-                    </div>
+                <div class="mt-50">
+                    <img src="{{$page->cover}}" alt="{{$page->title}}" title="{{$page->title}}">
                 </div>
                 @endif
                 <div class="news-details-content">

@@ -7,7 +7,7 @@
 
                 <!-- announcements -->
                 <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="box shadow" id="box-events">
+                    <div class="box">
                         <div class="box-header">
                             <h2 class="box-title">{{__('websolike.Güncel Duyurular')}}</h2>
                             <div class="controls">
@@ -17,16 +17,16 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <ul class="feature-points">
+                            <ul>
 
                                 @foreach ($projectsArray['announcements'] as $duyuru)
 
-                                <li class="feature-point w-full">
+                                <li class="w-full">
                                     <a href="{{$duyuru['fullUrl']}}" class=" w-100">
                                         <div class="announcement-item w-100">
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
-                                                <p>{{$duyuru['title']}}</p>
+                                                <p>{{$duyuru['short_content']}}</p>
                                                 <small>{{$duyuru['display_date']}}</small>
                                             </div>
                                         </div>
@@ -42,7 +42,7 @@
 
                 <!-- bids -->
                 <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="box shadow" id="box-events">
+                    <div class="box">
                         <div class="box-header">
                             <h2 class="box-title">{{__('websolike.İhale Duyuruları')}}</h2>
                             <div class="controls">
@@ -77,7 +77,7 @@
 
                 <!-- deaths -->
                 <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="box shadow" id="box-events">
+                    <div class="box">
                         <div class="box-header">
                             <h2 class="box-title">{{__('websolike.Vefat Haberleri')}}</h2>
                             <div class="controls">
@@ -113,7 +113,7 @@
 
                 <!-- comingEvents -->
                 <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="box shadow" id="box-events">
+                    <div class="box">
                         <div class="box-header">
                             <h2 class="box-title">{{__('websolike.Yaklaşan Etkinlikler')}}</h2>
                             <div class="controls">

@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Config;
@@ -15,6 +14,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 
 class Page extends Model implements HasMedia
 {
@@ -106,6 +106,12 @@ class Page extends Model implements HasMedia
 
         'widget'
     ];
+
+
+    public function getShortContentAttribute()
+    {
+        return Str::limit($this->title, 65, '...');
+    }
 
     public function parentPage(): HasOne
     {

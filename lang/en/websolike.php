@@ -15,7 +15,7 @@ return [
     'Diğer Haberler' => 'Other News',
     'Yaklaşan Etkinlikler' => 'Upcoming Events',
     'Vefat Haberleri' => 'Death News',
-    'İhale Duyurular' => 'Tender Announcements',
+    'İhale Duyuruları' => 'Tender Announcements',
     'Haber ve Duyurular' => 'News and Announcements',
     'Haberler' => 'News',
     'Güncel Duyurular' => 'Current Announcements',

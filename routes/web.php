@@ -16,9 +16,15 @@ Route::get('/linkstorage', function () {
 });
 
 
+Route::get('/2/{lang?}', [PageController::class, 'index2'])
+    ->name('page.index2')
+    ->middleware(SetLocale::class);
+
+
 Route::get('/{lang?}', [PageController::class, 'index'])
     ->name('page.index')
     ->middleware(SetLocale::class);
+
 
 Route::get('/test', function () {
 
