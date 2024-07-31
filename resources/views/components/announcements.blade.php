@@ -65,24 +65,12 @@
 
                     </div>
                 </div>
-
-                @php
-                if($wheather['icon']){
-                $weatherimgpath = 'images/weather/'.$wheather['icon'] .'.svg';
-                }
-                @endphp
-
-                @if(isset($weatherimgpath))
-                <div class="d-flex justify-content-center align-items-center px-2 rounded fs-2 mt-4" style="background: rgba(32, 198, 239, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgb(255 255 255 / 30%);">
-                    <span class="fw-bold text-black">{{$wheather['temp']}} &deg;C</span> <img src="{{asset($weatherimgpath)}}" />
-                    <p><span class="text-capitalize fs-5">{{$wheather['summary']}}</span></p>
-                </div>
-                @endif
+                <a class="btn-primary-icon-sm mt-10" href="{{config('app.url')}}/tr/kurumsal/mesaj">
+                    Başkandan Mesaj <i class="ri-arrow-right-up-line"></i>
+                </a>
+                <a class="btn-primary-icon-sm mt-10" href="{{config('app.url')}}/tr/kurumsal/fotograf">
+                    Fotoğraf Galerisi <i class="ri-arrow-right-up-line"></i>
+                </a>
             </div>
 
         </div>

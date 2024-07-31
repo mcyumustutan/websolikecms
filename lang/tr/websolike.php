@@ -19,5 +19,6 @@ return [
     'Haber ve Duyurular' => 'Haber ve Duyurular',
     'Haberler' => 'Haberler',
     'Güncel Duyurular' => 'Güncel Duyurular',
+    'Göremeyi Keşfet' => "Göreme'yi Keşfedin",
 
 ];

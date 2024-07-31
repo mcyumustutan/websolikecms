@@ -1,10 +1,10 @@
- <section class=" feature-area-bg section-padding2">
+ <section class="section-padding2">
      <div class="container">
          <div class="row justify-content-center position-relative z-10">
              <div class="col-xl-7 col-lg-7">
                  <div class="section-title mx-430 mx-auto text-center">
                      <h4 class="title">
-                         Kültürel Miraslar
+                         {{__('websolike.Göremeyi Keşfet')}}
                      </h4>
                  </div>
              </div>
@@ -15,39 +15,26 @@
 
                      @foreach ($explore as $exp)
                      <div class="swiper-slide">
-                         <div class="col ">
-                             <a href="{{$exp['fullUrl']}}" class="destination-banner">
-                                 <img src="{{$exp['cover']}}" alt="{{$exp['title']}}">
-                                 <div class="destination-content">
+                        <div class="col mb-4">
+                            <article class="news-card-two wow fadeInUp bg-white" data-wow-delay="0.0s" style="border:none">
+                                <figure class="news-banner-two imgEffect">
+                                    <a href="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}"><img src="{{$exp->cover}}" alt="{{$exp['title']}}"></a>
+                                </figure>
+                                <div class="card-body">
+                                    <small class="card-meta mb-4">
+                                        <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['title']}}</a>
+                                    </small>
 
-                                     @if($exp['highlited_value_2'])
-                                     <div class="ratting-badge">
-                                         <i class="ri-star-s-fill"></i>
-                                         <span>{{$exp['highlited_value_2']}}</span>
-                                     </div>
-                                     @endif
+                                    @if($exp['meta_description'])
+                                    <h4 class="card-title mt-4">
+                                        <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['meta_description']}}</a>
+                                    </h4>
+                                    @endif
 
-                                     <div class="destination-info">
-                                         <div class="destination-name">
-                                             <p class="pera">{{$exp['title']}}</p>
-
-                                             @if($exp['highlited_value_1'])
-                                             <div class="location">
-                                                 <i class="ri-map-pin-line"></i>
-                                                 <p class="name">{{$exp['highlited_value_1']}}</p>
-                                             </div>
-                                             @endif
-                                         </div>
-                                         <div class="button-section">
-                                             <div class="arrow-btn">
-                                                 <i class="ri-arrow-right-line"></i>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </a>
-                         </div>
-                     </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                      @endforeach
 
 

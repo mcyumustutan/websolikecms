@@ -19,5 +19,6 @@ return [
     'Haber ve Duyurular' => 'News and Announcements',
     'Haberler' => 'News',
     'Güncel Duyurular' => 'Current Announcements',
+    'Göremeyi Keşfet' => "Explore The Göreme",
 
 ];
