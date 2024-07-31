@@ -1,5 +1,4 @@
-<!-- Pricing S t a r t -->
-<section class="pricing-area bottom-padding section-bg-before-two">
+<section class="bottom-padding section-bg-before-two mt-40">
     <div class="container">
 
         <div class="position-relative">
@@ -196,5 +195,4 @@
             </div>
         </div>
     </div>
-</section>
-<!--/ End of Pricing -->
+</section> 
