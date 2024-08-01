@@ -19239,7 +19239,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 0px 22px 0 rgba(255, 255, 255, 0.37);
   backdrop-filter: blur(22px);
-  
+
 }
 
 .header-area-three .main-menu .listing .single-list:hover>.single::after {
@@ -20406,7 +20406,11 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .hero-caption-three {
-  /* max-width: 580px; */
+  max-width: max-content;
+  background: #00000036;
+  padding: 20px;
+  border-right: 5px solid #ffc041;
+  opacity: 0.4;
 }
 
 .hero-caption-three .title {
@@ -26541,10 +26545,10 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .feature-area-bg::before {
   position: absolute;
   content: "";
-  background-image: url("../images/goreme-siluet.png");
+  background-image: url("../images/new-goreme-bg.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  opacity: 0.25;
+  opacity: 1;
   width: 100%;
   height: 100%;
   left: 0;

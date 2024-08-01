@@ -6,7 +6,7 @@
 
 @section('content')
 
-<section class="hero-padding-for-three video-overlay position-relative" style="min-height: 940px; padding-top: 270px;">
+<section class="hero-padding-for-three video-overlay position-relative d-flex justify-content-center align-items-center" style="min-height: 940px; padding-top: 270px;">
 
     @foreach ($sliders as $slider)
     <!-- Video -->
@@ -16,14 +16,16 @@
 
         </video>
     </div>
-    <div class="container">
-        <div class="row align-items-center justify-content-between g-4 position-absolute bottom-50 end-50">
-            <div class="col-xl-12 d-flex align-items-center justify-content-center">
-                <div class="hero-caption-three position-relative z-3">
-                    <h4 class="title wow fadeInUp rounded" data-wow-delay="0.0s" style="background: #00000036;padding: 20px;border-right: 23px solid #ffc041;opacity: 0.4;">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="row ">
+            <div class="col-xl-12">
+                <div class="hero-caption-three  ">
+                    <h4 class="title wow fadeInUp rounded" data-wow-delay="0.0s">
                         {{$slider['title']}}...
                     </h4>
+                    @if($slider['info'])
                     <p class="pera wow fadeInUp" data-wow-delay="0.1s"> {{$slider['info']}}</p>
+                    @endif
                 </div>
 
             </div>
