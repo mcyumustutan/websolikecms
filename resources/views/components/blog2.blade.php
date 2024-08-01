@@ -1,15 +1,15 @@
-<section class="section-padding2 bg-goreme">
+<section class="section-padding2">
     <div class="container">
 
-
-        <div class="row">
-            <div class="col-lg-12 mb-8 mt-20">
-                <div class="border-section-title">
-                    <h4 class="title">Yapılacak Aktiviteler</h4>
+        <div class="row justify-content-center position-relative z-10">
+            <div class="col-xl-7 col-lg-7">
+                <div class="section-title mx-auto text-center">
+                    <h4 class="title">
+                        {{__('websolike.Aktiviteler')}}
+                    </h4>
                 </div>
             </div>
         </div>
-
 
         <div class="row">
             <div class="swiper favSwiper-active">
