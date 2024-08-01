@@ -44,7 +44,7 @@
                     <img src="{{asset('images/baskan2-4x5.jpg')}}" class="img img-responsive rounded">
                     <div class="profile-name">
                         Ömer Eren
-                        <p>Göreme Belediye Başkan</p>
+                        <p>T.C. Göreme Belediye Başkan</p>
                     </div>
                      
                     <div class="profile-icons">

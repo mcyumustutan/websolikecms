@@ -1,4 +1,4 @@
- <section class="feature-area-bg section-padding2">
+ <section class="goreme-bg-blog section-padding2 position-relative">
      <div class="container">
          <div class="row justify-content-center position-relative z-10">
              <div class="col-xl-7 col-lg-7">
