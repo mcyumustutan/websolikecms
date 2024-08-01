@@ -90,7 +90,7 @@ class PageController extends Controller
         $wheatherBody = ['current'];
         $wheatherBody = ['icon'];
         // Cache::forget($cacheKey);
-        $this->wheather = Cache::remember($cacheKey, 3600, function () use ($wheatherBody) {
+        $this->wheather = Cache::remember($cacheKey, 7200, function () use ($wheatherBody) {
             try {
                 $wheather = Http::get("https://forecast7.com/tr/38d6434d83/goreme/?format=json")->body();
                 $wheatherBody = collect(json_decode($wheather, true));

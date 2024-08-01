@@ -17,10 +17,10 @@
         </video>
     </div>
     <div class="container">
-        <div class="row align-items-center justify-content-between g-4 position-absolute top-50 end-50">
+        <div class="row align-items-center justify-content-between g-4 position-absolute bottom-50 end-50">
             <div class="col-xl-12 d-flex align-items-center justify-content-center">
                 <div class="hero-caption-three position-relative z-3">
-                    <h4 class="title wow fadeInUp" data-wow-delay="0.0s">
+                    <h4 class="title wow fadeInUp rounded" data-wow-delay="0.0s" style="background: #00000036;padding: 20px;border-right: 23px solid #ffc041;opacity: 0.4;">
                         {{$slider['title']}}...
                     </h4>
                     <p class="pera wow fadeInUp" data-wow-delay="0.1s"> {{$slider['info']}}</p>
