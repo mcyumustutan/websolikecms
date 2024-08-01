@@ -77,6 +77,6 @@
 
     </div>
     <div class="shape-one d-none d-lg-block">
-        <img src="{{asset('images/ai/_2f52f284-6985-4518-aabc-70a659ec2b3f.jpeg')}}" alt="{{ $settings['site-basligi'] }}" width="450">
+        <img src="{{asset('images/icon/bg-shape.png')}}" alt="{{ $settings['site-basligi'] }}" width="450">
     </div>
 </section>
