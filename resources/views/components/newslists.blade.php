@@ -1,4 +1,4 @@
-<section class="bottom-padding section-bg-before-two mt-40 about-area bottom-padding1 position-relative">
+<section class="  about-area  bottom-padding1 position-relative">
     <div class="container">
 
         <div class="position-relative">
@@ -195,7 +195,10 @@
             </div>
         </div>
     </div>
+    <div class="shape-bg">
+        <img src="{{asset('images/icon/bg-shape-2.png')}}" alt="travello">
+    </div>
     <div class="shape-bg-about">
-        <img src="{{asset('images/icon/bg-shape-2.png')}}" alt="{{ $settings['site-basligi'] }}">
+        <img src="{{asset('images/icon/bg-shape.png')}}" alt="{{ $settings['site-basligi'] }}">
     </div>
 </section>

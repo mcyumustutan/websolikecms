@@ -1,4 +1,4 @@
-<section class="hero-padding-two" style="min-height: 940px;">
+<section class="hero-padding-two goreme-siluet-bg"  >
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-4">
@@ -76,7 +76,6 @@
         </div>
 
     </div>
-    <div class="shape-one d-none d-lg-block">
-        <img src="{{asset('images/icon/bg-shape.png')}}" alt="{{ $settings['site-basligi'] }}" width="450">
-    </div>
+ 
+ 
 </section>

@@ -20165,6 +20165,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   position: absolute;
   bottom: 20px;
   right: 0px;
+  z-index: -1;
 }
 
 .shape-two img {
@@ -20220,7 +20221,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
 .hero-padding-two {
   position: relative;
-  padding: 98px 0px 120px 0px;
+  padding: 98px 0px 90px 0px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -26685,8 +26686,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
     :: About
 -----------------------------------------------*/
 .about-area {
-  padding-top: 100px;
-  padding-bottom: 110px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 @media (max-width: 991px) {
@@ -31989,6 +31990,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border-radius: var(--bs-border-radius) !important;
   height: auto;
   max-height: 500px;
+  z-index: 99;
 }
 
 .profile-card-2 img {
@@ -32153,4 +32155,33 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .button-30:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
+}
+
+
+.goreme-siluet-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  opacity: .2;
+  background-image: url("../images/goreme-siluet.png");
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.goreme-bg-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  opacity: .7;
+  background-image: url("../images/goreme-bg-2.jpg");
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: top;
 }

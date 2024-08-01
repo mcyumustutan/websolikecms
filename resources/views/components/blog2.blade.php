@@ -1,4 +1,4 @@
-<section class="section-padding2">
+<section class="section-padding2 goreme-bg-2">
     <div class="container">
 
         <div class="row justify-content-center position-relative z-10">
