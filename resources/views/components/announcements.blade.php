@@ -42,12 +42,11 @@
 
                 <div class="profile-card-2">
                     <img src="{{asset('images/baskan2-4x5.jpg')}}" class="img img-responsive rounded">
-                    <div class="profile-name">Ömer Eren</div>
-                    <div class="profile-button">
-                        <a class="btn-primary-icon-sm radius-20" href="{{config('app.url')}}/tr/kurumsal/baskan">
-                            Özgeçiş <i class="ri-arrow-right-up-line"></i>
-                        </a>
+                    <div class="profile-name">
+                        Ömer Eren
+                        <p>Göreme Belediye Başkan</p>
                     </div>
+                     
                     <div class="profile-icons">
                         <a target="_blank" href="https://www.instagram.com/baskanomereren/">
                             <i class="ri-instagram-line fs-4"></i>
@@ -65,12 +64,12 @@
 
                     </div>
                 </div>
+                <a class="btn-primary-icon-sm mt-10" href="{{config('app.url')}}/tr/kurumsal/baskan">
+                    Özgeçmiş <i class="ri-arrow-right-up-line"></i>
+                </a> 
                 <a class="btn-primary-icon-sm mt-10" href="{{config('app.url')}}/tr/kurumsal/mesaj">
                     Başkandan Mesaj <i class="ri-arrow-right-up-line"></i>
-                </a>
-                <a class="btn-primary-icon-sm mt-10" href="{{config('app.url')}}/tr/kurumsal/fotograf">
-                    Fotoğraf Galerisi <i class="ri-arrow-right-up-line"></i>
-                </a>
+                </a> 
             </div>
 
         </div>
