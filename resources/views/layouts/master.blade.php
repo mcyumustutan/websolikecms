@@ -92,6 +92,9 @@ backdrop-filter: blur( 12px );
                                     <a href="https://whc.unesco.org/en/list/357" target="_blank">
                                         <img src="{{ asset('images/unesco.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
                                     </a>
+                                    <a href="https://www.tarihikentlerbirligi.org/" target="_blank">
+                                        <img src="{{ asset('images/tarihi-kentler-birligi.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                    </a>
                                 </div>
 
                                 <div class="logo_area" style="background:url('{{asset('images/logo-bg-goreme.png')}}') no-repeat center 0px;">

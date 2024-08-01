@@ -19235,7 +19235,11 @@ button.applyBtn.btn.btn-sm.btn-primary {
   color: var(--primary-color);
   -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-  background-color: var(--white);
+  /* background-color: var(--white); */
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0px 22px 0 rgba(255, 255, 255, 0.37);
+  backdrop-filter: blur(22px);
+  
 }
 
 .header-area-three .main-menu .listing .single-list:hover>.single::after {
@@ -19282,6 +19286,9 @@ button.applyBtn.btn.btn-sm.btn-primary {
   position: absolute;
   width: 260px;
   background: var(--white);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0px 22px 0 rgba(255, 255, 255, 0.37);
+  backdrop-filter: blur(12px);
   padding: 21px 0px;
   left: 0;
   right: 0;
