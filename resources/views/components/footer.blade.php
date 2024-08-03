@@ -1,13 +1,13 @@
 <!-- Footer S t a r t -->
 <footer>
     @if($settings['sabit-telefon-numarasi'])
-    <a class="" style="position: fixed; bottom: 120px; right: 20px; z-index: 9999;" href="tel:{{$settings['sabit-telefon-numarasi']}}" target="_blank">
+    <a class="" style="position: fixed; bottom: 120px; right: 26px; z-index: 9999;" href="tel:{{$settings['sabit-telefon-numarasi']}}" target="_blank">
         <img src="{{asset('images/whatsapp.png')}}" width="46px" />
     </a>
     @endif
 
     @if($settings['e-posta'])
-    <a class="" style="position: fixed; bottom: 180px; right: 20px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
+    <a class="" style="position: fixed; bottom: 180px; right: 28px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
         <img src="{{asset('images/email.png')}}" width="42px" />
     </a>
     @endif
