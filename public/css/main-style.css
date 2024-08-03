@@ -32124,7 +32124,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   z-index: -1;
   background-repeat: no-repeat;
   background-position: left bottom;
-  background-color: #ededed;
+  background-color: #f0f0f0;
 }
 
 .goreme-bg-3::before {
@@ -32138,7 +32138,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   z-index: -1;
   background-repeat: no-repeat;
   background-position: left bottom;
-  background-color: #ededed;
+  background-color: #f0f0f0;
   transform: rotate(180deg);
 }
 
