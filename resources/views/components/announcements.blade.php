@@ -1,4 +1,4 @@
-<section class="hero-padding-two goreme-siluet-bg">
+<section class="hero-padding-two goreme-bg-3">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-4">

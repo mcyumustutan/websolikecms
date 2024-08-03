@@ -37,7 +37,7 @@
   /* --goreme-color: rgb(194, 78, 46); */
   --goreme-color: #244979;
   --goreme-color-blue: rgb(46, 148, 194);
-  --white: #FFFFFF;
+  --white: #ededed;
   --light: #d8dbe0;
   --dark: #28292c;
   --info: #0dcaf0;
@@ -14747,7 +14747,7 @@ object {
 
 .section-title .title {
   font-family: var(--title-font);
-  font-size: 62px;
+  font-size: var(--title-font-size);
   font-weight: 300;
   color: var(--primary-title);
   text-transform: capitalize;
@@ -22280,6 +22280,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   padding-left: 15px;
   padding-right: 16px;
   padding-bottom: 16px;
+  background: white;
 }
 
 .package-content .area-name {
@@ -32126,6 +32127,21 @@ button.applyBtn.btn.btn-sm.btn-primary {
   background-color: #ededed;
 }
 
+.goreme-bg-3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background-image: url("../images/bg-shape-goreme-2.jpg");
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-color: #ededed;
+  transform: rotate(180deg);
+}
+
 .goreme-bg-blog::before {
   content: "";
   position: absolute;
@@ -32183,6 +32199,11 @@ button.applyBtn.btn.btn-sm.btn-primary {
   transition: 1s all ease;
   width: auto;
   height: 150px;
+}
+
+.sticky-bar .header-area-three .main-menu .listing .single-list .single {
+  font-size: 12px !important;
+  padding: 10px 10px;
 }
 
 @media only screen and (min-width: 200px) and (max-width: 767px) {

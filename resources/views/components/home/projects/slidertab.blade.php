@@ -1,10 +1,10 @@
-<section class="package-area  section-padding2" style="background:white">
+<section class="package-area  section-padding2 position-relative  goreme-bg-2">
     <div class="container">
 
         <div class="row">
             <div class="col-lg-12 mb-4">
                 <div class="border-section-title">
-                    <h4 class="title" style="background:white"> {{ __('websolike.Göreme Projeleri')}}</h4>
+                    <h4 class="title"> {{ __('websolike.Göreme Projeleri')}}</h4>
                 </div>
             </div>
         </div>

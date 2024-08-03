@@ -29,7 +29,7 @@
     <meta name="twitter:card" content="{{$settings['site-aciklamasi']}}">
 </head>
 
-<body>
+<body class="goreme-bg-2">
     <header class="header-area-three position-relative" style="z-index: 9;">
         <div class="main-header position-absolute top-0 start-0 end-0 header-bg-style">
             <!-- Header Top -->
@@ -40,16 +40,16 @@
                             <div class="top-menu-wrapper d-flex align-items-center justify-content-between">
                                 <div class="top-header-right">
                                     <a href="https://whc.unesco.org/en/list/357" target="_blank">
-                                        <img src="{{ asset('images/header-logos/png/unesco.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                        <img src="{{ asset('images/header-logos/png/unesco.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50" title="Unesco">
                                     </a>
                                     <a href="http://www.nevsehir.gov.tr/" target="_blank">
-                                        <img src="{{ asset('images/header-logos/png/goreme.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                        <img src="{{ asset('images/header-logos/png/goreme.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50" title="T.C. Nevşehir Valiliği">
                                     </a>
                                     <a href="https://www.tarihikentlerbirligi.org/" target="_blank">
-                                        <img src="{{ asset('images/header-logos/png/tarihi-kentler.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                        <img src="{{ asset('images/header-logos/png/tarihi-kentler.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50" title="Tarihi Kentler">
                                     </a>
-                                    <a href="https://kvmgm.ktb.gov.tr/TR-44433/goreme-milli-parki-ve-kapadokya-nevsehir.html" target="_blank">
-                                        <img src="{{ asset('images/header-logos/png/dunya-mirasi.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                    <a href="https://kvmgm.ktb.gov.tr/TR-44433/goreme-milli-parki-ve-kapadokya-nevsehir.html" target="_blank" title="Dünya Mirası">
+                                        <img src="{{ asset('images/header-logos/png/dunya-mirasi.png')}}" height="50" alt="{{$settings['site-aciklamasi']}}">
                                     </a>
                                 </div>
 
