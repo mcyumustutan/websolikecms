@@ -24118,7 +24118,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .shape-about-two {
   position: absolute;
   left: 0px;
-  bottom: -100px;
+  bottom: 0px;
   z-index: -1;
 }
 
@@ -25654,13 +25654,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border-radius: 12px;
   background: var(--available-card-bg);
   padding: 24px;
-}
-
-.shape-about-two {
-  position: absolute;
-  left: 0px;
-  bottom: -100px;
-  z-index: -1;
 }
 
 /*---------------------------------------------

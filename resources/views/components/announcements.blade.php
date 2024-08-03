@@ -1,4 +1,4 @@
-<section class="hero-padding-two">
+<section class="hero-padding mt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-4">
