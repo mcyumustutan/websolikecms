@@ -1,7 +1,5 @@
 <!-- Breadcrumbs S t a r t -->
-<section class="breadcrumbs-area breadcrumb-bg" style="
-    margin-top: 130px;
-">
+<section class="breadcrumbs-area breadcrumb-bg" style="margin-top: 140px;">
     <div class="container">
         <h1 class="title wow fadeInUp" data-wow-delay="0.0s">{{$page->title}}</h1>
         @if(Auth::check())

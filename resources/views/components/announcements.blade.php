@@ -1,4 +1,4 @@
-<section class="hero-padding-two goreme-siluet-bg"  >
+<section class="hero-padding-two goreme-siluet-bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-4">
@@ -33,6 +33,19 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
+
+                    <div thumbsSlider="" class="swiper thumb-mySwiper rounded p-1  mt-1 shadow  bg-gradient ">
+                        <div class="swiper-wrapper rounded">
+                            @foreach ($projectsArray['announcements'] as $duyuru)
+
+                            <div class="swiper-slide rounded">
+                                <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
+                            </div> 
+
+                            @endforeach
+
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -40,13 +53,13 @@
             <div class="col-lg-3">
 
 
-                <div class="profile-card-2">
+                <div class="profile-card-2 shadow">
                     <img src="{{asset('images/baskan2-4x5.jpg')}}" class="img img-responsive rounded">
                     <div class="profile-name">
                         Ömer Eren
                         <p>T.C. Göreme Belediye Başkan</p>
                     </div>
-                     
+
                     <div class="profile-icons">
                         <a target="_blank" href="https://www.instagram.com/baskanomereren/">
                             <i class="ri-instagram-line fs-4"></i>
@@ -64,17 +77,17 @@
 
                     </div>
                 </div>
-                <a class="btn-primary-icon-sm mt-10" href="{{config('app.url')}}/tr/kurumsal/baskan">
+                <a class="btn-primary-icon-sm mt-10 shadow" href="{{config('app.url')}}/tr/kurumsal/baskan">
                     Özgeçmiş <i class="ri-arrow-right-up-line"></i>
-                </a> 
-                <a class="btn-primary-icon-sm mt-10" href="{{config('app.url')}}/tr/kurumsal/mesaj">
+                </a>
+                <a class="btn-primary-icon-sm mt-10 shadow" href="{{config('app.url')}}/tr/kurumsal/mesaj">
                     Başkandan Mesaj <i class="ri-arrow-right-up-line"></i>
-                </a> 
+                </a>
             </div>
 
         </div>
 
     </div>
- 
- 
+
+
 </section>

@@ -143,6 +143,13 @@
         ]
     });
 
+    var thumbSwiper = new Swiper(".thumb-mySwiper", {
+      spaceBetween: 10,
+      slidesPerView: 10,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+
     var swiper = new Swiper(".announcement-swiper", {
         navigation: {
             nextEl: ".swiper-button-next",
@@ -154,6 +161,9 @@
         autoplay: {
             delay: 2500,
             disableOnInteraction: false
+        },
+        thumbs: {
+            swiper: thumbSwiper,
         },
         loop: true
     });

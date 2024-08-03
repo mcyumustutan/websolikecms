@@ -2,7 +2,6 @@
 <html lang="{{App::getLocale()}}" dir="lrt">
 
 <head>
-
     <meta charset="UTF-8">
     <meta logo="{{ asset('images/logo/logo.png')}}">
     <meta white-logo="{{ asset('images/logo/logo.png')}}">
@@ -11,19 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/x-icon" sizes="20x20" href="{{ asset('images/icon/favicon.png') }}">
-    <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-5.3.0.min.css') }}">
-    <!-- Fonts & icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/remixicon.css') }}">
-    <!-- Plugin -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/plugin.css') }}">
-    <!-- Main CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main-style.css') }}">
-    <!-- RTL CSS::When Need RTL Uncomments File -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/rtl.css"> -->
-
-
-    <!-- Title -->
     <title>@yield('title', 'My Application')</title>
     <meta name="description" content="{{$settings['site-aciklamasi']}}">
     <meta name="keywords" content="{{$settings['anahtar-kelimeler']}}">
@@ -36,52 +26,12 @@
     <meta name="twitter:title" content="">
     <meta name="twitter:description" content="{{$settings['site-aciklamasi']}}">
     <meta name="twitter:image" content="{{ asset('images/logo/logo.png')}}">
-    <meta name="twitter:card" content="summary">
-    <style>
-        .logo_area {
-            width: 300px;
-            height: 300px;
-            position: absolute;
-            left: 50%;
-            top: 0;
-            content: "";
-            margin-left: -150px;
-            text-align: center;
-            z-index: 99;
-        }
-
-        @media only screen and (min-width: 200px) and (max-width: 767px) {
-            .slicknav_menu {
-                display: block;
-            }
-
-            .inner_main_menu {
-                display: none;
-            }
-
-            .logo_area {
-                height: auto;
-                left: 0;
-                margin-left: 0;
-                position: relative;
-                top: 0;
-                width: 130px;
-            }
-
-            .logo_area img {
-                height: auto;
-                width: 100%;
-            }
-        }
-    </style>
+    <meta name="twitter:card" content="{{$settings['site-aciklamasi']}}">
 </head>
 
 <body>
     <header class="header-area-three position-relative" style="z-index: 9;">
-        <div class="main-header position-absolute top-0 start-0 end-0" style="background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 0px 22px 0 rgba( 255, 255, 255, 0.37 );
-backdrop-filter: blur( 12px );
--webkit-backdrop-filter: blur( 42px );">
+        <div class="main-header position-absolute top-0 start-0 end-0 header-bg-style">
             <!-- Header Top -->
             <div class="header-top">
                 <div class="container">
@@ -90,18 +40,20 @@ backdrop-filter: blur( 12px );
                             <div class="top-menu-wrapper d-flex align-items-center justify-content-between">
                                 <div class="top-header-right">
                                     <a href="https://whc.unesco.org/en/list/357" target="_blank">
-                                        <img src="{{ asset('images/unesco.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                        <img src="{{ asset('images/header-logos/png/unesco.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                    </a>
+                                    <a href="http://www.nevsehir.gov.tr/" target="_blank">
+                                        <img src="{{ asset('images/header-logos/png/goreme.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
                                     </a>
                                     <a href="https://www.tarihikentlerbirligi.org/" target="_blank">
-                                        <img src="{{ asset('images/tarihi-kentler-birligi.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                        <img src="{{ asset('images/header-logos/png/tarihi-kentler.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
+                                    </a>
+                                    <a href="https://kvmgm.ktb.gov.tr/TR-44433/goreme-milli-parki-ve-kapadokya-nevsehir.html" target="_blank">
+                                        <img src="{{ asset('images/header-logos/png/dunya-mirasi.png')}}" alt="{{$settings['site-aciklamasi']}}" height="50">
                                     </a>
                                 </div>
 
-                                <div class="logo_area" style="background:url('{{asset('images/logo-bg-goreme.png')}}') no-repeat center 0px;">
-                                    <a href="{{config('app.url')}}/{{App::getLocale()}}" title="{{ $settings['site-basligi'] }}">
-                                        <img src="{{ asset('images/logo/logo.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogo" title="{{ $settings['site-basligi'] }}">
-                                    </a>
-                                </div>
+
 
                                 <div class="header-right-three pl-15 d-none d-lg-flex">
                                     <div class="lang">
@@ -168,7 +120,11 @@ backdrop-filter: blur( 12px );
                                                 </li>
                                                 @endforeach
                                             </ul>
-
+                                            <div class="logo_area">
+                                                <a href="{{config('app.url')}}/{{App::getLocale()}}" title="{{ $settings['site-basligi'] }}">
+                                                    <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogos" title="{{ $settings['site-basligi'] }}">
+                                                </a>
+                                            </div>
                                             <ul class="listing float-end" id="navigation">
 
                                                 @foreach ($mainNavigation2 as $menu)
