@@ -1,4 +1,4 @@
-<section class="package-area  section-padding2 position-relative  goreme-bg-2">
+<section class="package-area  section-padding2 position-relative  goreme-bg-3">
     <div class="container">
 
         <div class="row">

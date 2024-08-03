@@ -19530,7 +19530,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
     :: Footer
 -----------------------------------------------*/
 .footer-wrapper {
-  background: #244979;
+  background: #ffffff;
 }
 
 .footer-wrapper .footer-area {
@@ -19545,7 +19545,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .footer-wrapper .footer-area .footer-tittle .title {
-  color: var(--white);
+  color: #000000;
   font-size: 24px;
   margin-bottom: 20px;
   font-weight: 700;
