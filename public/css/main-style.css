@@ -20412,7 +20412,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
   background: #00000036;
   padding: 20px;
   border-right: 5px solid #ffc041;
-  opacity: 0.4;
+  z-index: 9;
+  position: relative;
 }
 
 .hero-caption-three .title {
@@ -22168,7 +22169,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   text-align: center;
   display: block;
   margin: 0 auto;
-  background: var(--white);
+  /* background: var(--white); */
   padding: 0 30px;
   width: -webkit-fit-content;
   width: -moz-fit-content;

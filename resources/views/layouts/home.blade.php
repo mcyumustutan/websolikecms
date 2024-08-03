@@ -11,8 +11,8 @@
     @foreach ($sliders as $slider)
     <!-- Video -->
     <div class="hero-bg-video">
-        <video class="hero-slider-video video-cover" poster="images/hero/hero-three-banner.png" loop autoplay muted>
-            <source src="{{Storage::url('public/sliders/' . $slider['img_url'])}}" type="video/mp4">
+        <video class="hero-slider-video video-cover" poster="{{Storage::url('public/sliders/' . $slider['img_url'])}}" loop autoplay muted>
+            <!-- <source src="{{Storage::url('public/sliders/' . $slider['img_url'])}}" type="video/mp4"> -->
 
         </video>
     </div>
