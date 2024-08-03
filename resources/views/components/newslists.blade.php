@@ -1,4 +1,4 @@
-<section class="  about-area  bottom-padding1 position-relative goreme-bg-2">
+<section class="  about-area  bottom-padding1 position-relative">
     <div class="container">
 
         <div class="position-relative">
@@ -194,6 +194,14 @@
 
             </div>
         </div>
+    </div>
+
+    <div class="shape-about-two">
+        <img src="{{asset('images/goreme-shape.png')}}">
+    </div>
+
+    <div class="shape-bg-about">
+        <img src="{{asset('images/goreme-shape.png')}}">
     </div>
 
 </section>

@@ -1,4 +1,4 @@
- <section class="section-padding2  position-relative  goreme-bg-2">
+ <section class="section-padding2  position-relative  ">
      <div class="container">
          <div class="row justify-content-center position-relative z-10">
              <div class="col-xl-7 col-lg-7">
@@ -15,26 +15,26 @@
 
                      @foreach ($explore as $exp)
                      <div class="swiper-slide">
-                        <div class="col mb-4">
-                            <article class="news-card-two wow fadeInUp bg-white" data-wow-delay="0.0s" style="border:none">
-                                <figure class="news-banner-two imgEffect">
-                                    <a href="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}"><img src="{{$exp->cover}}" alt="{{$exp['title']}}"></a>
-                                </figure>
-                                <div class="card-body">
-                                    <small class="card-meta mb-4">
-                                        <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['title']}}</a>
-                                    </small>
+                         <div class="col mb-4">
+                             <article class="news-card-two wow fadeInUp bg-white" data-wow-delay="0.0s" style="border:none">
+                                 <figure class="news-banner-two imgEffect">
+                                     <a href="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}"><img src="{{$exp->cover}}" alt="{{$exp['title']}}"></a>
+                                 </figure>
+                                 <div class="card-body">
+                                     <small class="card-meta mb-4">
+                                         <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['title']}}</a>
+                                     </small>
 
-                                    @if($exp['meta_description'])
-                                    <h4 class="card-title mt-4">
-                                        <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['meta_description']}}</a>
-                                    </h4>
-                                    @endif
+                                     @if($exp['meta_description'])
+                                     <h4 class="card-title mt-4">
+                                         <a herf="{{config('app.url')}}/{{$exp['lang']}}/{{$exp['url']}}">{{$exp['meta_description']}}</a>
+                                     </h4>
+                                     @endif
 
-                                </div>
-                            </article>
-                        </div>
-                    </div>
+                                 </div>
+                             </article>
+                         </div>
+                     </div>
                      @endforeach
 
 
@@ -48,5 +48,13 @@
              </div>
          </div>
 
+     </div>
+
+     <div class="shape-about-two">
+         <img src="{{asset('images/goreme-shape.png')}}">
+     </div>
+
+     <div class="shape-bg-about">
+         <img src="{{asset('images/goreme-shape.png')}}">
      </div>
  </section>

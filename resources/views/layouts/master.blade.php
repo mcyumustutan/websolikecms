@@ -29,7 +29,7 @@
     <meta name="twitter:card" content="{{$settings['site-aciklamasi']}}">
 </head>
 
-<body class="goreme-bg-2">
+<body>
     <header class="header-area-three position-relative" style="z-index: 9;">
         <div class="main-header position-absolute top-0 start-0 end-0 header-bg-style">
             <!-- Header Top -->

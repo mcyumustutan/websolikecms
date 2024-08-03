@@ -1,4 +1,4 @@
-<section class="hero-padding-two goreme-bg-3">
+<section class="hero-padding-two">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-4">
@@ -40,7 +40,7 @@
 
                             <div class="swiper-slide rounded">
                                 <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
-                            </div> 
+                            </div>
 
                             @endforeach
 
@@ -54,9 +54,9 @@
 
 
                 <div class="profile-card-2 shadow">
-                    <img src="{{asset('images/baskan2-4x5.jpg')}}" class="img img-responsive rounded">
+                    <img src="{{asset('images/omer-eren.jpg')}}" class="img img-fluid rounded">
                     <div class="profile-name">
-                        Ömer Eren
+                        <b>ÖMER</b> EREN
                         <p>T.C. Göreme Belediye Başkan</p>
                     </div>
 
@@ -88,6 +88,12 @@
         </div>
 
     </div>
+    <div class="shape-about-two">
+        <img src="{{asset('images/goreme-shape.png')}}">
+    </div>
 
+    <div class="shape-bg-about">
+        <img src="{{asset('images/goreme-shape.png')}}">
+    </div>
 
 </section>
