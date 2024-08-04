@@ -21,5 +21,6 @@ return [
     'Güncel Duyurular' => 'Güncel Duyurular',
     'Göremeyi Keşfet' => "Göreme'yi Keşfedin",
     'Aktiviteler' => "Yapılacak Aktiviteler",
+    'Balon Uçuş Durumu' => "Balon Uçuş Durumu",
 
 ];

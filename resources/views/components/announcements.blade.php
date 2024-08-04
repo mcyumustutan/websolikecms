@@ -54,7 +54,7 @@
 
 
                 <div class="profile-card-2 shadow">
-                    <img src="{{asset('images/omer-eren.jpg')}}" class="img img-fluid rounded">
+                    <img src="{{asset('images/omer-eren.jpg')}}" class="img rounded">
                     <div class="profile-name">
                         <b>ÖMER</b> EREN
                         <p>T.C. Göreme Belediye Başkan</p>

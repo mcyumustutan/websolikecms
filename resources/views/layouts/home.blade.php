@@ -13,7 +13,6 @@
     <div class="hero-bg-video">
         <video class="hero-slider-video video-cover" poster="{{Storage::url('public/sliders/' . $slider['img_url'])}}" loop autoplay muted>
             <!-- <source src="{{Storage::url('public/sliders/' . $slider['img_url'])}}" type="video/mp4"> -->
-
         </video>
     </div>
     <div class="container d-flex justify-content-center align-items-center">
@@ -172,7 +171,7 @@
     const progressCircle = document.querySelector(".autoplay-progress svg");
     const progressContent = document.querySelector(".autoplay-progress span");
     var swiper = new Swiper(".mySwiper", {
-        grabCursor: true,
+        grabCursor: false,
         effect: "creative",
         loop: true,
         navigation: {

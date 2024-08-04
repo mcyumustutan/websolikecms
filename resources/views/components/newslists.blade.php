@@ -134,12 +134,12 @@
                                         <div class="swiper-slide">
                                             <div class="event w-100  h-100" style="background-color: white;">
                                                 <a href="{{$duyuru['fullUrl']}}" title="{{$duyuru['title']}}">
-                                                    <div class="photo rounded" style="width: 300px; height: 300px; overflow: hidden;">
-                                                        <img width="300" height="400" class="rounded" src="{{$duyuru['cover']}}" alt="{{$duyuru['title']}}">
+                                                    <div class="photo rounded" style="width: auto; height: 300px; overflow: hidden;">
+                                                        <img width="100%" height="400" class="rounded img-fluid" src="{{$duyuru['cover']}}" alt="{{$duyuru['title']}}">
                                                     </div>
                                                     <div class="info">
                                                         <div class="name p-2 mt-2">
-                                                            <strong>{{$duyuru['title']}} asd</strong>
+                                                            <strong>{{Str::limit($duyuru['title'],40,'...')}}</strong>
                                                             <p></p>
                                                         </div>
                                                         <div class="items w-100">

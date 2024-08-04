@@ -13,34 +13,35 @@
     @endif
 
     <div class="footer-wrapper footer-bg mt-20">
-        <div class="container">
-            <div class="footer-area">
-                <div class="row g-4">
+        <div class="footer-area">
+            <div class="row g-4">
 
-                    @foreach ($footernGeneralNavigation as $menu)
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="single-footer-caption">
-                            <div class="footer-tittle">
-                                <h4 class="title">{{$menu['title']}}</h4>
-                                @if($menu['sub'])
-                                <ul class="listing">
-                                    @foreach ($menu['sub'] as $submenu)
-                                    <li class="single-lsit">
-                                        <a href="{{config('app.url')}}/{{$menu['lang']}}/{{$menu['url']}}/{{$submenu['url']}}">{{$submenu['title']}}</a>
-                                    </li>
-                                    @endforeach
-                                </ul>
+                @foreach ($footernGeneralNavigation as $menu)
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="single-footer-caption">
+                        <div class="footer-tittle">
+                            <h4 class="title">{{$menu['title']}}</h4>
+                            @if($menu['sub'])
+                            <ul class="listing">
+                                @foreach ($menu['sub'] as $submenu)
+                                <li class="single-lsit">
+                                    <a href="{{config('app.url')}}/{{$menu['lang']}}/{{$menu['url']}}/{{$submenu['url']}}">{{$submenu['title']}}</a>
+                                </li>
+                                @endforeach
+                            </ul>
 
-                                @endif
-                            </div>
+                            @endif
                         </div>
                     </div>
-
-
-                    @endforeach
                 </div>
+
+
+                @endforeach
             </div>
-            <div class="footer-middle-area">
+        </div>
+        <div class="footer-middle-area">
+            <div class="container">
+
                 <div class="footer-body">
                     <div class="footer-content">
                         <div class="d-flex justify-content-between gap-50 flex-nowrap">
@@ -61,7 +62,7 @@
                                     <li class="w-100"><a>Pazar <span class="float-end">Kapalı</span></a></li>
                                 </ul>
                             </div>
- 
+
                         </div>
 
                         <div class="footer-right">
@@ -167,6 +168,16 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="shape-about-two">
+            <img src="{{asset('images/goreme-shape.png')}}">
+        </div>
+
+        <div class="shape-bg-about">
+            <img src="{{asset('images/goreme-shape.png')}}">
+        </div>
+
     </div>
 </footer>
 <!--/ End-of Footer -->

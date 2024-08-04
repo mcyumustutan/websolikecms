@@ -72,6 +72,12 @@
 
                                     </div>
 
+                                    <div class="">
+                                        <a target="_blank" href="https://shmkapadokya.kapadokya.edu.tr/" class="btn-primary-sm radius-30">
+                                            {{__('Balon Uçuş Durumu')}} <i class="ri-arrow-right-up-line"></i>
+                                        </a>
+                                    </div>
+
                                     <div class="d-flex justify-content-center align-items-center px-2 rounded">
                                         @php
                                         if($wheather['icon']){
