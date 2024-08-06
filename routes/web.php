@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SmsListController;
 use App\Http\Controllers\SolutionCenterController;
 use App\Http\Middleware\SetLocale;
 use App\Models\Page;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,4 +28,10 @@ Route::name('solutioncenter.')
     ->prefix('/solutioncenter')
     ->group(function () {
         Route::post('/send', [SolutionCenterController::class, 'send'])->name('send');
+    });
+
+Route::name('smssignup.')
+    ->prefix('/smssignup')
+    ->group(function () {
+        Route::post('/send', [SmsListController::class, 'send'])->name('send');
     });

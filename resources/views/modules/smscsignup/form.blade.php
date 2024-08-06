@@ -11,21 +11,35 @@
 
                         <div class="row g-4">
                             <div class="col-sm-6">
-                                <input name="adsoyad" class="custom-form" type="text" placeholder="Adınız ve Soyadınız">
+                                <input name="tamad" class="custom-form" type="text" placeholder="Adınız ve Soyadınız">
                             </div>
                             <div class="col-sm-6">
-                                <input name="doğumtarihi" class="custom-form" type="text" placeholder="Doğum Tarihi">
+                                <input name="dogumtarihi" class="custom-form" type="text" placeholder="Doğum Tarihi" data-mask="00.00.0000">
                             </div>
                             <div class="col-sm-6">
-                                <input name="telefon" class="custom-form" type="text" placeholder="Telefon Numaranız">
+                                <input name="telefon" class="custom-form" type="text" placeholder="Telefon Numaranız" data-mask="+90 (000) 000-0000" value="+90">
+                                <span class="help-text">Örnek +90 555 5555</span>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="kvkk" name="kvkk">
+                                    <label class="form-check-label" for="kvkk">
+                                        <a href="{{config('app.url')}}/{{App::getLocale()}}/aydinlatma-metni" target="_blank">Aydınlatma Metni</a>'ni okudum, anladım, onaylıyorum.
+                                    </label>
+                                </div>
+
                             </div>
                         </div>
+
                         <div class="mt-20">
                             <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" x-model="formData.g-recaptcha-response">
                             <button :disabled="formLoading" x-text="buttonText" class="send-btn">Kaydol</button>
 
                         </div>
                     </form>
+
+                    <div class="mt-20" id="response"></div>
                 </div>
 
 
@@ -39,6 +53,7 @@
     }
 </style>
 
+<script src="{{ asset('plugins/jQuery-Mask-Plugin-master/jquery.mask.min.js')}}"></script>
 <script>
     const SOLUTIONCENTERFORMURL = "{{Route('smssignup.send')}}";
 

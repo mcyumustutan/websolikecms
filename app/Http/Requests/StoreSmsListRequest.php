@@ -5,25 +5,17 @@ namespace App\Http\Requests;
 use App\Rules\ReCaptcha;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSolutionCenterRequest extends FormRequest
+class StoreSmsListRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     public function attributes(): array
     {
         return [
-            'ad' => 'Ad',
-            'soyad' => 'Soyad',
-            'telefon' => 'Telefon',
-            'eposta' => 'Eposta',
-            'mesaj_konusu' => 'Mesaj Konusu',
-            'mesaj' => 'Mesaj',
+            'tamad' => "Tam Ad",
+            'telefon' => "Telefon",
+            'dogumtarihi' => "Doğum Tarihi",
             'kvkk' => "Aydınlatma Metni",
             'g-recaptcha-response' => 'Robot',
         ];
@@ -37,13 +29,10 @@ class StoreSolutionCenterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ad' => "required",
-            'soyad' => "required",
+            'tamad' => "required",
             'telefon' => "required|min:10",
-            'eposta' => "required|email",
-            'mesaj_konusu' => "required",
             'kvkk' => "required",
-            'mesaj' => "required",
+            'dogumtarihi' => "required|date",
             'g-recaptcha-response' => ['required', new ReCaptcha]
         ];
     }

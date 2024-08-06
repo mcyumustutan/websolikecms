@@ -43,7 +43,7 @@
         </div>
 
         <div class="col-lg-3 col-md-6 col-sm-6">
-            <a href="destination-details.html" class="destination-banner">
+            <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="destination-banner">
                 <img src="{{asset('images/sms-ai.jpg')}}">
                 <div class="destination-content">
                     <div class="destination-info">

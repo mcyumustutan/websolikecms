@@ -5,7 +5,6 @@
             <div class="contact">
                 <h4 class="contact-heading">Çözüm Merkezi Hattı</h4>
                 <div x-data="SolutionCenterForm()">
-                    <div id="response"></div>
                     <form method="post" class="contact-form" @submit.prevent="submitForm">
                         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -17,7 +16,8 @@
                                 <input name="soyad" x-model="formData.soyad" class="custom-form" type="text" placeholder="Soy Adınız">
                             </div>
                             <div class="col-sm-6">
-                                <input name="telefon" x-model="formData.telefon" class="custom-form" type="text" placeholder="Telefon Numaranız">
+                                <input name="telefon" x-model="formData.telefon" class="custom-form" type="text" placeholder="Telefon Numaranız" data-mask="+90 (000) 000-0000" value="+90 ">
+                                <span>Örnek +90 555 5555</span>
                             </div>
                             <div class="col-sm-6">
                                 <input name="eposta" x-model="formData.eposta" class="custom-form" type="text" placeholder="E-Posta Adresiniz">
@@ -29,13 +29,26 @@
                             <div class="col-sm-12">
                                 <textarea name="mesaj" x-model="formData.mesaj" class="custom-form-textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Mesajınız..."></textarea>
                             </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="kvkk" name="kvkk">
+                                    <label class="form-check-label" for="kvkk">
+                                        <a href="{{config('app.url')}}/{{App::getLocale()}}/aydinlatma-metni" target="_blank">Aydınlatma Metni</a>'ni okudum, anladım, onaylıyorum.
+                                    </label>
+                                </div>
+
+                            </div>
                         </div>
-                        <div>
+                        <div class="mt-20">
+
                             <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" x-model="formData.g-recaptcha-response">
                             <button :disabled="formLoading" x-text="buttonText" class="send-btn">Gönder</button>
 
                         </div>
                     </form>
+
+                    <div class="mt-20" id="response"></div>
                 </div>
 
 
@@ -48,7 +61,7 @@
         visibility: hidden !important;
     }
 </style>
-
+<script src="{{ asset('plugins/jQuery-Mask-Plugin-master/jquery.mask.min.js')}}"></script>
 <script>
     const SOLUTIONCENTERFORMURL = "{{Route('solutioncenter.send')}}";
 
