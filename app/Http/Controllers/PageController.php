@@ -401,7 +401,7 @@ class PageController extends Controller
         if (!view()->exists($view)) {
             return 'page.page';
         }
-        if (env('APP_DEBUG')) echo '<div class="position-absolute top-0 start-0" style="z-index: 999;">' . ($view) . "</div>";
+        // if (env('APP_DEBUG')) echo '<div class="position-absolute top-0 start-0" style="z-index: 999;">' . ($view) . "</div>";
         return $view;
     }
 }

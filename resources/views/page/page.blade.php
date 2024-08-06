@@ -115,10 +115,11 @@
         </div>
     </div>
 </section>
-<!--/ End-of Destination -->
 
 
-
+@if(in_array('solutioncenter',$page->widgets??[]))
+form
+@endif
 
 @if($page->has_subpages)
 @include('components/pagination')

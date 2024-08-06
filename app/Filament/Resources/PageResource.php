@@ -212,6 +212,14 @@ class PageResource extends Resource
                                         '100' => 'Diğer',
                                     ]),
 
+                                Forms\Components\CheckboxList::make('widgets')
+                                    ->label("Modüller")
+                                    ->default(fn ($record) => $record->box_view ?? true)
+                                    ->options([
+                                        'solutioncenter' => 'Çözüm Merkezi Formu',
+                                        'smscsignup' => "SMS Listesi Kayıt Formu",
+                                    ]),
+
                                 Forms\Components\DateTimePicker::make('display_date')
                                     ->label('Yayın Tarihi')
                                     ->default(now())

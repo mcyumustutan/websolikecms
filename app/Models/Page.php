@@ -40,6 +40,7 @@ class Page extends Model implements HasMedia
         'is_publish' => 'boolean',
         'link_view' => 'array',
         'box_view' => 'array',
+        'widgets' => 'array',
         'template_type' => TemplateType::class,
     ];
 
@@ -104,7 +105,7 @@ class Page extends Model implements HasMedia
         'badges',
         'badges_2',
 
-        'widget'
+        'widgets'
     ];
 
 
