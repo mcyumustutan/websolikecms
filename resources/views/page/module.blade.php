@@ -39,6 +39,16 @@
                 @if(in_array('smscsignup',$page->widgets??[]))
                 @include('modules.smscsignup.form')
                 @endif
+
+
+
+                @if(in_array('vefatlist',$page->widgets??[]))
+                @include('modules.vefatlist.list')
+                @endif
+
+
+
+
             </div>
 
 

@@ -218,6 +218,7 @@ class PageResource extends Resource
                                     ->options([
                                         'solutioncenter' => 'Çözüm Merkezi Formu',
                                         'smscsignup' => "SMS Listesi Kayıt Formu",
+                                        'vefatlist' => "Vefat İlanları Listesi",
                                     ]),
 
                                 Forms\Components\DateTimePicker::make('display_date')

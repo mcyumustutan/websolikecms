@@ -6,12 +6,14 @@ use App\Enums\TemplateType;
 use App\Models\Page;
 use App\Models\Settings;
 use App\Models\Slider;
+use App\Models\Vefatlist;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use PHPUnit\Framework\Constraint\Count;
 use Symfony\Component\DomCrawler\Crawler;
 
 class PageController extends Controller
@@ -306,7 +308,16 @@ class PageController extends Controller
             ->firstOrFail();
 
 
-        // return response()->json($page['id']);
+        $modules = [];
+        if (in_array('vefatlist', $page['widgets']) > 0) {
+            // return response()->json($page['widgets']);
+            $modules['vefatlist'] = Vefatlist::orderBy('vefatTarihi', 'desc')->paginate(10)->toArray();
+        }
+
+
+
+
+
         $subPages[] = ['data' => []];
         $subPages = Page::where('parent_id', $page['id'])
             ->whereNot('id', $page['id'])
@@ -389,6 +400,7 @@ class PageController extends Controller
             [
                 'wheather' => $this->wheather,
                 'page' => $page,
+                'modules' => $modules
             ]
         );
 
