@@ -19720,7 +19720,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .footer-wrapper .footer-bottom-area {
-  padding: 30px 0px;
+  padding: 10px 0px;
 }
 
 @media (max-width: 991px) {
@@ -21141,7 +21141,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
 .offer-banner .offer-content .title {
   color: var(--white);
-  font-size: 64px;
+  font-size: 34px;
   font-weight: 700;
   margin-bottom: 20px;
   text-transform: capitalize;
@@ -32003,41 +32003,28 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .logo_area {
-  /* width: 200px;
-  height: 200px;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  content: "";
-  margin-left: -150px;
-  text-align: center;
-  z-index: 99;
-  transition: 1s all ease; */
-
   transition: 1s all ease;
   width: 200px;
   height: 200px;
   text-align: center;
-  line-height: 200px;
   position: absolute;
-  top: calc(50% - -25px);
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
+  z-index: 10;
 }
 
 
 .sticky-bar .logo_area {
-
   transition: 1s all ease;
   width: 200px;
   height: 200px;
   text-align: center;
-  line-height: 200px;
   position: absolute;
-  top: calc(50% - -43px) !important;
+  top: 0 !important;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  transform: translate(-50%, 0%);
+  z-index: 10;
 }
 
 .sticky-bar .logo_area img {

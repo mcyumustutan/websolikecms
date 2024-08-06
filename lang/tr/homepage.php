@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'AnaSayfa' => 'Ana Sayfa',
+    'AnaSayfa' => 'ANA SAYFA',
 ];

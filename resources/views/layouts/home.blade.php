@@ -6,36 +6,7 @@
 
 @section('content')
 
-<section class="hero-padding-for-three video-overlay position-relative d-flex justify-content-center align-items-center" style="min-height: 940px; padding-top: 270px;">
-
-    @foreach ($sliders as $slider)
-    <!-- Video -->
-    <div class="hero-bg-video">
-        <video class="hero-slider-video video-cover" poster="{{Storage::url('public/sliders/' . $slider['img_url'])}}" loop autoplay muted>
-            <!-- <source src="{{Storage::url('public/sliders/' . $slider['img_url'])}}" type="video/mp4"> -->
-        </video>
-    </div>
-    <div class="container d-flex justify-content-center align-items-center">
-        <div class="row ">
-            <div class="col-xl-12">
-                <div class="hero-caption-three  ">
-                    <h4 class="title wow fadeInUp rounded" data-wow-delay="0.0s">
-                        {{$slider['title']}}...
-                    </h4>
-                    @if($slider['info'])
-                    <p class="pera wow fadeInUp" data-wow-delay="0.1s"> {{$slider['info']}}</p>
-                    @endif
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    @endforeach
-
-</section>
-
-
+@include('components.hero')
 
 @include('components.stories')
 
@@ -50,14 +21,51 @@
 @include('components.blog2')
 
 
+
+<div class="container">
+    <div class="row d-flex justify-content-center mt-40 mb-40">
+
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="destination-banner">
+                <img src="{{asset('images/help-desk-ai.jpg')}}">
+                <div class="destination-content">
+                    <div class="destination-info">
+                        <div class="destination-name">
+                            <p class="pera">Çözüm Merkezi</p>
+                            <div class="location">
+                                <p class="name">Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!</p>
+                            </div>
+                            <div class="btn-primary-sm radius-30"> Çözüm Merkezine Ulaş </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="destination-details.html" class="destination-banner">
+                <img src="{{asset('images/sms-ai.jpg')}}">
+                <div class="destination-content">
+                    <div class="destination-info">
+                        <div class="destination-name">
+                            <p class="pera">SMS Listesi</p>
+                            <div class="location">
+                                <p class="name">Güncel Bilgiler, Etkinlikler ve Duyurular İçin SMS Listesine Kaydolun</p>
+                            </div>
+                            <div class="btn-primary-sm radius-30"> SMS Listesine Kaydol </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
 <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1558.0943119395045!2d34.829173!3d38.644543000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a68781e85e3ab%3A0x6ae1a0b9171a33c1!2sGoreme%20Municipality!5e0!3m2!1sen!2str!4v1720032635247!5m2!1sen!2str" height="650" style="border: 15px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
 </iframe>
-<!-- / Map -->
 
 
 <link rel="stylesheet" href="{{ asset('plugins/story/style.css')}}" />
-
-<!-- lib styles -->
 <link rel="stylesheet" href="{{ asset('plugins/story/zuck.min.css')}}" />
 <link rel="stylesheet" href="{{ asset('plugins/story/skins/snapgram.min.css')}}" />
 <script src="{{ asset('plugins/story/zuck.min.js')}}"></script>
@@ -73,6 +81,7 @@
         freeMode: true,
         watchSlidesProgress: true,
     });
+
     var swiper2 = new Swiper(".mySwiper2", {
         spaceBetween: 10,
         navigation: {
@@ -143,10 +152,10 @@
     });
 
     var thumbSwiper = new Swiper(".thumb-mySwiper", {
-      spaceBetween: 10,
-      slidesPerView: 10,
-      freeMode: true,
-      watchSlidesProgress: true,
+        spaceBetween: 10,
+        slidesPerView: 10,
+        freeMode: true,
+        watchSlidesProgress: true,
     });
 
     var swiper = new Swiper(".announcement-swiper", {
@@ -166,7 +175,6 @@
         },
         loop: true
     });
-
 
     const progressCircle = document.querySelector(".autoplay-progress svg");
     const progressContent = document.querySelector(".autoplay-progress span");
