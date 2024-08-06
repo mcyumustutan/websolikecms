@@ -1,9 +1,8 @@
 @if($modules['vefatlist'])
-<pre>
 
-@php
-print_r($modules['vefatlist']['data'])
-@endphp
+<div class="container">
+    <livewire:vefatlist-table theme="bootstrap-5" />
+</div>
 
-</pre>
+
 @endif
