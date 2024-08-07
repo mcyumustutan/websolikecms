@@ -31436,7 +31436,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
   font-weight: 800;
   background: #ffffff9c;
   border-radius: 12px;
-  padding: 10px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .card .card-subtitle {
@@ -31488,6 +31489,22 @@ button.applyBtn.btn.btn-sm.btn-primary {
   background: linear-gradient(0deg, rgba(255, 186, 33, 0.4) 0%, rgba(0, 0, 0, 0.05) 100%);
 }
 
+.card-img {
+  height: 530px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.card-link {
+  border: var(--primary-color) 1px solid;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.card-img img {
+  width: 100%;
+}
 
 .overlay {
   background-repeat: no-repeat;
