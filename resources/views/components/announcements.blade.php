@@ -56,36 +56,8 @@
 
             </div>
 
-            <div class="col-lg-3">
 
-
-                <div class="profile-card-2 shadow">
-                    <img src="{{asset('images/omer-eren.jpg')}}" class="img rounded">
-
-                    <div class="profile-icons" style="background: rgba(0,0,0,.5);">
-                        <a class=" " href="{{config('app.url')}}/tr/kurumsal/baskan">
-                            Özgeçmiş <i class="ri-arrow-right-up-line"></i>
-                        </a>
-                        <a class=" " href="{{config('app.url')}}/tr/kurumsal/mesaj">
-                            Başkandan Mesaj <i class="ri-arrow-right-up-line"></i>
-                        </a>
-                        <a target="_blank" href="https://www.instagram.com/baskanomereren/">
-                            <i class="ri-instagram-line fs-4"></i>
-                        </a>
-                        <a target="_blank" href="{{$settings['facebookcom']}}">
-                            <i class="ri-facebook-line fs-4"></i>
-                        </a>
-                        <a target="_blank" href="https://x.com/baskanomereren">
-                            <i class="ri-twitter-line fs-4"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="mayor-name">
-                    <b>ÖMER</b> EREN
-                    <p>T.C. Göreme Belediye Başkan</p>
-                </div>
-
-            </div>
+            @include('components/baskan')
 
         </div>
 

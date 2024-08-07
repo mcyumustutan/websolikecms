@@ -16,8 +16,8 @@
 
 
             <div class="col-xl-3 col-lg-3 col-sm-6 ">
-                <article class="news-card-two h-100">
-                    <figure class="news-banner-two imgEffect  d-flex justify-content-center">
+                <article class="news-card-two">
+                    <figure class="news-banner-two imgEffect  d-flex justify-content-center align-items-center" style="height: 260px;">
                         <a href="{{ $page->url }}/{{$subPage['url']}}">
                             <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}" class="img-fluid">
                         </a>
