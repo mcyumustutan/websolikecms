@@ -309,7 +309,7 @@ class PageController extends Controller
 
 
         $modules = [];
-        if (in_array('vefatlist', $page['widgets']) > 0) {
+        if (in_array('vefatlist', $page['widgets'] ?? []) > 0) {
             // return response()->json($page['widgets']);
             $modules['vefatlist'] = Vefatlist::orderBy('vefatTarihi', 'desc')->paginate(10)->toArray();
         }

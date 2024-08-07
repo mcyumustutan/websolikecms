@@ -13,118 +13,131 @@
     @endif
 
     <div class="footer-wrapper footer-bg mt-20">
-     
+
         <div class="footer-middle-area">
             <div class="container">
-
                 <div class="footer-body">
-                    <div class="footer-content">
-                        <div class="d-lg-flex d-xs-block justify-content-between gap-50">
-
-                            <div class="logo mb-4">
-                                <img src="{{ asset('images/logo/logo.png')}}" alt="Websolike" class="changeLogos">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="footer-tittle">
+                                <img src="{{ asset('images/logo/logo-goreme.png')}}" alt="Websolike" class="changeLogos">
                             </div>
 
-                            <div class="calisma-saatlari col-lg-6 float-start mb-4">
-                                <p><b>Çalışma Saatleri</b></p>
-                                <ul class="w-100 fs-6">
-                                    <li class="w-100 fs-6"><a>Pazartesi <span class="float-end">08:00 - 17:00</span></a></li>
-                                    <li class="w-100"><a>Salı <span class="float-end">08:00 - 17:00</span></a></li>
-                                    <li class="w-100"><a>Çarşamba <span class="float-end">08:00 - 17:00</span></a></li>
-                                    <li class="w-100"><a>Perşembe <span class="float-end">08:00 - 17:00</span></a></li>
-                                    <li class="w-100"><a>Cuma <span class="float-end">08:00 - 17:00</span></a></li>
-                                    <li class="w-100"><a>Cumartesi <span class="float-end">Kapalı</span></a></li>
-                                    <li class="w-100"><a>Pazar <span class="float-end">Kapalı</span></a></li>
-                                </ul>
-                            </div>
+                            <div class="d-flex justify-content-between gap-14 flex-wrap mt-5">
+                                <div class="d-flex align-items-center">
+                                    @if($settings['instagramcom'])
+                                    <a target="_blank" href="{{$settings['instagramcom']}}">
+                                        <i class="ri-instagram-line fs-4"></i>
+                                    </a>
+                                    @endif
 
-                        </div>
+                                    @if($settings['xcom'])
+                                    <a target="_blank" href="{{$settings['xcom']}}">
+                                        <i class="ri-twitter-line fs-4"></i>
+                                    </a>
+                                    @endif
 
-                        <div class="footer-right">
-
-                            <p><b>Hızlı İletişim</b></p>
-                            <ul>
-                                @if($settings['whatsapp'])
-                                <li>
+                                    @if($settings['whatsapp'])
                                     <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
-                                        <i class="ri-whatsapp-line fs-4"></i> {{$settings['whatsapp']}}
+                                        <i class="ri-whatsapp-line fs-4"></i>
                                     </a>
-                                </li>
-                                @endif
+                                    @endif
 
-                                @if($settings['sabit-telefon-numarasi'])
-                                <li>
-                                    <a target="_blank" href="tel:{{$settings['sabit-telefon-numarasi']}}">
-                                        <i class="ri-phone-line fs-4"></i> {{$settings['sabit-telefon-numarasi']}}
+                                    @if($settings['facebookcom'])
+                                    <a target="_blank" href="{{$settings['facebookcom']}}">
+                                        <i class="ri-facebook-line fs-4"></i>
                                     </a>
-                                </li>
-                                @endif
+                                    @endif
 
-                                @if($settings['mobil-telefon-numarasi'])
-                                <li>
-                                    <a target="_blank" href="tel:{{$settings['mobil-telefon-numarasi']}}">
-                                        <i class="ri-smartphone-line fs-4"></i> {{$settings['mobil-telefon-numarasi']}}
+                                    @if($settings['youtubecom'])
+                                    <a target="_blank" href="{{$settings['youtubecom']}}">
+                                        <i class="ri-youtube-line fs-4"></i>
                                     </a>
-                                </li>
-                                @endif
+                                    @endif
 
-                                @if($settings['e-posta'])
-                                <li>
-                                    <a target="_blank" href="mailto:{{$settings['e-posta']}}">
-                                        <i class="ri-mail-line fs-4"></i> {{$settings['e-posta']}}
+                                    @if($settings['tiktokcom'])
+                                    <a target="_blank" href="{{$settings['tiktokcom']}}">
+                                        <i class="ri-tiktok-line fs-4"></i>
                                     </a>
-                                </li>
-                                @endif
+                                    @endif
+                                </div>
+                            </div>
 
-                            </ul>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="single-footer-caption">
+                                <div class="footer-tittle">
+                                    <h4 class="title">Çalışma Saatleri</h4>
+                                    <ul class="w-75">
+                                        <li class="w-100"><a>Pazartesi <span class="float-end">08:00 - 17:00</span></a></li>
+                                        <li class="w-100"><a>Salı <span class="float-end">08:00 - 17:00</span></a></li>
+                                        <li class="w-100"><a>Çarşamba <span class="float-end">08:00 - 17:00</span></a></li>
+                                        <li class="w-100"><a>Perşembe <span class="float-end">08:00 - 17:00</span></a></li>
+                                        <li class="w-100"><a>Cuma <span class="float-end">08:00 - 17:00</span></a></li>
+                                        <li class="w-100"><a>Cumartesi <span class="float-end">Kapalı</span></a></li>
+                                        <li class="w-100"><a>Pazar <span class="float-end">Kapalı</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="single-footer-caption">
+                                <div class="footer-tittle">
+                                    <h4 class="title">SMS Listesi</h4>
+                                    <p>Güncel Bilgiler, Etkinlikler ve Duyurular İçin SMS Listesine Kaydolun</p>
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="btn-primary-sm radius-30">SMS Listesine Kaydol</a>
+                                </div>
+                                <div class="footer-tittle mt-5">
+                                    <h4 class="title">Çözüm Merkezi</h4>
+                                    <p>Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!</p>
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="btn-primary-sm radius-30"> Çözüm Merkezine Ulaş </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="single-footer-caption">
+                                <div class="footer-tittle">
+                                    <h4 class="title">Hızlı İletişim</h4>
+                                    <ul>
+                                        @if($settings['whatsapp'])
+                                        <li>
+                                            <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                                                <i class="ri-whatsapp-line fs-4"></i> {{$settings['whatsapp']}}
+                                            </a>
+                                        </li>
+                                        @endif
+
+                                        @if($settings['sabit-telefon-numarasi'])
+                                        <li>
+                                            <a target="_blank" href="tel:{{$settings['sabit-telefon-numarasi']}}">
+                                                <i class="ri-phone-line fs-4"></i> {{$settings['sabit-telefon-numarasi']}}
+                                            </a>
+                                        </li>
+                                        @endif
+
+                                        @if($settings['mobil-telefon-numarasi'])
+                                        <li>
+                                            <a target="_blank" href="tel:{{$settings['mobil-telefon-numarasi']}}">
+                                                <i class="ri-smartphone-line fs-4"></i> {{$settings['mobil-telefon-numarasi']}}
+                                            </a>
+                                        </li>
+                                        @endif
+
+                                        @if($settings['e-posta'])
+                                        <li>
+                                            <a target="_blank" href="mailto:{{$settings['e-posta']}}">
+                                                <i class="ri-mail-line fs-4"></i> {{$settings['e-posta']}}
+                                            </a>
+                                        </li>
+                                        @endif
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="footer-bottom">
 
-                    <div class="d-flex justify-content-between gap-14 flex-wrap">
-                        <div class="d-flex align-items-center">
-                            @if($settings['instagramcom'])
-                            <a target="_blank" href="{{$settings['instagramcom']}}">
-                                <i class="ri-instagram-line fs-4"></i>
-                            </a>
-                            @endif
-
-                            @if($settings['xcom'])
-                            <a target="_blank" href="{{$settings['xcom']}}">
-                                <i class="ri-twitter-line fs-4"></i>
-                            </a>
-                            @endif
-
-                            @if($settings['whatsapp'])
-                            <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
-                                <i class="ri-whatsapp-line fs-4"></i>
-                            </a>
-                            @endif
-
-                            @if($settings['facebookcom'])
-                            <a target="_blank" href="{{$settings['facebookcom']}}">
-                                <i class="ri-facebook-line fs-4"></i>
-                            </a>
-                            @endif
-
-                            @if($settings['youtubecom'])
-                            <a target="_blank" href="{{$settings['youtubecom']}}">
-                                <i class="ri-youtube-line fs-4"></i>
-                            </a>
-                            @endif
-
-                            @if($settings['tiktokcom'])
-                            <a target="_blank" href="{{$settings['tiktokcom']}}">
-                                <i class="ri-tiktok-line fs-4"></i>
-                            </a>
-                            @endif
-
-                        </div>
-
-                    </div>
-
-                </div>
             </div>
         </div>
         <!-- footer-bottom area -->
@@ -144,7 +157,7 @@
             </div>
         </div>
 
- 
+
 
     </div>
 </footer>

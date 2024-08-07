@@ -9,13 +9,21 @@
         if (scroll < 400) {
             $(".header-sticky").removeClass("sticky-bar");
             $("#back-top").fadeOut(300);
+
+            $("#logo-sticky").addClass("d-none");
+            $("#logo1").removeClass("d-none");
+
         } else {
             $(".header-sticky").addClass("sticky-bar");
             $("#back-top").fadeIn(300);
+
+            $("#logo-sticky").removeClass("d-none");
+            $("#logo1").addClass("d-none");
+
         }
     });
-    
-    
+
+
     /*----------------------------------------------
         :: Swiper Slider Active
     ----------------------------------------------*/
@@ -211,8 +219,8 @@
     /*----------------------------------------------
         :: Fancy box
     ----------------------------------------------*/
-    $(document).ready(function() {
-        $(document).on("click", "[data-fancybox]", function(event) {
+    $(document).ready(function () {
+        $(document).on("click", "[data-fancybox]", function (event) {
             event.preventDefault();
             var videoUrl = $(this).attr("href");
             Fancybox.show([
@@ -223,7 +231,7 @@
             ]);
         });
     });
-    
+
     /*----------------------------------------------
         :: Custom click expand icon
     ----------------------------------------------*/
@@ -282,7 +290,7 @@
         $(".qty-btn-plus, .qty-btn-minus").click(function () {
             var $input = $(this).siblings(".input-qty");
             var value = parseInt($input.val(), 10);
-    
+
             if ($(this).hasClass("qty-btn-plus")) {
                 value++;
             } else {
@@ -295,7 +303,7 @@
         $(".qty-btn-plus-two, .qty-btn-minus-two").click(function () {
             var $input = $(this).siblings(".input-qty-two");
             var value = parseInt($input.val(), 10);
-    
+
             if ($(this).hasClass("qty-btn-plus-two")) {
                 value++;
             } else {
@@ -356,15 +364,15 @@
     ];
 
     // Initialize Select2
-    $(".select2-title").on('click', function() {
-    var $select = $(this).closest('.select-dropdown-section').find('select');
-    $select.select2('open');
+    $(".select2-title").on('click', function () {
+        var $select = $(this).closest('.select-dropdown-section').find('select');
+        $select.select2('open');
     });
     $(".destination-dropdown").select2({
         containerCssClass: "custom-select2-dropdown",
         dropdownCssClass: "custom-select2-dropdown-container",
     });
-    
+
     $(".destination-dropdown-two").select2({
         data: destination,
         placeholder: "Destination",
@@ -406,7 +414,7 @@
         $(".destination-result-three").html(item.description);
         return item.text;
     }
-    
+
     /*----------------------------------------------
         Date picker
     ----------------------------------------------*/
@@ -434,7 +442,7 @@
         $(".year-result-two").text(EndYear);
     });
 
-    
+
     /*----------------------------------------------
         Always open Date picker
     ----------------------------------------------*/
@@ -513,7 +521,7 @@
             }
         }
     });
-    
+
     /*-----------------------------------------------
         :: Search box
     -----------------------------------------------*/

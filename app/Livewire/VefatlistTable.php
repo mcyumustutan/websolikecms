@@ -18,17 +18,17 @@ class VefatlistTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("AdSoyad", "adSoyad")
+            Column::make("Adı Soyadı", "adSoyad")
                 ->searchable()
                 ->sortable(),
-            Column::make("AnaBabaAdi", "anaBabaAdi")
+            Column::make("Ana / Baba Adı", "anaBabaAdi")
                 ->searchable()
                 ->sortable(),
-            Column::make("VefatTarihi", "vefatTarihi")
+            Column::make("Vefat Tarihi", "vefatTarihi")
                 ->sortable(),
-            Column::make("CenazeYeri", "cenazeYeri")
+            Column::make("Cenaze Yeri", "cenazeYeri")
                 ->sortable(),
-            Column::make("Mezarlik", "mezarlik")
+            Column::make("Mezarlık", "mezarlik")
                 ->sortable(),
         ];
     }

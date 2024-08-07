@@ -92,7 +92,7 @@
                                             </li>
                                             @endforeach
                                         </ul>
-                                        <div class="logo_area">
+                                        <div class="logo_area" style="z-index: 10;">
                                             <a href="{{config('app.url')}}/{{App::getLocale()}}" title="{{ $settings['site-basligi'] }}">
                                                 <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogos" title="{{ $settings['site-basligi'] }}">
                                             </a>

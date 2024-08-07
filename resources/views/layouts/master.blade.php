@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta logo="{{ asset('images/logo/logo-with-bg.png')}}">
-    <meta white-logo="{{ asset('images/logo/logo-with-bg.png')}}">
+    <meta white-logo="{{ asset('images/logo/logo-goreme.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">

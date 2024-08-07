@@ -1,5 +1,5 @@
-<header class="header-area-three">
-    <div class="main-header">
+<header class="header-area-three position-relative" style="z-index: 9;">
+    <div class="main-header position-absolute top-0 start-0 end-0 header-bg-style">
         <!-- Header Top -->
         <div class="header-top">
             <div class="container">
@@ -99,7 +99,9 @@
                                         </ul>
                                         <div class="logo_area d-none d-lg-block" style="z-index: 10;">
                                             <a href="{{config('app.url')}}/{{App::getLocale()}}" title="{{ $settings['site-basligi'] }}">
-                                                <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogo" title="{{ $settings['site-basligi'] }}">
+                                                <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogo" title="{{ $settings['site-basligi'] }}" id="logo1">
+                                                
+                                                <img src="{{ asset('images/logo/logo-goreme.png')}}" alt="{{$settings['site-aciklamasi']}}" class="d-none" title="{{ $settings['site-basligi'] }}" id="logo-sticky" style="width: 170px;height: auto;">
                                             </a>
                                         </div>
                                         <ul class="listing float-end" id="menu2">
