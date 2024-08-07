@@ -20,49 +20,60 @@
                     <div class="row g-4">
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="footer-tittle">
-                                <img src="{{ asset('images/logo/logo-goreme.png')}}" alt="Websolike" class="changeLogos">
+                                <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" class="changeLogos" style="position: relative;top: -38px;">
                             </div>
 
                             <div class="d-flex justify-content-between gap-14 flex-wrap mt-5">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center gap-2">
                                     @if($settings['instagramcom'])
                                     <a target="_blank" href="{{$settings['instagramcom']}}">
-                                        <i class="ri-instagram-line fs-4"></i>
+                                        <img src="{{asset('images/social/instagram.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
                                     </a>
                                     @endif
 
                                     @if($settings['xcom'])
                                     <a target="_blank" href="{{$settings['xcom']}}">
-                                        <i class="ri-twitter-line fs-4"></i>
+
+                                        <img src="{{asset('images/social/x.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
                                     </a>
                                     @endif
 
                                     @if($settings['whatsapp'])
                                     <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
-                                        <i class="ri-whatsapp-line fs-4"></i>
+                                        <img src="{{asset('images/social/whatsapp.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
                                     </a>
                                     @endif
 
                                     @if($settings['facebookcom'])
                                     <a target="_blank" href="{{$settings['facebookcom']}}">
-                                        <i class="ri-facebook-line fs-4"></i>
+                                        <img src="{{asset('images/social/facebook.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
                                     </a>
                                     @endif
 
                                     @if($settings['youtubecom'])
                                     <a target="_blank" href="{{$settings['youtubecom']}}">
-                                        <i class="ri-youtube-line fs-4"></i>
+                                        <img src="{{asset('images/social/youtube.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
                                     </a>
                                     @endif
 
-                                    @if($settings['tiktokcom'])
-                                    <a target="_blank" href="{{$settings['tiktokcom']}}">
-                                        <i class="ri-tiktok-line fs-4"></i>
-                                    </a>
-                                    @endif
                                 </div>
                             </div>
 
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="single-footer-caption">
+                                <div class="footer-tittle">
+                                    <h4 class="title">SMS Listesi</h4>
+                                    <p>Güncel Bilgiler, Etkinlikler ve Duyurular İçin SMS Listesine Kaydolun</p>
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="btn-primary-sm radius mt-1">SMS Listesine Kaydol</a>
+                                </div>
+                                <div class="footer-tittle mt-5">
+                                    <h4 class="title">Çözüm Merkezi</h4>
+                                    <p>Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!</p>
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="btn-primary-sm radius mt-1"> Çözüm Merkezine Ulaş </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="single-footer-caption">
@@ -83,21 +94,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="single-footer-caption">
                                 <div class="footer-tittle">
-                                    <h4 class="title">SMS Listesi</h4>
-                                    <p>Güncel Bilgiler, Etkinlikler ve Duyurular İçin SMS Listesine Kaydolun</p>
-                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="btn-primary-sm radius-30">SMS Listesine Kaydol</a>
-                                </div>
-                                <div class="footer-tittle mt-5">
-                                    <h4 class="title">Çözüm Merkezi</h4>
-                                    <p>Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!</p>
-                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="btn-primary-sm radius-30"> Çözüm Merkezine Ulaş </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="single-footer-caption">
-                                <div class="footer-tittle">
-                                    <h4 class="title">Hızlı İletişim</h4>
+                                    <h4 class="title">İletişim</h4>
                                     <ul>
                                         @if($settings['whatsapp'])
                                         <li>

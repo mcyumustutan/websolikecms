@@ -164,6 +164,7 @@ class PageController extends Controller
                 TemplateType::Event->value
             ])
                 // ->where('display_date', '>=', Carbon::today())
+                ->orderBy('display_date', 'desc')
                 ->take(6)->get(),
 
             'stories' => Page::where('is_publish', true)
@@ -186,7 +187,7 @@ class PageController extends Controller
                 }),
         ];
 
-        // return response()->json($projectsArray['deaths']);
+        // return response()->json($projectsArray['comingEvents']);
 
         return view('layouts.home', compact(
             'settings',

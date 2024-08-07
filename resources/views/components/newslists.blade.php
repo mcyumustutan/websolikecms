@@ -26,7 +26,12 @@
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
                                                 <p>{{$duyuru['short_content']}}</p>
-                                                <small>{{$duyuru['display_date']}}</small>
+                                                <p>
+                                                    <i class="ri-calendar-todo-fill"></i> {{$duyuru['display_only_date']}}
+                                                    @if($duyuru['display_only_hour']!=="00:00")
+                                                    <i class="ri-time-line"></i> {{$duyuru['display_only_hour']}}
+                                                    @endif
+                                                </p>
                                             </div>
                                         </div>
                                     </a>
@@ -61,7 +66,18 @@
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
                                                 <p>{{$duyuru['title']}}</p>
-                                                <small>{{$duyuru['display_date']}}</small>
+
+                                                <p>
+                                                    <i class="ri-calendar-todo-fill"></i> {{$duyuru['display_only_date']}}
+                                                    @if($duyuru['display_only_hour']!=="00:00")
+                                                    <i class="ri-time-line"></i> {{$duyuru['display_only_hour']}}
+                                                    @endif
+                                                </p>
+
+
+                                                @if($duyuru['highlited_value_1'])
+                                                <small><i class="ri-map-pin-line"></i> {{$duyuru['highlited_value_1']}}</small>
+                                                @endif
                                             </div>
                                         </div>
                                     </a>
@@ -96,7 +112,8 @@
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
                                                 <p>{{$duyuru['adSoyad']}}</p>
-                                                <small>{{$duyuru['vefatTarihi']}} / {{$duyuru['cenazeYeri']}}</small>
+                                                <p><i class="ri-calendar-todo-fill"></i>{{$duyuru['vefatTarihi']}} <i class="ri-time-line"></i>{{$duyuru['cenazeZamani']}}</p>
+                                                <small><i class="ri-map-pin-line"></i> {{$duyuru['cenazeYeri']}}</small>
                                             </div>
                                         </div>
                                     </a>
@@ -196,12 +213,5 @@
         </div>
     </div>
 
-    <div class="shape-about-two">
-        <img src="{{asset('images/goreme-shape.png')}}">
-    </div>
-
-    <div class="shape-bg-about">
-        <img src="{{asset('images/goreme-shape.png')}}">
-    </div>
-
+    @include('components/shapes')
 </section>

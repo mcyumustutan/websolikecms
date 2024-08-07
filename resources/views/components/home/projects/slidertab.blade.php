@@ -3,7 +3,8 @@
 
         <div class="row">
             <div class="col-lg-12 mb-4">
-                <div class="border-section-title">
+                <div class="border-section-title text-center">
+                    <img src="{{asset('images/kapadokyanin-baskenti.png')}}" class="img-fluid" style="filter:invert(.75)"/>
                     <h4 class="title"> {{ __('websolike.Göreme Projeleri')}}</h4>
                 </div>
             </div>
@@ -55,11 +56,6 @@
 
     </div>
 
-    <div class="shape-about-two">
-        <img src="{{asset('images/goreme-shape.png')}}">
-    </div>
-
-    <div class="shape-bg-about">
-        <img src="{{asset('images/goreme-shape.png')}}">
-    </div>
+    
+    @include('components/shapes')
 </section>

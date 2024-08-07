@@ -35,7 +35,7 @@
 
 
     @include('components/header2')
-    <main>
+    <main style="background: url(images/goreme-shape.jpg) fixed center center repeat-x">
         @yield('content')
     </main>
     @include('components/footer')

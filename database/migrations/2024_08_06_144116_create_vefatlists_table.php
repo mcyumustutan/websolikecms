@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('anaBabaAdi'); // Anne ve Baba Adı
             $table->date('vefatTarihi'); // Vefat Tarihi
             $table->string('cenazeYeri'); // Cenaze Yeri
+            $table->string('cenazeZamani'); // Cenaze Yeri -> ikindi vakti / 14:50 vs...
             $table->string('mezarlik'); // Mezarlık
             $table->timestamps();
         });

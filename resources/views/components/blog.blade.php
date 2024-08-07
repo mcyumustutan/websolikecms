@@ -50,11 +50,6 @@
 
      </div>
 
-     <div class="shape-about-two">
-         <img src="{{asset('images/goreme-shape.png')}}">
-     </div>
-
-     <div class="shape-bg-about">
-         <img src="{{asset('images/goreme-shape.png')}}">
-     </div>
+    
+     @include('components/shapes')
  </section>

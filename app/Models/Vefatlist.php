@@ -16,6 +16,7 @@ class Vefatlist extends Model
         'anaBabaAdi',
         'vefatTarihi',
         'cenazeYeri',
+        'cenazeZamani',
         'mezarlik',
     ];
 

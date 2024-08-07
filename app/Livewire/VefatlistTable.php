@@ -28,6 +28,8 @@ class VefatlistTable extends DataTableComponent
                 ->sortable(),
             Column::make("Cenaze Yeri", "cenazeYeri")
                 ->sortable(),
+            Column::make("Zamanı", "cenazeZamani")
+                ->sortable(),
             Column::make("Mezarlık", "mezarlik")
                 ->sortable(),
         ];

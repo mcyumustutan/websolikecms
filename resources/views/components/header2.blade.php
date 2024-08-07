@@ -1,4 +1,4 @@
-<header class="header-area-three position-relative" style="z-index: 9;">
+<header class="header-area-three position-relative" style="z-index: 12;">
     <div class="main-header position-absolute top-0 start-0 end-0 header-bg-style">
         <!-- Header Top -->
         <div class="header-top">

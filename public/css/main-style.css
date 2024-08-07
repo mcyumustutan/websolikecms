@@ -11,14 +11,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
 
 
 :root {
   /* --special-font: "Playwrite SK", cursive; */
   --menu-font: "Jost", sans-serif;
   --special-font: "Montserrat", sans-serif;
-  --special-font-2: "Oooh Baby", sans-serif;
+  --special-font-2: "Platypi", sans-serif;
   --title-font: "Josefin Sans", sans-serif;
   /* --title-font: "Bebas Neue", sans-serif; */
   /* --title-font: "Roboto", sans-serif; */
@@ -19270,6 +19270,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
   -webkit-box-shadow: none;
   box-shadow: none;
   background-color: transparent;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .header-area-three .main-menu .listing .single-list:hover>.submenu>.single-list>.single::after {
@@ -20409,9 +20411,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
 .hero-caption-three {
   max-width: max-content;
-  background: #00000036;
   padding: 20px;
-  border-right: 5px solid #ffc041;
   z-index: 9;
   position: relative;
 }
@@ -22222,7 +22222,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .package-area .package-pills .package-nav {
-  background-color: transparent;
+  background-color: white;
   border: 1px solid var(--tertiary-border);
   padding: 8px 20px;
   border-radius: 8px;
@@ -31532,13 +31532,13 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .swiper-slide .content .title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: white;
 }
 
-.swiper-slide .content .desciption {
-  font-size: 2rem;
+.swiper-slide .content .description {
+  font-size: 1.2rem;
   font-weight: bold;
   color: white;
 }
@@ -31619,8 +31619,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
   box-shadow: 0px 8px 12px 0px rgba(144, 149, 150, 0.2);
 }
 
-.announcement-text {
-  margin-left: 10px;
+.announcement-text p {
+  font-size: 16px !important;
 }
 
 
@@ -31766,8 +31766,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
   overflow: hidden;
   border: 0 solid #efefef;
   box-shadow: 0 0 5px rgba(0, 0, 0, .1);
-  min-height: 600px;
-  max-height: 600px;
+  min-height: 630px;
+  max-height: 630px;
   color: white !important;
 }
 
@@ -31925,10 +31925,12 @@ button.applyBtn.btn.btn-sm.btn-primary {
   width: 100%;
 }
 
-.profile-card-2 .profile-name {
-  position: absolute;
-  left: 30px;
-  bottom: 70px;
+.profile-card-2 .profile-name,
+.mayor-name {
+  width: 100%;
+  /* position: absolute;
+  left: 0px;
+  bottom: 0px; */
   font-size: 30px;
   color: #FFF;
   font-family: var(--title-font);
@@ -31949,9 +31951,12 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .profile-card-2 .profile-icons {
   position: absolute;
   bottom: 30px;
-  right: 30px;
+  right: 0px;
   color: #FFF;
   transition: all linear 0.25s;
+  width: 100%;
+  padding: 15px;
+  ;
 }
 
 .profile-card-2 .profile-username {
@@ -31991,7 +31996,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .profile-card-2:hover .profile-name {
-  bottom: 80px;
+  /* bottom: 80px; */
 }
 
 .profile-card-2:hover .profile-username {
@@ -31999,7 +32004,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .profile-card-2:hover .profile-icons {
-  right: 40px;
+  /* right: 40px; */
 }
 
 .logo_area {
