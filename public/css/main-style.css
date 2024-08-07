@@ -22180,13 +22180,13 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .border-section-title::before {
-  content: "";
+  /* content: "";
   position: absolute;
   width: 100%;
   left: 0;
   top: 40%;
   height: 1px;
-  background-color: var(--tertiary-border);
+  background-color: var(--tertiary-border); */
 }
 
 .brandSwiper-active .swiper-wrapper {
