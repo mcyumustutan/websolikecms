@@ -7,7 +7,7 @@
                 <div class="rounded">
                     <div class="swiper announcement-swiper rounded">
                         <div class="swiper-wrapper rounded">
-                            @foreach ($projectsArray['announcements'] as $duyuru)
+                            @foreach ($projectsArray['news'] as $duyuru)
 
                             <div class="swiper-slide rounded">
                                 <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
@@ -42,7 +42,7 @@
 
                     <div thumbsSlider="" class="swiper thumb-mySwiper rounded p-1  mt-1 shadow  bg-white ">
                         <div class="swiper-wrapper rounded">
-                            @foreach ($projectsArray['announcements'] as $duyuru)
+                            @foreach ($projectsArray['news'] as $duyuru)
 
                             <div class="swiper-slide rounded">
                                 <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">

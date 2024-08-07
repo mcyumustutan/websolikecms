@@ -31560,7 +31560,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .swiper-slide .content .title {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: white;
 }
@@ -32097,4 +32097,27 @@ button.applyBtn.btn.btn-sm.btn-primary {
   box-shadow: 0 0px 22px 0 rgba(255, 255, 255, 0.37);
   /* backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(42px); */
+}
+
+.mySwiperHero {
+  width: 100%;
+  height: 100%;
+}
+
+.mySwiperHero .swiper-slide {
+  width: 100%;
+  height: 950px;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mySwiperHero .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

@@ -16,7 +16,7 @@ enum TemplateType: string implements HasLabel
     case ProjectOnGoing = 'ProjectOnGoing';
     case ProjectPlanned = 'ProjectPlanned';
     case Event = 'event';
-    case Death = 'death';
+    // case Death = 'death';
     case Module = 'module';
 
     public function getLabel(): ?string
@@ -32,7 +32,7 @@ enum TemplateType: string implements HasLabel
             self::ProjectOnGoing => 'Devam Eden Projeler',
             self::ProjectPlanned => 'Planlanan Projeler',
             self::Event => 'Etkinlik',
-            self::Death => 'Vefat İlanları',
+            // self::Death => 'Vefat İlanları',
             self::Module => 'Modül',
         };
     }
@@ -49,7 +49,7 @@ enum TemplateType: string implements HasLabel
             self::ProjectFinished => 'page.project',
             self::ProjectOnGoing => 'page.project',
             self::ProjectPlanned => 'page.project',
-            self::Death => 'page.death',
+            // self::Death => 'page.death',
             self::Module => 'page.module',
             default => 'page.page',
         };

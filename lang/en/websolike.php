@@ -21,6 +21,6 @@ return [
     'Güncel Duyurular' => 'Current Announcements',
     'Göremeyi Keşfet' => "Explore The Göreme",
     'Aktiviteler' => "Activities",
-    'Balon Uçuş Durumu' => "Balloon Flight Status",
+    'Balon Uçuş Bilgisi' => "Balloon Flight Info",
 
 ];

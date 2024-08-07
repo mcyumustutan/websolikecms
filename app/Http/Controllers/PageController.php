@@ -120,7 +120,7 @@ class PageController extends Controller
         $footernGeneralNavigation = $this->footernGeneralNavigation;
         $settings = $this->settings->toArray();
 
-        $sliders = Slider::where('is_publish', true)->orderBy('position')->take(1)->get();
+        $sliders = Slider::where('is_publish', true)->orderBy('position')->take(5)->get();
 
         $explore = Page::where('is_publish', true)->whereJsonContains('link_view', '50')->get();
 
@@ -130,8 +130,9 @@ class PageController extends Controller
             TemplateType::ProjectOnGoing->value,
             TemplateType::ProjectPlanned->value,
             TemplateType::Announcement->value,
+            TemplateType::News->value,
             TemplateType::Page->value,
-            TemplateType::Death->value,
+            // TemplateType::Death->value,
         ])->whereNot(function ($query) {
             $query->whereJsonContains('link_view', '4');
         })
@@ -142,15 +143,17 @@ class PageController extends Controller
 
         // Kategorilere göre gruplandırılmış projeleri dizi olarak almak
         $projectsArray = [
+            'deaths' => Vefatlist::orderBy('vefatTarihi', 'desc')->take(5)->get(),
             'projectFinished' => $projectsByCategory->get(TemplateType::ProjectFinished->value, collect())->all(),
             'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
             'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
             'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
             // 'deaths' => $projectsByCategory->get(TemplateType::Death->value, collect())->all(),
-            'deaths' => Vefatlist::orderBy('vefatTarihi', 'desc')->take(6)->get(),
-            'news' => Page::where('is_publish', true)->whereIn('template_type', [
-                TemplateType::News->value
-            ])->orderBy('display_date', 'desc')->take(6)->get(),
+            'news' => $projectsByCategory->get(TemplateType::News->value, collect())->all(),
+            // 'news' => Page::where('is_publish', true)->whereIn('template_type', [
+                //     TemplateType::News->value
+            // ])->orderBy('display_date', 'desc')->take(6)->get(),
+            
 
             'bids' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Bid->value
@@ -187,7 +190,7 @@ class PageController extends Controller
                 }),
         ];
 
-        // return response()->json($projectsArray['comingEvents']);
+        // return response()->json($projectsArray['news']);
 
         return view('layouts.home', compact(
             'settings',

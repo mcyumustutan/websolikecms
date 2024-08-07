@@ -36,7 +36,6 @@ class VefatListResource extends Resource
                     ->maxLength(255),
                 TextInput::make('anaBabaAdi')
                     ->label('Ana Baba Adı')
-                    ->required()
                     ->maxLength(255),
                 DatePicker::make('vefatTarihi')
                     ->label('Vefat Tarihi')
@@ -44,6 +43,10 @@ class VefatListResource extends Resource
                     ->displayFormat('d/m/Y'),
                 TextInput::make('cenazeYeri')
                     ->label('Cenaze Yeri')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('cenazeZamani')
+                    ->label('Cenaze Zamanı')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('mezarlik')

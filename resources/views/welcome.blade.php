@@ -1,3 +1,15 @@
+INSERT INTO `vefatlists` (`adSoyad`, `anaBabaAdi`, `vefatTarihi`, `cenazeYeri`, `cenazeZamani`, `mezarlik`, `created_at`, `updated_at`) VALUES
+('Bayram Maden', 'Cenap Maden oğlu', '2024-08-07', 'Göreme Merkez Cami', 'İkindi namazına müteakip', 'Göreme Mezarlığı', NOW(), NOW()),
+('Elmas Ilgaz', 'Mehmet Ilgaz eşi', '2024-08-07', 'Göreme Merkez Cami', 'İkindi namazına müteakip', 'Göreme Mezarlığı', NOW(), NOW()),
+('Kadir Çardak', 'Doğan Çardak oğlu', '2024-08-07', 'Nevşehir Ali Bey Cami', 'Öğle namazına müteakip', 'Nevşehir Mezarlığı', NOW(), NOW()),
+('Habib Baltacı', '', '2024-08-07', 'Göreme Merkez Cami', 'İkindi namazına müteakip', 'Göreme Mezarlığı', NOW(), NOW()),
+('Sadık Demirhan', '', '2024-08-07', 'Göreme Merkez Cami', 'İkindi namazına müteakip', 'Göreme Mezarlığı', NOW(), NOW()),
+('Miyase Polat', 'Merhum Mustafa Polat kızı', '2024-08-07', 'Göreme Merkez Cami', 'Öğle namazına müteakip', 'Göreme Mezarlığı', NOW(), NOW()),
+('Sadık Erol', 'Merhum Abdullah Erol oğlu', '2024-08-07', 'Nevşehir Ali Bey Cami', 'Öğle namazına müteakip', 'Nevşehir Mezarlığı', NOW(), NOW()),
+('Mehmet Songur', 'Ömer Songur oğlu', '2024-08-07', 'Kırıkkale', 'Yarın öğle namazına müteakip', 'Kırıkkale Mezarlığı', NOW(), NOW());
+
+
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
