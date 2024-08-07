@@ -1,4 +1,4 @@
- <section class="section-padding2  position-relative  ">
+ <section class="mt-5 position-relative wow fadeInUp">
      <div class="container">
          <div class="row justify-content-center position-relative z-10">
              <div class="col-xl-7 col-lg-7">

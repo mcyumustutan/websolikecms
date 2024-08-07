@@ -146,8 +146,8 @@ class PageController extends Controller
             'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
             'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
             'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
-            'deaths' => $projectsByCategory->get(TemplateType::Death->value, collect())->all(),
-
+            // 'deaths' => $projectsByCategory->get(TemplateType::Death->value, collect())->all(),
+            'deaths' => Vefatlist::orderBy('vefatTarihi', 'desc')->take(6)->get(),
             'news' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::News->value
             ])->orderBy('display_date', 'desc')->take(6)->get(),
@@ -186,7 +186,7 @@ class PageController extends Controller
                 }),
         ];
 
-        // return response()->json($projectsArray['stories']);
+        // return response()->json($projectsArray['deaths']);
 
         return view('layouts.home', compact(
             'settings',
@@ -202,97 +202,7 @@ class PageController extends Controller
             'wheather' => $this->wheather,
         ]);
     }
-    public function index2(Request $request, $lang = 'tr')
-    {
-        $mainNavigation = $this->mainNavigation;
-        $mainNavigation1 = $this->mainNavigation1;
-        $mainNavigation2 = $this->mainNavigation2;
-        $footernNavigation = $this->footernNavigation;
-        $footernGeneralNavigation = $this->footernGeneralNavigation;
-        $settings = $this->settings->toArray();
 
-        $sliders = Slider::where('is_publish', true)->orderBy('position')->take(1)->get();
-
-        $explore = Page::where('is_publish', true)->whereJsonContains('link_view', '50')->get();
-
-
-        $allProjects = Page::whereIn('template_type', [
-            TemplateType::ProjectFinished->value,
-            TemplateType::ProjectOnGoing->value,
-            TemplateType::ProjectPlanned->value,
-            TemplateType::Announcement->value,
-            TemplateType::Page->value,
-            TemplateType::Death->value,
-        ])->whereNot(function ($query) {
-            $query->whereJsonContains('link_view', '4');
-        })
-            ->orderBy('display_date', 'desc')->take(100)->get();
-
-        // Projeleri kategorilerine göre gruplandır
-        $projectsByCategory = $allProjects->groupBy('template_type');
-
-        // Kategorilere göre gruplandırılmış projeleri dizi olarak almak
-        $projectsArray = [
-            'projectFinished' => $projectsByCategory->get(TemplateType::ProjectFinished->value, collect())->all(),
-            'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
-            'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
-            'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
-            'deaths' => $projectsByCategory->get(TemplateType::Death->value, collect())->all(),
-
-            'news' => Page::where('is_publish', true)->whereIn('template_type', [
-                TemplateType::News->value
-            ])->orderBy('display_date', 'desc')->take(6)->get(),
-
-            'bids' => Page::where('is_publish', true)->whereIn('template_type', [
-                TemplateType::Bid->value
-            ])->orderBy('display_date', 'desc')->take(6)->get(),
-
-            'activityBoxes' => Page::where('is_publish', true)
-                ->whereIn('template_type', [TemplateType::Page->value])
-                ->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
-
-            'comingEvents' => Page::where('is_publish', true)->whereIn('template_type', [
-                TemplateType::Event->value
-            ])
-                // ->where('display_date', '>=', Carbon::today())
-                ->take(6)->get(),
-
-            'stories' => Page::where('is_publish', true)
-                ->whereNull('parent_id')
-                ->whereJsonContains('box_view', '2')
-                ->with('subStory')
-                ->orderBy('display_date', 'desc')
-                // ->toSql()
-                ->get()
-                // ->toArray()
-                ->map(function ($story) {
-                    return [
-                        'id' => $story->title,
-                        'name' => $story->title,
-                        'photo' => $story->cover,
-                        'time' => $story->display_date_original,
-                        'linkText' => $story->title,
-                        'items' => $story['subStory'],
-                    ];
-                }),
-        ];
-
-        // return response()->json($projectsArray['stories']);
-
-        return view('layouts.home2', compact(
-            'settings',
-            'mainNavigation',
-            'mainNavigation1',
-            'mainNavigation2',
-            'footernNavigation',
-            'footernGeneralNavigation',
-            'sliders',
-            'explore',
-            'projectsArray',
-        ), [
-            'wheather' => $this->wheather,
-        ]);
-    }
 
     /**
      * Display the specified resource.

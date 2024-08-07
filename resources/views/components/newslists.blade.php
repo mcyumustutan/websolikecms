@@ -91,12 +91,12 @@
                                 @foreach ($projectsArray['deaths'] as $duyuru)
 
                                 <li class="feature-point w-full">
-                                    <a href="{{$duyuru['fullUrl']}}" class=" w-100">
+                                    <a href="{{config('app.url')}}/{{App::getlocale()}}/vefat-ilanlari?table-search={{$duyuru['adSoyad']}}" class=" w-100">
                                         <div class="announcement-item w-100">
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
-                                                <p>{{$duyuru['title']}}</p>
-                                                <small>{{$duyuru['display_date']}}</small>
+                                                <p>{{$duyuru['adSoyad']}}</p>
+                                                <small>{{$duyuru['vefatTarihi']}} / {{$duyuru['cenazeYeri']}}</small>
                                             </div>
                                         </div>
                                     </a>
