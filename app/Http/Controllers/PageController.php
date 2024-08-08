@@ -101,9 +101,6 @@ class PageController extends Controller
 
         $sliders = Slider::where('is_publish', true)->orderBy('position')->take(5)->get();
 
-        $explore = Page::where('is_publish', true)->whereJsonContains('link_view', '50')->get();
-
-
         $allProjects = Page::whereIn('template_type', [
             TemplateType::ProjectFinished->value,
             TemplateType::ProjectOnGoing->value,
@@ -146,6 +143,9 @@ class PageController extends Controller
                 ->whereIn('template_type', [TemplateType::Page->value])
                 ->whereJsonContains('box_view', 'kulturelMiras')->orderBy('display_date', 'desc')->take(6)->get(),
 
+            'explore' => Page::where('is_publish', true)
+                ->whereJsonContains('box_view', 'kesfet')->orderBy('display_date', 'desc')->take(6)->get(),
+
             'comingEvents' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Event->value
             ])
@@ -183,7 +183,6 @@ class PageController extends Controller
             'footernNavigation',
             'footernGeneralNavigation',
             'sliders',
-            'explore',
             'projectsArray',
         ), [
             'wheather' => $this->wheather,

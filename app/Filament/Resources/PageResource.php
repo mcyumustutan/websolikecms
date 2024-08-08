@@ -206,7 +206,6 @@ class PageResource extends Resource
                                         '2' => 'Footer Navigasyon Sabit Blok',
                                         '3' => 'Footer Genel Navigasyon',
                                         '4' => 'Diğer',
-                                        '50' => 'Keşfet Kutusu',
                                     ]),
 
                                 Forms\Components\CheckboxList::make('box_view')
@@ -216,6 +215,7 @@ class PageResource extends Resource
                                         '1' => 'Aktiviteler Bölümünde Göster',
                                         '2' => "Story'de Göster",
                                         'kulturelMiras' => "Kültürel Miras",
+                                        'kesfet' => 'Keşfet Kutusu',
                                         '100' => 'Diğer',
                                     ]),
 

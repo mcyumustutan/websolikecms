@@ -14,7 +14,7 @@
              <div class="swiper favSwiper-active">
                  <div class="swiper-wrapper">
 
-                     @foreach ($explore as $exp)
+                     @foreach ($projectsArray['explore'] as $exp)
                      <div class="swiper-slide">
                          <div class="col mb-4">
                              <article class="news-card-two wow fadeInUp bg-white" data-wow-delay="0.0s" style="border:none">
