@@ -35,7 +35,7 @@ class VefatListResource extends Resource
                     ->required()
                     ->maxLength(255),
                 TextInput::make('anaBabaAdi')
-                    ->label('Ana Baba Adı')
+                    ->label('Yakını')
                     ->maxLength(255),
                 DatePicker::make('vefatTarihi')
                     ->label('Vefat Tarihi')
@@ -65,7 +65,7 @@ class VefatListResource extends Resource
                     ->sortable()
                     ->searchable(isIndividual: true),
                 TextColumn::make('anaBabaAdi')
-                    ->label('Ana Baba Adı')
+                    ->label('Yakını')
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('vefatTarihi')
