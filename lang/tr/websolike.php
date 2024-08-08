@@ -23,5 +23,6 @@ return [
     'Aktiviteler' => "Yapılacak Aktiviteler",
     'Balon Uçuş Bilgisi' => "Balon Uçuş Bilgisi",
     'Haber Fotoğrafları' => "Haber Fotoğrafları",
+    'Kültürel Miras' => "Kültürel Miras",
 
 ];

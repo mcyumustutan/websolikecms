@@ -20,6 +20,8 @@
 
 @include('components.blog2')
 
+@include('components.blog3')
+
 
 
 
@@ -128,14 +130,14 @@
         pagination: {
             el: ".swiper-pagination",
         },
-        // autoplay: {
-        //     delay: 2500,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
         thumbs: {
             swiper: thumbSwiper,
         },
-        // loop: true
+        loop: true
     });
 
     const progressCircle = document.querySelector(".autoplay-progress svg");

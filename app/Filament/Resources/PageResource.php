@@ -106,6 +106,7 @@ class PageResource extends Resource
                                     ->label('Galeri Görselleri Yükle')
                                     ->multiple()
                                     ->collection('gallery')
+                                    ->disk('gallery')
                                     ->acceptedFileTypes(['image/jpeg', 'image/png'])
                                     ->maxFiles(50)
                                     ->imageEditor(),
@@ -121,6 +122,7 @@ class PageResource extends Resource
                                     })
                                     ->multiple()
                                     ->collection('files')
+                                    ->disk('files')
                                     ->acceptedFileTypes(['application/pdf'])
                                     ->maxFiles(50)
                                     ->imageEditor(),
@@ -213,6 +215,7 @@ class PageResource extends Resource
                                     ->options([
                                         '1' => 'Aktiviteler Bölümünde Göster',
                                         '2' => "Story'de Göster",
+                                        'kulturelMiras' => "Kültürel Miras",
                                         '100' => 'Diğer',
                                     ]),
 
@@ -241,18 +244,21 @@ class PageResource extends Resource
                                 SpatieMediaLibraryFileUpload::make('image_1')
                                     ->label('Kapak Görseli')
                                     ->collection('cover')
+                                    ->disk('pages')
                                     ->imageEditor()
                                     ->maxFiles(1),
 
                                 SpatieMediaLibraryFileUpload::make('image_2')
                                     ->label('Banner Görseli')
                                     ->collection('banner')
+                                    ->disk('pages')
                                     ->maxFiles(1),
 
                                 SpatieMediaLibraryFileUpload::make('image_3')
                                     ->label('Kutu Görseli')
                                     ->customProperties(['description' => fn (Page $record): string => $record->url])
                                     ->collection('box')
+                                    ->disk('pages')
                                     ->maxFiles(1),
 
                             ]),

@@ -23,5 +23,6 @@ return [
     'Aktiviteler' => "Activities",
     'Balon Uçuş Bilgisi' => "Balloon Flight Info",
     'Haber Fotoğrafları' => "News Gallery",
+    'Kültürel Miras' => "Cultural Heritage",
 
 ];

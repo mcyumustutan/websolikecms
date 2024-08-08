@@ -44,7 +44,7 @@
                         <div class="swiper-wrapper rounded">
                             @foreach ($projectsArray['news'] as $duyuru)
 
-                            <div class="swiper-slide rounded">
+                            <div class="swiper-slide rounded swiper-thumbnail">
                                 <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
                             </div>
 

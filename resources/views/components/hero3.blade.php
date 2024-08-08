@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-caption-three wow fadeInUp text-center">
-                                <img src="{{asset('images/kapadokyanin-baskenti.png')}}" class="img-fluid" />
+                                <img src="{{asset('images/kapadokyanin-baskenti.png')}}" class="img-fluid" width="891" header="211" />
                                 <h4 class="title wow fadeInUp rounded  text-uppercase" data-wow-delay="0.0s">
                                     {!!$slider['info']!!}
                                 </h4>

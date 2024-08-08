@@ -7,15 +7,10 @@ use App\Models\Page;
 use App\Models\Settings;
 use App\Models\Slider;
 use App\Models\Vefatlist;
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use PHPUnit\Framework\Constraint\Count;
-use Symfony\Component\DomCrawler\Crawler;
 
 class PageController extends Controller
 {
@@ -29,17 +24,6 @@ class PageController extends Controller
         public $settings = null,
         public $wheather = null
     ) {
-        $this->mainNavigation = Page::with('sub')->select('id', 'lang', 'title', 'url')
-            ->where([
-                'parent_id' => null,
-                'lang' => App::getLocale(),
-            ])
-            // ->where('template_type', 'page')
-            ->whereJsonContains('link_view', '1')
-            ->where('is_publish', true)
-            ->orderBy('ordinal', 'asc')
-            ->get()->toArray();
-
         $this->mainNavigation1 = Page::with('sub')->select('id', 'lang', 'title', 'url')
             ->where([
                 'parent_id' => null,
@@ -157,6 +141,10 @@ class PageController extends Controller
             'activityBoxes' => Page::where('is_publish', true)
                 ->whereIn('template_type', [TemplateType::Page->value])
                 ->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
+
+            'kulturelMiras' => Page::where('is_publish', true)
+                ->whereIn('template_type', [TemplateType::Page->value])
+                ->whereJsonContains('box_view', 'kulturelMiras')->orderBy('display_date', 'desc')->take(6)->get(),
 
             'comingEvents' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Event->value
