@@ -21,7 +21,7 @@ class VefatlistTable extends DataTableComponent
             Column::make("Adı Soyadı", "adSoyad")
                 ->searchable()
                 ->sortable(),
-            Column::make("Ana / Baba Adı", "anaBabaAdi")
+            Column::make("Yakını", "anaBabaAdi")
                 ->searchable()
                 ->sortable(),
             Column::make("Vefat Tarihi", "vefatTarihi")
