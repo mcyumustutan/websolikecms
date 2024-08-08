@@ -229,6 +229,7 @@ class PageController extends Controller
         $subPages[] = ['data' => []];
         $subPages = Page::where('parent_id', $page['id'])
             ->whereNot('id', $page['id'])
+            ->where('is_publish', true)
             ->orderBy('display_date', 'desc')
             ->with('media')
             ->paginate(8)
@@ -236,6 +237,7 @@ class PageController extends Controller
 
         if (count($subPages['data']) === 0) {
             $subPages = Page::where('parent_id', $page['parent_id'])
+                ->where('is_publish', true)
                 ->where('template_type', $page['template_type'])
                 ->whereNot('id', $page['id'])
                 ->orderBy('display_date', 'desc')
