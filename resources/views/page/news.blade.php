@@ -53,7 +53,7 @@
                         {!! $page->content_secondary !!}
                     </div>
                 </div>
-
+                <div class="clearfix"></div>
                 @include('components.gallery')
                 @include('components.files')
             </div>
