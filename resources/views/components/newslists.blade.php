@@ -25,7 +25,7 @@
                                         <div class="announcement-item w-100">
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
-                                                <strong>{{$duyuru['short_content']}}</strong>
+                                                <p>{{$duyuru['short_content']}}</p>
                                                 <p>
                                                     <i class="ri-calendar-todo-fill"></i> {{$duyuru['display_only_date']}}
                                                     @if($duyuru['display_only_hour']!=="00:00")
@@ -65,7 +65,7 @@
                                         <div class="announcement-item w-100">
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
-                                                <strong>{{$duyuru['title']}}</strong>
+                                                <p>{{$duyuru['title']}}</p>
 
                                                 <p>
                                                     <i class="ri-calendar-todo-fill"></i> {{$duyuru['display_only_date']}}
@@ -111,7 +111,7 @@
                                         <div class="announcement-item w-100">
                                             <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
                                             <div class="announcement-text">
-                                                <strong>{{$duyuru['adSoyad']}}</strong>
+                                                <p>{{$duyuru['adSoyad']}}</p>
                                                 <p><i class="ri-calendar-todo-fill"></i>{{$duyuru['vefatTarihi']}} <i class="ri-time-line"></i>{{$duyuru['cenazeZamani']}}</p>
                                                 <small><i class="ri-map-pin-line"></i> {{$duyuru['cenazeYeri']}}</small>
                                             </div>

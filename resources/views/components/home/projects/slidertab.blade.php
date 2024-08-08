@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12 mb-4">
                 <div class="border-section-title text-center">
-                    <img src="{{asset('images/kapadokyanin-baskenti.png')}}" class="img-fluid" style="filter:invert(.75)" width="891" header="211"/>
+                    <img src="{{asset('images/kapadokyanin-baskenti.png')}}" class="img-fluid"  width="891" header="211"/>
                     <h4 class="title"> {{ __('websolike.Göreme Projeleri')}}</h4>
                 </div>
             </div>

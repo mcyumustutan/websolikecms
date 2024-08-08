@@ -4,6 +4,7 @@
         <div class="row justify-content-center position-relative z-10">
             <div class="col-xl-7 col-lg-7">
                 <div class="section-title mx-auto text-center">
+                <img src="{{asset('images/kulturel-miras.png')}}" class="img-fluid"  width="645" header="142"/>
                     <h4 class="title">
                         {{__('websolike.Kültürel Miras')}}
                     </h4>

@@ -2,7 +2,8 @@
      <div class="container">
          <div class="row justify-content-center position-relative z-10">
              <div class="col-xl-7 col-lg-7">
-                 <div class="section-title mx-auto text-center">
+                 <div class="border-section-title text-center">
+                     <img src="{{asset('images/goreme.png')}}" class="img-fluid" style="" width="467" header="118" />
                      <h4 class="title">
                          {{__('websolike.Göremeyi Keşfet')}}
                      </h4>
@@ -50,6 +51,6 @@
 
      </div>
 
-    
+
      @include('components/shapes')
  </section>
