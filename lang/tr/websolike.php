@@ -19,7 +19,7 @@ return [
     'Haber ve Duyurular' => 'Haber ve Duyurular',
     'Haberler' => 'Haberler',
     'Güncel Duyurular' => 'Güncel Duyurular',
-    'Göremeyi Keşfet' => "Göreme'yi Keşfedin",
+    'Göremeyi Keşfet' => "Göreme'yi Keşfet",
     'Aktiviteler' => "Yapılacak Aktiviteler",
     'Balon Uçuş Bilgisi' => "Balon Uçuş Bilgisi",
     'Haber Fotoğrafları' => "Haber Fotoğrafları",
