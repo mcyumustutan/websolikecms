@@ -4,7 +4,7 @@ return [
 
     'Share' => 'Paylaş',
     'Recent News' => 'Diğer Sayfalar',
-    'Related Pages' => 'İlgili Sayafalar',
+    'Related Pages' => 'İlgili Sayfalar',
     'Photo Gallery' => 'Fotoğraf Galerisi',
     'Files Attachments' => 'Dosya Ekleri',
     'Göreme Haberler' => "Göreme'den Haberler",
