@@ -103,7 +103,7 @@ class PageResource extends Resource
                                     ->multiple()
                                     ->collection('gallery')
                                     ->acceptedFileTypes(['image/jpeg', 'image/png'])
-                                    ->maxFiles(10)
+                                    ->maxFiles(50)
                                     ->imageEditor(),
 
                             ])
@@ -118,7 +118,7 @@ class PageResource extends Resource
                                     ->multiple()
                                     ->collection('files')
                                     ->acceptedFileTypes(['application/pdf'])
-                                    ->maxFiles(10)
+                                    ->maxFiles(50)
                                     ->imageEditor(),
 
                             ])

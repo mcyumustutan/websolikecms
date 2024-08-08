@@ -35,7 +35,7 @@
 
 
     @include('components/header2')
-    <main style="background: url(images/goreme-shape.jpg) fixed center center repeat-x">
+    <main style="background: url({{asset('images/goreme-shape.jpg')}}) fixed center center repeat-x">
         @yield('content')
     </main>
     @include('components/footer')
@@ -59,6 +59,7 @@
             prependTo: ".mobile_menu",
         });
     </script>
+
 
 
 </body>

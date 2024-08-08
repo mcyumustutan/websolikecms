@@ -11,7 +11,7 @@
 
                             <div class="swiper-slide rounded">
                                 <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
-                                <div class="content position-absolute">
+                                <div class="content position-absolute text-left">
                                     <a href="{{$duyuru['fullurl']}}">
                                         <p class="title">{{$duyuru['title']}}</p>
                                         <p class="description">{{$duyuru['meta_description']}}</p>

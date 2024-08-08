@@ -31556,13 +31556,14 @@ button.applyBtn.btn.btn-sm.btn-primary {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  padding: 35px;
+  padding: 15px;
 }
 
 .swiper-slide .content .title {
   font-size: 1.6rem;
   font-weight: bold;
   color: white;
+  text-align: left;
 }
 
 .swiper-slide .content .description {
@@ -31685,7 +31686,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
 .pagination a:hover,
 .pagination a .pagination-active {
-  color: #fff;
+  /* color: #fff; */
 }
 
 .pagination a:hover:before,
@@ -31694,7 +31695,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .pagination .pagination-active {
-  color: #fff;
+  /* color: #fff; */
 }
 
 .pagination .pagination-active:before {

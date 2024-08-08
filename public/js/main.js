@@ -209,43 +209,6 @@
     });
 
     /*----------------------------------------------
-        :: Select 2
-    ----------------------------------------------*/
-    $(".select2").select2({
-        placeholder: "Choose one",
-        width: "100%",
-    });
-
-    /*----------------------------------------------
-        :: Fancy box
-    ----------------------------------------------*/
-    $(document).ready(function () {
-        $(document).on("click", "[data-fancybox]", function (event) {
-            event.preventDefault();
-            var videoUrl = $(this).attr("href");
-            Fancybox.show([
-                {
-                    type: "iframe",
-                    src: videoUrl
-                }
-            ]);
-        });
-    });
-
-    /*----------------------------------------------
-        :: Custom click expand icon
-    ----------------------------------------------*/
-    document.addEventListener("DOMContentLoaded", function () {
-        const hoverIcons = document.querySelectorAll(".hover-icon");
-        hoverIcons.forEach((hoverIcon) => {
-            hoverIcon.addEventListener("click", function () {
-                const socialIcons = this.nextElementSibling;
-                socialIcons.classList.toggle("active");
-            });
-        });
-    });
-
-    /*----------------------------------------------
         :: JS for Price Range slider
     ----------------------------------------------*/
     $(function () {
