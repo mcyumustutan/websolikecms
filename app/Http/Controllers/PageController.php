@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\Constraint\Count;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -92,18 +93,11 @@ class PageController extends Controller
         $wheatherBody = ['current'];
         $wheatherBody = ['icon'];
         // Cache::forget($cacheKey);
-        $this->wheather = Cache::remember($cacheKey, 7200, function () use ($wheatherBody) {
-            try {
-                $wheather = Http::get("https://forecast7.com/tr/38d6434d83/goreme/?format=json")->body();
-                $wheatherBody = collect(json_decode($wheather, true));
-            } catch (Exception $e) {
-                $wheatherBody['current'] = [
-                    'icon' => '',
-                    'temp' => '',
-                ];
-            }
-            return $wheatherBody['current'];
-        });
+        try {
+            $this->wheather = json_decode(Storage::disk('local')->get('weather-api.txt'), true)['current'];
+        } catch (Exception $e) {
+            $this->wheather = ['icon' => ''];
+        }
 
         // dd($this->wheather);
     }
@@ -151,9 +145,9 @@ class PageController extends Controller
             // 'deaths' => $projectsByCategory->get(TemplateType::Death->value, collect())->all(),
             'news' => $projectsByCategory->get(TemplateType::News->value, collect())->all(),
             // 'news' => Page::where('is_publish', true)->whereIn('template_type', [
-                //     TemplateType::News->value
+            //     TemplateType::News->value
             // ])->orderBy('display_date', 'desc')->take(6)->get(),
-            
+
 
             'bids' => Page::where('is_publish', true)->whereIn('template_type', [
                 TemplateType::Bid->value
