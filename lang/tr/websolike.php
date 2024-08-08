@@ -22,5 +22,6 @@ return [
     'Göremeyi Keşfet' => "Göreme'yi Keşfedin",
     'Aktiviteler' => "Yapılacak Aktiviteler",
     'Balon Uçuş Bilgisi' => "Balon Uçuş Bilgisi",
+    'Haber Fotoğrafları' => "Haber Fotoğrafları",
 
 ];

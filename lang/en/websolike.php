@@ -22,5 +22,6 @@ return [
     'Göremeyi Keşfet' => "Explore The Göreme",
     'Aktiviteler' => "Activities",
     'Balon Uçuş Bilgisi' => "Balloon Flight Info",
+    'Haber Fotoğrafları' => "News Gallery",
 
 ];

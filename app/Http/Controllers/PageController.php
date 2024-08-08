@@ -161,7 +161,7 @@ class PageController extends Controller
                 TemplateType::Event->value
             ])
                 // ->where('display_date', '>=', Carbon::today())
-                ->orderBy('display_date', 'desc')
+                ->orderBy('display_date', 'asc')
                 ->take(6)->get(),
 
             'stories' => Page::where('is_publish', true)

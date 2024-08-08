@@ -34,7 +34,7 @@
                             <div class="col-xl-12 col-lg-12">
                                 <div class="position-relative mb-20 mt-20">
                                     <h5>
-                                        {{ __('websolike.Photo Gallery')}}
+                                        {{ __('websolike.Haber Fotoğrafları')}}
                                     </h5>
                                 </div>
                             </div>
