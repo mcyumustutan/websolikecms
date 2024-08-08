@@ -25,13 +25,25 @@
 
                     <div class="news-content">
 
-                        <h4 class="title">
+                        <h3 class="title">
                             <a href="{{ $page->url }}/{{$subPage['url']}}">
                                 {{$subPage['title']}}
                             </a>
 
-                            <p class="date">{{$subPage['display_date']}}</p>
-                        </h4>
+                            @if($subPage['display_date'])
+                            <div class="count">
+                                <p class="pera">
+                                    <i class="ri-calendar-todo-fill"></i> {{$subPage['display_only_date']}}
+                                    @if($subPage['display_only_hour']!=="00:00")
+                                    <i class="ri-time-line"></i> {{$subPage['display_only_hour']}}
+                                    @endif
+                                </p>
+                                @if($subPage['highlited_value_1'])
+                                {{$subPage['highlited_value_1']}}
+                                @endif
+                            </div>
+                            @endif
+                        </h3>
 
                     </div>
                 </article>

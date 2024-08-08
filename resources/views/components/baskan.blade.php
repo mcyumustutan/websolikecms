@@ -9,10 +9,10 @@
         </div>
         <div class="card-body  ">
             <p class="mb-2">
-                <a class="card-link" href="{{config('app.url')}}/tr/kurumsal/baskan">
+                <a class="card-link" href="{{config('app.url')}}/tr/baskan/ozgecmis">
                     Özgeçmiş <i class="ri-arrow-right-up-line"></i>
                 </a>
-                <a class="card-link" href="{{config('app.url')}}/tr/kurumsal/mesaj">
+                <a class="card-link" href="{{config('app.url')}}/tr/baskan/baskandan-mesaj">
                     Başkandan Mesaj <i class="ri-arrow-right-up-line"></i>
                 </a>
             </p>

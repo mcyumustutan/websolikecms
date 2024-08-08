@@ -61,38 +61,7 @@
 
         </div>
     </div>
-
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-9">
-                <div class="contact">
-                    <h4 class="contact-heading">Göreme İletişim Hattı</h4>
-                    <form method="post" class="contact-form">
-                        <div class="row g-4">
-                            <div class="col-sm-6">
-                                <input class="custom-form" type="text" placeholder="Adınız">
-                            </div>
-                            <div class="col-sm-6">
-                                <input class="custom-form" type="text" placeholder="E-Posta Adresiniz">
-                            </div>
-                            <div class="col-sm-6">
-                                <input class="custom-form" type="text" placeholder="Telefon Numaranız">
-                            </div>
-                            <div class="col-sm-6">
-                                <input class="custom-form" type="text" placeholder="Konu">
-                            </div>
-                            <div class="col-sm-12">
-                                <textarea class="custom-form-textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Mesajınız..."></textarea>
-                            </div>
-                        </div>
-                        <div class="mt-40">
-                            <button type="submit" class="send-btn">Gönder</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 </section>
 
 <!-- Map -->
