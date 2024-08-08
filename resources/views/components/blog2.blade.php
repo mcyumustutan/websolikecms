@@ -4,10 +4,7 @@
         <div class="row justify-content-center position-relative z-10">
             <div class="col-xl-7 col-lg-7">
                 <div class="section-title mx-auto text-center">
-                <img src="{{asset('images/aktiviteler.png')}}" class="img-fluid"  width="457" header="137"/>
-                    <h4 class="title">
-                        {{__('websolike.Aktiviteler')}}
-                    </h4>
+                    <img src="{{asset('images/aktiviteler.png')}}" class="img-fluid" width="457" header="137" />
                 </div>
             </div>
         </div>
@@ -57,6 +54,6 @@
 
     </div>
 
-    
+
     @include('components/shapes')
 </section>
