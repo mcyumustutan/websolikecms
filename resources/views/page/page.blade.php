@@ -45,7 +45,7 @@
                         <div class="col-lg-12 mt-4">
 
                             @if(!is_null($page->banner))
-                            <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid max-w-50 m-3 rounded float-start">
+                            <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid max-w-50 m-3 rounded float-start" style="max-width: 430px;">
                             @endif
 
                             <p class="pera m-5" style="text-align: justify;">
