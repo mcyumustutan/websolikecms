@@ -36,6 +36,7 @@ class PageController extends Controller
             ])
             // ->where('template_type', 'page')
             ->whereJsonContains('link_view', '1')
+            ->where('is_publish', true)
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
@@ -47,6 +48,7 @@ class PageController extends Controller
             // ->where('template_type', 'page')
             ->whereJsonContains('link_view', '1')
             ->limit(2)
+            ->where('is_publish', true)
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
@@ -59,6 +61,7 @@ class PageController extends Controller
             ])
             // ->where('template_type', 'page')
             ->whereJsonContains('link_view', '1')
+            ->where('is_publish', true)
             ->orderBy('ordinal', 'asc')
             ->offset(2)
             ->limit(3)
@@ -73,6 +76,7 @@ class PageController extends Controller
             ])
             ->where('template_type', 'page')
             ->whereJsonContains('link_view', '2')
+            ->where('is_publish', true)
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
@@ -82,6 +86,7 @@ class PageController extends Controller
                 'lang' => App::getLocale(),
             ])
             ->whereJsonContains('link_view', '3')
+            ->where('is_publish', true)
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
@@ -89,10 +94,6 @@ class PageController extends Controller
             return [$item['key'] => $item->value];
         });
 
-        $cacheKey = 'weather_of_nevsehir';
-        $wheatherBody = ['current'];
-        $wheatherBody = ['icon'];
-        // Cache::forget($cacheKey);
         try {
             $this->wheather = json_decode(Storage::disk('local')->get('weather-api.txt'), true)['current'];
         } catch (Exception $e) {
