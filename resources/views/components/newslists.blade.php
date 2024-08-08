@@ -10,7 +10,7 @@
                         <div class="box-header">
                             <h2 class="box-title">{{__('websolike.Güncel Duyurular')}}</h2>
                             <div class="controls">
-                                <a href="{{config('app.url')}}/{{App::getlocale()}}/tum-ihaleler">
+                                <a href="{{config('app.url')}}/{{App::getlocale()}}/tum-duyurular">
                                     <i class="ri-arrow-right-up-line"></i>
                                 </a>
                             </div>
