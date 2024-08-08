@@ -40,47 +40,32 @@
                 </div>
 
 
-                <div class="row">
-                    <div class="col-lg-12">
+                <div class="col-lg-12">
 
-                        @if(!is_null($page->banner))
-                        <div class=" float-start max-w-50 m-2 ">
-                            <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
-                        </div>
-                        @endif
-
-                        <div class="pera ml-5 mt-1" style="text-align: justify;">
-                            {!! $page->content_primary !!}
-                            {!! $page->content_secondary !!}
-                            <div>
-
-                            </div>
-
-                        </div>
-
-                        @include('components.gallery')
-                        @include('components.files')
-
-
-
-
+                    @if(!is_null($page->banner))
+                    <div class=" float-start max-w-50 m-2">
+                        <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
                     </div>
-
-
-
-
-                    @if($page->has_sidebar)
-                    @include('components.sidebar')
                     @endif
 
+                    <div class="pera ml-5 mt-1" style="text-align: justify;">
+                        {!! $page->content_primary !!}
+                        {!! $page->content_secondary !!}
+                    </div>
                 </div>
+
+                @include('components.gallery')
+                @include('components.files')
             </div>
+
+            @if($page->has_sidebar)
+            @include('components.sidebar')
+            @endif
+
+        </div>
+    </div>
+    </div>
 </section>
-
-
-@if(in_array('solutioncenter',$page->widgets??[]))
-form
-@endif
 
 @if($page->has_subpages)
 @include('components/pagination')
