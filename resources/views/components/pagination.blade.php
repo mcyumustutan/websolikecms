@@ -19,7 +19,7 @@
                 <article class="news-card-two">
                     <figure class="news-banner-two imgEffect  d-flex justify-content-center align-items-center" style="height: 260px;">
                         <a href="{{ $page->url }}/{{$subPage['url']}}">
-                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}" class="img-fluid">
+                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}" class="">
                         </a>
                     </figure>
 

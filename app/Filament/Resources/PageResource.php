@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Tables\Filters\SelectFilter;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class PageResource extends Resource
 {
@@ -50,12 +51,15 @@ class PageResource extends Resource
                                     ->required()
                                     ->unique(Page::class, 'url', ignoreRecord: true),
 
-                                Forms\Components\RichEditor::make('content_primary')
+                                TinyEditor::make('content_primary')
                                     ->label('Ana Metin')
+                                    ->minHeight(400)
                                     ->columnSpan('full'),
 
-                                Forms\Components\RichEditor::make('content_secondary')
+                                TinyEditor::make('content_secondary')
+                                    ->minHeight(400)
                                     ->label('Ek Metin')
+                                    ->minHeight(400)
                                     ->columnSpan('full'),
                             ])
                             ->columns(2),
