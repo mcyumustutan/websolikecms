@@ -26,7 +26,7 @@
                         </p>
                     </div>
                     @endif
-  
+
                 </div>
 
 
@@ -81,29 +81,6 @@
                     <div class="ml-3 w-100">
                         <h4 class="mb-0 mt-2">{{ $subPage['title'] }}</h4>
                         <span>{{ $subPage['meta_description'] }}</span>
-                        @if($subPage['highlited_value_1'] or $subPage['highlited_value_2'] or $subPage['highlited_value_3'])
-                        <div class="p-2 mt-2 bg-primary d-flex justify-content-start rounded text-white stats gap-2">
-                            @if($subPage['highlited_value_1'])
-                            <a target="_blank" href="{{$subPage['highlited_value_1']}}">
-                                <img src="{{asset('images/social/instagram.png')}}" width="36" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}" />
-                            </a>
-                            @endif
-
-                            @if($subPage['highlited_value_2'])
-                            <a target="_blank" href="{{$subPage['highlited_value_2']}}">
-
-                                <img src="{{asset('images/social/x.png')}}" width="36" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}" />
-                            </a>
-                            @endif
-
-                            @if($subPage['highlited_value_3'])
-                            <a target="_blank" href="{{$subPage['highlited_value_3']}}">
-                                <img src="{{asset('images/social/facebook.png')}}" width="36" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}" />
-                            </a>
-                            @endif
-
-                        </div>
-                        @endif
 
                         <div class="button mt-2 d-flex flex-column align-items-start">
 
@@ -124,7 +101,7 @@
                 </div>
             </div>
 
- 
+
             @endforeach
         </div>
 
