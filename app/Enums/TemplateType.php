@@ -18,6 +18,7 @@ enum TemplateType: string implements HasLabel
     case Event = 'event';
     // case Death = 'death';
     case Module = 'module';
+    case Personel = 'personel';
 
     public function getLabel(): ?string
     {
@@ -34,6 +35,7 @@ enum TemplateType: string implements HasLabel
             self::Event => 'Etkinlik',
             // self::Death => 'Vefat İlanları',
             self::Module => 'Modül',
+            self::Personel => 'Personel',
         };
     }
 
@@ -51,6 +53,7 @@ enum TemplateType: string implements HasLabel
             self::ProjectPlanned => 'page.project',
             // self::Death => 'page.death',
             self::Module => 'page.module',
+            self::Personel => 'page.personel',
             default => 'page.page',
         };
     }

@@ -1,14 +1,14 @@
 <!-- Footer S t a r t -->
 <footer>
-    @if($settings['sabit-telefon-numarasi'])
-    <a class="" style="position: fixed; bottom: 120px; right: 26px; z-index: 9999;" href="tel:{{$settings['sabit-telefon-numarasi']}}" target="_blank">
-        <img src="{{asset('images/whatsapp.png')}}" width="46px" />
+    @if($settings['whatsapp'])
+    <a class="" style="position: fixed; bottom: 120px; right: 26px; z-index: 9999;" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}" target="_blank">
+        <img src="{{asset('images/whatsapp.png')}}" width="46" height="46" />
     </a>
     @endif
 
     @if($settings['e-posta'])
     <a class="" style="position: fixed; bottom: 180px; right: 28px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
-        <img src="{{asset('images/email.png')}}" width="42px" />
+        <img src="{{asset('images/email.png')}}" width="42" height="42" />
     </a>
     @endif
 
@@ -96,14 +96,6 @@
                                 <div class="footer-tittle">
                                     <h4 class="title">İletişim</h4>
                                     <ul>
-                                        @if($settings['whatsapp'])
-                                        <li>
-                                            <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
-                                                <i class="ri-whatsapp-line fs-4"></i> {{$settings['whatsapp']}}
-                                            </a>
-                                        </li>
-                                        @endif
-
                                         @if($settings['sabit-telefon-numarasi'])
                                         <li>
                                             <a target="_blank" href="tel:{{$settings['sabit-telefon-numarasi']}}">

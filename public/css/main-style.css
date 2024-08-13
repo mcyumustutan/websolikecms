@@ -25745,11 +25745,11 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border: 1px solid var(--tertiary-border);
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  -webkit-filter: grayscale(1);
+  /* -webkit-filter: grayscale(1);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
   -o-filter: grayscale(100%);
-  filter: grayscale(100%);
+  filter: grayscale(100%); */
 }
 
 .favSwiper-active .news-card-two {
