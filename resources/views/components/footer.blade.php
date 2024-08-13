@@ -104,14 +104,6 @@
                                         </li>
                                         @endif
 
-                                        @if($settings['mobil-telefon-numarasi'])
-                                        <li>
-                                            <a target="_blank" href="tel:{{$settings['mobil-telefon-numarasi']}}">
-                                                <i class="ri-smartphone-line fs-4"></i> {{$settings['mobil-telefon-numarasi']}}
-                                            </a>
-                                        </li>
-                                        @endif
-
                                         @if($settings['e-posta'])
                                         <li>
                                             <a target="_blank" href="mailto:{{$settings['e-posta']}}">
