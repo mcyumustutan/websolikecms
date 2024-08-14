@@ -39,6 +39,7 @@ class Settings extends Page
                     ['content' => $settings->get(Str::slug('Harita Kodu (iframe)'))->value ?? '', 'text_label' => 'Harita Kodu (iframe)'],
                     ['content' => $settings->get(Str::slug('Anahtar Kelimeler'))->value ?? '', 'text_label' => 'Anahtar Kelimeler'],
                     ['content' => $settings->get(Str::slug('Site Açıklaması'))->value ?? '', 'text_label' => 'Site Açıklaması'],
+                    ['content' => $settings->get(Str::slug('Kep Adresi'))->value ?? '', 'text_label' => 'Kep Adresi'],
                 ]
             ],
             [

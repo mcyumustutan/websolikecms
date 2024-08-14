@@ -41,6 +41,8 @@
 
                     <div class="mt-20 md:mt-10">
                         <a href="mailto:{{$settings['e-posta']}}">{{$settings['e-posta']}}</a>
+                        <br>
+                        <a href="mailto:{{$settings['e-posta']}}">{{$settings['kep-adresi']}}</a>
                     </div>
                 </div>
             </div>
@@ -61,7 +63,7 @@
 
         </div>
     </div>
- 
+
 </section>
 
 <!-- Map -->
