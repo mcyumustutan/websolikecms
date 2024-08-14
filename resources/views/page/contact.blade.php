@@ -12,7 +12,7 @@
 <section class="page-details-section section-padding2">
     <div class="container">
 
-        <div class="row y-gap-30 pb-4">
+        <div class="row y-gap-30 pb-4 g-4 bg-white rounded py-4 pt-0">
 
             <p>{{ $page->content_primary }}</p>
             <p>{{ $page->content_socondary }}</p>

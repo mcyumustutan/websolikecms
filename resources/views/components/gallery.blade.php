@@ -1,15 +1,7 @@
 @if(count($galleries)>0)
 
-<div class="galleries">
-    <div class="row justify-content-center">
-        <div class="col-xl-12 col-lg-12">
-            <div class="position-relative mb-20 mt-20">
-                <h5>
-                    {{ __('websolike.Haber Fotoğrafları')}}
-                </h5>
-            </div>
-        </div>
-    </div>
+<div class="galleries my-4">
+     
     <div class="row g-4">
         <div class="col-xl-12 col-lg-12 d-flex flex-wrap gap-2">
             @foreach ($galleries as $key => $gallery)

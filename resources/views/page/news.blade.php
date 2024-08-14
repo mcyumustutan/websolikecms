@@ -9,11 +9,18 @@
 
 <section class="page-details-section">
     <div class="container">
-        <div class="row g-4">
+        <div class="row g-4 bg-white rounded py-4 pt-0">
             @php
+            $page->has_sidebar=true;
             $column_size = 12;
-            if($page->has_sidebar) $column_size = 8;
+            if($page->has_sidebar) $column_size = 9;
             @endphp
+
+
+
+            @include('components.sidebar')
+
+
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 <div class="d-flex flex-wrap align-items-center gap-20 mt-20">
 
@@ -40,10 +47,10 @@
                 </div>
 
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 gap-4">
 
                     @if(!is_null($page->banner))
-                    <div class=" float-start max-w-50 m-2">
+                    <div class=" float-start max-w-50 mx-4 ml-0">
                         <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
                     </div>
                     @endif
@@ -57,10 +64,6 @@
                 @include('components.gallery')
                 @include('components.files')
             </div>
-
-            @if($page->has_sidebar)
-            @include('components.sidebar')
-            @endif
 
         </div>
     </div>

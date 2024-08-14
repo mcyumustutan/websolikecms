@@ -4,19 +4,20 @@
 
 @section('content')
 
-
 @include('components.breadcrumb')
 
 <section class="page-details-section">
     <div class="container">
-        <div class="row g-4">
+        <div class="row  g-4 bg-white rounded py-4 pt-0">
             @php
             $column_size = 12;
             if($page->has_sidebar) $column_size = 8;
             @endphp
-            <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
-                <div class="d-flex flex-wrap align-items-center gap-20 mt-20">
 
+            <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
+                <div class="d-flex flex-wrap align-items-center gap-20 ">
+
+                    @if($page->content_primary)
                     @if($page->display_date)
                     <div class="count">
                         <p class="pera">
@@ -26,6 +27,7 @@
                             @endif
                         </p>
                     </div>
+                    @endif
                     @endif
 
                     @if($page->highlited_value_1)
@@ -43,7 +45,7 @@
                 <div class="col-lg-12">
 
                     @if(!is_null($page->banner))
-                    <div class=" float-start max-w-50 m-2">
+                    <div class=" float-start max-w-50  mx-4 ml-0">
                         <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
                     </div>
                     @endif
