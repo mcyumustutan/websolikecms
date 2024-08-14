@@ -1,5 +1,5 @@
 <!-- Explore S t a r t -->
-<section class="explore-area section-padding2">
+<section class="explore-area mt-5 section-padding2">
     <div class="container">
 
         <div class="row">

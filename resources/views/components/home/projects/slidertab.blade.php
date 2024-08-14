@@ -1,4 +1,4 @@
-<section class="package-area  section-padding2 position-relative">
+<section class="package-area mt-5 position-relative">
     <div class="container">
 
         <div class="row">
