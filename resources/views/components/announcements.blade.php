@@ -61,12 +61,12 @@
                 <!-- Card-->
                 <div class="card mayor-card  border-0 rounded shadow">
                     <div class="card-body p-0">
-                        <div class="card-img">
+                        <div class="card-img" style="height:515px; overflow: hidden;">
                             <img src="{{asset('images/omer-eren.jpg')}}" alt="" class="">
                         </div>
-                        <div class="p-4 text-center">
-                            <h5 class="mb-0">ÖMER EREN</h5>
-                            <p class="small text-muted">T.C. Göreme Belediye Başkanı</p>
+                        <div class="pt-2 pb-4 text-center">
+                            <h5 class="mb-0 mt-2 fs-1"><span style="font-weight:700">ÖMER</span> <span style="font-weight:700">EREN</span></h5>
+                            <p class="small text-muted pb-2">T.C. Göreme Belediye Başkanı</p>
                             <a class="card-link" href="{{config('app.url')}}/tr/kurumsal/baskan">
                                 Özgeçmiş <i class="ri-arrow-right-up-line"></i>
                             </a>
