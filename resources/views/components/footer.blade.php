@@ -126,11 +126,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="d-flex justify-content-center gap-14 flex-wrap">
+                        <div class="d-flex justify-content-between gap-14 flex-wrap">
 
-                            <p class="pera fw-light text-muted" style="font-size: 12px;">
+                            <p class="pera fw-light text-muted"  >
+                                <img src="{{ asset('images/logo/logo.png')}}" width="42" alt="{{$settings['site-aciklamasi']}}" title="{{ $settings['site-basligi'] }}">
+                                &copy; {{date('Y')}} Tüm hakları Göreme Belediyesi’nde Saklıdır.
+                            </p>
+
+                            <p class="pera fw-light text-muted" ">
                                 <a href="https://websolike.com" target="_blank">@Websolike</a>
-                                tarafından Göreme Belediyesine özel olarak yaptırılmıştır. &copy; {{date('Y')}} Tüm hakları Göreme Belediyesi’nde Saklıdır.
+                                tarafından Göreme Belediyesine özel olarak yaptırılmıştır.
                             </p>
                         </div>
                     </div>
