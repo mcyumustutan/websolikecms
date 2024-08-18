@@ -92,12 +92,14 @@ class PageController extends Controller
      */
     public function index(Request $request, $lang = 'tr')
     {
+        $mainNavigation = $this->mainNavigation;
+        $mainNavigation1 = $this->mainNavigation1;
+        $mainNavigation2 = $this->mainNavigation2;
+        $footernNavigation = $this->footernNavigation;
+        $footernGeneralNavigation = $this->footernGeneralNavigation;
         $settings = $this->settings->toArray();
 
-        $sliders = Slider::where('is_publish', true)
-            ->orderBy('position')
-            ->take(5)
-            ->get();
+        $sliders = Slider::where('is_publish', true)->orderBy('position')->take(5)->get();
 
         $allProjects = Page::whereIn('template_type', [
             TemplateType::ProjectFinished->value,
@@ -106,82 +108,86 @@ class PageController extends Controller
             TemplateType::Announcement->value,
             TemplateType::News->value,
             TemplateType::Page->value,
-        ])
-            ->whereNot(function ($query) {
-                $query->whereJsonContains('link_view', '4');
-            })
-            ->orderBy('display_date', 'desc')
-            ->take(100)
-            ->get()
-            ->groupBy('template_type');
+            // TemplateType::Death->value,
+        ])->whereNot(function ($query) {
+            $query->whereJsonContains('link_view', '4');
+        })
+            ->orderBy('display_date', 'desc')->take(100)->get();
 
+        // Projeleri kategorilerine göre gruplandır
+        $projectsByCategory = $allProjects->groupBy('template_type');
+
+        // Kategorilere göre gruplandırılmış projeleri dizi olarak almak
         $projectsArray = [
-            'deaths' => Vefatlist::orderBy('vefatTarihi', 'desc')
-                ->take(5)
-                ->get(),
-            'projectFinished' => $allProjects->get(TemplateType::ProjectFinished->value, collect())->all(),
-            'projectOnGoing' => $allProjects->get(TemplateType::ProjectOnGoing->value, collect())->all(),
-            'projectPlanned' => $allProjects->get(TemplateType::ProjectPlanned->value, collect())->all(),
-            'announcements' => $allProjects->get(TemplateType::Announcement->value, collect())->all(),
-            'news' => $allProjects->get(TemplateType::News->value, collect())->all(),
-            'bids' => Page::where('is_publish', true)
-                ->where('template_type', TemplateType::Bid->value)
-                ->orderBy('display_date', 'desc')
-                ->take(6)
-                ->get(),
+            'deaths' => Vefatlist::orderBy('vefatTarihi', 'desc')->take(5)->get(),
+            'projectFinished' => $projectsByCategory->get(TemplateType::ProjectFinished->value, collect())->all(),
+            'projectOnGoing' => $projectsByCategory->get(TemplateType::ProjectOnGoing->value, collect())->all(),
+            'projectPlanned' => $projectsByCategory->get(TemplateType::ProjectPlanned->value, collect())->all(),
+            'announcements' => $projectsByCategory->get(TemplateType::Announcement->value, collect())->all(),
+            // 'deaths' => $projectsByCategory->get(TemplateType::Death->value, collect())->all(),
+            'news' => $projectsByCategory->get(TemplateType::News->value, collect())->all(),
+            // 'news' => Page::where('is_publish', true)->whereIn('template_type', [
+            //     TemplateType::News->value
+            // ])->orderBy('display_date', 'desc')->take(6)->get(),
+
+
+            'bids' => Page::where('is_publish', true)->whereIn('template_type', [
+                TemplateType::Bid->value
+            ])->orderBy('display_date', 'desc')->take(6)->get(),
+
             'activityBoxes' => Page::where('is_publish', true)
-                ->where('template_type', TemplateType::Page->value)
-                ->whereJsonContains('box_view', '1')
-                ->orderBy('display_date', 'desc')
-                ->take(6)
-                ->get(),
+                ->whereIn('template_type', [TemplateType::Page->value])
+                ->whereJsonContains('box_view', '1')->orderBy('display_date', 'desc')->take(6)->get(),
+
             'kulturelMiras' => Page::where('is_publish', true)
-                ->where('template_type', TemplateType::Page->value)
-                ->whereJsonContains('box_view', 'kulturelMiras')
-                ->orderBy('display_date', 'desc')
-                ->take(6)
-                ->get(),
+                ->whereIn('template_type', [TemplateType::Page->value])
+                ->whereJsonContains('box_view', 'kulturelMiras')->orderBy('display_date', 'desc')->take(6)->get(),
+
             'explore' => Page::where('is_publish', true)
-                ->whereJsonContains('box_view', 'kesfet')
-                ->orderBy('display_date', 'desc')
-                ->take(6)
-                ->get(),
-            'comingEvents' => Page::where('is_publish', true)
-                ->where('template_type', TemplateType::Event->value)
-                ->orderBy('display_date', 'desc')
-                ->take(6)
-                ->get(),
+                ->whereJsonContains('box_view', 'kesfet')->orderBy('display_date', 'desc')->take(6)->get(),
+
+            'comingEvents' => Page::where('is_publish', true)->whereIn('template_type', [
+                TemplateType::Event->value
+            ])
+                // ->where('display_date', '>=', Carbon::today())
+                ->orderBy('display_date', 'asc')
+                ->take(6)->get(),
+
             'stories' => Page::where('is_publish', true)
                 ->whereNull('parent_id')
                 ->whereJsonContains('box_view', '2')
                 ->with('subStory')
                 ->orderBy('display_date', 'desc')
+                // ->toSql()
                 ->get()
+                // ->toArray()
                 ->map(function ($story) {
                     return [
-                        'id' => $story->id,
+                        'id' => $story->title,
                         'name' => $story->title,
                         'photo' => $story->cover,
                         'time' => $story->display_date_original,
                         'linkText' => $story->title,
-                        'items' => $story->subStory,
+                        'items' => $story['subStory'],
                     ];
                 }),
         ];
 
-        return view('layouts.home', [
-            'settings' => $settings,
-            'mainNavigation' => $this->mainNavigation,
-            'mainNavigation1' => $this->mainNavigation1,
-            'mainNavigation2' => $this->mainNavigation2,
-            'footernNavigation' => $this->footernNavigation,
-            'footernGeneralNavigation' => $this->footernGeneralNavigation,
-            'sliders' => $sliders,
-            'projectsArray' => $projectsArray,
+        // return response()->json($projectsArray['news']);
+
+        return view('layouts.home', compact(
+            'settings',
+            'mainNavigation',
+            'mainNavigation1',
+            'mainNavigation2',
+            'footernNavigation',
+            'footernGeneralNavigation',
+            'sliders',
+            'projectsArray',
+        ), [
             'wheather' => $this->wheather,
         ]);
     }
-
 
 
     /**
@@ -190,56 +196,94 @@ class PageController extends Controller
     public function show($lang, $params = null)
     {
         $settings = $this->settings->toArray();
-        $url = last(explode('/', $params));
+        $paramsArray = explode('/', $params);
+        $url = end($paramsArray);
 
         $page = Page::where('lang', $lang)
             ->where('url', $url)
             ->firstOrFail();
 
+
         $modules = [];
-        if (in_array('vefatlist', $page['widgets'] ?? [])) {
-            $modules['vefatlist'] = Vefatlist::orderBy('vefatTarihi', 'desc')
-                ->paginate(10)
-                ->toArray();
+        if (in_array('vefatlist', $page['widgets'] ?? []) > 0) {
+            // return response()->json($page['widgets']);
+            $modules['vefatlist'] = Vefatlist::orderBy('vefatTarihi', 'desc')->paginate(10)->toArray();
         }
 
+
+
+
+
+        $subPages[] = ['data' => []];
         $subPages = Page::where('parent_id', $page['id'])
+            ->whereNot('id', $page['id'])
             ->where('is_publish', true)
             ->orderBy('display_date', 'desc')
             ->with('media')
             ->paginate(8)
             ->toArray();
 
-        if (empty($subPages['data'])) {
+        if (count($subPages['data']) === 0) {
             $subPages = Page::where('parent_id', $page['parent_id'])
                 ->where('is_publish', true)
                 ->where('template_type', $page['template_type'])
-                ->where('id', '!=', $page['id'])
+                ->whereNot('id', $page['id'])
                 ->orderBy('display_date', 'desc')
                 ->with('media')
                 ->paginate(8)
                 ->toArray();
         }
 
-        $cover = $page->getMedia("cover")[0] ?? null;
-        $banner = $page->getMedia("banner")[0] ?? null;
-        $box = $page->getMedia("box")[0] ?? null;
-        $galleries = $page->getMedia("gallery") ?? null;
-        $files = $page->getMedia("files") ?? null;
-
+        // dd($subPages['data']);
+        /**
+         * 
+         * 
+         * @TODO: İçerikler için tasarımlar oluşturulacak
+         * @TODO: Anasayfa tasrımına başlanacak
+         * @TODO: İletişim formu ve diğer formlar için altyapı hazırlanacak
+         * 
+         * 
+         */
         $mainNavigation = $this->mainNavigation;
         $mainNavigation1 = $this->mainNavigation1;
         $mainNavigation2 = $this->mainNavigation2;
         $footernNavigation = $this->footernNavigation;
         $footernGeneralNavigation = $this->footernGeneralNavigation;
 
+
+        $view = $this->viewGenerator($page->template_type->view());
+        // var_dump($view);
+        // var_dump(App::getLocale());
+
+        $cover = $page->getMedia("cover")[0] ?? '';
+        $banner = $page->getMedia("banner")[0] ?? '';
+        $box = $page->getMedia("box")[0] ?? '';
+        $galleries = $page->getMedia("gallery") ?? '';
+        $files = $page->getMedia("files") ?? '';
+
+        // return view($view, [
+        //     'settings' => $settings,
+        //     'page' => $page,
+        //     'subPages' => $subPages,
+        //     'mainNavigation' => $mainNavigation,
+        //     'footernNavigation' => $footernNavigation,
+        //     'footernGeneralNavigation' => $footernGeneralNavigation,
+        //     'cover' => $cover,
+        //     'banner' => $banner,
+        //     'box' => $box,
+        //     'galleries' => $galleries,
+        //     'files' => $files,
+        //     'weather' => $this->weather,
+
+        // ]);
+
+        // dd($page->toArray());
+
         return view(
-            $this->viewGenerator($page->template_type->view()),
+            $view,
             compact(
                 'settings',
-                'page',
                 'subPages',
-                'modules',
                 'mainNavigation',
                 'mainNavigation1',
                 'mainNavigation2',
@@ -249,14 +293,17 @@ class PageController extends Controller
                 'banner',
                 'box',
                 'galleries',
-                'files'
+                'files',
             ),
             [
                 'wheather' => $this->wheather,
+                'page' => $page,
+                'modules' => $modules
             ]
         );
-    }
 
+        // return response()->json($page);
+    }
 
     function viewGenerator(String $view): String
     {
