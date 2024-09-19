@@ -150,7 +150,7 @@ class PageController extends Controller
                 TemplateType::Event->value
             ])
                 // ->where('display_date', '>=', Carbon::today())
-                ->orderBy('display_date', 'asc')
+                ->orderBy('display_date', 'desc')
                 ->take(6)->get(),
 
             'stories' => Page::where('is_publish', true)
@@ -197,6 +197,7 @@ class PageController extends Controller
     {
         $settings = $this->settings->toArray();
         $paramsArray = explode('/', $params);
+        if (count($paramsArray) > 5) abort(403);
         $url = end($paramsArray);
 
         $page = Page::where('lang', $lang)
@@ -211,16 +212,28 @@ class PageController extends Controller
         }
 
 
+        $mainNavigation = $this->mainNavigation;
+        $mainNavigation1 = $this->mainNavigation1;
+        $mainNavigation2 = $this->mainNavigation2;
+        $footernNavigation = $this->footernNavigation;
+        $footernGeneralNavigation = $this->footernGeneralNavigation;
 
 
+        $view = $this->viewGenerator($page->template_type->view());
+
+        $my_order = ['display_date', 'desc'];
+
+        if ($view == "page.personel") {
+            $my_order = ['ordinal', 'asc'];
+        }
 
         $subPages[] = ['data' => []];
         $subPages = Page::where('parent_id', $page['id'])
             ->whereNot('id', $page['id'])
             ->where('is_publish', true)
-            ->orderBy('display_date', 'desc')
+            ->orderBy($my_order[0], $my_order[1])
             ->with('media')
-            ->paginate(8)
+            ->paginate(12)
             ->toArray();
 
         if (count($subPages['data']) === 0) {
@@ -228,9 +241,9 @@ class PageController extends Controller
                 ->where('is_publish', true)
                 ->where('template_type', $page['template_type'])
                 ->whereNot('id', $page['id'])
-                ->orderBy('display_date', 'desc')
+                ->orderBy($my_order[0], $my_order[1])
                 ->with('media')
-                ->paginate(8)
+                ->paginate(12)
                 ->toArray();
         }
 
@@ -244,14 +257,6 @@ class PageController extends Controller
          * 
          * 
          */
-        $mainNavigation = $this->mainNavigation;
-        $mainNavigation1 = $this->mainNavigation1;
-        $mainNavigation2 = $this->mainNavigation2;
-        $footernNavigation = $this->footernNavigation;
-        $footernGeneralNavigation = $this->footernGeneralNavigation;
-
-
-        $view = $this->viewGenerator($page->template_type->view());
         // var_dump($view);
         // var_dump(App::getLocale());
 

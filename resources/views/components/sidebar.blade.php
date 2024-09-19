@@ -11,7 +11,7 @@
                     @foreach ($subPages['data'] as $subPage)
                     <li class="list">
                         <h4 class="title">
-                            <a href="{{ $page->url }}/{{$subPage['url']}}"> {{$subPage['title']}}</a>
+                            <a href="{{$subPage['url']}}"> {{$subPage['title']}}</a>
                         </h4>
                     </li>
                     @endforeach
