@@ -64,21 +64,21 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="single-footer-caption">
                                 <div class="footer-tittle">
-                                    <h4 class="title">SMS Listesi</h4>
+                                    <h4 class="title">{{__('websolike.SMS Listesi')}}</h4>
                                     <p>Güncel Bilgiler, Etkinlikler ve Duyurular İçin SMS Listesine Kaydolun</p>
-                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="btn-primary-sm radius mt-1">SMS Listesine Kaydol</a>
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="btn-primary-sm radius mt-1">{{__('websolike.SMS Listesine Kaydol')}}</a>
                                 </div>
                                 <div class="footer-tittle mt-5">
-                                    <h4 class="title">Çözüm Merkezi</h4>
+                                    <h4 class="title">{{__('websolike.Çözüm Merkezi')}}</h4>
                                     <p>Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!</p>
-                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="btn-primary-sm radius mt-1"> Çözüm Merkezine Ulaş </a>
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="btn-primary-sm radius mt-1"> {{__('websolike.Çözüm Merkezine Ulaş')}} </a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="single-footer-caption">
                                 <div class="footer-tittle">
-                                    <h4 class="title">Çalışma Saatleri</h4>
+                                    <h4 class="title">{{__('websolike.Çalışma Saatleri')}}</h4>
                                     <ul class="w-75">
                                         <li class="w-100"><a>Pazartesi <span class="float-end">08:00 - 17:00</span></a></li>
                                         <li class="w-100"><a>Salı <span class="float-end">08:00 - 17:00</span></a></li>
@@ -94,7 +94,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="single-footer-caption">
                                 <div class="footer-tittle">
-                                    <h4 class="title">İletişim</h4>
+                                    <h4 class="title">{{__('websolike.İletişim')}}</h4>
                                     <ul>
                                         @if($settings['sabit-telefon-numarasi'])
                                         <li>

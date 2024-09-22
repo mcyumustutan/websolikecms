@@ -24,5 +24,11 @@ return [
     'Balon Uçuş Bilgisi' => "Balloon Flight Info",
     'Haber Fotoğrafları' => "News Gallery",
     'Kültürel Miras' => "Cultural Heritage",
+    'SMS Listesi' => "SMS List",
+    'Çözüm Merkezi' => "Help Desk",
+    'SMS Listesine Kaydol' => "Sign up for SMS List",
+    'Çözüm Merkezine Ulaş' => "Contact Solution Center",
+    'Çalışma Saatleri' => "Working Hours",
+    'İletişim' => "Contact",
 
 ];

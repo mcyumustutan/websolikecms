@@ -28,7 +28,8 @@ class Page extends Model implements HasMedia
         static::addGlobalScope('is_publish', function (Builder $builder) {
             $builder
                 ->where('is_publish', true)
-                ->where('lang', App::getLocale());
+                // ->where('lang', App::getLocale())
+                ;
         });
     }
 

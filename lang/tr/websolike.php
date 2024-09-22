@@ -24,5 +24,11 @@ return [
     'Balon Uçuş Bilgisi' => "Balon Uçuş Bilgisi",
     'Haber Fotoğrafları' => "Haber Fotoğrafları",
     'Kültürel Miras' => "Kültürel Miras",
+    'SMS Listesi' => "SMS Listesi",
+    'Çözüm Merkezi' => "Çözüm Merkezi",
+    'SMS Listesine Kaydol' => "Çözüm Merkezi",
+    'Çözüm Merkezine Ulaş' => "Çözüm Merkezine Ulaş",
+    'Çalışma Saatleri' => "Çalışma Saatleri",
+    'İletişim' => "İletişim",
 
 ];
