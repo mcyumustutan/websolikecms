@@ -22,6 +22,7 @@ return [
     'Göremeyi Keşfet' => "Keşfet",
     'Aktiviteler' => "Yapılacak Aktiviteler",
     'Balon Uçuş Bilgisi' => "Balon Uçuş Bilgisi",
+    'BalonFlightInfo' => "Balon Uçuş Bilgisi",
     'Haber Fotoğrafları' => "Haber Fotoğrafları",
     'Kültürel Miras' => "Kültürel Miras",
     'SMS Listesi' => "SMS Listesi",
@@ -30,5 +31,6 @@ return [
     'Çözüm Merkezine Ulaş' => "Çözüm Merkezine Ulaş",
     'Çalışma Saatleri' => "Çalışma Saatleri",
     'İletişim' => "İletişim",
+    'Çözüm Merkezi Bilgi' => "Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!",
 
 ];

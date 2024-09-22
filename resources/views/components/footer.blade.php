@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="footer-tittle mt-5">
                                     <h4 class="title">{{__('websolike.Çözüm Merkezi')}}</h4>
-                                    <p>Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!</p>
+                                    <p>{{__('websolike.Çözüm Merkezi Bilgi')}}</p>
                                     <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="btn-primary-sm radius mt-1"> {{__('websolike.Çözüm Merkezine Ulaş')}} </a>
                                 </div>
                             </div>
