@@ -200,8 +200,8 @@ class PageController extends Controller
         if (count($paramsArray) > 5) abort(403);
         $url = end($paramsArray);
 
-        $page = Page::where('lang', $lang)
-            ->where('url', $url)
+        $page = Page::where('url', $url)
+            // ->where('lang', $lang)
             ->firstOrFail();
 
 
