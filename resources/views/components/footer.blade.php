@@ -11,8 +11,54 @@
         <img src="{{asset('images/email.png')}}" width="42" height="42" />
     </a>
     @endif
+    <!-- Brand S t a r t -->
 
+    <div class="brand-area bg-white">
+        <div class="container mb-4">
+            <div class="swiper brandSwiper-active">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-light p-3 rounded">
+                        <a href="https://webtapu.tkgm.gov.tr/" target="_blank">
+                            <img src="{{ asset('images/external-links/webtapu.png')}}" height="50" alt="Webtapu || TKGM" width="100">
+                        </a>
+                    </div>
+                    <div class="swiper-slide bg-light p-3 rounded">
+                        <a href="https://giris.turkiye.gov.tr/Giris/" target="_blank">
+                            <img src="https://cdn.e-devlet.gov.tr/themes/izmir/images/login/edk-logo.png" height="50" alt="e-Devlet Kapısı" width="100">
+                        </a>
+                    </div>
+                    <div class="swiper-slide bg-light p-3 rounded">
+                        <a href="https://www.cimer.gov.tr/" target="_blank">
+                            <img src="https://www.cimer.gov.tr/images/cimer-logo.png?v=lQKsw0kBsLpa_mg-cuZmnGs5sXEXQtrMNvQGX7n__38" height="50" alt="Cimer" width="100">
+                        </a>
+                    </div>
+                    <div class="swiper-slide bg-light p-3 rounded">
+                        <a href="https://kapadokyaalan.ktb.gov.tr/" target="_blank">
+                            <img src="https://kapadokyaalan.ktb.gov.tr/images/ktb_logo_.png" height="50" alt="Kapadokya Alan Başkanlığı" width="100">
+                        </a>
+                    </div>
+                    <div class="swiper-slide bg-light p-3 rounded">
+                        <a href="https://www.ilan.gov.tr/" target="_blank">
+                            <img src="https://medya.ilan.gov.tr/assets/img/logo.svg" height="50" alt="ilan.gov.tr - Türkiye'nin İlan Portalı" width="100">
+                        </a>
+                    </div>
+                    <div class="swiper-slide bg-light p-3 rounded">
+                        <a href="https://www.tbb.gov.tr/Tr/" target="_blank">
+                            <img src="https://www.tbb.gov.tr/img/logo.png" height="50" alt="Türkiye Belediyeler Birliği" width="100">
+                        </a>
+                    </div>
+                    <div class="swiper-slide bg-light p-3 rounded">
+                        <a href="https://www.resmigazete.gov.tr/" target="_blank">
+                            <img src="{{ asset('images/external-links/resmi-gazete.png')}}" height="50" width="100" alt="Türkiye Belediyeler Birliği">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End of Brand -->
     <div class="footer-wrapper footer-bg mt-20">
+
 
         <div class="footer-middle-area">
             <div class="container">
@@ -128,13 +174,13 @@
                     <div class="col-lg-12">
                         <div class="d-flex justify-content-between gap-14 flex-wrap">
 
-                            <p class="pera fw-light text-muted"  >
+                            <p class="pera fw-light text-muted">
                                 <img src="{{ asset('images/logo/logo.png')}}" width="42" alt="{{$settings['site-aciklamasi']}}" title="{{ $settings['site-basligi'] }}">
                                 &copy; {{date('Y')}} Tüm hakları Göreme Belediyesi’nde Saklıdır.
                             </p>
 
                             <p class="pera fw-light text-muted" ">
-                                <a href="https://websolike.com" target="_blank">@Websolike</a>
+                                <a href=" https://websolike.com" target="_blank">@Websolike</a>
                                 tarafından Göreme Belediyesine özel olarak yaptırılmıştır.
                             </p>
                         </div>

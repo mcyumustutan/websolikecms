@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-5.3.0.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/remixicon.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/plugin.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main-style.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main-style.css') }}">
     <title>@yield('title', 'My Application')</title>
     <meta name="description" content="{{$settings['site-aciklamasi']}}">
     <meta name="keywords" content="{{$settings['anahtar-kelimeler']}}">

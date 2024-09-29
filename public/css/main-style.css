@@ -22193,9 +22193,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .brandSwiper-active .swiper-wrapper .swiper-slide img {
-  max-width: 130px;
-  min-height: 28px;
-  opacity: 0.4;
+  min-height: 40px;
+  max-height: 40px;
 }
 
 .brandSwiper-active .swiper-wrapper .swiper-slide.swiper-slide-active img {
