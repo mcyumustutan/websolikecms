@@ -13,8 +13,8 @@
     @endif
     <!-- Brand S t a r t -->
 
-    <div class="brand-area bg-white">
-        <div class="container mb-4">
+    <div class="brand-area bg-white pb-20">
+        <div class="container">
             <div class="swiper brandSwiper-active">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide bg-light p-3 rounded">
@@ -57,7 +57,7 @@
         </div>
     </div>
     <!--/ End of Brand -->
-    <div class="footer-wrapper footer-bg mt-20">
+    <div class="footer-wrapper footer-bg">
 
 
         <div class="footer-middle-area">
@@ -166,22 +166,19 @@
                 </div>
 
             </div>
-        </div>
-        <!-- footer-bottom area -->
-        <div class="footer-bottom-area">
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="d-flex justify-content-between gap-14 flex-wrap">
+                        <div class="d-flex justify-content-between gap-14 flex-wrap pb-20">
 
                             <p class="pera fw-light text-muted">
-                                <img src="{{ asset('images/logo/logo.png')}}" width="42" alt="{{$settings['site-aciklamasi']}}" title="{{ $settings['site-basligi'] }}">
                                 &copy; {{date('Y')}} Tüm hakları Göreme Belediyesi’nde Saklıdır.
                             </p>
 
                             <p class="pera fw-light text-muted" ">
-                                <a href=" https://websolike.com" target="_blank">@Websolike</a>
-                                tarafından Göreme Belediyesine özel olarak yaptırılmıştır.
+                                <a href=" https://websolike.com" target="_blank"><img src="{{asset('images/websolike.com-logo.png')}}" alt="Websolike Medya Ajansı" width="100"/></a>
+
                             </p>
                         </div>
                     </div>
