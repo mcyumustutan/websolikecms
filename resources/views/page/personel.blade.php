@@ -16,15 +16,16 @@
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 <div class="d-flex flex-wrap align-items-center gap-20  ">
 
-                    @if($page->display_date)
-                    <div class="count">
-                        <p class="pera">
-                            <i class="ri-calendar-todo-fill"></i> {{$page['display_only_date']}}
-                            @if($page['display_only_hour']!=="00:00")
-                            <i class="ri-time-line"></i> {{$page['display_only_hour']}}
-                            @endif
-                        </p>
-                    </div>
+                    @if($page['highlited_icon_1'])
+                    <p class="card-text">
+                        <img src="{{asset('images/rozet/') .'/'. $page['highlited_icon_1'] }}.png" alt="{{$page['highlited_icon_1']}}"
+                            style="width: 40px; height: 40px;">
+                    </p>
+                    @endif
+                    @if($page['highlited_icon_1'])
+                    <p class="card-text">
+                        {{$page['highlited_icon_1']}}
+                    </p>
                     @endif
 
                 </div>
@@ -57,7 +58,21 @@
     </div>
     </div>
 </section>
+<style>
+    .custom-card {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
+    .custom-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .card-title {
+        margin-bottom: 5px;
+    }
+</style>
 
 @if($page->has_subpages && count($subPages['data'])>0)
 <section class="news-area profile-page">
@@ -69,40 +84,38 @@
             </div>
         </div>
 
-        <div class="row g-4 gap-4">
 
-            @foreach ($subPages['data'] as $subPage)
+        <div class="container mt-4">
+            <div class="row">
 
-            <div class="profile_card p-2">
-                <div class="d-flex align-items-start">
-                    <div class="image m-2">
-                        <img src="{{ $subPage['cover'] }}" class="rounded" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}" width="155">
-                    </div>
-                    <div class="ml-3 w-100">
-                        <h4 class="mb-0 mt-2">{{ $subPage['title'] }}</h4>
-                        <span>{{ $subPage['meta_description'] }}</span>
-
-                        <div class="button mt-2 d-flex flex-column align-items-start">
-
+                @foreach ($subPages['data'] as $subPage)
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="card custom-card">
+                        <a href="{{ $subPage['fullurl'] }}">
+                            <img src="{{ $subPage['cover'] }}" class="rounded" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $subPage['title'] }}</h5>
                             @if($subPage['highlited_icon_1'])
-                            <p class="d-flex align-items-center gap-1">
-                                <i class="ri-mail-line fs-4"></i> {{ $subPage['highlited_icon_1'] }}
+                            <p class="card-text">
+                                <img src="{{asset('images/rozet/') .'/'. $subPage['highlited_icon_1'] }}.png" alt="{{$subPage['highlited_icon_1']}}"
+                                    style="width: 40px; height: 40px;">
+                            </p>
+                            @endif
+                            @if($subPage['highlited_icon_1'])
+                            <p class="card-text">
+                                {{$subPage['highlited_icon_1']}}
                             </p>
                             @endif
 
-                            @if($subPage['highlited_icon_2'])
-                            <p class="d-flex align-items-center gap-1">
-                                <i class="ri-phone-line fs-4"></i> {{ $subPage['highlited_icon_2'] }}
-                            </p>
-                            @endif
-                            <a href="{{ $subPage['fullurl'] }}" class="btn btn-sm btn-primary w-100 ml-2">Detaylar</a>
+
                         </div>
                     </div>
                 </div>
+
+                @endforeach
+
             </div>
-
-
-            @endforeach
         </div>
 
 
