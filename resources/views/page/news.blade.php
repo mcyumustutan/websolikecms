@@ -11,15 +11,14 @@
     <div class="container">
         <div class="row g-4 bg-white rounded py-4 pt-0">
             @php
-            $page->has_sidebar=true;
             $column_size = 12;
             if($page->has_sidebar) $column_size = 9;
             @endphp
 
 
-
+            <!-- @if($page->has_sidebar)
             @include('components.sidebar')
-
+            @endif -->
 
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 <div class="d-flex flex-wrap align-items-center gap-20 mt-20">
