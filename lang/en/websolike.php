@@ -31,6 +31,7 @@ return [
     'Çözüm Merkezine Ulaş' => "Contact Solution Center",
     'Çalışma Saatleri' => "Working Hours",
     'İletişim' => "Contact",
+    'Son Haberler' => "latest News",
     'Çözüm Merkezi Bilgi' => "We are with you with our Solution Center: We Listen and Solve Your Problems!",
 
 ];
