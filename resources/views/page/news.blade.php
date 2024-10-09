@@ -70,7 +70,7 @@
 </section>
 
  
-@if($page->has_subpages && count($subPages['data'])>0)
+@if(count($subPages['data'])>0)
 <section class="news-area ">
     <div class="container">
         <div class="row justify-content-center">
