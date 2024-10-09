@@ -7,101 +7,77 @@
 
 @include('components.breadcrumb')
 
-<!-- Destination area S t a r t -->
-<section class="page-details-section ">
+<section class="page-details-section mb-40">
     <div class="container">
-        <div class="row g-4">
+        <div class="row g-4 bg-white rounded py-4 pt-0">
             @php
             $column_size = 12;
-            if($page->has_sidebar) $column_size = 8;
+            if($page->has_sidebar) $column_size = 9;
             @endphp
+
+
+            <!-- @if($page->has_sidebar)
+            @include('components.sidebar')
+            @endif -->
+
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
-                @if(!is_null($page->banner))
-                <div class="news-details-banner imgEffect mt-50">
-                    <div class="w-50">
-                        <img src="{{$page->banner}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid">
-                    </div>
-                </div>
-                @endif
-                <div class="news-details-content">
-                    <p class="pera">{!! $page->content_primary !!}</p>
-                    <p class="pera">{{$page->content_secondary}}</p>
+                <div class="d-flex flex-wrap align-items-center gap-20 mt-20">
 
-                    @if(count($galleries)>0)
-
-                    <div class="galleries">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-12 col-lg-12">
-                                <div class="position-relative mb-20 mt-20">
-                                    <h5>
-                                        {{ __('websolike.Photo Gallery')}}
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-xl-12 col-lg-12">
-                                <div class="destination-details-banner o-hidden">
-                                    <div class="swiper destinationSwiper-active">
-                                        <div class="swiper-wrapper">
-                                            @foreach ($galleries as $key => $gallery)
-                                            <div class="swiper-slide">
-                                                <img src="{{$gallery->getUrl()}}" alt="{{$page->title}}" height="500px">
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    @if($page->display_date)
+                    <div class="count">
+                        <p class="pera">
+                            <i class="ri-calendar-todo-fill"></i> {{$page['display_only_date']}}
+                            @if($page['display_only_hour']!=="00:00")
+                            <i class="ri-time-line"></i> {{$page['display_only_hour']}}
+                            @endif
+                        </p>
                     </div>
                     @endif
 
-                    @if(count($files)>0)
-                    <div class="files">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-12 col-lg-12">
-                                <div class="position-relative mb-20 mt-20">
-                                    <h5>
-                                        {{ __('websolike.Files Attachments')}}
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-
-                        <ul>
-                            @foreach ($files as $key => $file)
-                            <li><a href="{{$file->getUrl()}}">{{$file->name}}</a></li>
-                            @endforeach
-                        </ul>
+                    @if($page->highlited_value_1)
+                    <div class="divider"></div>
+                    <div class="count">
+                        <p class="pera">{!!$page->highlited_icon_1!!} {{$page->highlited_value_1}}</p>
                     </div>
                     @endif
+
 
 
                 </div>
 
 
+                <div class="col-lg-12 gap-4">
 
+                    @if(!is_null($page->banner))
+                    <div class=" float-start max-w-50 mx-4 ml-0">
+                        <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
+                    </div>
+                    @endif
 
-            </div>
-
-
+                    <div class="pera ml-5 mt-1" style="text-align: justify;">
+                        {!! $page->content_primary !!}
+                        {!! $page->content_secondary !!}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                @include('components.gallery')
+                @include('components.files')
+                @include('components.share')
+            </div> 
 
         </div>
+
     </div>
 </section>
-<!--/ End-of Destination -->
 
-
-
-<section class="news-area ">
+@if(count($subPages['data'])>0)
+<section class="news-area mb-40">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-12 col-lg-12">
-                <div class="position-relative mb-60 mt-60">
+                <div class="position-relative mb-20 mt-60">
                     <h4 class="title">
-                        {{ __('websolike.Diğer İhaleler')}}
+                        {{ __('websolike.Son Haberler')}}
                     </h4>
                 </div>
             </div>
@@ -112,22 +88,34 @@
 
 
             <div class="col-xl-3 col-lg-3 col-sm-6 ">
-                <article class="news-card-two h-100">
-                    <figure class="news-banner-two imgEffect  d-flex justify-content-center">
-                        <a href="{{ $page->url }}/{{$subPage['url']}}">
-                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}" class="img-fluid">
+                <article class="news-card-two">
+                    <figure class="news-banner-two imgEffect   justify-content-center align-items-center" style="min-height: 260px;">
+                        <a href="{{$subPage['url']}}">
+                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}">
                         </a>
                     </figure>
 
                     <div class="news-content">
 
-                        <h4 class="title">
-                            <a href="{{ $page->url }}/{{$subPage['url']}}">
+                        <h3 class="title">
+                            <a href="{{$subPage['url']}}">
                                 {{$subPage['title']}}
                             </a>
 
-                            <p class="date">{{$subPage['display_date']}}</p>
-                        </h4>
+                            @if($subPage['display_date'])
+                            <div class="count">
+                                <p class="pera">
+                                    <i class="ri-calendar-todo-fill"></i> {{$subPage['display_only_date']}}
+                                    @if($subPage['display_only_hour']!=="00:00")
+                                    <i class="ri-time-line"></i> {{$subPage['display_only_hour']}}
+                                    @endif
+                                </p>
+                                @if($subPage['highlited_value_1'])
+                                {{$subPage['highlited_value_1']}}
+                                @endif
+                            </div>
+                            @endif
+                        </h3>
 
                     </div>
                 </article>
@@ -155,5 +143,7 @@
         </div>
     </div>
 </section>
+@endif
+
 
 @endsection

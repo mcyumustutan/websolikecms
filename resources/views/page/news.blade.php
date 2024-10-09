@@ -66,10 +66,11 @@
 
         </div>
     </div>
-    </div>
+
+    
 </section>
 
- 
+
 @if(count($subPages['data'])>0)
 <section class="news-area ">
     <div class="container">
@@ -91,7 +92,7 @@
                 <article class="news-card-two">
                     <figure class="news-banner-two imgEffect   justify-content-center align-items-center" style="min-height: 260px;">
                         <a href="{{$subPage['url']}}">
-                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}"  >
+                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}">
                         </a>
                     </figure>
 
@@ -144,6 +145,6 @@
     </div>
 </section>
 @endif
- 
+
 
 @endsection
