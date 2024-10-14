@@ -11,9 +11,8 @@
         <img src="{{asset('images/email.png')}}" width="42" height="42" />
     </a>
     @endif
-    <!-- Brand S t a r t -->
 
-    <div class="brand-area bg-white pb-20">
+    <div class="brand-area bg-white pb-20 pt-20">
         <div class="container">
             <div class="swiper brandSwiper-active">
                 <div class="swiper-wrapper">
@@ -56,10 +55,8 @@
             </div>
         </div>
     </div>
-    <!--/ End of Brand -->
+
     <div class="footer-wrapper footer-bg">
-
-
         <div class="footer-middle-area">
             <div class="container">
                 <div class="footer-body">
@@ -177,7 +174,7 @@
                             </p>
 
                             <p class="pera fw-light text-muted" ">
-                                <a href=" https://websolike.com" target="_blank"><img src="{{asset('images/websolike.com-logo.png')}}" alt="Websolike Medya Ajansı" width="100"/></a>
+                                <a href=" https://websolike.com" target="_blank"><img src="{{asset('images/websolike.com-logo.png')}}" alt="Websolike Medya Ajansı" width="100" /></a>
 
                             </p>
                         </div>
