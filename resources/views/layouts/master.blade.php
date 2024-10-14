@@ -31,11 +31,11 @@
     <script src="{{ asset('js/jquery-3.7.0.min.js')}}"></script>
 </head>
 
-<body>
+<body class="bg-white">
 
 
     @include('components/header2')
-    <main style="background: url({{asset('images/goreme-shape.jpg')}}) fixed center center repeat-x">
+    <main style="background: url({{asset('images/goreme-shape.jpg')}}) fixed center center repeat-x;" class="pb-10">
         @yield('content')
     </main>
     @include('components/footer')
