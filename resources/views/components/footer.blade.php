@@ -63,7 +63,7 @@
                     <div class="row g-4">
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="footer-tittle">
-                                <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" class="changeLogos" style="position: relative;top: -38px;">
+                                <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" class="changeLogos" style="position: relative;top: -30px;">
                             </div>
 
                             <div class="d-flex justify-content-between gap-14 flex-wrap mt-5">

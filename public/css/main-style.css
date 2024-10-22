@@ -31499,6 +31499,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
 }
 
 .card-link {
