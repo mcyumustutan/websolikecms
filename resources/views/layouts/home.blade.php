@@ -115,14 +115,25 @@
         ]
     });
 
-    var thumbSwiper = new Swiper(".thumb-mySwiper", {
+    var thumbSwiper_announcement = new Swiper(".thumb-mySwiper", {
         spaceBetween: 10,
         slidesPerView: 10,
         freeMode: true,
+        watchSlidesVisibility: true,
         watchSlidesProgress: true,
+        slideToClickedSlide: true,
+        breakpoints: {
+            0: {
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 12,
+            }
+        },
     });
 
-    var swiper = new Swiper(".announcement-swiper", {
+    var swiper_announcement = new Swiper(".announcement-swiper", { 
+        slideToClickedSlide: true,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -135,10 +146,11 @@
             disableOnInteraction: false
         },
         thumbs: {
-            swiper: thumbSwiper,
+            swiper: thumbSwiper_announcement,
         },
         loop: true
     });
+ 
 
     const progressCircle = document.querySelector(".autoplay-progress svg");
     const progressContent = document.querySelector(".autoplay-progress span");
