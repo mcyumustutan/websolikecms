@@ -3,17 +3,25 @@
     <div class="social-section">
         <h4 class="title">{{__('websolike.Share')}} :</h4>
         <div class="social-list">
-            <div class="tags">
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{$page->fullUrl}}" class="social-btn"><i class="ri-facebook-fill"></i></a>
+            <div class="f">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{$page->fullUrl}}" class="social-btn">
+                    <img src="{{asset('images/social/facebook.png')}}" width="24" />
+                </a>
             </div>
-            <div class="socials">
-                <a href="https://www.instagram.com/?url={{$page->fullUrl}}" class="social-btn"><i class="ri-instagram-line"></i></a>
+            <div class="i">
+                <a href="https://www.instagram.com/?url={{$page->fullUrl}}" class="social-btn">
+                    <img src="{{asset('images/social/instagram.png')}}" width="24" />
+                </a>
             </div>
-            <div class="socials">
-                <a href="https://twitter.com/intent/tweet?url={{$page->fullUrl}}&text={{$page->title}}" class="social-btn"><i class="ri-twitter-line"></i></a>
+            <div class="x">
+                <a href="https://twitter.com/intent/tweet?url={{$page->fullUrl}}&text={{$page->title}}" class="social-btn">
+                    <img src="{{asset('images/social/x.png')}}" width="24" />
+                </a>
             </div>
-            <div class="socials">
-                <a href="https://api.whatsapp.com/send?text={{$page->fullUrl}}" class="social-btn"><i class="ri-whatsapp-line"></i></a>
+            <div class="w">
+                <a href="https://api.whatsapp.com/send?text={{$page->fullUrl}}" class="social-btn">
+                    <img src="{{asset('images/social/whatsapp.png')}}" width="24" />
+                </a>
             </div>
         </div>
     </div>

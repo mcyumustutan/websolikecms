@@ -73,15 +73,6 @@
 @if($page->has_subpages && count($subPages['data'])>0)
 <section class="news-area ">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-12 col-lg-12">
-                <div class="position-relative mb-60 mt-60">
-                    <h4 class="title">
-                        {{ __('websolike.Related Pages')}}
-                    </h4>
-                </div>
-            </div>
-        </div>
         <div class="row g-4">
 
             @foreach ($subPages['data'] as $subPage)
@@ -90,7 +81,7 @@
             <div class="col-xl-3 col-lg-3 col-sm-6 ">
                 <article class="news-card-two">
                     <figure class="news-banner-two imgEffect   justify-content-center align-items-center" style="min-height: 260px;">
-                        <a href="{{$subPage['url']}}">
+                        <a href="{{$subPage['fullurl']}}">
                             <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}">
                         </a>
                     </figure>
@@ -98,7 +89,7 @@
                     <div class="news-content">
 
                         <h3 class="title">
-                            <a href="{{$subPage['url']}}">
+                            <a href="{{$subPage['fullurl']}}">
                                 {{$subPage['title']}}
                             </a>
 
