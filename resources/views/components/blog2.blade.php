@@ -1,3 +1,4 @@
+@if(count($projectsArray['activityBoxes'])>0)
 <section class="mt-5 position-relative wow fadeInUp">
     <div class="container">
 
@@ -57,3 +58,4 @@
 
     @include('components/shapes')
 </section>
+@endif
