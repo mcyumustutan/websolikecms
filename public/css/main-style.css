@@ -22206,7 +22206,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 -----------------------------------------------*/
 .package-area .package-pills {
   margin-top: -20px;
-  margin-bottom: 58px;
+  margin-bottom: 28px;
   gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -22219,7 +22219,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   padding: 8px 20px;
   border-radius: 8px;
   font-family: var(--special-font);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   color: var(--primary-title);
   -webkit-transition: 0.3s;
@@ -22265,16 +22265,17 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
 @media (max-width: 575px) {
   .package-card .package-img {
-    height: 260px;
+    height: 160px;
   }
 }
 
 .package-content {
   padding-top: 20px;
-  padding-left: 15px;
-  padding-right: 16px;
-  padding-bottom: 16px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
   background: white;
+  text-align: left;
 }
 
 .package-content .area-name {
@@ -22282,6 +22283,10 @@ button.applyBtn.btn.btn-sm.btn-primary {
   font-weight: 700;
   color: var(--primary-title);
   margin-bottom: 2px;
+}
+
+.package-content .area-name a {
+  font-size: 1em;
 }
 
 .package-content .area-name:hover {
@@ -31570,6 +31575,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   font-weight: bold;
   color: white;
   text-align: left;
+  text-shadow: 0px 0px 15px black;
 }
 
 .swiper-slide .content .description {
@@ -31941,6 +31947,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   height: 630px;
 }
 
+
 .profile-card-2 {
   background-color: #FFF;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
@@ -32113,7 +32120,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
 .mySwiperHero .swiper-slide {
   width: 100%;
-  height: 950px;
+  height: 100%;
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -32136,3 +32143,78 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .swiper-thumbnail img {}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+  .favSwiper-active .news-card-two {
+    width: 100%;
+    height: 250px;
+  }
+
+  .announcement-swiper {
+    width: 100%;
+    height: 250px;
+  }
+
+  .mySwiperHero {
+    width: 100%;
+    height: 720px;
+  }
+
+  .swiper-slide .content .title {
+    font-size: 1rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .favSwiper-active .news-card-two {
+    width: 100%;
+    height: 450px;
+  }
+
+  .announcement-swiper {
+    width: 100%;
+    height: 250px;
+  }
+
+  .mySwiperHero {
+    width: 100%;
+    height: 620px;
+  }
+
+  .swiper-slide .content .title {
+    font-size: 1rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .favSwiper-active .news-card-two {
+    width: 100%;
+    height: 350px;
+  }
+
+  .mySwiperHero {
+    width: 100%;
+    height: 950px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .announcement-swiper {
+    width: 100%;
+    height: 630px;
+  }
+
+  .mySwiperHero {
+    width: 100%;
+    height: 720px;
+  }
+
+  .swiper-slide .content .title {
+    font-size: 1rem;
+  }
+}

@@ -11,7 +11,7 @@
         </div>
 
         <div class="row">
-            <div class="swiper favSwiper-active">
+            <div class="swiper favSwiper-kulturelMiras">
                 <div class="swiper-wrapper">
                     @foreach ($projectsArray['kulturelMiras'] as $exp)
 

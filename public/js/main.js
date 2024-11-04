@@ -27,7 +27,7 @@
     /*----------------------------------------------
         :: Swiper Slider Active
     ----------------------------------------------*/
-    var swiper = new Swiper(".h1-Hero-active", {
+    var swiper_Hero = new Swiper(".h1-Hero-active", {
         effect: "fade",
         loop: true,
         slidesPerView: 1,
@@ -45,7 +45,7 @@
             el: ".swiper-pagination",
         },
     });
-    var swiper = new Swiper(".testimonialTwo-active", {
+    var swiper_testimonialTwo = new Swiper(".testimonialTwo-active", {
         effect: "fade",
         pagination: {
             el: ".swiper-pagination",
@@ -63,7 +63,7 @@
             clickable: true,
         },
     });
-    var swiper = new Swiper(".testimonialThree-active", {
+    var swiper_testimonialThree = new Swiper(".testimonialThree-active", {
         loop: true,
         autoplay: {
             delay: 3000,
@@ -73,7 +73,7 @@
             type: "progressbar",
         },
     });
-    var swiper = new Swiper(".tourSwiper-active", {
+    var swiper_tourSwiper = new Swiper(".tourSwiper-active", {
         loop: true,
         slidesPerView: 1,
         centeredSlides: true,
@@ -91,7 +91,76 @@
             },
         },
     });
-    var swiper = new Swiper(".favSwiper-active", {
+    var swiper_favSwiper = new Swiper(".favSwiper-active", {
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 12,
+        autoplay: {
+            delay: 6000,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            1200: {
+                slidesPerView: 4,
+            },
+            992: {
+                slidesPerView: 3,
+            },
+            576: {
+                slidesPerView: 2,
+            },
+        },
+    });
+    var swiper_kulturelMiras = new Swiper(".favSwiper-kulturelMiras", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 12,
+        autoplay: {
+            delay: 6000,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            1200: {
+                slidesPerView: 4,
+            },
+            992: {
+                slidesPerView: 3,
+            },
+            576: {
+                slidesPerView: 2,
+            },
+        },
+    });
+    var swiper_activityBoxes = new Swiper(".favSwiper-activityBoxes", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 12,
+        autoplay: {
+            delay: 6000,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            1200: {
+                slidesPerView: 4,
+            },
+            992: {
+                slidesPerView: 3,
+            },
+            576: {
+                slidesPerView: 2,
+            },
+        },
+    });
+    var swiper_explore = new Swiper(".favSwiper-explore", {
         loop: true,
         slidesPerView: 1,
         spaceBetween: 24,
@@ -114,7 +183,7 @@
             },
         },
     });
-    var swiper = new Swiper(".brandSwiper-active", {
+    var swiper_brandSwiper = new Swiper(".brandSwiper-active", {
         centeredSlides: true,
         loop: true,
         speed: 500,
@@ -132,7 +201,7 @@
             },
         },
     });
-    var swiper = new Swiper(".whySwiper-active", {
+    var swiper_whySwiper = new Swiper(".whySwiper-active", {
         loop: true,
         speed: 500,
         slidesPerView: 1,
@@ -149,7 +218,7 @@
             },
         },
     });
-    var swiper = new Swiper(".bulletLeftSwiper-active", {
+    var swiper_bulletLeftSwiper = new Swiper(".bulletLeftSwiper-active", {
         allowTouchMove: true,
         slidesPerView: 1,
         speed: 6000,
@@ -173,7 +242,7 @@
             },
         },
     });
-    var swiper = new Swiper(".bulletRightSwiper-active", {
+    var swiper_bulletRightSwiper = new Swiper(".bulletRightSwiper-active", {
         allowTouchMove: true,
         slidesPerView: 1,
         speed: 6000,

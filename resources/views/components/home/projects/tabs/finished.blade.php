@@ -1,6 +1,5 @@
    <div class="row g-4">
 
-
        <div class="row g-4 position-relative z-10">
            <div class="swiper favSwiper-active">
                <div class="swiper-wrapper">

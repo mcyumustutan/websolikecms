@@ -23,6 +23,40 @@
                        </div>
                    </div>
 
+                   <div class="swiper-slide">
+                       <div class="">
+                           <div class="package-card h-calc">
+                               <div class="package-img imgEffect4">
+                                   <a href="{{config('app.url')}}/{{$project['lang']}}/{{$project['url']}}">
+                                       <img src="{{$project->cover}}" alt="{{$project['title']}}">
+                                   </a>
+                               </div>
+                               <div class="package-content">
+                                   <h4 class="area-name">
+                                       <a href="{{config('app.url')}}/{{$project['lang']}}/{{$project['url']}}">{{$project['title']}}</a>
+                                   </h4>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="swiper-slide">
+                       <div class="">
+                           <div class="package-card h-calc">
+                               <div class="package-img imgEffect4">
+                                   <a href="{{config('app.url')}}/{{$project['lang']}}/{{$project['url']}}">
+                                       <img src="{{$project->cover}}" alt="{{$project['title']}}">
+                                   </a>
+                               </div>
+                               <div class="package-content">
+                                   <h4 class="area-name">
+                                       <a href="{{config('app.url')}}/{{$project['lang']}}/{{$project['url']}}">{{$project['title']}}</a>
+                                   </h4>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
                    @endforeach
 
                </div>
