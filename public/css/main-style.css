@@ -43,7 +43,8 @@
   --primary-soft-color-two: #244979;
   --primary-color-rgb: 1, 123, 110;
   --secondary-color-rgb: 242, 111, 85;
-  --primary-title: #071516;
+  /* --primary-title: #071516; */
+  --primary-title: #000000;
   --primary-title-2: #f7f8fb;
   --secondary-title: #505a59;
   --tertiary-title: #95b2b4;
@@ -32159,7 +32160,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
   .mySwiperHero {
     width: 100%;
-    height: 720px;
+    height: 520px;
   }
 
   .swiper-slide .content .title {
@@ -32176,7 +32177,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 
   .announcement-swiper {
     width: 100%;
-    height: 250px;
+    height: 390px;
   }
 
   .mySwiperHero {

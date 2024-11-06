@@ -1,4 +1,4 @@
-<section class="hero-padding mt-5">
+<section class="hero-padding mt-4">
     <div class="container">
 
 
@@ -40,7 +40,7 @@
                         <div class="swiper-button-prev"></div>
                     </div>
 
-                    <div thumbsSlider="" class="swiper thumb-mySwiper rounded p-1  mt-1 shadow  bg-white ">
+                    <div thumbsSlider="" class="swiper thumb-mySwiper rounded p-1  mt-1 shadow  bg-white d-none d-sm-none d-lg-block d-xl-block d-md-block">
                         <div class="swiper-wrapper rounded">
                             @foreach ($projectsArray['news'] as $duyuru)
 

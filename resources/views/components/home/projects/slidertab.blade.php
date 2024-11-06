@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- Tab Buttons -->
-                <ul class="nav nav-pills package-pills" id="pills-tab" role="tablist">
+                <ul class="nav nav-pills package-pills align-items-center" id="pills-tab" role="tablist" style="flex-wrap: nowrap;">
                     <li class="nav-item package-item" role="presentation">
                         <button class="nav-link package-nav active" id="pills-tamamlanan-projeler-tab" data-bs-toggle="pill" data-bs-target="#pills-tamamlanan" role="tab" aria-controls="pills-tamamlanan" aria-selected="true">
                             Tamamlanan Projeler

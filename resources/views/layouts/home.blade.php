@@ -56,7 +56,9 @@
             swiper: swiper,
         },
     });
-
+</script>
+@if(count($projectsArray['stories']) > 0)
+<script>
     var currentSkin = getCurrentSkin();
     var stories = window.Zuck(document.querySelector('#stories'), {
         backNative: false,
@@ -114,11 +116,15 @@
             @endforeach
         ]
     });
+</script>
+@endif
 
+<script>
     var thumbSwiper_announcement = new Swiper(".thumb-mySwiper", {
         spaceBetween: 10,
         slidesPerView: 10,
         freeMode: true,
+        autoplay: false,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         slideToClickedSlide: true,
@@ -132,7 +138,7 @@
         },
     });
 
-    var swiper_announcement = new Swiper(".announcement-swiper", { 
+    var swiper_announcement = new Swiper(".announcement-swiper", {
         slideToClickedSlide: true,
         navigation: {
             nextEl: ".swiper-button-next",
@@ -141,16 +147,13 @@
         pagination: {
             el: ".swiper-pagination",
         },
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false
-        },
+        autoplay: false,
         thumbs: {
             swiper: thumbSwiper_announcement,
         },
         loop: true
     });
- 
+
 
     const progressCircle = document.querySelector(".autoplay-progress svg");
     const progressContent = document.querySelector(".autoplay-progress span");
