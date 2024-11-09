@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-lg-12 mb-4">
                 <div class="border-section-title text-center">
-                    <img src="{{asset('images/kapadokyanin-baskenti.png')}}" class="img-fluid"  width="891" header="211"/>
                     <h4 class="title"> {{ __('websolike.Göreme Projeleri')}}</h4>
                 </div>
             </div>
@@ -17,21 +16,21 @@
                 <ul class="nav nav-pills package-pills align-items-center" id="pills-tab" role="tablist" style="flex-wrap: nowrap;">
                     <li class="nav-item package-item" role="presentation">
                         <button class="nav-link package-nav active" id="pills-tamamlanan-projeler-tab" data-bs-toggle="pill" data-bs-target="#pills-tamamlanan" role="tab" aria-controls="pills-tamamlanan" aria-selected="true">
-                            Tamamlanan Projeler
+                            Tamamlanan
                         </button>
                     </li>
                     
                     
                     <li class="nav-item package-item" role="presentation">
                         <button class="nav-link package-nav" id="pills-devam-projeler-tab" data-bs-toggle="pill" data-bs-target="#pills-devam" role="tab" aria-controls="pills-devam" aria-selected="true">
-                            Devam Eden Projeler
+                            Devam Eden
                         </button>
                     </li>
 
                     
                     <li class="nav-item package-item" role="presentation">
                         <button class="nav-link package-nav" id="pills-planlanan-projeler-tab" data-bs-toggle="pill" data-bs-target="#pills-planlanan" role="tab" aria-controls="pills-planlanan" aria-selected="true">
-                            Planlanan Projeler
+                            Planlanan
                         </button>
                     </li>
                 </ul>

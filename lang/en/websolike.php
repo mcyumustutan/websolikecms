@@ -9,7 +9,7 @@ return [
     'Files Attachments' => 'Files Attachments',
     'Göreme Haberler' => 'News From Göreme ',
     'Tüm Duyurular' => 'All News',
-    'Göreme Projeleri' => 'Carrying Goreme to the Future',
+    'Göreme Projeleri' => 'Projects',
     'Discover More' => 'Discover More',
     'Diğer İhaleler' => 'Other Bids',
     'Diğer Haberler' => 'Other News',
