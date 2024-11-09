@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row  g-4 bg-white rounded py-4 pt-0 mb-40">
             @php
-            $column_size = 12; 
+            $column_size = 12;
             @endphp
 
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
@@ -40,7 +40,7 @@
                 </div>
 
 
-                <div class="col-lg-12"> 
+                <div class="col-lg-12">
 
                     @if(!is_null($page->banner))
                     <div class=" float-start max-w-50  mx-4 ml-0">
@@ -59,45 +59,30 @@
                 @include('components.files')
                 @include('components.share')
             </div>
- 
+
 
         </div>
     </div>
     </div>
 </section>
- 
+
 @if(count($subPages['data'])>0)
 <section class="news-area ">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-12 col-lg-12">
-                <div class="position-relative mb-60 mt-60">
-                    <h4 class="title">
-                        {{ __('websolike.Diğer Haberler')}}
-                    </h4>
-                </div>
-            </div>
-        </div>
+ 
         <div class="row g-4">
 
             @foreach ($subPages['data'] as $subPage)
 
+            <div class="card shadow-sm" style="min-height: 100px;">
+                <div class="row">
+                    <div class="col-lg-4 p-4">
+                        <img src="{{ $subPage['cover'] }}" class="card-img-top img-fluid rounded" alt="{{ $subPage['title'] }}">
+                    </div>
 
-            <div class="col-xl-3 col-lg-3 col-sm-6 ">
-                <article class="news-card-two">
-                    <figure class="news-banner-two imgEffect   justify-content-center align-items-center" style="min-height: 260px;">
-                        <a href="{{$subPage['url']}}">
-                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}"  >
-                        </a>
-                    </figure>
-
-                    <div class="news-content">
-
-                        <h3 class="title">
-                            <a href="{{$subPage['url']}}">
-                                {{$subPage['title']}}
-                            </a>
-
+                    <div class="col-lg-8">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{ $subPage['title'] }}</h5>
                             @if($subPage['display_date'])
                             <div class="count">
                                 <p class="pera">
@@ -111,11 +96,14 @@
                                 @endif
                             </div>
                             @endif
-                        </h3>
-
+                            <p class="card-text border-top mt-4">
+                                {{$subPage['meta_description']}}
+                            </p>
+                        </div>
                     </div>
-                </article>
+                </div>
             </div>
+
 
             @endforeach
         </div>
