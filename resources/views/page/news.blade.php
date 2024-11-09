@@ -76,13 +76,13 @@
 
             <div class="card shadow-sm" style="min-height: 100px;">
                 <div class="row">
-                    <div class="col-lg-4 p-4">
-                        <img src="{{ $subPage['cover'] }}" class="card-img-top img-fluid rounded" alt="{{ $subPage['title'] }}">
+                    <div class="col-lg-4 col-xs-12 p-4">
+                    <a href="{{$subPage['fullurl']}}"><img src="{{ $subPage['cover'] }}" class="card-img-top img-fluid rounded" alt="{{ $subPage['title'] }}"></a>
                     </div>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 col-xs-12">
                         <div class="card-body">
-                            <h5 class="card-title text-primary">{{ $subPage['title'] }}</h5>
+                        <a href="{{$subPage['fullurl']}}"><h5 class="card-title text-primary">{{ $subPage['title'] }}</h5></a>
                             @if($subPage['display_date'])
                             <div class="count">
                                 <p class="pera">
