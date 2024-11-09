@@ -6,12 +6,6 @@
     </a>
     @endif
 
-    @if($settings['e-posta'])
-    <a class="" style="position: fixed; bottom: 180px; right: 28px; z-index: 9999;" href="mailto:{{$settings['e-posta']}}" target="_blank">
-        <img src="{{asset('images/email.png')}}" width="42" height="42" />
-    </a>
-    @endif
-
     <div class="brand-area bg-white pb-20 pt-20">
         <div class="container">
             <div class="swiper brandSwiper-active">

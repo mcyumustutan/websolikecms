@@ -100,7 +100,7 @@
                                         <div class="logo_area d-none d-lg-block" style="z-index: 10;">
                                             <a href="{{config('app.url')}}/{{App::getLocale()}}" title="{{ $settings['site-basligi'] }}">
                                                 <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{$settings['site-aciklamasi']}}" class="changeLogo" title="{{ $settings['site-basligi'] }}" id="logo1">
-                                                
+
                                                 <img src="{{ asset('images/logo/logo-goreme.png')}}" alt="{{$settings['site-aciklamasi']}}" class="d-none" title="{{ $settings['site-basligi'] }}" id="logo-sticky" style="width: 170px;height: auto;">
                                             </a>
                                         </div>
@@ -120,6 +120,11 @@
                                                 @endif
                                             </li>
                                             @endforeach
+                                            <li>
+                                                <a target="_blank" href="https://shmkapadokya.kapadokya.edu.tr/" class="radius-30">
+                                                    {{__('websolike.Balon Uçuş Bilgisi')}} <i class="ri-arrow-right-up-line"></i>
+                                                </a>
+                                            </li>
                                         </ul>
 
 
