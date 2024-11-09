@@ -120,7 +120,7 @@
                                                 @endif
                                             </li>
                                             @endforeach
-                                            <li>
+                                            <li class="d-block d-lg-none d-sm-none d-md-none">
                                                 <a target="_blank" href="https://shmkapadokya.kapadokya.edu.tr/" class="radius-30">
                                                     {{__('websolike.Balon Uçuş Bilgisi')}} <i class="ri-arrow-right-up-line"></i>
                                                 </a>
