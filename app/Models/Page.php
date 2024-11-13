@@ -123,7 +123,7 @@ class Page extends Model implements HasMedia
 
     public function sub(): HasMany
     {
-        return $this->hasMany(Page::class, 'parent_id', 'id')
+        return $this->hasMany(Page::class, 'parent_id', 'id')->orderBy('ordinal','ASC')
             // ->select('id', 'parent_id', 'lang', 'title', 'url')
             // ->whereJsonContains('link_view', '1')
         ;
