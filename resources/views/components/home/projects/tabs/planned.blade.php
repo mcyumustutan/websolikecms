@@ -9,7 +9,7 @@
                    <div class="swiper-slide">
                        <div class="">
                            <div class="package-card h-calc">
-                               <div class="package-img imgEffect4">
+                               <div class="package-img ">
                                    <a href="{{config('app.url')}}/{{$project['lang']}}/{{$project['url']}}">
                                        <img src="{{$project->cover}}" alt="{{$project['title']}}">
                                    </a>
