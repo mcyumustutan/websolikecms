@@ -227,6 +227,10 @@ class PageController extends Controller
             $my_order = ['ordinal', 'asc'];
         }
 
+        if ($view == "page.page") {
+            $my_order = ['ordinal', 'asc'];
+        }
+
         $subPages[] = ['data' => []];
         $subPages = Page::where('parent_id', $page['id'])
             ->whereNot('id', $page['id'])
