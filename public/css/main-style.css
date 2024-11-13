@@ -22219,9 +22219,9 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border: 1px solid var(--tertiary-border);
   padding: 8px 20px;
   border-radius: 8px;
-  font-family: var(--special-font);
+  font-family: var(--Dm);
   font-size: 14px;
-  font-weight: 300;
+  font-weight: bold;
   color: var(--primary-title);
   -webkit-transition: 0.3s;
   transition: 0.3s;
