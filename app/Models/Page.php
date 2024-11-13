@@ -29,7 +29,7 @@ class Page extends Model implements HasMedia
             $builder
                 ->where('is_publish', true)
                 // ->where('lang', App::getLocale())
-                ;
+            ;
         });
     }
 
@@ -139,56 +139,61 @@ class Page extends Model implements HasMedia
     protected function cover(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->getMedia('cover')->toArray()[0]['original_url'] ?? asset(Config::get('websolike.logo'))
+            get: fn() => $this->getMedia('cover')->toArray()[0]['original_url'] ?? asset(Config::get('websolike.logo'))
         );
     }
 
     protected function banner(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->getMedia('banner')->toArray()[0]['original_url'] ?? $this->getMedia('cover')->toArray()[0]['original_url'] ?? null
+            get: fn() => $this->getMedia('banner')->toArray()[0]['original_url'] ?? $this->getMedia('cover')->toArray()[0]['original_url'] ?? null
         );
     }
 
     protected function box(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->getMedia('box')->toArray()[0]['original_url'] ?? null
+            get: fn() => $this->getMedia('box')->toArray()[0]['original_url'] ?? null
         );
     }
 
     protected function displayDate(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => Carbon::parse($value)->format('d.m.Y H:i')
+            get: fn(string $value) => Carbon::parse($value)->format('d.m.Y H:i')
         );
     }
 
     protected function displayDateOriginal(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => strtotime($this->getRawOriginal("display_date"))
+            get: fn($value) => strtotime($this->getRawOriginal("display_date"))
         );
     }
 
     protected function fullurl(): Attribute
     {
+        if (env('APP_DEBUG')) {
+            return Attribute::make(
+                get: fn($value) => "https://websolikecms.test/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+            );
+        }
         return Attribute::make(
-            get: fn ($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+            get: fn($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
         );
     }
 
     protected function displayOnlyHour(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => Carbon::parse($this->getRawOriginal("display_date"))->format('H:i')
+            get: fn($value) => Carbon::parse($this->getRawOriginal("display_date"))->format('H:i')
         );
     }
 
     protected function displayOnlyDate(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => Carbon::parse($this->getRawOriginal("display_date"))->format('d.m.Y')
+            get: fn($value) => Carbon::parse($this->getRawOriginal("display_date"))->format('d.m.Y')
         );
     }
 }

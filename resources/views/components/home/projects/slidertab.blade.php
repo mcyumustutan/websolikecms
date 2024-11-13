@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12 mb-4">
                 <div class="border-section-title text-center">
-                    <h4 class="title"> {{ __('websolike.Göreme Projeleri')}}</h4>
+                    <h4 class="title fw-bolder"> {{ __('websolike.Göreme Projeleri')}}</h4>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
         <div class="row justify-content-center position-relative z-10">
             <div class="col-xl-7 col-lg-7">
                 <div class="border-section-title text-center">
-                    <h4 class="title">
+                    <h4 class="title fw-bolder">
                         {{__('websolike.Göremeyi Keşfet')}}
                     </h4>
                 </div>
