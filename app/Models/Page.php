@@ -146,7 +146,7 @@ class Page extends Model implements HasMedia
     protected function banner(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->getMedia('banner')->toArray()[0]['original_url'] ?? $this->getMedia('cover')->toArray()[0]['original_url'] ?? null
+            get: fn() => $this->getMedia('banner')->toArray()[0]['original_url'] ?? null
         );
     }
 
