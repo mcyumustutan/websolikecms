@@ -10,9 +10,9 @@
                             @foreach ($projectsArray['news'] as $duyuru)
 
                             <div class="swiper-slide rounded">
-                                <a href="{{$duyuru['fullurl']}}"><img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded"></a>
-                                <div class="content position-absolute text-left">
-                                    <a href="{{$duyuru['fullurl']}}">
+                                <a href="{{$duyuru['fullurl']}}">
+                                    <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
+                                    <div class="content position-absolute text-left">
                                         <p class="title">{{$duyuru['title']}}</p>
                                         <p class="description">{{$duyuru['meta_description']}}</p>
 
@@ -27,9 +27,9 @@
                                         </div>
 
 
-                                    </a>
 
-                                </div>
+                                    </div>
+                                </a>
                             </div>
 
                             @endforeach
