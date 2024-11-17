@@ -123,7 +123,7 @@ class Page extends Model implements HasMedia
 
     public function sub(): HasMany
     {
-        return $this->hasMany(Page::class, 'parent_id', 'id')->orderBy('ordinal','ASC')
+        return $this->hasMany(Page::class, 'parent_id', 'id')->orderBy('ordinal', 'ASC')
             // ->select('id', 'parent_id', 'lang', 'title', 'url')
             // ->whereJsonContains('link_view', '1')
         ;
@@ -173,14 +173,15 @@ class Page extends Model implements HasMedia
 
     protected function fullurl(): Attribute
     {
-        if (env('APP_DEBUG')) {
+        if (env('APP_DEMO') == true) {
             return Attribute::make(
-                get: fn($value) => "https://websolikecms.test/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+                get: fn($value) => env('DEMO_APP_URL') . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+            );
+        } else {
+            return Attribute::make(
+                get: fn($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
             );
         }
-        return Attribute::make(
-            get: fn($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
-        );
     }
 
     protected function displayOnlyHour(): Attribute

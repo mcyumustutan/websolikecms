@@ -20,9 +20,7 @@
                                         <div class="image-badge">
                                             <p>
                                                 <i class="ri-calendar-todo-fill"></i> {{$duyuru['display_only_date']}}
-                                                @if($duyuru['display_only_hour']!=="00:00")
-                                                <i class="ri-time-line"></i> {{$duyuru['display_only_hour']}}
-                                                @endif
+                                                
                                             </p>
                                         </div>
 

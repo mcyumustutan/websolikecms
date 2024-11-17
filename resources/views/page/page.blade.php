@@ -21,9 +21,6 @@
                     <div class="count">
                         <p class="pera">
                             <i class="ri-calendar-todo-fill"></i> {{$page['display_only_date']}}
-                            @if($page['display_only_hour']!=="00:00")
-                            <i class="ri-time-line"></i> {{$page['display_only_hour']}}
-                            @endif
                         </p>
                     </div>
                     @endif
