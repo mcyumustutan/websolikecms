@@ -10,7 +10,7 @@
                             @foreach ($projectsArray['news'] as $duyuru)
 
                             <div class="swiper-slide rounded">
-                                <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
+                                <a href="{{$duyuru['fullurl']}}"><img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded"></a>
                                 <div class="content position-absolute text-left">
                                     <a href="{{$duyuru['fullurl']}}">
                                         <p class="title">{{$duyuru['title']}}</p>
