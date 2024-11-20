@@ -11,21 +11,13 @@
 
                             <div class="swiper-slide rounded">
                                 <a href="{{$duyuru['fullurl']}}">
-                                    <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded">
+                                    <img src="{{$duyuru->cover}}" alt="{{$duyuru['title']}}" class="rounded" style="height: auto;">
                                     <div class="content position-absolute text-left">
                                         <p class="title">{{$duyuru['title']}}</p>
-                                        <p class="description">{{$duyuru['meta_description']}}</p>
-
-
-                                        <div class="image-badge">
-                                            <p>
-                                                <i class="ri-calendar-todo-fill"></i> {{$duyuru['display_only_date']}}
-                                                
-                                            </p>
-                                        </div>
-
-
-
+                                        <p class="description">
+                                            {{$duyuru['meta_description']}}
+                                        </p>
+                                        <p class="text-white text-start"><i class="ri-calendar-todo-fill"></i> {{$duyuru['display_only_date']}}</p>
                                     </div>
                                 </a>
                             </div>

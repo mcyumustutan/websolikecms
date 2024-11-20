@@ -51,6 +51,7 @@ enum TemplateType: string implements HasLabel
             self::ProjectFinished => 'page.project',
             self::ProjectOnGoing => 'page.project',
             self::ProjectPlanned => 'page.project',
+            self::Event => 'page.event',
             // self::Death => 'page.death',
             self::Module => 'page.module',
             self::Personel => 'page.personel',
