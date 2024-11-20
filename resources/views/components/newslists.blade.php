@@ -23,7 +23,7 @@
                                 <li class="w-full">
                                     <a href="{{$duyuru['fullUrl']}}" class=" w-100">
                                         <div class="announcement-item w-100">
-                                            <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
+
                                             <div class="announcement-text">
                                                 <p class="text-primary">{{$duyuru['short_content']}}</p>
                                                 <p>
@@ -63,7 +63,7 @@
                                 <li class="feature-point w-full">
                                     <a href="{{$duyuru['fullUrl']}}" class=" w-100">
                                         <div class="announcement-item w-100">
-                                            <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
+
                                             <div class="announcement-text">
                                                 <p class="text-primary">{{$duyuru['title']}}</p>
 
@@ -109,7 +109,7 @@
                                 <li class="feature-point w-full">
                                     <a href="{{config('app.url')}}/{{App::getlocale()}}/vefat-ilanlari?table-search={{$duyuru['adSoyad']}}" class=" w-100">
                                         <div class="announcement-item w-100">
-                                            <span class="announcement-icon"><i class="ri-arrow-right-line"></i></span>
+
                                             <div class="announcement-text">
                                                 <p class="text-primary">{{$duyuru['adSoyad']}}</p>
                                                 <p><i class="ri-calendar-todo-fill"></i>{{$duyuru['vefatTarihi']}} <i class="ri-time-line"></i>{{$duyuru['cenazeZamani']}}</p>

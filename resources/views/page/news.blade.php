@@ -44,7 +44,7 @@
 
                     @if(!is_null($page->banner))
                     <div class=" float-start max-w-50  mx-4 ml-0">
-                        <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
+                        <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded">
                     </div>
                     @endif
 
@@ -69,7 +69,7 @@
 @if(count($subPages['data'])>0)
 <section class="news-area ">
     <div class="container">
- 
+
         <div class="row g-4">
 
             @foreach ($subPages['data'] as $subPage)
@@ -77,12 +77,14 @@
             <div class="card shadow-sm" style="min-height: 100px;">
                 <div class="row">
                     <div class="col-lg-4 col-xs-12 p-4">
-                    <a href="{{$subPage['fullurl']}}"><img src="{{ $subPage['cover'] }}" class="card-img-top img-fluid rounded" alt="{{ $subPage['title'] }}"></a>
+                        <a href="{{$subPage['fullurl']}}"><img src="{{ $subPage['cover'] }}" class="card-img-top img-fluid rounded" alt="{{ $subPage['title'] }}"></a>
                     </div>
 
                     <div class="col-lg-8 col-xs-12">
                         <div class="card-body">
-                        <a href="{{$subPage['fullurl']}}"><h5 class="card-title text-primary">{{ $subPage['title'] }}</h5></a>
+                            <a href="{{$subPage['fullurl']}}">
+                                <h5 class="card-title text-primary">{{ $subPage['title'] }}</h5>
+                            </a>
                             @if($subPage['display_date'])
                             <div class="count">
                                 <p class="pera">
