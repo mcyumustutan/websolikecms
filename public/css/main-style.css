@@ -22262,8 +22262,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .package-card .package-img img {
   -webkit-transition: 0.8s;
   transition: 0.8s;
-  min-height: 250px;
-  min-width: 250px;
   width: 100%;
   height: 100%;
   border-top-right-radius: 12px;
