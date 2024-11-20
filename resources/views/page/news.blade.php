@@ -40,14 +40,16 @@
                 </div>
 
 
-                <div class="col-lg-12">
+                <div class="col-lg-6">
 
                     @if(!is_null($page->banner))
                     <div class=" float-start max-w-50  mx-4 ml-0">
                         <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded">
                     </div>
                     @endif
+                </div>
 
+                <div class="col-lg-12">
                     <div class="pera ml-5 mt-1" style="text-align: justify;">
                         {!! $page->content_primary !!}
                         {!! $page->content_secondary !!}
