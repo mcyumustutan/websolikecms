@@ -8,7 +8,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6">
                     <div class="box">
                         <div class="box-header">
-                            <h2 class="box-title">{{__('websolike.Güncel Duyurular')}}</h2>
+                            <h2 class="box-title text-uppercase">{{__('websolike.Güncel Duyurular')}}</h2>
                             <div class="controls">
                                 <a href="{{config('app.url')}}/{{App::getlocale()}}/tum-duyurular">
                                     <i class="ri-arrow-right-up-line"></i>
@@ -48,7 +48,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6">
                     <div class="box">
                         <div class="box-header">
-                            <h2 class="box-title">{{__('websolike.İhale Duyuruları')}}</h2>
+                            <h2 class="box-title text-uppercase">{{__('websolike.İhale Duyuruları')}}</h2>
                             <div class="controls">
                                 <a href="{{config('app.url')}}/{{App::getlocale()}}/tum-ihaleler">
                                     <i class="ri-arrow-right-up-line"></i>
@@ -94,7 +94,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6">
                     <div class="box">
                         <div class="box-header">
-                            <h2 class="box-title">{{__('websolike.Vefat Haberleri')}}</h2>
+                            <h2 class="box-title text-uppercase">{{__('websolike.Vefat Haberleri')}}</h2>
                             <div class="controls">
                                 <a href="{{config('app.url')}}/{{App::getlocale()}}/vefat-ilanlari">
                                     <i class="ri-arrow-right-up-line"></i>
@@ -131,7 +131,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6">
                     <div class="box">
                         <div class="box-header">
-                            <h2 class="box-title">{{__('websolike.Yaklaşan Etkinlikler')}}</h2>
+                            <h2 class="box-title text-uppercase">{{__('websolike.Yaklaşan Etkinlikler')}}</h2>
                             <div class="controls">
 
                                 <a class="swiper-events-button-prev"><i class="ri-arrow-left-s-line"></i></a>
