@@ -32230,3 +32230,12 @@ button.applyBtn.btn.btn-sm.btn-primary {
     font-size: 1.2rem;
   }
 }
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-width: 1px !important;
+}
