@@ -34,6 +34,7 @@ class Settings extends Page
                     ['content' => $settings->get(Str::slug('Site Başlığı'))->value ?? '', 'text_label' => 'Site Başlığı'],
                     ['content' => $settings->get(Str::slug('Sabit Telefon Numarası'))->value ?? '', 'text_label' => 'Sabit Telefon Numarası'],
                     ['content' => $settings->get(Str::slug('Mobil Telefon Numarası'))->value ?? '', 'text_label' => 'Mobil Telefon Numarası'],
+                    ['content' => $settings->get(Str::slug('Faks'))->value ?? '', 'text_label' => 'Faks'],
                     ['content' => $settings->get(Str::slug('E-Posta'))->value ?? '', 'text_label' => 'E-Posta'],
                     ['content' => $settings->get(Str::slug('Adres'))->value ?? '', 'text_label' => 'Adres'],
                     ['content' => $settings->get(Str::slug('Harita Kodu (iframe)'))->value ?? '', 'text_label' => 'Harita Kodu (iframe)'],

@@ -108,12 +108,12 @@
 
                                             @foreach ($mainNavigation2 as $menu)
                                             <li class="single-list">
-                                                <a href="{{config('app.url')}}/{{$menu['lang']}}/{{$menu['url']}}" class="single">{{$menu['title']}} <i class="ri-arrow-down-s-line"></i></a>
+                                                <a href="{{$menu['fullurl']}}" class="single">{{$menu['title']}} <i class="ri-arrow-down-s-line"></i></a>
                                                 @if($menu['sub'])
                                                 <ul class="submenu">
                                                     @foreach ($menu['sub'] as $submenu)
                                                     <li class="single-list">
-                                                        <a href="{{config('app.url')}}/{{$menu['lang']}}/{{$menu['url']}}/{{$submenu['url']}}" class="single">{{$submenu['title']}}</a>
+                                                        <a href="{{$menu['fullurl']}}" class="single">{{$submenu['title']}}</a>
                                                     </li>
                                                     @endforeach
                                                 </ul>
