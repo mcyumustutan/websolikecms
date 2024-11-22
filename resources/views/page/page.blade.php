@@ -17,15 +17,6 @@
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 <div class="d-flex flex-wrap align-items-center gap-20 ">
 
-                    @if($page->display_date)
-                    <div class="count">
-                        <p class="pera">
-                            <i class="ri-calendar-todo-fill"></i> {{$page['display_only_date']}}
-                        </p>
-                    </div>
-                    @endif
-
-
                     @if($page->highlited_value_1)
                     <div class="divider"></div>
                     <div class="count">

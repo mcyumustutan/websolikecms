@@ -31823,7 +31823,14 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border-bottom: 1px solid #efefef;
   height: 70px;
   justify-content: space-between;
-  align-items: stretch
+  align-items: stretch;
+  background-color: var(--primary-color);
+}
+
+.box .box-header h2,
+.box .box-header a,
+.box .box-header a:visited {
+  color: var(--white);
 }
 
 .box .box-header .box-title {

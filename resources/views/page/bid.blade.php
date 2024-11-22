@@ -23,17 +23,6 @@
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 <div class="d-flex flex-wrap align-items-center gap-20 mt-20">
 
-                    @if($page->display_date)
-                    <div class="count">
-                        <p class="pera">
-                            <i class="ri-calendar-todo-fill"></i> {{$page['display_only_date']}}
-                            @if($page['display_only_hour']!=="00:00")
-                            <i class="ri-time-line"></i> {{$page['display_only_hour']}}
-                            @endif
-                        </p>
-                    </div>
-                    @endif
-
                     @if($page->highlited_value_1)
                     <div class="divider"></div>
                     <div class="count">
@@ -77,7 +66,7 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="position-relative mb-20 mt-60">
                     <h4 class="title">
-                        {{ __('websolike.Son Haberler')}}
+                        {{ __('websolike.Diğer İhaleler')}}
                     </h4>
                 </div>
             </div>
