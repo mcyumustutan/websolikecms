@@ -113,7 +113,7 @@
                                                 <ul class="submenu">
                                                     @foreach ($menu['sub'] as $submenu)
                                                     <li class="single-list">
-                                                        <a href="{{$menu['fullurl']}}" class="single">{{$submenu['title']}}</a>
+                                                        <a href="{{$submenu['fullurl']}}" class="single">{{$submenu['title']}}</a>
                                                     </li>
                                                     @endforeach
                                                 </ul>
