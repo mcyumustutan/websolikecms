@@ -15,6 +15,7 @@ use Filament\Tables\Actions\Action;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
@@ -24,6 +25,11 @@ class PageResource extends Resource
     protected static ?string $modelLabel = "Sayfa";
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withoutGlobalScopes();
+    }
 
     public static function form(Form $form): Form
     {
@@ -183,7 +189,7 @@ class PageResource extends Resource
                                     ->default(false),
 
                                 Forms\Components\TextInput::make('ordinal')
-                                    ->default(fn ($record) => Page::orderByDesc('ordinal')->first()->ordinal + 1)
+                                    ->default(fn($record) => Page::orderByDesc('ordinal')->first()->ordinal + 1)
                                     ->helperText('En son eklenen kaydın bir fazlasını varsayılan olarak getirir.')
                                     ->label('Sıralama')
                                     ->placeholder('Sıralama'),
@@ -200,7 +206,7 @@ class PageResource extends Resource
 
                                 Forms\Components\CheckboxList::make('link_view')
                                     ->label("Navigasyon Bölümleri")
-                                    ->default(fn ($record) => $record->link_view ?? true)
+                                    ->default(fn($record) => $record->link_view ?? true)
                                     ->options([
                                         '1' => 'Ana Navigasyon',
                                         '2' => 'Footer Navigasyon Sabit Blok',
@@ -210,7 +216,7 @@ class PageResource extends Resource
 
                                 Forms\Components\CheckboxList::make('box_view')
                                     ->label("Ana Sayfa Kutu Bölümleri")
-                                    ->default(fn ($record) => $record->box_view ?? true)
+                                    ->default(fn($record) => $record->box_view ?? true)
                                     ->options([
                                         '1' => 'Aktiviteler Bölümünde Göster',
                                         '2' => "Story'de Göster",
@@ -221,7 +227,7 @@ class PageResource extends Resource
 
                                 Forms\Components\CheckboxList::make('widgets')
                                     ->label("Modüller")
-                                    ->default(fn ($record) => $record->box_view ?? true)
+                                    ->default(fn($record) => $record->box_view ?? true)
                                     ->options([
                                         'solutioncenter' => 'Çözüm Merkezi Formu',
                                         'smscsignup' => "SMS Listesi Kayıt Formu",
@@ -256,7 +262,7 @@ class PageResource extends Resource
 
                                 SpatieMediaLibraryFileUpload::make('image_3')
                                     ->label('Kutu Görseli')
-                                    ->customProperties(['description' => fn (Page $record): string => $record->url])
+                                    ->customProperties(['description' => fn(Page $record): string => $record->url])
                                     ->collection('box')
                                     ->disk('pages')
                                     ->maxFiles(1),
@@ -312,7 +318,7 @@ class PageResource extends Resource
                 Action::make('view')
                     ->icon('heroicon-m-arrow-top-right-on-square')
                     ->label('Aç')
-                    ->url(fn (Page $record): string => route('page.view', $record->lang . "/" . $record->url))
+                    ->url(fn(Page $record): string => route('page.view', $record->lang . "/" . $record->url))
                     ->openUrlInNewTab(),
                 Tables\Actions\EditAction::make(),
                 // Tables\Actions\ViewAction::make(),
@@ -328,7 +334,7 @@ class PageResource extends Resource
     protected static function getEnumOptions(string $enumClass): array
     {
         return collect($enumClass::cases())
-            ->mapWithKeys(fn ($enum) => [$enum->name => ucfirst($enum->name)])
+            ->mapWithKeys(fn($enum) => [$enum->name => ucfirst($enum->name)])
             ->toArray();
     }
 
