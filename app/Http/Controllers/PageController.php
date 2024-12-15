@@ -24,7 +24,11 @@ class PageController extends Controller
         public $settings = null,
         public $wheather = null
     ) {
-        $this->mainNavigation1 = Page::with('sub')->select('id', 'lang', 'title', 'url')
+        $this->mainNavigation1 = Page::with([
+            'sub' => function ($query) {
+                $query->whereJsonContains('link_view', '1');
+            }
+        ])->select('id', 'lang', 'title', 'url')
             ->where([
                 'parent_id' => null,
                 // 'lang' => App::getLocale(),
@@ -38,7 +42,13 @@ class PageController extends Controller
 
 
 
-        $this->mainNavigation2 = Page::with('sub')->select('id', 'lang', 'title', 'url')
+        $this->mainNavigation2 = Page::with(
+            [
+                'sub' => function ($query) {
+                    $query->whereJsonContains('link_view', '1');
+                }
+            ]
+        )->select('id', 'lang', 'title', 'url')
             ->where([
                 'parent_id' => null,
                 // 'lang' => App::getLocale(),
@@ -101,6 +111,10 @@ class PageController extends Controller
         $mainNavigation = $this->mainNavigation;
         $mainNavigation1 = $this->mainNavigation1;
         $mainNavigation2 = $this->mainNavigation2;
+
+        // return response()->json($this->mainNavigation2);
+
+
         $footernNavigation = $this->footernNavigation;
         $footernGeneralNavigation = $this->footernGeneralNavigation;
         $settings = $this->settings->toArray();

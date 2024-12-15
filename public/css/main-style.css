@@ -22766,6 +22766,10 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border-bottom: 1px solid var(--tertiary-border);
 }
 
+.feature-points a small {
+  color: black;
+}
+
 .price-card .feature-points .feature-point {
   display: -webkit-box;
   display: -ms-flexbox;
