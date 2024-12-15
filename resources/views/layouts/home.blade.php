@@ -10,6 +10,28 @@
 
 @include('components.stories')
 
+<section class="d-block d-lg-none d-sm-none d-md-none">
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="d-flex justify-content-center align-items-center mt-4 gap-1">
+                <a target="_blank" href="https://shmkapadokya.kapadokya.edu.tr/" class="btn-primary-xs radius-30">
+                    {{__('websolike.Balon Uçuş Bilgisi')}} <i class="ri-arrow-right-up-line"></i>
+                </a>
+                <a target="__blank" rel="nofollow" href="https://ebelediye.goreme.bel.tr/ebelediye/genel/ebelediye.xhtml" class="btn-red-xs radius-30">
+                    E-Belediye <i class="ri-arrow-right-up-line"></i>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
 @include('components.announcements')
 
 @include('components.newslists')

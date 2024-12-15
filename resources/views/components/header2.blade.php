@@ -19,16 +19,8 @@
                                 <a href="https://kvmgm.ktb.gov.tr/TR-44433/goreme-milli-parki-ve-kapadokya-nevsehir.html" target="_blank" title="Dünya Mirası">
                                     <img src="{{ asset('images/header-logos/png/dunya-mirasi.png')}}" height="50" alt="{{$settings['site-aciklamasi']}}">
                                 </a>
-                            </div>
-                            <!-- Top Left Side -->
-                            <!-- Logo-->
-                            <div class="logo d-block d-lg-none">
-                                <a href="{{config('app.url')}}/{{App::getLocale()}}">
-                                    <img src="{{asset('images/logo/logo.png')}}" alt="{{ $settings['site-basligi'] }}" class="changeLogos" style="height: 100px;">
-                                </a>
-                            </div>
-                            <div class="header-right-three pl-15 d-none d-lg-flex">
-                                <div class="lang">
+
+                                <div class="lang d-lg-flex mt-3">
 
                                     <i class="ri-global-line"></i>
 
@@ -43,6 +35,24 @@
                                     @endif
 
                                 </div>
+
+                            </div>
+                            <!-- Top Left Side -->
+                            <!-- Logo-->
+                            <div class="logo d-block d-lg-none">
+                                <a href="{{config('app.url')}}/{{App::getLocale()}}">
+                                    <img src="{{asset('images/logo/logo.png')}}" alt="{{ $settings['site-basligi'] }}" class="changeLogos" style="height: 100px;">
+                                </a>
+                            </div>
+                            <div class="header-right-three pl-15 d-none d-lg-flex">
+
+
+                                <div class="">
+                                    <a target="__blank" rel="nofollow" href="https://ebelediye.goreme.bel.tr/ebelediye/genel/ebelediye.xhtml" class="btn-red-sm radius-30">
+                                        E-Belediye <i class="ri-arrow-right-up-line"></i>
+                                    </a>
+                                </div>
+
                                 <div class="">
                                     <a target="_blank" href="https://shmkapadokya.kapadokya.edu.tr/" class="btn-primary-sm radius-30">
                                         {{__('websolike.Balon Uçuş Bilgisi')}} <i class="ri-arrow-right-up-line"></i>
@@ -123,6 +133,11 @@
                                             <li class="d-block d-lg-none d-sm-none d-md-none">
                                                 <a target="_blank" href="https://shmkapadokya.kapadokya.edu.tr/" class="radius-30">
                                                     {{__('websolike.Balon Uçuş Bilgisi')}} <i class="ri-arrow-right-up-line"></i>
+                                                </a>
+                                            </li>
+                                            <li class="d-block d-lg-none d-sm-none d-md-none">
+                                                <a target="__blank" rel="nofollow" href="https://ebelediye.goreme.bel.tr/ebelediye/genel/ebelediye.xhtml" class="btn-secondary-sm radius-30">
+                                                    E-Belediye <i class="ri-arrow-right-up-line"></i>
                                                 </a>
                                             </li>
                                         </ul>

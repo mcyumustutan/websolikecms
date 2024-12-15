@@ -74,7 +74,13 @@ class PageController extends Controller
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
-        $this->settings = Settings::all()->mapWithKeys(function ($item) {
+
+        $this->settings = cache()->remember('settings', 3600, function () {
+            return Settings::all()->mapWithKeys(function ($item) {
+                return [$item['key'] => $item->value];
+            });
+
+
             return [$item['key'] => $item->value];
         });
 
