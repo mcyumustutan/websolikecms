@@ -33,7 +33,7 @@ class Page extends Model implements HasMedia
         });
     }
 
-    protected $with = ['parentPage'];
+    // protected $with = ['parentPage'];
 
     protected $appends = ['cover', 'banner', 'box', 'display_date_original', 'fullurl', 'display_only_date', 'display_only_hour'];
 
