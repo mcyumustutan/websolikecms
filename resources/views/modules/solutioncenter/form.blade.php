@@ -42,7 +42,8 @@
                         </div>
                         <div class="mt-20">
 
-                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" x-model="formData.g-recaptcha-response">
+
+                            {!! RecaptchaV3::field('register') !!}
                             <button :disabled="formLoading" x-text="buttonText" class="send-btn">Gönder</button>
 
                         </div>
