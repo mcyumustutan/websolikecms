@@ -33,7 +33,8 @@ class StoreSmsListRequest extends FormRequest
             'telefon' => "required|min:10",
             'kvkk' => "required",
             'dogumtarihi' => "required|date",
-            'g-recaptcha-response' => ['required', new ReCaptcha]
+            // 'g-recaptcha-response' => ['required', new ReCaptcha]
+            'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
         ];
     }
 }

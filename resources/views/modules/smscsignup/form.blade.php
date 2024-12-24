@@ -1,4 +1,5 @@
 {!! RecaptchaV3::initJs() !!}
+
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9">
@@ -33,7 +34,7 @@
                         </div>
 
                         <div class="mt-20">
-                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" x-model="formData.g-recaptcha-response">
+                            {!! RecaptchaV3::field('register') !!}
                             <button :disabled="formLoading" x-text="buttonText" class="send-btn">Kaydol</button>
 
                         </div>
@@ -98,7 +99,7 @@
 
                         if ($.isPlainObject(value)) {
                             $.each(value, function(key, value) {
-                                console.log(key + " " + value);
+                                // console.log(key + " " + value);
                                 $('#response').show().append(value + "<br/>");
                             });
                         }
