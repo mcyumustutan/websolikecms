@@ -8,7 +8,7 @@
 
 <section class="page-details-section">
     <div class="container">
-        <div class="row  g-4 bg-white rounded py-4 pt-0 mb-40">
+        <div class="row  g-4 py-4 pt-0 mb-40">
             @php
             $column_size = 12;
             if($page->has_sidebar) $column_size = 8;
@@ -28,9 +28,9 @@
 
                 </div>
 
-                <div class="row">
+                <div class="row pt-4">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 bg-white rounded">
 
                         @if(!is_null($page->banner))
                         <div class=" float-start max-w-50  mx-4 ml-0">
@@ -42,11 +42,14 @@
                             {!! $page->content_primary !!}
                             {!! $page->content_secondary !!}
                         </div>
+
+
+                        @include('components.share')
                     </div>
 
                     @if($page->highlited_value_3)
-                    <div class="col-lg-4">
-                        <ul class="tour-listing">
+                    <div class="col-lg-4 rounded">
+                        <ul>
                             <!-- Single -->
                             <li class="list">
                                 <div class="package-content">
@@ -69,7 +72,6 @@
                 <div class="clearfix"></div>
                 @include('components.gallery')
                 @include('components.files')
-                @include('components.share')
             </div>
 
 
