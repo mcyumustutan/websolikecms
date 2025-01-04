@@ -43,7 +43,7 @@
                             {!! $page->content_secondary !!}
                         </div>
 
-
+                        <div class="clear"></div>
                         @include('components.share')
                     </div>
 
