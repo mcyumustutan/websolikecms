@@ -30,7 +30,7 @@
 
                 <div class="row pt-4">
 
-                    <div class="col-lg-8 bg-white rounded">
+                    <div class="col-lg-8 bg-white rounded p-2">
 
                         @if(!is_null($page->banner))
                         <div class=" float-start max-w-50  mx-4 ml-0">
