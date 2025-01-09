@@ -56,6 +56,7 @@ class Page extends Model implements HasMedia
         'template_type',
         'lang',
         'is_publish',
+        'is_clickable',
 
         'image_1',
         'image_2',

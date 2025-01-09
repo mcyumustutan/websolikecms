@@ -77,9 +77,16 @@
                     <div class="news-content">
 
                         <h3 class="title">
+                            @if($subPage['highlited_icon_1'])
                             <a href="{{$subPage['fullurl']}}">
+                                @endif
+
                                 {{$subPage['title']}}
+
+                                @if($subPage['highlited_icon_1'])
                             </a>
+                            @endif
+
 
                             @if($subPage['highlited_value_1'])
                             <div class="count">

@@ -178,6 +178,12 @@ class PageResource extends Resource
                                     ->helperText('Aktif olduğunda sayfa yayına açık olur.')
                                     ->default(true),
 
+
+                                Forms\Components\Toggle::make('is_clickable')
+                                    ->label('Tıklanabilir')
+                                    ->helperText('Pasif olduğunda, alt sayfalamalar için sayfa detayı linki verilmez.')
+                                    ->default(true),
+
                                 Forms\Components\Toggle::make('has_sidebar')
                                     ->label('Kenar Çubuğu')
                                     ->helperText('Aktif olduğunda sağ tarafraki kenar çubuğu aktif olur')

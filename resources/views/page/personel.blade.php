@@ -89,11 +89,21 @@
             <div class="row">
 
                 @foreach ($subPages['data'] as $subPage)
+
                 <div class="col-12 col-sm-6 col-lg-3 mb-4">
                     <div class="card custom-card">
+
+                        @if($subPage['is_clickable'])
                         <a href="{{ $subPage['fullurl'] }}">
+                            @endif
+
                             <img src="{{ $subPage['cover'] }}" class="rounded" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}">
+
+
+                            @if($subPage['highlited_icon_1'])
                         </a>
+                        @endif
+
                         <div class="card-body">
                             <h5 class="card-title">{{ $subPage['title'] }}</h5>
                             @if($subPage['highlited_icon_1'])

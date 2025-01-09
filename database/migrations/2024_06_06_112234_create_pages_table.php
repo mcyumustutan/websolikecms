@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('template_type', 15)->default('page');
             $table->string('lang', 4)->default('tr');
             $table->boolean('is_publish')->default(1);
+            $table->boolean('is_clickable')->default(1);
 
             $table->text('image_1')->nullable();
             $table->text('image_2')->nullable();
