@@ -1,4 +1,4 @@
-<div class="tag-social-section d-flex justify-content-between gap-16 flex-wrap">
+<div class="tag-social-section d-flex justify-content-between gap-16 flex-wrap bg-white rounded">
 
     <div class="social-section">
         <h4 class="title">{{__('websolike.Share')}} :</h4>
