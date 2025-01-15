@@ -19,37 +19,13 @@
 
                     @if($page->highlited_value_1)
                     <div class="divider"></div>
-                    <div class="count">
-                        <p class="pera">{!!$page->highlited_icon_1!!} {{$page->highlited_value_1}}</p>
-                    </div>
                     @endif
 
 
 
                 </div>
 
-                <div class="row">
 
-                    @if($page->highlited_value_3)
-                    <div class="col-lg-4 rounded">
-                        <ul>
-                            <!-- Single -->
-                            <li class="list">
-                                <div class="package-content">
-                                    <h4 class="area-name">
-                                        <a class="text" target="_blank" href="{{$page->highlited_icon_3}}">Adres Bilgisi</a>
-                                    </h4>
-                                    <div class="location">
-                                        <i class="ri-map-pin-line"></i>
-                                        <div class="name"><a class="text" target="_blank" href="{{$page->highlited_icon_3}}">{{$page->highlited_value_3}}</a></div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    @endif
-
-                </div>
 
 
                 <div class="clearfix"></div>
