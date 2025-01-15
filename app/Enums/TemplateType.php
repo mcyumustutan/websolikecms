@@ -21,6 +21,7 @@ enum TemplateType: string implements HasLabel
     case Personel = 'personel';
     case Place = 'place';
     case Units = 'units';
+    case Unit = 'unit';
 
     public function getLabel(): ?string
     {
@@ -40,6 +41,7 @@ enum TemplateType: string implements HasLabel
             self::Personel => 'Personel',
             self::Place => 'Yer-Mekan',
             self::Units => 'Birimler',
+            self::Unit => 'Birim',
         };
     }
 
@@ -60,7 +62,8 @@ enum TemplateType: string implements HasLabel
             self::Module => 'page.module',
             self::Personel => 'page.personel',
             self::Place => 'page.place',
-            self::Place => 'page.units',
+            self::Units => 'page.units',
+            self::Unit => 'page.unit',
             default => 'page.page',
         };
     }
