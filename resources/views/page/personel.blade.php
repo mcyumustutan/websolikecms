@@ -100,7 +100,7 @@
                             <img src="{{ $subPage['cover'] }}" class="rounded" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}">
 
 
-                            @if($subPage['highlited_icon_1'])
+                            @if($subPage['is_clickable'])
                         </a>
                         @endif
 
@@ -112,9 +112,9 @@
                                     style="width: 40px; height: 40px;">
                             </p>
                             @endif
-                            @if($subPage['highlited_icon_1'])
+                            @if($subPage['highlited_value_1'])
                             <p class="card-text">
-                                {{$subPage['highlited_icon_1']}}
+                                {{$subPage['highlited_value_1']}}
                             </p>
                             @endif
 
