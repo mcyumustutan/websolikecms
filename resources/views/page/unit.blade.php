@@ -30,7 +30,7 @@
 
 
             @if($page->has_sidebar)
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-3 col-lg-5">
                 <div class="row g-4">
                     <div class="col-lg-12">
                         <div class="search-filter-section bg-white rounded ">
@@ -57,7 +57,7 @@
             @endif
 
 
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-9 col-lg-7">
                 <div class="row g-4">
                     <div class="col-lg-12">
                         <div class=" bg-white rounded p-4">

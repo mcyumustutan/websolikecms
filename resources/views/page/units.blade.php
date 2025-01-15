@@ -56,12 +56,6 @@
 
                             <h3 class="title">
                                 {{$subPage['title']}}
-
-                                @if($subPage['highlited_value_1'])
-                                <div class="count">
-                                    {{$subPage['highlited_value_1']}}
-                                </div>
-                                @endif
                             </h3>
 
                         </div>
