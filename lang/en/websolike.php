@@ -3,6 +3,7 @@
 return [
 
     'Share' => 'Share',
+    'Birimler' => 'Units',
     'Recent News' => 'Other Pages',
     'Related Pages' => 'Related Pages',
     'Photo Gallery' => 'Photo Gallery',

@@ -8,7 +8,7 @@
 
 <section class="page-details-section">
     <div class="container">
-        <div class="row  g-4 py-4 pt-0 mb-40">
+        <div class="row  g-4 py-1 pt-0 mb-40">
             @php
             $column_size = 12;
             if($page->has_sidebar) $column_size = 8;
@@ -28,17 +28,7 @@
 
                 </div>
 
-                <div class="row pt-4">
-
-                    <div class="col-lg-8 bg-white rounded p-2">
-
-                        @if(!is_null($page->banner))
-                        <div class=" float-start max-w-50  mx-4 ml-0">
-                            <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
-                        </div>
-                        @endif
-
-                    </div>
+                <div class="row">
 
                     @if($page->highlited_value_3)
                     <div class="col-lg-4 rounded">
@@ -68,11 +58,6 @@
             </div>
 
 
-
-            @if($page->has_sidebar)
-            @include('components.sidebar')
-            @endif
-
         </div>
     </div>
     </div>
@@ -87,30 +72,27 @@
 
 
             <div class="col-xl-3 col-lg-3 col-sm-6 ">
-                <article class="news-card-two">
-                    <figure class="news-banner-two imgEffect   justify-content-center align-items-center" style="height: 260px;">
-                        <a href="{{$subPage['fullurl']}}">
-                            <img src="{{ $subPage['cover'] }}" alt="{{ $subPage['title'] }}">
-                        </a>
-                    </figure>
+                <a href="{{$subPage['fullurl']}}">
+                    <article class="news-card-two">
 
-                    <div class="news-content">
 
-                        <h3 class="title">
-                            <a href="{{$subPage['fullurl']}}">
+                        <div class="news-content">
+
+                            <h3 class="title">
                                 {{$subPage['title']}}
-                            </a>
 
-                            @if($subPage['highlited_value_1'])
-                            <div class="count">
-                                {{$subPage['highlited_value_1']}}
-                            </div>
-                            @endif
-                        </h3>
+                                @if($subPage['highlited_value_1'])
+                                <div class="count">
+                                    {{$subPage['highlited_value_1']}}
+                                </div>
+                                @endif
+                            </h3>
 
-                    </div>
-                </article>
+                        </div>
+                    </article>
+                </a>
             </div>
+
 
             @endforeach
         </div>

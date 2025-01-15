@@ -6,58 +6,7 @@
 
 
 @include('components.breadcrumb')
-<section class="page-details-section">
-    <div class="container">
-        <div class="row g-4 bg-white rounded py-4 pt-0">
-            @php
-            $column_size = 12;
-            if($page->has_sidebar) $column_size = 8;
-            @endphp
-            <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
-                <div class="d-flex flex-wrap align-items-center gap-20  ">
 
-                    @if($page['highlited_icon_1'])
-                    <p class="card-text">
-                        <img src="{{asset('images/rozet/') .'/'. $page['highlited_icon_1'] }}.png" alt="{{$page['highlited_icon_1']}}"
-                            style="width: 40px; height: 40px;">
-                    </p>
-                    @endif
-                    @if($page['highlited_icon_1'])
-                    <p class="card-text">
-                        {{$page['highlited_icon_1']}}
-                    </p>
-                    @endif
-
-                </div>
-
-
-                <div class="col-lg-12">
-
-                    @if(!is_null($page->banner))
-                    <div class=" float-start max-w-50  mx-4 ml-0">
-                        <img src="{{$page['banner']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
-                    </div>
-                    @endif
-
-                    <div class="pera ml-5 mt-1" style="text-align: justify;">
-                        {!! $page->content_primary !!}
-                        {!! $page->content_secondary !!}
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-                @include('components.gallery')
-                @include('components.files')
-            </div>
-
-            @if($page->has_sidebar)
-            @include('components.sidebar')
-            @endif
-
-        </div>
-    </div>
-    </div>
-</section>
 <style>
     .custom-card {
         margin-bottom: 20px;
@@ -74,58 +23,108 @@
     }
 </style>
 
-@if($page->has_subpages && count($subPages['data'])>0)
-<section class="news-area profile-page">
+
+<section class="destination-details-section pt-4">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-12 col-lg-12">
-                <div class="position-relative mb-60 mt-60">
+        <div class="row g-4">
+
+
+            @if($page->has_sidebar)
+            <div class="col-xl-4 col-lg-5">
+                <div class="row g-4">
+                    <div class="col-lg-12">
+                        <div class="search-filter-section bg-white rounded ">
+
+                            <div class="heading">
+                                <h4 class="title">{{ __('websolike.Birimler') }}</h4>
+                            </div>
+                            <ul class="recent-news-list">
+
+                                @foreach ($subPages['data'] as $subPage)
+                                <li class="list">
+                                    <h4 class="title">
+                                        <a href="{{$subPage['url']}}"> {{$subPage['title']}}</a>
+                                    </h4>
+                                </li>
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
+            @endif
 
 
-        <div class="container mt-4">
-            <div class="row">
+            <div class="col-xl-8 col-lg-7">
+                <div class="row g-4">
+                    <div class="col-lg-12">
+                        <div class=" bg-white rounded p-4">
 
-                @foreach ($subPages['data'] as $subPage)
 
-                <div class="col-12 col-sm-6 col-lg-3 mb-4">
-                    <div class="card custom-card">
-
-                        @if($subPage['is_clickable'])
-                        <a href="{{ $subPage['fullurl'] }}">
+                            @if(!is_null($page->cover))
+                            <div class=" float-end max-w-50  mx-4 ml-0">
+                                <img src="{{$page['cover']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
+                                @if($page->highlited_value_1)
+                                <div class="divider"></div>
+                                <div class="count">
+                                    <p class="pera">{!!$page->highlited_icon_1!!} {{$page->highlited_value_1}}</p>
+                                </div>
+                                @endif
+                                @if($page->highlited_value_2)
+                                <div class="divider"></div>
+                                <div class="count">
+                                    <p class="pera">{!!$page->highlited_icon_2!!} {{$page->highlited_value_2}}</p>
+                                </div>
+                                @endif
+                            </div>
                             @endif
 
-                            <img src="{{ $subPage['cover'] }}" class="rounded" alt="{{ $subPage['title'] }}" title="{{ $subPage['title'] }}">
-
-
-                            @if($subPage['highlited_icon_1'])
-                        </a>
-                        @endif
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $subPage['title'] }}</h5>
-                            @if($subPage['highlited_icon_1'])
-                            <p class="card-text">
-                                <img src="{{asset('images/rozet/') .'/'. $subPage['highlited_icon_1'] }}.png" alt="{{$subPage['highlited_icon_1']}}"
-                                    style="width: 40px; height: 40px;">
-                            </p>
-                            @endif
-                            @if($subPage['highlited_icon_1'])
-                            <p class="card-text">
-                                {{$subPage['highlited_icon_1']}}
-                            </p>
-                            @endif
-
+                            <div class="pera ml-5 mt-1" style="text-align: justify;">
+                                {!! $page->content_primary !!}
+                                {!! $page->content_secondary !!}
+                            </div>
 
                         </div>
                     </div>
                 </div>
 
-                @endforeach
-
             </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+@if($page->has_subpages && count($subPages['data'])>0)
+<section class="news-area pt-4">
+    <div class="container">
+        <div class="row g-4">
+
+            @foreach ($subPages['data'] as $subPage)
+
+            <div class="col-xl-3 col-lg-3 col-sm-6 ">
+                <a href="{{$subPage['fullurl']}}">
+                    <article class="news-card-two">
+                        <div class="news-content">
+                            <h3 class="title">
+                                {{$subPage['title']}}
+
+                                @if($subPage['highlited_value_1'])
+                                <div class="count">
+                                    {{$subPage['highlited_value_1']}}
+                                </div>
+                                @endif
+                            </h3>
+                        </div>
+                    </article>
+                </a>
+            </div>
+
+            @endforeach
         </div>
 
 
@@ -147,9 +146,9 @@
         </div>
     </div>
 </section>
-
-
 @endif
+
+
 <style>
     .profile_card {
         width: 400px;

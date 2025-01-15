@@ -3,6 +3,7 @@
 return [
 
     'Share' => 'Paylaş',
+    'Birimler' => 'Birimler',
     'Recent News' => 'Diğer Sayfalar',
     'Related Pages' => 'İlgili Sayfalar',
     'Photo Gallery' => 'Fotoğraf Galerisi',
