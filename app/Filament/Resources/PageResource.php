@@ -187,12 +187,12 @@ class PageResource extends Resource
                                 Forms\Components\Toggle::make('has_sidebar')
                                     ->label('Kenar Çubuğu')
                                     ->helperText('Aktif olduğunda sağ tarafraki kenar çubuğu aktif olur')
-                                    ->default(true),
+                                    ->default(false),
 
                                 Forms\Components\Toggle::make('has_subpages')
                                     ->label('Alt Sayfalama')
                                     ->helperText('Aktif olduğunda ilgili sayfanın altındaki sayfaları listeler.')
-                                    ->default(false),
+                                    ->default(true),
 
                                 Forms\Components\TextInput::make('ordinal')
                                     ->default(fn($record) => Page::orderByDesc('ordinal')->first()->ordinal + 1)
@@ -238,6 +238,7 @@ class PageResource extends Resource
                                         'solutioncenter' => 'Çözüm Merkezi Formu',
                                         'smscsignup' => "SMS Listesi Kayıt Formu",
                                         'vefatlist' => "Vefat İlanları Listesi",
+                                        'organisationtree' => "Teşkilat Şeması",
                                     ]),
 
                                 Forms\Components\DateTimePicker::make('display_date')

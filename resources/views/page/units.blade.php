@@ -29,6 +29,14 @@
 
 
                 <div class="clearfix"></div>
+
+
+                @if(in_array('organisationtree',$page->widgets??[]))
+                @include('modules.organisationtree.organisationtree')
+                @endif
+
+
+                <div class="clearfix"></div>
                 @include('components.gallery')
                 @include('components.files')
             </div>
@@ -39,53 +47,6 @@
     </div>
 </section>
 
-@if($page->has_subpages && count($subPages['data'])>0)
-<section class="news-area ">
-    <div class="container">
-        <div class="row g-4">
-
-            @foreach ($subPages['data'] as $subPage)
-
-
-            <div class="col-xl-3 col-lg-3 col-sm-6 ">
-                <a href="{{$subPage['fullurl']}}">
-                    <article class="news-card-two">
-
-
-                        <div class="news-content">
-
-                            <h3 class="title">
-                                {{$subPage['title']}}
-                            </h3>
-
-                        </div>
-                    </article>
-                </a>
-            </div>
-
-
-            @endforeach
-        </div>
-
-
-        <div class="col-12 text-center">
-
-            <div class="d-flex justify-content-center mt-4">
-                <nav class="pagination-container">
-                    <div class="pagination">
-                        <span class="pagination-inner">
-                            @foreach ($subPages['links'] as $link)
-                            <a class="{{ $link['active'] ? 'pagination-active' : '' }}" href="{{$link['url']}}">
-                                {{__($link['label']) }}
-                            </a>
-                            @endforeach
-                        </span>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-</section>
-@endif
+ 
 
 @endsection

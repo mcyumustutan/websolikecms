@@ -77,6 +77,11 @@
                 @endif
 
 
+                @if(in_array('organisationtree',$page->widgets??[]))
+                @include('modules.organisationtree.organisationtree')
+                @endif
+
+
                 <div class="clearfix"></div>
                 @include('components.gallery')
                 @include('components.files')
