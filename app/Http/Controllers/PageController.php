@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
-    
+
     const CACHE_DURATION = 3600;
 
     public function __construct(
@@ -30,9 +30,9 @@ class PageController extends Controller
             ->where('is_publish', true)
             ->where('parent_id', null)
             ->orderBy('ordinal', 'asc');
-        
 
-        $this->mainNavigation1 = cache()->remember('main_nav_1', self::CACHE_DURATION, function() use ($baseQuery) {
+
+        $this->mainNavigation1 = cache()->remember('main_nav_1', self::CACHE_DURATION, function () use ($baseQuery) {
             return $baseQuery->clone()
                 ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
                 ->whereJsonContains('link_view', '1')
@@ -41,7 +41,7 @@ class PageController extends Controller
                 ->toArray();
         });
 
-        $this->mainNavigation2 = cache()->remember('main_nav_2', self::CACHE_DURATION, function() use ($baseQuery) {
+        $this->mainNavigation2 = cache()->remember('main_nav_2', self::CACHE_DURATION, function () use ($baseQuery) {
             return $baseQuery->clone()
                 ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
                 ->whereJsonContains('link_view', '1')
@@ -114,10 +114,10 @@ class PageController extends Controller
                 TemplateType::News->value,
                 TemplateType::Page->value,
             ])
-            ->whereNot(fn($q) => $q->whereJsonContains('link_view', '4'))
-            ->orderBy('display_date', 'desc')
-            ->take(100)
-            ->get();
+                ->whereNot(fn($q) => $q->whereJsonContains('link_view', '4'))
+                ->orderBy('display_date', 'desc')
+                ->take(100)
+                ->get();
         });
 
         // Projeleri kategorilerine göre gruplandır
@@ -226,7 +226,7 @@ class PageController extends Controller
 
 
         $view = $this->viewGenerator($page->template_type->view());
-
+        
         $my_order = ['display_date', 'desc'];
 
         if ($view == "page.personel") {
@@ -237,8 +237,8 @@ class PageController extends Controller
             $my_order = ['ordinal', 'asc'];
         }
 
-        if ($view == "page.unit") {
-            $my_order = ['ordinal', 'asc'];
+        if ($view == "page.units") {
+            $my_order = ['ordinal', 'desc'];
         }
 
         $subPages[] = ['data' => []];

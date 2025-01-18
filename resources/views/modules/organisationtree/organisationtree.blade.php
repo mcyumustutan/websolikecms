@@ -4,7 +4,6 @@ The markup will be simple nested lists
 -->
 <div class="idari-yapi w-100">
 
-
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="baskan">
@@ -21,9 +20,14 @@ The markup will be simple nested lists
     </div>
 
     @if($page->has_subpages && count($subPages['data'])>0)
+
+
+
     @php
     $limitedItems = array_chunk($subPages['data'], 6);
     @endphp
+
+
 
     @foreach ($limitedItems as $subPages)
     <div class="row g-2 belediye-bt py-3">
