@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
+    
+    const CACHE_DURATION = 3600;
 
     public function __construct(
         public $mainNavigation = null,
@@ -24,44 +26,30 @@ class PageController extends Controller
         public $settings = null,
         public $wheather = null
     ) {
-        $this->mainNavigation1 = Page::with([
-            'sub' => function ($query) {
-                $query->whereJsonContains('link_view', '1');
-            }
-        ])->select('id', 'lang', 'title', 'url')
-            ->where([
-                'parent_id' => null,
-                // 'lang' => App::getLocale(),
-            ])
-            // ->where('template_type', 'page')
-            ->whereJsonContains('link_view', '1')
-            ->limit(2)
+        $baseQuery = Page::select('id', 'lang', 'title', 'url')
             ->where('is_publish', true)
-            ->orderBy('ordinal', 'asc')
-            ->get()->toArray();
+            ->where('parent_id', null)
+            ->orderBy('ordinal', 'asc');
+        
 
+        $this->mainNavigation1 = cache()->remember('main_nav_1', self::CACHE_DURATION, function() use ($baseQuery) {
+            return $baseQuery->clone()
+                ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
+                ->whereJsonContains('link_view', '1')
+                ->limit(2)
+                ->get()
+                ->toArray();
+        });
 
-
-        $this->mainNavigation2 = Page::with(
-            [
-                'sub' => function ($query) {
-                    $query->whereJsonContains('link_view', '1');
-                }
-            ]
-        )->select('id', 'lang', 'title', 'url')
-            ->where([
-                'parent_id' => null,
-                // 'lang' => App::getLocale(),
-            ])
-            // ->where('template_type', 'page')
-            ->whereJsonContains('link_view', '1')
-            ->where('is_publish', true)
-            ->orderBy('ordinal', 'asc')
-            ->offset(2)
-            ->limit(3)
-            ->get()->toArray();
-
-        // dd($this->mainNavigation1, $this->mainNavigation2);
+        $this->mainNavigation2 = cache()->remember('main_nav_2', self::CACHE_DURATION, function() use ($baseQuery) {
+            return $baseQuery->clone()
+                ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
+                ->whereJsonContains('link_view', '1')
+                ->offset(2)
+                ->limit(3)
+                ->get()
+                ->toArray();
+        });
 
         $this->footernNavigation = Page::with('sub')->select('id', 'lang', 'title', 'url')
             ->where([
@@ -84,14 +72,10 @@ class PageController extends Controller
             ->orderBy('ordinal', 'asc')
             ->get()->toArray();
 
-
-        $this->settings = cache()->remember('settings', 3600, function () {
+        $this->settings = cache()->remember('settings', self::CACHE_DURATION, function () {
             return Settings::all()->mapWithKeys(function ($item) {
                 return [$item['key'] => $item->value];
             });
-
-
-            return [$item['key'] => $item->value];
         });
 
         try {
@@ -121,18 +105,20 @@ class PageController extends Controller
 
         $sliders = Slider::where('is_publish', true)->orderBy('position')->take(5)->get();
 
-        $allProjects = Page::whereIn('template_type', [
-            TemplateType::ProjectFinished->value,
-            TemplateType::ProjectOnGoing->value,
-            TemplateType::ProjectPlanned->value,
-            TemplateType::Announcement->value,
-            TemplateType::News->value,
-            TemplateType::Page->value,
-            // TemplateType::Death->value,
-        ])->whereNot(function ($query) {
-            $query->whereJsonContains('link_view', '4');
-        })
-            ->orderBy('display_date', 'desc')->take(100)->get();
+        $allProjects = cache()->remember('all_projects', self::CACHE_DURATION, function () {
+            return Page::whereIn('template_type', [
+                TemplateType::ProjectFinished->value,
+                TemplateType::ProjectOnGoing->value,
+                TemplateType::ProjectPlanned->value,
+                TemplateType::Announcement->value,
+                TemplateType::News->value,
+                TemplateType::Page->value,
+            ])
+            ->whereNot(fn($q) => $q->whereJsonContains('link_view', '4'))
+            ->orderBy('display_date', 'desc')
+            ->take(100)
+            ->get();
+        });
 
         // Projeleri kategorilerine göre gruplandır
         $projectsByCategory = $allProjects->groupBy('template_type');
@@ -173,14 +159,14 @@ class PageController extends Controller
                 ->orderBy('display_date', 'desc')
                 ->take(6)->get(),
 
-            'stories' => Page::where('is_publish', true)
-                ->whereNull('parent_id')
-                ->whereJsonContains('box_view', '2')
-                ->with('subStory')
-                ->orderBy('display_date', 'desc')
-                // ->toSql()
-                ->get()
-                // ->toArray()
+            'stories' => cache()->remember('stories', self::CACHE_DURATION, function () {
+                return Page::where('is_publish', true)
+                    ->whereNull('parent_id')
+                    ->whereJsonContains('box_view', '2')
+                    ->with(['subStory', 'media'])
+                    ->orderBy('display_date', 'desc')
+                    ->get();
+            })
                 ->map(function ($story) {
                     return [
                         'id' => $story->title,
@@ -251,6 +237,10 @@ class PageController extends Controller
             $my_order = ['ordinal', 'asc'];
         }
 
+        if ($view == "page.unit") {
+            $my_order = ['ordinal', 'asc'];
+        }
+
         $subPages[] = ['data' => []];
         $subPages = Page::where('parent_id', $page['id'])
             ->whereNot('id', $page['id'])
@@ -263,7 +253,7 @@ class PageController extends Controller
         if (count($subPages['data']) === 0) {
             $subPages = Page::where('parent_id', $page['parent_id'])
                 ->where('is_publish', true)
-                ->where('template_type', $page['template_type'])
+                // ->where('template_type', $page['template_type'])
                 ->whereNot('id', $page['id'])
                 ->orderBy($my_order[0], $my_order[1])
                 ->with('media')
