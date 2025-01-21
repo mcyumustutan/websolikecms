@@ -44,9 +44,8 @@ class PageResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->live(onBlur: true)
-                                    ->unique(Page::class, 'title', ignoreRecord: true)
                                     ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
-                                        $set('url', Str::slug($state));
+                                        $set('url', Str::slug($state) . "-" . time());
                                     }),
 
                                 Forms\Components\TextInput::make('url')
