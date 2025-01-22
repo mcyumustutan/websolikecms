@@ -94,7 +94,10 @@
                                             </li>
                                             @foreach ($mainNavigation1 as $menu)
                                             <li class="single-list">
-                                                <a href="#" class="single">{{$menu['title']}}
+                                                @php
+                                                $my_href = ($menu['sub'])?'#':$menu['fullurl'];
+                                                @endphp
+                                                <a href="{{$my_href}}" class="single">{{$menu['title']}}
                                                     @if($menu['sub'])
                                                     <i class="ri-arrow-down-s-line"></i>
                                                     @endif
@@ -123,7 +126,10 @@
 
                                             @foreach ($mainNavigation2 as $menu)
                                             <li class="single-list">
-                                                <a href="#" class="single">{{$menu['title']}}
+                                                @php
+                                                $my_href = ($menu['sub'])?'#':$menu['fullurl'];
+                                                @endphp
+                                                <a href="{{$my_href}}" class="single">{{$menu['title']}}
                                                     @if($menu['sub'])
                                                     <i class="ri-arrow-down-s-line"></i>
                                                     @endif
