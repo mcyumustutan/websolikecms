@@ -22,7 +22,21 @@
         margin-bottom: 5px;
     }
 </style>
+<style>
+    .custom-card {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
+    .custom-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .card-title {
+        margin-bottom: 5px;
+    }
+</style>
 @php
 $column_size = 12;
 if($page->has_sidebar) $column_size = 8;
@@ -66,27 +80,9 @@ if($page->has_sidebar) $column_size = 8;
 
             <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 <div class="row g-4">
-                    <div class="col-lg-12">
-                        <div class=" bg-white rounded p-4">
+                    <div class="col-lg-9">
+                        <div class=" bg-white rounded p-4" style="min-height: 460px;">
 
-
-                            @if(!is_null($page->cover))
-                            <div class=" float-end max-w-50  mx-4 ml-0">
-                                <img src="{{$page['cover']}}" alt="{{$page->title}}" title="{{$page->title}}" class="img-fluid rounded" style="max-width: 430px;">
-                                @if($page->highlited_value_1)
-                                <div class="divider"></div>
-                                <div class="count">
-                                    <p class="pera">{!!$page->highlited_icon_1!!} {{$page->highlited_value_1}}</p>
-                                </div>
-                                @endif
-                                @if($page->highlited_value_2)
-                                <div class="divider"></div>
-                                <div class="count">
-                                    <p class="pera">{!!$page->highlited_icon_2!!} {{$page->highlited_value_2}}</p>
-                                </div>
-                                @endif
-                            </div>
-                            @endif
 
                             <div class="pera ml-5 mt-1" style="text-align: justify;">
                                 {!! $page->content_primary !!}
@@ -94,8 +90,44 @@ if($page->has_sidebar) $column_size = 8;
                             </div>
 
                             <div class="clear"></div>
+                            @include('components.files')
+                            <div class="clear"></div>
                         </div>
                         <div class="clear"></div>
+                    </div>
+                    <div class="col-lg-3">
+
+                        @if(!is_null($page->cover))
+
+                        <div class="card custom-card">
+
+                            <img src="{{ $page['cover'] }}" class="rounded" alt="{{ $page['title'] }}" title="{{ $page['title'] }}">
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $page['title'] }}</h5>
+                                @if($page['highlited_icon_1'])
+                                <p class="card-text">
+                                    <img src="{{asset('images/rozet/') .'/'. $page['highlited_icon_1'] }}.png" alt="{{$page['highlited_icon_1']}}"
+                                        style="width: 40px; height: 40px;">
+                                </p>
+                                @endif
+                                @if($page['highlited_value_1'])
+                                <p class="card-text">
+                                    {{$page['highlited_value_1']}}
+                                </p>
+                                @endif
+                                @if($page['highlited_value_2'])
+                                <p class="card-text">
+                                    {{$page['highlited_value_2']}}
+                                </p>
+                                @endif
+
+
+                            </div>
+                        </div>
+
+
+                        @endif
                     </div>
                 </div>
 

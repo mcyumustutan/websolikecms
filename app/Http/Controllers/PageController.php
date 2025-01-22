@@ -226,7 +226,7 @@ class PageController extends Controller
 
 
         $view = $this->viewGenerator($page->template_type->view());
-        
+
         $my_order = ['display_date', 'desc'];
 
         if ($view == "page.personel") {
@@ -237,7 +237,7 @@ class PageController extends Controller
             $my_order = ['ordinal', 'asc'];
         }
 
-        if ($view == "page.units") {
+        if ($view == "page.units" || $view == "page.unit") {
             $my_order = ['ordinal', 'desc'];
         }
 
