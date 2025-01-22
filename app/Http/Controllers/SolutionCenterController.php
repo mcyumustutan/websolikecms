@@ -13,7 +13,7 @@ class SolutionCenterController extends Controller
     {
         $newSolutionCenter = SolutionCenter::create($request->validated());
 
-        Mail::to(['goremebasin@gmail.com', 'mehmetcy01@gmail.com'])->send(new SolutionCenterMail($newSolutionCenter));
+        Mail::to(['goremebasin@gmail.com'])->send(new SolutionCenterMail($newSolutionCenter));
         return response()->json(['success' => 'Mesajınız Çözüm Merkezimize iletildi. En kısa sürede tarafınıza bilgi verilecektir.'], 201);
     }
 }
