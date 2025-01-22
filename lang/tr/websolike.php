@@ -35,5 +35,6 @@ return [
     'Son Haberler' => "Son Haberler",
     'Duyurular' => "Duyurular",
     'Çözüm Merkezi Bilgi' => "Çözüm Merkezimizle Yanınızdayız: Sorunlarınızı Dinliyor, Çözüyoruz!",
+    "adres" => "Adres",
 
 ];

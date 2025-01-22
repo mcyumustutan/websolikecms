@@ -30,7 +30,7 @@
 
                 <div class="row pt-4">
 
-                    <div class="col-lg-8 bg-white rounded p-2">
+                    <div class="col-lg-9 bg-white rounded p-2">
 
                         @if(!is_null($page->banner))
                         <div class=" float-start max-w-50  mx-4 ml-0">
@@ -48,21 +48,17 @@
                     </div>
 
                     @if($page->highlited_value_3)
-                    <div class="col-lg-4 rounded">
-                        <ul>
-                            <!-- Single -->
-                            <li class="list">
-                                <div class="package-content">
-                                    <h4 class="area-name">
-                                        <a class="text" target="_blank" href="{{$page->highlited_icon_3}}">Adres Bilgisi</a>
-                                    </h4>
-                                    <div class="location">
-                                        <i class="ri-map-pin-line"></i>
-                                        <div class="name"><a class="text" target="_blank" href="{{$page->highlited_icon_3}}">{{$page->highlited_value_3}}</a></div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="col-lg-3 rounded">
+                        <div class="box">
+                            <div class="box-header">
+                                <p class="box-title text-white">{{ __('websolike.adres')}}</p>
+                            </div>
+                            <div class="box-body">
+                                <a class="text" target="_blank" href="{{$page->highlited_icon_3}}">{{$page->highlited_value_3}} <i class="ri-arrow-right-up-line"></i></a>
+                            </div>
+
+                        </div>
+
                     </div>
                     @endif
 
