@@ -36,6 +36,11 @@ The markup will be simple nested lists
             <div class="baskan-yardimci pb-4">
                 <a href="{{$subPage['fullurl']}}" class="d-flex flex-column align-items-center justify-content-center shadow rounded-3 by-link px-1 py-4">
                     <span class="b-baslik">{{$subPage['title']}}</span>
+                    @if($subPage['highlited_value_1'])
+                    <div class="count">
+                        {{$subPage['highlited_value_1']}}
+                    </div>
+                    @endif
                 </a>
             </div>
 

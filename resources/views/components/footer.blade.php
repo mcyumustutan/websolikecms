@@ -55,45 +55,9 @@
             <div class="container">
                 <div class="footer-body">
                     <div class="row g-4">
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="col-xl-3 col-lg-3 col-sm-6">
                             <div class="footer-tittle">
                                 <img src="{{ asset('images/logo/logo-with-bg.png')}}" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" class="changeLogos" style="position: relative;top: -38px;">
-                            </div>
-
-                            <div class="d-flex justify-content-between gap-14 flex-wrap mt-5">
-                                <div class="d-flex align-items-center gap-2">
-                                    @if($settings['instagramcom'])
-                                    <a target="_blank" href="{{$settings['instagramcom']}}">
-                                        <img src="{{asset('images/social/instagram.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
-                                    </a>
-                                    @endif
-
-                                    @if($settings['xcom'])
-                                    <a target="_blank" href="{{$settings['xcom']}}">
-
-                                        <img src="{{asset('images/social/x.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
-                                    </a>
-                                    @endif
-
-                                    @if($settings['whatsapp'])
-                                    <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
-                                        <img src="{{asset('images/social/whatsapp.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
-                                    </a>
-                                    @endif
-
-                                    @if($settings['facebookcom'])
-                                    <a target="_blank" href="{{$settings['facebookcom']}}">
-                                        <img src="{{asset('images/social/facebook.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
-                                    </a>
-                                    @endif
-
-                                    @if($settings['youtubecom'])
-                                    <a target="_blank" href="{{$settings['youtubecom']}}">
-                                        <img src="{{asset('images/social/youtube.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
-                                    </a>
-                                    @endif
-
-                                </div>
                             </div>
 
                         </div>
@@ -104,8 +68,9 @@
                                     <h4 class="title">{{__('websolike.SMS Listesi')}}</h4>
                                     <p>Güncel Bilgiler, Etkinlikler ve Duyurular İçin SMS Listesine Kaydolun</p>
                                     <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="btn-primary-sm radius mt-1">{{__('websolike.SMS Listesine Kaydol')}}</a>
-                                </div> 
+                                </div>
                             </div>
+
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="single-footer-caption">
@@ -146,6 +111,43 @@
 
                                     </ul>
                                 </div>
+
+                                <div class="d-flex justify-content-between gap-14 flex-wrap mt-5">
+                                    <div class="d-flex align-items-center gap-2">
+                                        @if($settings['instagramcom'])
+                                        <a target="_blank" href="{{$settings['instagramcom']}}">
+                                            <img src="{{asset('images/social/instagram.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
+                                        </a>
+                                        @endif
+
+                                        @if($settings['xcom'])
+                                        <a target="_blank" href="{{$settings['xcom']}}">
+
+                                            <img src="{{asset('images/social/x.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
+                                        </a>
+                                        @endif
+
+                                        @if($settings['whatsapp'])
+                                        <a target="_blank" href="https://api.whatsapp.com/send?phone={{$settings['whatsapp']}}">
+                                            <img src="{{asset('images/social/whatsapp.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
+                                        </a>
+                                        @endif
+
+                                        @if($settings['facebookcom'])
+                                        <a target="_blank" href="{{$settings['facebookcom']}}">
+                                            <img src="{{asset('images/social/facebook.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
+                                        </a>
+                                        @endif
+
+                                        @if($settings['youtubecom'])
+                                        <a target="_blank" href="{{$settings['youtubecom']}}">
+                                            <img src="{{asset('images/social/youtube.png')}}" width="36" alt="{{ $settings['site-basligi'] }}" title="{{ $settings['site-basligi'] }}" />
+                                        </a>
+                                        @endif
+
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
