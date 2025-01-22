@@ -283,7 +283,7 @@ The markup will be simple nested lists
 
     .idari-yapi .baskan-yardimci .by-link .b-baslik {
         font-weight: 500;
-        font-size: 18px
+        font-size: 1rem
     }
 
     .idari-yapi .baskan-yardimci .by-link .b-unvan {

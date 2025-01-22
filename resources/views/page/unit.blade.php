@@ -23,6 +23,10 @@
     }
 </style>
 
+@php
+$column_size = 12;
+if($page->has_sidebar) $column_size = 8;
+@endphp
 
 <section class="destination-details-section pt-4">
     <div class="container">
@@ -45,6 +49,9 @@
                                     <h4 class="title">
                                         <a href="{{$subPage['url']}}"> {{$subPage['title']}}</a>
                                     </h4>
+                                    @if($subPage['highlited_value_1'])
+                                    <span class="fs-6">{{$subPage['highlited_value_1']}}</span>
+                                    @endif
                                 </li>
                                 @endforeach
 
@@ -57,7 +64,7 @@
             @endif
 
 
-            <div class="col-xl-9 col-lg-7">
+            <div class="col-xl-{{$column_size}} col-lg-{{$column_size}}">
                 <div class="row g-4">
                     <div class="col-lg-12">
                         <div class=" bg-white rounded p-4">
@@ -128,6 +135,8 @@
 
             @endforeach
         </div>
+
+
 
 
         <div class="col-12 text-center">
