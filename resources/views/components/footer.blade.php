@@ -104,12 +104,7 @@
                                     <h4 class="title">{{__('websolike.SMS Listesi')}}</h4>
                                     <p>Güncel Bilgiler, Etkinlikler ve Duyurular İçin SMS Listesine Kaydolun</p>
                                     <a href="{{config('app.url')}}/{{App::getLocale()}}/sms-listesi" class="btn-primary-sm radius mt-1">{{__('websolike.SMS Listesine Kaydol')}}</a>
-                                </div>
-                                <div class="footer-tittle mt-5">
-                                    <h4 class="title">{{__('websolike.Çözüm Merkezi')}}</h4>
-                                    <p>{{__('websolike.Çözüm Merkezi Bilgi')}}</p>
-                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/cozum-merkezi" class="btn-primary-sm radius mt-1"> {{__('websolike.Çözüm Merkezine Ulaş')}} </a>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6">

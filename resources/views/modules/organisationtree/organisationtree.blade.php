@@ -210,7 +210,7 @@ The markup will be simple nested lists
     .idari-yapi .belediye-bt::before {
         content: "";
         position: absolute;
-        width: 100%;
+        width: calc(100% - 246px);
         height: 1px;
         top: -20px;
         left: 0;
