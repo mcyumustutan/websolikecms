@@ -120,10 +120,27 @@
                 </iframe>
                 <!-- / Map -->
             </div>
-
-
-
         </div>
+
+
+        <div class="row bg-white rounded p-4 mt-4">
+            <div class="col-lg-12">
+                <hr>
+
+                @if(in_array('solutioncenter',$page->widgets??[]))
+                @include('modules.solutioncenter.form')
+                @endif
+
+
+                @if(in_array('smscsignup',$page->widgets??[]))
+                @include('modules.smscsignup.form')
+                @endif
+
+            </div>
+        </div>
+
+
+
     </div>
 
 </section>

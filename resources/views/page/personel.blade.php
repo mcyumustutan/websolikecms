@@ -117,6 +117,11 @@
                                 {{$subPage['highlited_value_1']}}
                             </p>
                             @endif
+                            @if($subPage['highlited_value_2'])
+                            <p class="card-text">
+                                {{$subPage['highlited_value_2']}}
+                            </p>
+                            @endif
 
 
                         </div>
