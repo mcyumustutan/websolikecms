@@ -13,7 +13,7 @@
                                 <input name="ad" x-model="formData.ad" class="custom-form" type="text" placeholder="Adınız">
                             </div>
                             <div class="col-sm-6">
-                                <input name="soyad" x-model="formData.soyad" class="custom-form" type="text" placeholder="Soy Adınız">
+                                <input name="soyad" x-model="formData.soyad" class="custom-form" type="text" placeholder="Soyadınız">
                             </div>
                             <div class="col-sm-6">
                                 <input name="telefon" x-model="formData.telefon" class="custom-form" type="text" placeholder="Telefon Numaranız" data-mask="+90 (000) 000-0000" value="+90 ">
