@@ -18,18 +18,24 @@ use Illuminate\Support\Str;
 
 class Page extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory;
+    use InteractsWithMedia;
 
     protected static function boot()
     {
         parent::boot();
 
         static::addGlobalScope('is_publish', function (Builder $builder) {
-            $builder->where('is_publish', true);
+            $builder
+                ->where('is_publish', true)
+                // ->where('lang', App::getLocale())
+            ;
         });
     }
 
-    protected $appends = ['display_date_original', 'fullurl', 'display_only_date', 'display_only_hour'];
+    // protected $with = ['parentPage'];
+
+    protected $appends = ['cover', 'banner', 'box', 'display_date_original', 'fullurl', 'display_only_date', 'display_only_hour'];
 
     protected $casts = [
         'is_publish' => 'boolean',
@@ -51,9 +57,11 @@ class Page extends Model implements HasMedia
         'lang',
         'is_publish',
         'is_clickable',
+
         'image_1',
         'image_2',
         'image_3',
+
         'meta_description',
         'meta_keywords',
         'ordinal',
@@ -63,14 +71,17 @@ class Page extends Model implements HasMedia
         'video',
         'link_view',
         'box_view',
+
         'highlited_value_1',
         'highlited_value_2',
         'highlited_value_3',
         'highlited_icon_1',
         'highlited_icon_2',
         'highlited_icon_3',
+
         'has_sidebar',
         'has_subpages',
+
         'tab_1_title',
         'tab_1_content',
         'tab_2_title',
@@ -81,6 +92,7 @@ class Page extends Model implements HasMedia
         'tab_4_content',
         'tab_5_title',
         'tab_5_content',
+
         'accordion_1_title',
         'accordion_1_content',
         'accordion_2_title',
@@ -91,82 +103,59 @@ class Page extends Model implements HasMedia
         'accordion_4_content',
         'accordion_5_title',
         'accordion_5_content',
+
         'badges',
         'badges_2',
+
         'widgets'
     ];
+
 
     public function getShortContentAttribute()
     {
         return Str::limit($this->title, 65, '...');
     }
 
-    // İlişkiyi optimize etme
     public function parentPage(): HasOne
     {
         return $this->hasOne(Page::class, 'id', 'parent_id')->select('id', 'parent_id', 'lang', 'title', 'url');
     }
 
+
     public function sub(): HasMany
     {
-        return $this->hasMany(Page::class, 'parent_id', 'id')
-            ->select(
-                'id',
-                'parent_id',
-                'lang',
-                'title',
-                'url',
-                'display_date',
-                'highlited_value_1',
-                'highlited_value_2',
-                'highlited_value_3',
-                'highlited_icon_1',
-                'highlited_icon_2',
-                'highlited_icon_3',
-            )
-            ->orderBy('ordinal', 'ASC')
-            ->with(['cover'])
+        return $this->hasMany(Page::class, 'parent_id', 'id')->orderBy('ordinal', 'ASC')
+            // ->select('id', 'parent_id', 'lang', 'title', 'url')
+            // ->whereJsonContains('link_view', '1')
         ;
     }
 
-    public function banner()
+    public function subStory(): HasMany
     {
-        return $this->morphOne($this->getMediaModel(), 'model')->where('collection_name', 'banner');
+        return $this->hasMany(Page::class, 'parent_id', 'id')
+            // ->select('id', 'parent_id', 'lang', 'title', 'url')
+            ->whereJsonContains('box_view', '2');
     }
 
-    public function cover()
-    {
-        return $this->morphOne($this->getMediaModel(), 'model')->where('collection_name', 'cover');
-    }
-
-
-    // Medya atamaları daha verimli yapıldı
-    protected function getCoverUrl(): Attribute
+    protected function cover(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->getMediaUrl('cover', 'websolike.logo')
+            get: fn() => $this->getMedia('cover')->toArray()[0]['original_url'] ?? asset(Config::get('websolike.logo'))
         );
     }
 
-    protected function getBannerUrl(): Attribute
+    protected function banner(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->getMediaUrl('banner')
+            get: fn() => $this->getMedia('banner')->toArray()[0]['original_url'] ?? null
         );
     }
 
-    protected function getBoxUrl(): Attribute
+    protected function box(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->getMediaUrl('box')
+            get: fn() => $this->getMedia('box')->toArray()[0]['original_url'] ?? null
         );
-    }
-
-    // Ortak medya URL işleme fonksiyonu
-    protected function getMediaUrl($collectionName, $default = null)
-    {
-        $media = $this->getMedia($collectionName)->first();
-        return $media ? $media->getUrl() : asset(Config::get($default));
     }
 
     protected function displayDate(): Attribute
@@ -185,11 +174,15 @@ class Page extends Model implements HasMedia
 
     protected function fullurl(): Attribute
     {
-        $baseUrl = env('APP_DEMO') ? env('DEMO_APP_URL') : config('app.url');
-        return Attribute::make(
-            // get: fn($value) => $baseUrl . "/" . $this->lang . "/" . ($this->parentPage->url ?? '') . "/" . $this->url
-            get: fn($value) => $baseUrl . "/" . $this->lang . "/" . $this->url
-        );
+        if (env('APP_DEMO') == true) {
+            return Attribute::make(
+                get: fn($value) => env('DEMO_APP_URL') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+            );
+        } else {
+            return Attribute::make(
+                get: fn($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+            );
+        }
     }
 
     protected function displayOnlyHour(): Attribute
