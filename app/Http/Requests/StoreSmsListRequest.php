@@ -34,7 +34,34 @@ class StoreSmsListRequest extends FormRequest
             'kvkk' => "required",
             'dogumtarihi' => "required|date",
             // 'g-recaptcha-response' => ['required', new ReCaptcha]
-            'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
+            'g-recaptcha-response' => 'required|recaptchav3:register,0.5',
+
+            'type' => ['required', 'in:0,1'],
+
+            'unvan' => [
+                'nullable',
+                'required_if:type,1',
+                'string',
+                'max:255',
+            ],
+
+            'vergi_no' => [
+                'nullable',
+                'required_if:type,1',
+                'digits_between:10,20',
+            ],
+
+            'vergi_dairesi' => [
+                'nullable',
+                'required_if:type,1',
+                'string',
+                'max:255',
+            ],
+
+            'adres' => [
+                'nullable',
+                'string',
+            ],
         ];
     }
 }

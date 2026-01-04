@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\PersonType;
 use App\Filament\Resources\SmsListResource\Pages;
 use App\Filament\Resources\SmsListResource\RelationManagers;
 use App\Models\SmsList;
@@ -90,6 +91,11 @@ class SmsListResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('type')
+                    ->label('Tür')
+                    ->formatStateUsing(fn($state) => $state->label())
+                    ->badge()
+                    ->color(fn($state) => $state === PersonType::TUZEL ? 'success' : 'gray'),
                 Tables\Columns\TextColumn::make('tamad')
                     ->label('Ad')
                     ->extraAttributes(['style' => 'white-space: normal; word-wrap: break-word;'])

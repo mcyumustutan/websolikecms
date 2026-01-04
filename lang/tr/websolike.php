@@ -28,7 +28,7 @@ return [
     'Kültürel Miras' => "Kültürel Miras",
     'SMS Listesi' => "SMS Listesi",
     'Çözüm Merkezi' => "Çözüm Merkezi",
-    'SMS Listesine Kaydol' => "SMS Listesine Kaydol",
+    'SMS Listesine Kaydol' => "SMS için kayıt ol",
     'Çözüm Merkezine Ulaş' => "Çözüm Merkezine Ulaş",
     'Çalışma Saatleri' => "Çalışma Saatleri",
     'İletişim' => "İletişim",

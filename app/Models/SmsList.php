@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\PersonType;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,15 @@ class SmsList extends Model
         'dogumtarihi',
         'not',
         'is_approved',
+        'type',
+        'adres',
+        'unvan',
+        'vergi_no',
+        'vergi_dairesi',
+    ];
+
+    protected $casts = [
+        'type' => PersonType::class,
     ];
 
     public function getCreatedAtAttribute()
@@ -28,8 +38,8 @@ class SmsList extends Model
     protected function dogumTarihi(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => Carbon::parse($value)->format('d.m.Y'),
-            set: fn (string $value) => Carbon::parse($value)->format('Y-m-d'),
+            get: fn(string $value) => Carbon::parse($value)->format('d.m.Y'),
+            set: fn(string $value) => Carbon::parse($value)->format('Y-m-d'),
         );
     }
 }

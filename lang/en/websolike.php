@@ -28,7 +28,7 @@ return [
     'Kültürel Miras' => "Cultural Heritage",
     'SMS Listesi' => "SMS List",
     'Çözüm Merkezi' => "Help Desk",
-    'SMS Listesine Kaydol' => "Sign up for SMS List",
+    'SMS Listesine Kaydol' => "Sign up for SMS",
     'Çözüm Merkezine Ulaş' => "Contact Solution Center",
     'Çalışma Saatleri' => "Working Hours",
     'İletişim' => "Contact",

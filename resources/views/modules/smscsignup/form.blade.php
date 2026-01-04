@@ -3,34 +3,118 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9">
+
+
+
+
+
+            <hr>
             <div class="contact">
-                <h4 class="contact-heading">SMS Listesi Kaydı</h4>
+                <h4 class="contact-heading">SMS için Kayıt Ol</h4>
+                <hr>
                 <div x-data="SolutionCenterForm()">
                     <div id="response"></div>
                     <form method="post" class="contact-form" @submit.prevent="submitForm">
                         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                        <div class="row g-4">
-                            <div class="col-sm-6">
-                                <input name="tamad" class="custom-form" type="text" placeholder="Adınız ve Soyadınız">
-                            </div>
-                            <div class="col-sm-6">
-                                <input name="dogumtarihi" class="custom-form" type="text" placeholder="Doğum Tarihi" data-mask="00.00.0000">
-                            </div>
-                            <div class="col-sm-6">
-                                <input name="telefon" class="custom-form" type="text" placeholder="Telefon Numaranız" data-mask="+90 (000) 000-0000" value="+90">
-                                <span class="help-text">Örnek +90 555 5555</span>
-                            </div>
+                        <div class="container my-4">
 
-                            <div class="col-sm-6">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="kvkk" name="kvkk">
-                                    <label class="form-check-label" for="kvkk">
-                                        <a href="{{config('app.url')}}/{{App::getLocale()}}/aydinlatma-metni" target="_blank">Aydınlatma Metni</a>'ni okudum, anladım, onaylıyorum.
-                                    </label>
+                            <!-- KİŞİ TÜRÜ -->
+                            <div class="  mb-3">
+                                <div class="card-body">
+                                    <label class="form-label fw-bold">Kişi Türü</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="type" id="gercek" value="0" checked>
+                                        <label class="form-check-label" for="gercek">
+                                            Gerçek Kişi
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="type" id="tuzel" value="1">
+                                        <label class="form-check-label" for="tuzel">
+                                            Tüzel Kişi
+                                        </label>
+                                    </div>
                                 </div>
-
                             </div>
+
+                            <!-- GERÇEK KİŞİ -->
+                            <div id="gercek_kisi" class="mb-3">
+                                <div class="card-header fw-bold">Gerçek Kişi Bilgileri</div>
+                                <div class="card-body row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Adı Soyadı</label>
+                                        <input type="text" class="form-control" name="tamad">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">T.C. Kimlik No</label>
+                                        <input type="text" class="form-control" name="tc">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Doğum Tarihi</label>
+                                        <input type="date" class="form-control" name="dogumtarihi">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Cep Telefonu</label>
+                                        <input type="text" class="form-control" name="telefon">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Adres</label>
+                                        <textarea class="form-control" rows="2" name="adres"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TÜZEL KİŞİ -->
+                            <div id="tuzel_kisi" class="  mb-3 d-none">
+                                <div class="card-header fw-bold">Tüzel Kişi Bilgileri</div>
+                                <div class="card-body row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Unvan / İşletme Adı</label>
+                                        <input type="text" class="form-control" name="unvan">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Vergi Dairesi</label>
+                                        <input type="text" class="form-control" name="vergi_dairesi">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Vergi No</label>
+                                        <input type="text" class="form-control" name="vergi_no">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Yetkili Adı Soyadı</label>
+                                        <input type="text" class="form-control" name="tamad">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Cep Telefonu</label>
+                                        <input type="text" class="form-control" name="telefon">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">T.C. Kimlik No</label>
+                                        <input type="text" class="form-control" name="tc">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label">Doğum Tarihi</label>
+                                        <input type="date" class="form-control" name="dogumtarihi">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">İşletme Adresi</label>
+                                        <textarea class="form-control" rows="2" name="adres"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="kvkk" name="kvkk">
+                                <label class="form-check-label" for="kvkk">
+                                    <a href="{{config('app.url')}}/{{App::getLocale()}}/aydinlatma-metni" target="_blank">Aydınlatma Metni</a>'ni okudum, anladım, onaylıyorum.
+                                </label>
+                            </div>
+
                         </div>
 
                         <div class="mt-20">
@@ -44,6 +128,7 @@
                 </div>
 
 
+
             </div>
         </div>
     </div>
@@ -54,6 +139,46 @@
     }
 </style>
 
+<script>
+ 
+
+    $(function() {
+
+        function toggleForm(type) {
+
+            if (type === '0') {
+                $('#gercek_kisi')
+                    .removeClass('d-none')
+                    .find(':input')
+                    .prop('disabled', false);
+
+                $('#tuzel_kisi')
+                    .addClass('d-none')
+                    .find(':input')
+                    .prop('disabled', true);
+            } else {
+                $('#tuzel_kisi')
+                    .removeClass('d-none')
+                    .find(':input')
+                    .prop('disabled', false);
+
+                $('#gercek_kisi')
+                    .addClass('d-none')
+                    .find(':input')
+                    .prop('disabled', true);
+            }
+        }
+
+        // Sayfa açılışında (Gerçek kişi seçili)
+        toggleForm('0');
+
+        // Değişim
+        $('input[name="type"]').on('change', function() {
+            toggleForm(this.value);
+        });
+
+    });
+</script>
 <script src="{{ asset('plugins/jQuery-Mask-Plugin-master/jquery.mask.min.js')}}"></script>
 <script>
     const SOLUTIONCENTERFORMURL = "{{Route('smssignup.send')}}";
