@@ -22,6 +22,7 @@ class SmsList extends Model
         'type',
         'adres',
         'unvan',
+        'tc',
         'vergi_no',
         'vergi_dairesi',
     ];

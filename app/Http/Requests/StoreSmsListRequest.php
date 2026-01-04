@@ -44,7 +44,11 @@ class StoreSmsListRequest extends FormRequest
                 'string',
                 'max:255',
             ],
-
+            'tc' => [
+                'nullable',
+                'required_if:type,1',
+                'min:10',
+            ],
             'vergi_no' => [
                 'nullable',
                 'required_if:type,1',

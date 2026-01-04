@@ -60,6 +60,11 @@ class SmsListResource extends Resource
                                     ->maxLength(255)
                                     ->columnSpan('full'),
 
+                                Forms\Components\TextInput::make('tc')
+                                    ->label('TC') 
+                                    ->numeric()
+                                    ->maxLength(10),    
+
                                 Forms\Components\Select::make('is_approved')
                                     ->label('Durum')
                                     ->required()
@@ -71,7 +76,35 @@ class SmsListResource extends Resource
                                 Forms\Components\RichEditor::make('not')
                                     ->label('Kurum Notu (Opsiyonel)')
                                     ->columnSpan('full'),
+                                Forms\Components\Select::make('type')
+                                    ->label('Kişi Türü')
+                                    ->options(PersonType::options())
+                                    ->required()
+                                    ->live(),
 
+                                Forms\Components\TextInput::make('unvan')
+                                    ->label('Unvan')
+                                    ->visible(fn($get) => $get('type') == PersonType::TUZEL->value)
+                                    ->required(fn($get) => $get('type') == PersonType::TUZEL->value)
+                                    ->maxLength(255),
+
+                                Forms\Components\TextInput::make('vergi_no')
+                                    ->label('Vergi No')
+                                    ->visible(fn($get) => $get('type') == PersonType::TUZEL->value)
+                                    ->required(fn($get) => $get('type') == PersonType::TUZEL->value)
+                                    ->numeric()
+                                    ->maxLength(20),
+
+                                Forms\Components\TextInput::make('vergi_dairesi')
+                                    ->label('Vergi Dairesi')
+                                    ->visible(fn($get) => $get('type') == PersonType::TUZEL->value)
+                                    ->required(fn($get) => $get('type') == PersonType::TUZEL->value)
+                                    ->maxLength(255),
+
+                                Forms\Components\Textarea::make('adres')
+                                    ->label('Adres')
+                                    ->rows(3)
+                                    ->columnSpanFull(),
                             ])
                             ->columns(2),
 
