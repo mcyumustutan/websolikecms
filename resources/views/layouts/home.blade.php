@@ -20,7 +20,7 @@
                 <a target="_blank" href="https://shmkapadokya.kapadokya.edu.tr/" class="btn-primary-xs radius-30">
                     {{__('websolike.Balon Uçuş Bilgisi')}} <i class="ri-arrow-right-up-line"></i>
                 </a>
-                <a target="__blank" rel="nofollow" href="https://ebelediye.goreme.bel.tr/ebelediye/genel/ebelediye.xhtml" class="btn-red-xs radius-30">
+                <a target="__blank" rel="nofollow" href="https://e-hizmet.goreme.bel.tr/#/home" class="btn-red-xs radius-30">
                     E-Belediye <i class="ri-arrow-right-up-line"></i>
                 </a>
             </div>

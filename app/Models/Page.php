@@ -176,11 +176,11 @@ class Page extends Model implements HasMedia
     {
         if (env('APP_DEMO') == true) {
             return Attribute::make(
-                get: fn($value) => env('DEMO_APP_URL') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+                get: fn($value) => env('DEMO_APP_URL') . "/" . $this->lang . "/" . $this->url
             );
         } else {
             return Attribute::make(
-                get: fn($value) => config('app.url') . "/" . $this->lang . "/" . (isset($this->parentPage['url']) ? $this->parentPage['url'] . "/" : '') . $this->url
+                get: fn($value) => config('app.url') . "/" . $this->lang . "/" . $this->url
             );
         }
     }

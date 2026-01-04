@@ -7,7 +7,7 @@ The markup will be simple nested lists
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="baskan">
-                <a href="https://www.corum.bel.tr/kurumsal/baskan" class="d-flex flex-column shadow rounded-3 px-2 py-4 baskan-link">
+                <a href="#" class="d-flex flex-column shadow rounded-3 px-2 py-4 baskan-link">
                     <div>
                         <p class="baskan-isim text-center p-0 m-0">
                             ÖMER EREN</p>

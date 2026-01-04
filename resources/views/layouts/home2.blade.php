@@ -35,17 +35,17 @@
 </section>
 
 
-
+<!--stories-->
 @include('components.stories')
-
+<!--announcements-->
 @include('components.announcements')
-
+<!--newslists-->
 @include('components.newslists')
-
+<!--slidertab-->
 @include('components.home.projects.slidertab')
-
+<!--blog-->
 @include('components.blog')
-
+<!--blog2-->
 @include('components.blog2')
 
 

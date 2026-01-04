@@ -65,6 +65,7 @@ class AdminPanelProvider extends PanelProvider
                     ->url(fn (): string => config('app.url'), true),
             ])
             ->profile(isSimple: false)
-            ->profile(EditProfile::class);
+            ->profile(EditProfile::class)
+            ->spa();
     }
 }

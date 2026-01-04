@@ -48,7 +48,7 @@
 
 
                                 <div class="">
-                                    <a target="__blank" rel="nofollow" href="https://ebelediye.goreme.bel.tr/ebelediye/genel/ebelediye.xhtml" class="btn-red-sm radius-30">
+                                    <a target="__blank" rel="nofollow" href="https://e-hizmet.goreme.bel.tr/#/home" class="btn-red-sm radius-30">
                                         E-Belediye <i class="ri-arrow-right-up-line"></i>
                                     </a>
                                 </div>
@@ -151,7 +151,7 @@
                                                 </a>
                                             </li>
                                             <li class="d-block d-lg-none d-sm-none d-md-none">
-                                                <a target="__blank" rel="nofollow" href="https://ebelediye.goreme.bel.tr/ebelediye/genel/ebelediye.xhtml" class="btn-secondary-sm radius-30">
+                                                <a target="__blank" rel="nofollow" href="https://e-hizmet.goreme.bel.tr/#/home" class="btn-secondary-sm radius-30">
                                                     E-Belediye <i class="ri-arrow-right-up-line"></i>
                                                 </a>
                                             </li>

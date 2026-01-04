@@ -9,13 +9,12 @@ use App\Models\Slider;
 use App\Models\Vefatlist;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
 
-    const CACHE_DURATION = 3600;
+    const CACHE_DURATION = 360;
 
     public function __construct(
         public $mainNavigation = null,
@@ -32,24 +31,21 @@ class PageController extends Controller
             ->orderBy('ordinal', 'asc');
 
 
-        $this->mainNavigation1 = cache()->remember('main_nav_1', self::CACHE_DURATION, function () use ($baseQuery) {
-            return $baseQuery->clone()
-                ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
-                ->whereJsonContains('link_view', '1')
-                ->limit(2)
-                ->get()
-                ->toArray();
-        });
+        $this->mainNavigation1 =  $baseQuery->clone()
+            ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
+            ->whereJsonContains('link_view', '1')
+            ->limit(2)
+            ->get()
+            ->toArray();
 
-        $this->mainNavigation2 = cache()->remember('main_nav_2', self::CACHE_DURATION, function () use ($baseQuery) {
-            return $baseQuery->clone()
-                ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
-                ->whereJsonContains('link_view', '1')
-                ->offset(2)
-                ->limit(3)
-                ->get()
-                ->toArray();
-        });
+
+        $this->mainNavigation2 =  $baseQuery->clone()
+            ->with(['sub' => fn($q) => $q->whereJsonContains('link_view', '1')])
+            ->whereJsonContains('link_view', '1')
+            ->offset(2)
+            ->limit(3)
+            ->get()
+            ->toArray();
 
         $this->footernNavigation = Page::with('sub')->select('id', 'lang', 'title', 'url')
             ->where([
@@ -105,8 +101,7 @@ class PageController extends Controller
 
         $sliders = Slider::where('is_publish', true)->orderBy('position')->take(5)->get();
 
-        $allProjects = cache()->remember('all_projects', self::CACHE_DURATION, function () {
-            return Page::whereIn('template_type', [
+        $allProjects =   Page::whereIn('template_type', [
                 TemplateType::ProjectFinished->value,
                 TemplateType::ProjectOnGoing->value,
                 TemplateType::ProjectPlanned->value,
@@ -118,7 +113,7 @@ class PageController extends Controller
                 ->orderBy('display_date', 'desc')
                 ->take(100)
                 ->get();
-        });
+       
 
         // Projeleri kategorilerine göre gruplandır
         $projectsByCategory = $allProjects->groupBy('template_type');
@@ -234,7 +229,7 @@ class PageController extends Controller
         }
 
         if ($view == "page.page") {
-            $my_order = ['ordinal', 'asc'];
+            $my_order = ['id', 'DESC'];
         }
 
         if ($view == "page.units" || $view == "page.unit") {
