@@ -32,7 +32,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="type" id="tuzel" value="1">
                                         <label class="form-check-label" for="tuzel">
-                                            Tüzel Kişi
+                                            Tüzel Kişi (İşletmeler)
                                         </label>
                                     </div>
                                 </div>
