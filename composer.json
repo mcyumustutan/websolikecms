@@ -6,12 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "amidesfahani/filament-tinyeditor": "^3.0",
         "filament/filament": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
         "josiasmontag/laravel-recaptchav3": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "mohamedsabil83/filament-forms-tinyeditor": "^2.3",
         "rappasoft/laravel-livewire-tables": "^3.4",
         "spatie/laravel-medialibrary": "^11.5",
         "symfony/css-selector": "^7.1",
